@@ -23,7 +23,7 @@ using namespace Kross;
 
 class Object::Private
 {
-    public:
+public:
 };
 
 Object::Object()
@@ -46,7 +46,7 @@ Object::~Object()
     delete d;
 }
 
-QVariant Object::callMethod(const QString& name, const QVariantList& args)
+QVariant Object::callMethod(const QString &name, const QVariantList &args)
 {
     Q_UNUSED(name);
     Q_UNUSED(args);
@@ -58,7 +58,7 @@ QStringList Object::methodNames()
     return QStringList();
 }
 
-void Object::virtual_hook(int id, void* ptr)
+void Object::virtual_hook(int id, void *ptr)
 {
     Q_UNUSED(id);
     Q_UNUSED(ptr);

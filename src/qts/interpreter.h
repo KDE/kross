@@ -25,46 +25,47 @@
 #include <kross/core/script.h>
 #include <kross/core/action.h>
 
-namespace Kross {
+namespace Kross
+{
 
-    class EcmaScript;
+class EcmaScript;
+
+/**
+* The EcmaInterpreter class implements a \a Kross::Interpreter to provide
+* a factory for \a EcmaScript instances. The interpreter is a singleton
+* managed by Kross to share information between different script instances.
+*/
+class EcmaInterpreter : public Kross::Interpreter
+{
+    friend class EcmaScript;
+public:
 
     /**
-    * The EcmaInterpreter class implements a \a Kross::Interpreter to provide
-    * a factory for \a EcmaScript instances. The interpreter is a singleton
-    * managed by Kross to share information between different script instances.
+    * Constructor.
+    *
+    * \param info The \a Kross::InterpreterInfo instance that
+    * describes this interpreter.
     */
-    class EcmaInterpreter : public Kross::Interpreter
-    {
-            friend class EcmaScript;
-        public:
+    explicit EcmaInterpreter(Kross::InterpreterInfo *info);
 
-            /**
-            * Constructor.
-            *
-            * \param info The \a Kross::InterpreterInfo instance that
-            * describes this interpreter.
-            */
-            explicit EcmaInterpreter(Kross::InterpreterInfo* info);
+    /**
+    * Destructor.
+    */
+    virtual ~EcmaInterpreter();
 
-            /**
-            * Destructor.
-            */
-            virtual ~EcmaInterpreter();
+    /**
+    * Factory method to create a new \a EcmaScript instance.
+    *
+    * \param action The \a Kross::Action instance that decorates
+    * the script and contains details like the scripting code.
+    * \return a new \a EcmaScript instance.
+    */
+    virtual Kross::Script *createScript(Kross::Action *action);
 
-            /**
-            * Factory method to create a new \a EcmaScript instance.
-            *
-            * \param action The \a Kross::Action instance that decorates
-            * the script and contains details like the scripting code.
-            * \return a new \a EcmaScript instance.
-            */
-            virtual Kross::Script* createScript(Kross::Action* action);
-
-        private:
-            class Private;
-            Private* const d;
-    };
+private:
+    class Private;
+    Private *const d;
+};
 
 }
 

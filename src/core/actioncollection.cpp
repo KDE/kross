@@ -33,33 +33,34 @@
 
 using namespace Kross;
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class ActionCollection::Private
-    {
-        public:
-            QPointer<ActionCollection> parent;
-            QHash< QString, QPointer<ActionCollection> > collections;
-            QStringList collectionnames;
+/// \internal d-pointer class.
+class ActionCollection::Private
+{
+public:
+    QPointer<ActionCollection> parent;
+    QHash< QString, QPointer<ActionCollection> > collections;
+    QStringList collectionnames;
 
-            QList< Action* > actionList;
-            QHash< QString, Action* > actionMap;
+    QList< Action * > actionList;
+    QHash< QString, Action * > actionMap;
 
-            QString text;
-            QString description;
-            QString iconname;
-            bool enabled;
-            bool blockupdated;
+    QString text;
+    QString description;
+    QString iconname;
+    bool enabled;
+    bool blockupdated;
 
-            Private(ActionCollection* const p) : parent(p) {}
-    };
+    Private(ActionCollection *const p) : parent(p) {}
+};
 
 }
 
-ActionCollection::ActionCollection(const QString& name, ActionCollection* parent)
+ActionCollection::ActionCollection(const QString &name, ActionCollection *parent)
     : QObject(0)
-    , d( new Private(0) )
+    , d(new Private(0))
 {
     setObjectName(name);
     d->text = name;
@@ -71,60 +72,97 @@ ActionCollection::ActionCollection(const QString& name, ActionCollection* parent
 
 ActionCollection::~ActionCollection()
 {
-    if ( d->parent ) {
+    if (d->parent) {
         emit d->parent->collectionToBeRemoved(this, d->parent);
-        d->parent->unregisterCollection( objectName() );
-        emit d->parent->collectionRemoved( this, d->parent );
+        d->parent->unregisterCollection(objectName());
+        emit d->parent->collectionRemoved(this, d->parent);
     }
     delete d;
 }
 
-QString ActionCollection::name() const { return objectName(); }
+QString ActionCollection::name() const
+{
+    return objectName();
+}
 
-QString ActionCollection::text() const { return d->text; }
-void ActionCollection::setText(const QString& text) { d->text = text; emit dataChanged(this); emitUpdated(); }
+QString ActionCollection::text() const
+{
+    return d->text;
+}
+void ActionCollection::setText(const QString &text)
+{
+    d->text = text;
+    emit dataChanged(this);
+    emitUpdated();
+}
 
-QString ActionCollection::description() const { return d->description; }
-void ActionCollection::setDescription(const QString& description) { d->description = description; emit dataChanged(this); emitUpdated(); }
+QString ActionCollection::description() const
+{
+    return d->description;
+}
+void ActionCollection::setDescription(const QString &description)
+{
+    d->description = description;
+    emit dataChanged(this);
+    emitUpdated();
+}
 
-QString ActionCollection::iconName() const { return d->iconname; }
-void ActionCollection::setIconName(const QString& iconname) { d->iconname = iconname; emit dataChanged(this); }
-QIcon ActionCollection::icon() const { return QIcon::fromTheme(d->iconname); }
+QString ActionCollection::iconName() const
+{
+    return d->iconname;
+}
+void ActionCollection::setIconName(const QString &iconname)
+{
+    d->iconname = iconname;
+    emit dataChanged(this);
+}
+QIcon ActionCollection::icon() const
+{
+    return QIcon::fromTheme(d->iconname);
+}
 
-bool ActionCollection::isEnabled() const { return d->enabled; }
-void ActionCollection::setEnabled(bool enabled) { d->enabled = enabled; emit dataChanged(this); emitUpdated(); }
+bool ActionCollection::isEnabled() const
+{
+    return d->enabled;
+}
+void ActionCollection::setEnabled(bool enabled)
+{
+    d->enabled = enabled;
+    emit dataChanged(this);
+    emitUpdated();
+}
 
-ActionCollection* ActionCollection::parentCollection() const
+ActionCollection *ActionCollection::parentCollection() const
 {
     return d->parent;
 }
 
-void ActionCollection::setParentCollection( ActionCollection *parent )
+void ActionCollection::setParentCollection(ActionCollection *parent)
 {
-    if ( d->parent ) {
+    if (d->parent) {
         emit d->parent->collectionToBeRemoved(this, d->parent);
-        d->parent->unregisterCollection( objectName() );
-        setParent( 0 );
-        emit d->parent->collectionRemoved( this, d->parent );
+        d->parent->unregisterCollection(objectName());
+        setParent(0);
+        emit d->parent->collectionRemoved(this, d->parent);
         d->parent = 0;
     }
     setParent(0);
-    if ( parent ) {
+    if (parent) {
         emit parent->collectionToBeInserted(this, parent);
-        setParent( parent );
+        setParent(parent);
         d->parent = parent;
-        parent->registerCollection( this );
-        emit parent->collectionInserted( this, parent );
+        parent->registerCollection(this);
+        emit parent->collectionInserted(this, parent);
     }
     emitUpdated();
 }
 
-bool ActionCollection::hasCollection(const QString& name) const
+bool ActionCollection::hasCollection(const QString &name) const
 {
     return d->collections.contains(name);
 }
 
-ActionCollection* ActionCollection::collection(const QString& name) const
+ActionCollection *ActionCollection::collection(const QString &name) const
 {
     return d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(0);
 }
@@ -134,13 +172,12 @@ QStringList ActionCollection::collections() const
     return d->collectionnames;
 }
 
-void ActionCollection::registerCollection(ActionCollection* collection)
+void ActionCollection::registerCollection(ActionCollection *collection)
 {
     Q_ASSERT(collection);
     const QString name = collection->objectName();
     //Q_ASSERT( !name.isNull() );
-    if (!d->collections.contains(name))
-    {
+    if (!d->collections.contains(name)) {
         d->collections.insert(name, collection);
         d->collectionnames.append(name);
     }
@@ -148,39 +185,41 @@ void ActionCollection::registerCollection(ActionCollection* collection)
     emitUpdated();
 }
 
-void ActionCollection::unregisterCollection(const QString& name)
+void ActionCollection::unregisterCollection(const QString &name)
 {
-    if( ! d->collections.contains(name) )
+    if (! d->collections.contains(name)) {
         return;
-    ActionCollection* collection = d->collections[name];
+    }
+    ActionCollection *collection = d->collections[name];
     d->collectionnames.removeAll(name);
     d->collections.remove(name);
     connectSignals(collection, false);
     emitUpdated();
 }
 
-QList<Action*> ActionCollection::actions() const
+QList<Action *> ActionCollection::actions() const
 {
     return d->actionList;
 }
 
-Action* ActionCollection::action(const QString& name) const
+Action *ActionCollection::action(const QString &name) const
 {
     return d->actionMap.contains(name) ? d->actionMap[name] : 0;
 }
 
-void ActionCollection::addAction(Action* action)
+void ActionCollection::addAction(Action *action)
 {
-    Q_ASSERT( action && ! action->objectName().isEmpty() );
+    Q_ASSERT(action && ! action->objectName().isEmpty());
     addAction(action->objectName(), action);
 }
 
-void ActionCollection::addAction(const QString& name, Action* action)
+void ActionCollection::addAction(const QString &name, Action *action)
 {
-    Q_ASSERT( action && ! name.isEmpty() );
+    Q_ASSERT(action && ! name.isEmpty());
     emit actionToBeInserted(action, this);
-    if( d->actionMap.contains(name) )
-        d->actionList.removeAll( d->actionMap[name] );
+    if (d->actionMap.contains(name)) {
+        d->actionList.removeAll(d->actionMap[name]);
+    }
     d->actionMap.insert(name, action);
     d->actionList.append(action);
     action->setParent(this); // in case it is not set
@@ -189,34 +228,35 @@ void ActionCollection::addAction(const QString& name, Action* action)
     emitUpdated();
 }
 
-void ActionCollection::removeAction(const QString& name)
+void ActionCollection::removeAction(const QString &name)
 {
-    if( ! d->actionMap.contains(name) )
+    if (! d->actionMap.contains(name)) {
         return;
-    Action* action = d->actionMap[name];
+    }
+    Action *action = d->actionMap[name];
     connectSignals(action, false);
     emit actionToBeRemoved(action, this);
     d->actionList.removeAll(action);
     d->actionMap.remove(name);
     //krossdebug( QString("ActionCollection::removeAction: %1 %2").arg(action->name()).arg(action->parent()->objectName()) );
-    action->setParent( 0 );
+    action->setParent(0);
     emit actionRemoved(action, this);
     emitUpdated();
 }
 
-void ActionCollection::removeAction(Action* action)
+void ActionCollection::removeAction(Action *action)
 {
-    Q_ASSERT( action && ! action->objectName().isEmpty() );
-    if( ! d->actionMap.contains(action->objectName()) ) {
-        Q_ASSERT( ! d->actionList.contains(action) );
+    Q_ASSERT(action && ! action->objectName().isEmpty());
+    if (! d->actionMap.contains(action->objectName())) {
+        Q_ASSERT(! d->actionList.contains(action));
         return;
     }
-    removeAction( action->objectName() );
+    removeAction(action->objectName());
 }
 
 void ActionCollection::connectSignals(Action *action, bool conn)
 {
-    if ( conn ) {
+    if (conn) {
         connect(action, SIGNAL(dataChanged(Action*)), this, SIGNAL(dataChanged(Action*)));
         connect(action, SIGNAL(updated()), this, SLOT(emitUpdated()));
     } else {
@@ -227,7 +267,7 @@ void ActionCollection::connectSignals(Action *action, bool conn)
 
 void ActionCollection::connectSignals(ActionCollection *collection, bool conn)
 {
-    if ( conn ) {
+    if (conn) {
         connect(collection, SIGNAL(dataChanged(Action*)), this, SIGNAL(dataChanged(Action*)));
         connect(collection, SIGNAL(dataChanged(ActionCollection*)), this, SIGNAL(dataChanged(ActionCollection*)));
 
@@ -259,7 +299,9 @@ void ActionCollection::connectSignals(ActionCollection *collection, bool conn)
 
 void ActionCollection::emitUpdated()
 {
-    if (!d->blockupdated) emit updated();
+    if (!d->blockupdated) {
+        emit updated();
+    }
 }
 
 /*********************************************************************
@@ -267,64 +309,67 @@ void ActionCollection::emitUpdated()
  * ActionCollection's and Action's this ActionCollection has.
  */
 
-bool ActionCollection::readXml(const QDomElement& element, const QDir& directory)
+bool ActionCollection::readXml(const QDomElement &element, const QDir &directory)
 {
     return readXml(element, QStringList(directory.absolutePath()));
 }
 
-bool ActionCollection::readXml(const QDomElement& element, const QStringList& searchPath)
+bool ActionCollection::readXml(const QDomElement &element, const QStringList &searchPath)
 {
-    #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krossdebug( QString("ActionCollection::readXml tagName=\"%1\"").arg(element.tagName()) );
-    #endif
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+    krossdebug(QString("ActionCollection::readXml tagName=\"%1\"").arg(element.tagName()));
+#endif
 
     d->blockupdated = true; // block updated() signals and emit it only once if everything is done
     bool ok = true;
     QDomNodeList list = element.childNodes();
     const int size = list.size();
-    for(int i = 0; i < size; ++i) {
+    for (int i = 0; i < size; ++i) {
         QDomElement elem = list.item(i).toElement();
-        if( elem.isNull() ) continue;
+        if (elem.isNull()) {
+            continue;
+        }
 
-        #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-            krossdebug( QString("  ActionCollection::readXml child=%1 tagName=\"%2\"").arg(i).arg(elem.tagName()) );
-        #endif
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+        krossdebug(QString("  ActionCollection::readXml child=%1 tagName=\"%2\"").arg(i).arg(elem.tagName()));
+#endif
 
-        if( elem.tagName() == "collection") {
+        if (elem.tagName() == "collection") {
             const QString name = elem.attribute("name");
             const QByteArray text = elem.attribute("text").toUtf8();
             const QByteArray description = elem.attribute("comment").toUtf8();
             const QString iconname = elem.attribute("icon");
-            bool enabled = QVariant(elem.attribute("enabled","true")).toBool();
-            ActionCollection* c = d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(0);
-            if( ! c )
+            bool enabled = QVariant(elem.attribute("enabled", "true")).toBool();
+            ActionCollection *c = d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(0);
+            if (! c) {
                 c = new ActionCollection(name, this);
+            }
 
             c->setText(text.isEmpty() ? name : i18n(text.constData()));
             c->setDescription(description.isEmpty() ? c->text() : i18n(description.constData()));
-            c->setIconName( iconname );
+            c->setIconName(iconname);
 
-            if( ! enabled )
+            if (! enabled) {
                 c->setEnabled(false);
-            if( ! c->readXml(elem, searchPath) )
-                ok = false;
-        }
-        else if( elem.tagName() == "script") {
-            QString name = elem.attribute("name");
-            Action* a = dynamic_cast< Action* >( action(name) );
-            if( a ) {
-                #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-                    krossdebug( QString("  ActionCollection::readXml Updating Action \"%1\"").arg(a->objectName()) );
-                #endif
             }
-            else {
-                #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-                    krossdebug( QString("  ActionCollection::readXml Creating Action \"%1\"").arg(name) );
-                #endif
+            if (! c->readXml(elem, searchPath)) {
+                ok = false;
+            }
+        } else if (elem.tagName() == "script") {
+            QString name = elem.attribute("name");
+            Action *a = dynamic_cast< Action * >(action(name));
+            if (a) {
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+                krossdebug(QString("  ActionCollection::readXml Updating Action \"%1\"").arg(a->objectName()));
+#endif
+            } else {
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+                krossdebug(QString("  ActionCollection::readXml Creating Action \"%1\"").arg(name));
+#endif
 
                 a = new Action(this, name);
                 addAction(name, a);
-                connect(a, SIGNAL(started(Kross::Action*)), &Manager::self(), SIGNAL(started(Kross::Action*)) );
+                connect(a, SIGNAL(started(Kross::Action*)), &Manager::self(), SIGNAL(started(Kross::Action*)));
                 connect(a, SIGNAL(finished(Kross::Action*)), &Manager::self(), SIGNAL(finished(Kross::Action*)));
             }
             a->fromDomElement(elem, searchPath);
@@ -337,46 +382,47 @@ bool ActionCollection::readXml(const QDomElement& element, const QStringList& se
     return ok;
 }
 
-bool ActionCollection::readXml(QIODevice* device, const QDir& directory)
+bool ActionCollection::readXml(QIODevice *device, const QDir &directory)
 {
     return readXml(device, QStringList(directory.absolutePath()));
 }
 
-bool ActionCollection::readXml(QIODevice* device, const QStringList& searchPath)
+bool ActionCollection::readXml(QIODevice *device, const QStringList &searchPath)
 {
     QString errMsg;
     int errLine, errCol;
     QDomDocument document;
     bool ok = document.setContent(device, false, &errMsg, &errLine, &errCol);
-    if( ! ok ) {
-        #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-            krosswarning( QString("ActionCollection::readXml Error at line %1 in col %2: %3").arg(errLine).arg(errCol).arg(errMsg) );
-        #endif
+    if (! ok) {
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+        krosswarning(QString("ActionCollection::readXml Error at line %1 in col %2: %3").arg(errLine).arg(errCol).arg(errMsg));
+#endif
         return false;
     }
     return readXml(document.documentElement(), searchPath);
 }
 
-bool ActionCollection::readXmlFile(const QString& file)
+bool ActionCollection::readXmlFile(const QString &file)
 {
-    #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krossdebug( QString("ActionCollection::readXmlFile file=\"%1\"").arg(file) );
-    #endif
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+    krossdebug(QString("ActionCollection::readXmlFile file=\"%1\"").arg(file));
+#endif
 
     QFile f(file);
-    if( ! f.open(QIODevice::ReadOnly) ) {
-        #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-            krosswarning( QString("ActionCollection::readXmlFile reading file \"%1\" failed.").arg(file) );
-        #endif
+    if (! f.open(QIODevice::ReadOnly)) {
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+        krosswarning(QString("ActionCollection::readXmlFile reading file \"%1\" failed.").arg(file));
+#endif
         return false;
     }
     bool ok = readXml(&f, QFileInfo(file).dir());
     f.close();
 
-    #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        if( ! ok )
-            krosswarning( QString("ActionCollection::readXmlFile parsing XML content of file \"%1\" failed.").arg(file) );
-    #endif
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+    if (! ok) {
+        krosswarning(QString("ActionCollection::readXmlFile parsing XML content of file \"%1\" failed.").arg(file));
+    }
+#endif
     return ok;
 }
 
@@ -390,71 +436,84 @@ QDomElement ActionCollection::writeXml()
     return writeXml(QStringList());
 }
 
-QDomElement ActionCollection::writeXml(const QStringList& searchPath)
+QDomElement ActionCollection::writeXml(const QStringList &searchPath)
 {
-    #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krossdebug( QString("ActionCollection::writeXml collection.objectName=\"%1\"").arg(objectName()) );
-    #endif
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+    krossdebug(QString("ActionCollection::writeXml collection.objectName=\"%1\"").arg(objectName()));
+#endif
 
     QDomDocument document;
     QDomElement element = document.createElement("collection");
-    if( ! objectName().isNull() )
+    if (! objectName().isNull()) {
         element.setAttribute("name", objectName());
-    if( ! text().isNull() && text() != objectName() )
+    }
+    if (! text().isNull() && text() != objectName()) {
         element.setAttribute("text", text());
-    if( ! d->description.isNull() )
+    }
+    if (! d->description.isNull()) {
         element.setAttribute("comment", d->description);
-    if( ! d->iconname.isNull() )
+    }
+    if (! d->iconname.isNull()) {
         element.setAttribute("icon", d->iconname);
-    if( ! d->enabled )
+    }
+    if (! d->enabled) {
         element.setAttribute("enabled", d->enabled);
-
-    foreach(Action* a, actions()) {
-        Q_ASSERT(a);
-        #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-            krossdebug( QString("  ActionCollection::writeXml action.objectName=\"%1\" action.file=\"%2\"").arg(a->objectName()).arg(a->file()) );
-        #endif
-        QDomElement e = a->toDomElement(searchPath);
-        if( ! e.isNull() )
-            element.appendChild(e);
     }
 
-    foreach(const QString &name, d->collectionnames) {
-        ActionCollection* c = d->collections[name];
-        if( ! c ) continue;
-        QDomElement e = c->writeXml(searchPath);
-        if( ! e.isNull() )
+    foreach (Action *a, actions()) {
+        Q_ASSERT(a);
+#ifdef KROSS_ACTIONCOLLECTION_DEBUG
+        krossdebug(QString("  ActionCollection::writeXml action.objectName=\"%1\" action.file=\"%2\"").arg(a->objectName()).arg(a->file()));
+#endif
+        QDomElement e = a->toDomElement(searchPath);
+        if (! e.isNull()) {
             element.appendChild(e);
+        }
+    }
+
+    foreach (const QString &name, d->collectionnames) {
+        ActionCollection *c = d->collections[name];
+        if (! c) {
+            continue;
+        }
+        QDomElement e = c->writeXml(searchPath);
+        if (! e.isNull()) {
+            element.appendChild(e);
+        }
     }
 
     return element;
 }
 
-bool ActionCollection::writeXml(QIODevice* device, int indent)
+bool ActionCollection::writeXml(QIODevice *device, int indent)
 {
     return writeXml(device, indent, QStringList());
 }
 
-bool ActionCollection::writeXml(QIODevice* device, int indent, const QStringList& searchPath)
+bool ActionCollection::writeXml(QIODevice *device, int indent, const QStringList &searchPath)
 {
     QDomDocument document;
     QDomElement root = document.createElement("KrossScripting");
 
-    foreach(Action* a, actions()) {
+    foreach (Action *a, actions()) {
         QDomElement e = a->toDomElement(searchPath);
-        if( ! e.isNull() )
+        if (! e.isNull()) {
             root.appendChild(e);
+        }
     }
 
-    foreach(const QString &name, d->collectionnames) {
-        ActionCollection* c = d->collections[name];
-        if( ! c ) continue;
+    foreach (const QString &name, d->collectionnames) {
+        ActionCollection *c = d->collections[name];
+        if (! c) {
+            continue;
+        }
         QDomElement e = c->writeXml(searchPath);
-        if( ! e.isNull() )
+        if (! e.isNull()) {
             root.appendChild(e);
+        }
     }
 
     document.appendChild(root);
-    return device->write( document.toByteArray(indent) ) != -1;
+    return device->write(document.toByteArray(indent)) != -1;
 }
 

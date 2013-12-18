@@ -25,64 +25,65 @@
 #include <QString>
 #include <QMetaType>
 
-namespace Kross {
+namespace Kross
+{
 
-    // Debugging enabled. Comment the line out to disable all kind of debugging.
-    #define KROSS_DEBUG_ENABLED
+// Debugging enabled. Comment the line out to disable all kind of debugging.
+#define KROSS_DEBUG_ENABLED
 
-    #ifdef KROSS_DEBUG_ENABLED
+#ifdef KROSS_DEBUG_ENABLED
 
-        /**
-         * Debugging function.
-         */
-        KROSSCORE_EXPORT void krossdebug(const QString &s);
+/**
+ * Debugging function.
+ */
+KROSSCORE_EXPORT void krossdebug(const QString &s);
 
-        /**
-         * Warning function.
-         */
-        KROSSCORE_EXPORT void krosswarning(const QString &s);
+/**
+ * Warning function.
+ */
+KROSSCORE_EXPORT void krosswarning(const QString &s);
 
-    #else
-        // Define these to an empty statement if debugging is disabled.
-        #define krossdebug(x)
-        #define krosswarning(x)
-    #endif
+#else
+// Define these to an empty statement if debugging is disabled.
+#define krossdebug(x)
+#define krosswarning(x)
+#endif
 
-    // Some more debug switches.
-    //#define KROSS_OBJECT_METACALL_DEBUG
-    //#define KROSS_METATYPE_DEBUG
-    //#define KROSS_INTERPRETER_DEBUG
-    //#define KROSS_ACTION_DEBUG
-    //#define KROSS_ACTIONCOLLECTION_DEBUG
+// Some more debug switches.
+//#define KROSS_OBJECT_METACALL_DEBUG
+//#define KROSS_METATYPE_DEBUG
+//#define KROSS_INTERPRETER_DEBUG
+//#define KROSS_ACTION_DEBUG
+//#define KROSS_ACTIONCOLLECTION_DEBUG
 
-    // The version number of Kross. For example the interpreters use
-    // it do be sure there are linked against the correct core version
-    // and if the numbers don't match, the interpreter is not loaded.
-    #define KROSS_VERSION 12
+// The version number of Kross. For example the interpreters use
+// it do be sure there are linked against the correct core version
+// and if the numbers don't match, the interpreter is not loaded.
+#define KROSS_VERSION 12
 
-    // The export macro for interpreter plugins.
-    #define KROSS_EXPORT_INTERPRETER( InterpreterImpl ) \
-        extern "C" { \
-            Q_DECL_EXPORT void* krossinterpreter(int version, Kross::InterpreterInfo* info) { \
-                if(version != KROSS_VERSION) { \
-                    Kross::krosswarning(QString("Interpreter skipped cause provided version %1 does not match expected version %2.").arg(version).arg(KROSS_VERSION)); \
-                    return 0; \
-                } \
-                return new InterpreterImpl(info); \
+// The export macro for interpreter plugins.
+#define KROSS_EXPORT_INTERPRETER( InterpreterImpl ) \
+    extern "C" { \
+        Q_DECL_EXPORT void* krossinterpreter(int version, Kross::InterpreterInfo* info) { \
+            if(version != KROSS_VERSION) { \
+                Kross::krosswarning(QString("Interpreter skipped cause provided version %1 does not match expected version %2.").arg(version).arg(KROSS_VERSION)); \
+                return 0; \
             } \
-        }
+            return new InterpreterImpl(info); \
+        } \
+    }
 
-    // The name of the interpreter's library. Those library got loaded
-    // dynamically during runtime. Comment out to disable compiling of
-    // the interpreter-plugin or to hardcode the location of the lib
-    // like I did at the following line.
-    //#define KROSS_PYTHON_LIBRARY "/home/kde4/koffice/_build/lib/krosspython.la"
-    #define KROSS_PYTHON_LIBRARY "krosspython"
-    #define KROSS_RUBY_LIBRARY "krossruby"
-    #define KROSS_JAVA_LIBRARY "libkrossjava"
-    #define KROSS_FALCON_LIBRARY "krossfalcon"
-    #define KROSS_QTSCRIPT_LIBRARY "krossqts"
-    #define KROSS_LUA_LIBRARY "kloss"
+// The name of the interpreter's library. Those library got loaded
+// dynamically during runtime. Comment out to disable compiling of
+// the interpreter-plugin or to hardcode the location of the lib
+// like I did at the following line.
+//#define KROSS_PYTHON_LIBRARY "/home/kde4/koffice/_build/lib/krosspython.la"
+#define KROSS_PYTHON_LIBRARY "krosspython"
+#define KROSS_RUBY_LIBRARY "krossruby"
+#define KROSS_JAVA_LIBRARY "libkrossjava"
+#define KROSS_FALCON_LIBRARY "krossfalcon"
+#define KROSS_QTSCRIPT_LIBRARY "krossqts"
+#define KROSS_LUA_LIBRARY "kloss"
 
 }
 

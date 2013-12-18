@@ -51,20 +51,20 @@
 
 QApplication *app = 0;
 
-QString getInterpreterName(const QString& scriptfile)
+QString getInterpreterName(const QString &scriptfile)
 {
-    Kross::InterpreterInfo* interpreterinfo = Kross::Manager::self().interpreterInfo( Kross::Manager::self().interpreternameForFile(scriptfile) );
+    Kross::InterpreterInfo *interpreterinfo = Kross::Manager::self().interpreterInfo(Kross::Manager::self().interpreternameForFile(scriptfile));
     return interpreterinfo ? interpreterinfo->interpreterName() : QString();
 }
 
-int readFile(const QString& scriptfile, QByteArray& content)
+int readFile(const QString &scriptfile, QByteArray &content)
 {
     QFile f(scriptfile);
-    if(! f.exists()) {
+    if (! f.exists()) {
         std::cerr << "No such scriptfile: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_NOSUCHFILE;
     }
-    if(! f.open(QIODevice::ReadOnly)) {
+    if (! f.open(QIODevice::ReadOnly)) {
         std::cerr << "Failed to open scriptfile: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_OPENFAILED;
     }
@@ -73,34 +73,35 @@ int readFile(const QString& scriptfile, QByteArray& content)
     return ERROR_OK;
 }
 
-int runScriptFile(const QString& scriptfile)
+int runScriptFile(const QString &scriptfile)
 {
     // Read the scriptfile
     QByteArray scriptcode;
     int result = readFile(scriptfile, scriptcode);
-    if(result != ERROR_OK)
+    if (result != ERROR_OK) {
         return result;
+    }
 
     // Determinate the matching interpreter
     QString interpretername = getInterpreterName(scriptfile);
-    if( interpretername.isNull() ) {
+    if (interpretername.isNull()) {
         std::cerr << "No interpreter for scriptfile: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_NOINTERPRETER;
     }
 
     // First we need a Action and fill it.
-    Kross::Action* action = new Kross::Action(0 /*no parent*/, QUrl::fromUserInput(scriptfile));
+    Kross::Action *action = new Kross::Action(0 /*no parent*/, QUrl::fromUserInput(scriptfile));
     action->setObjectName("MyAction");
-    action->setInterpreter( interpretername );
-    action->setCode( scriptcode );
+    action->setInterpreter(interpretername);
+    action->setCode(scriptcode);
 
     // Create the testobject instances.
-    TestObject* testobj3 = new TestObject(action, "TestObject3");
-    TestObject* testobj4 = new TestObject(action, "TestObject4");
+    TestObject *testobj3 = new TestObject(action, "TestObject3");
+    TestObject *testobj4 = new TestObject(action, "TestObject4");
 
     // Publish other both testobject instance to the script.
-    action->addObject( testobj3, "TestObject3", Kross::ChildrenInterface::AutoConnectSignals );
-    action->addObject( testobj4, "TestObject4" );
+    action->addObject(testobj3, "TestObject3", Kross::ChildrenInterface::AutoConnectSignals);
+    action->addObject(testobj4, "TestObject4");
 
     // Now execute the Action.
     std::cout << "Execute scriptfile " << scriptfile.toLatin1().data() << " now" << std::endl;
@@ -121,13 +122,13 @@ int runScriptFile(const QString& scriptfile)
     return ERROR_OK;
 }
 
-QVariant OtherObjectHandler(void* ptr)
+QVariant OtherObjectHandler(void *ptr)
 {
-    OtherObject* obj = static_cast<OtherObject*>(ptr);
+    OtherObject *obj = static_cast<OtherObject *>(ptr);
     // qDebug()<<"OtherObjectHandler objectName="<<(obj ? obj->objectName() : "NULL");
-    OtherObjectWrapper* wrapper = new OtherObjectWrapper(obj);
+    OtherObjectWrapper *wrapper = new OtherObjectWrapper(obj);
     QVariant r;
-    r.setValue( (QObject*) wrapper );
+    r.setValue((QObject *) wrapper);
     return r;
 }
 
@@ -168,18 +169,19 @@ int main(int argc, char **argv)
     }
 
     // init
-    TestObject* testobj1 = new TestObject(0, "TestObject1");
-    TestObject* testobj2 = new TestObject(0, "TestObject2");
-    Kross::Manager::self().addObject( testobj1 );
-    Kross::Manager::self().addObject( testobj2 );
+    TestObject *testobj1 = new TestObject(0, "TestObject1");
+    TestObject *testobj2 = new TestObject(0, "TestObject2");
+    Kross::Manager::self().addObject(testobj1);
+    Kross::Manager::self().addObject(testobj2);
 
     Kross::Manager::self().registerMetaTypeHandler("OtherObject*", OtherObjectHandler);
 
     int result = 0;
-    foreach(const QString &file, scriptfiles) {
+    foreach (const QString &file, scriptfiles) {
         result = runScriptFile(file);
-        if(result != ERROR_OK)
+        if (result != ERROR_OK) {
             break;
+        }
     }
 
     // finish

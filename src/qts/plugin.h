@@ -34,55 +34,55 @@
 
 #define KROSSQTSPLUGIN_EXPORT Q_DECL_EXPORT
 
+namespace Kross
+{
 
-namespace Kross {
+/**
+* Kross QtScript Extension that provides access to the Kross Scripting Framework
+* within the QtScript scripting language. This EcmaPlugin does implement the
+* extension named "kross".
+*/
+class KROSSQTSPLUGIN_EXPORT EcmaPlugin : public QScriptExtensionPlugin
+{
+    Q_OBJECT
+    Q_PLUGIN_METADATA(IID "org.kde.EcmaPlugin")
+public:
 
     /**
-    * Kross QtScript Extension that provides access to the Kross Scripting Framework
-    * within the QtScript scripting language. This EcmaPlugin does implement the
-    * extension named "kross".
+    * Constructor.
+    *
+    * \param parent Optional QObject parent of this QObject.
     */
-    class KROSSQTSPLUGIN_EXPORT EcmaPlugin : public QScriptExtensionPlugin
-    {
-        Q_OBJECT
-        Q_PLUGIN_METADATA(IID "org.kde.EcmaPlugin")
-        public:
+    EcmaPlugin(QObject *parent = 0);
 
-            /**
-            * Constructor.
-            *
-            * \param parent Optional QObject parent of this QObject.
-            */
-            EcmaPlugin(QObject* parent = 0);
+    /**
+    * Destructor.
+    */
+    virtual ~EcmaPlugin();
 
-            /**
-            * Destructor.
-            */
-            virtual ~EcmaPlugin();
+    /**
+    * Initializes this extension.
+    *
+    * \param key The key to differ between etensions. We provide
+    * the extension which key is "kross".
+    * \param engine The QScriptEngine instance.
+    */
+    virtual void initialize(const QString &key, QScriptEngine *engine);
 
-            /**
-            * Initializes this extension.
-            *
-            * \param key The key to differ between etensions. We provide
-            * the extension which key is "kross".
-            * \param engine The QScriptEngine instance.
-            */
-            virtual void initialize(const QString& key, QScriptEngine* engine);
+    /**
+    * Returns the list of keys this plugin supports.
+    *
+    * \return a QStringList with the single item "kross" to let
+    * QtScript know, that we provide an extension with that key.
+    */
+    virtual QStringList keys() const;
 
-            /**
-            * Returns the list of keys this plugin supports.
-            *
-            * \return a QStringList with the single item "kross" to let
-            * QtScript know, that we provide an extension with that key.
-            */
-            virtual QStringList keys() const;
-
-        private:
-            /// \internal d-pointer class.
-            class Private;
-            /// \internal d-pointer instance.
-            Private* const d;
-    };
+private:
+    /// \internal d-pointer class.
+    class Private;
+    /// \internal d-pointer instance.
+    Private *const d;
+};
 
 }
 

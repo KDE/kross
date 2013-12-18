@@ -26,19 +26,19 @@
 
 using namespace Kross;
 
+namespace Kross
+{
 
-namespace Kross {
-
-    /// \internal d-pointer class.
-    class EcmaPlugin::Private
-    {
-        public:
-            QScriptValue manager;
-    };
+/// \internal d-pointer class.
+class EcmaPlugin::Private
+{
+public:
+    QScriptValue manager;
+};
 
 }
 
-EcmaPlugin::EcmaPlugin(QObject* parent)
+EcmaPlugin::EcmaPlugin(QObject *parent)
     : QScriptExtensionPlugin(parent)
     , d(new Private)
 {
@@ -51,20 +51,20 @@ EcmaPlugin::~EcmaPlugin()
     delete d;
 }
 
-void EcmaPlugin::initialize(const QString& key, QScriptEngine* engine)
+void EcmaPlugin::initialize(const QString &key, QScriptEngine *engine)
 {
-    if( key.toLower() == "kross" ) {
+    if (key.toLower() == "kross") {
         QScriptValue global = engine->globalObject();
 
         //QScriptContext *context = engine->currentContext();
-        d->manager = engine->newQObject( &Kross::Manager::self() );
+        d->manager = engine->newQObject(&Kross::Manager::self());
         global.setProperty("Kross", d->manager);
 
         initializeCore(engine);
         initializeGui(engine);
+    } else {
+        qDebug() << QString("Plugin::initialize unhandled key=%1").arg(key);
     }
-    else
-        qDebug()<<QString("Plugin::initialize unhandled key=%1").arg(key);
 }
 
 QStringList EcmaPlugin::keys() const

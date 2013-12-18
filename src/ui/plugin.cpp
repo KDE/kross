@@ -34,13 +34,11 @@
 
 using namespace Kross;
 
-struct Object
-{
+struct Object {
     QPointer<QObject> object;
     ChildrenInterface::Options options;
-    Object(QObject* obj, ChildrenInterface::Options opt):object(obj),options(opt){}
+    Object(QObject *obj, ChildrenInterface::Options opt): object(obj), options(opt) {}
 };
-
 
 /// \internal d-pointer class
 class ScriptingPlugin::ScriptingPluginPrivate
@@ -51,12 +49,12 @@ public:
     QString referenceActionsDir;
     QHash<QString, Object> objects;
 
-    QDomElement menuFromName(QString const& name, const QDomDocument& document)
+    QDomElement menuFromName(QString const &name, const QDomDocument &document)
     {
         QDomElement menuBar = document.documentElement().firstChildElement("MenuBar");
         QDomElement menu = menuBar.firstChildElement("Menu");
-        for(; !menu.isNull(); menu = menu.nextSiblingElement("Menu")) {
-            if(menu.attribute("name") == name) {
+        for (; !menu.isNull(); menu = menu.nextSiblingElement("Menu")) {
+            if (menu.attribute("name") == name) {
                 return menu;
             }
         }
@@ -64,29 +62,30 @@ public:
     }
 };
 
-ScriptingPlugin::ScriptingPlugin(QObject* parent)
+ScriptingPlugin::ScriptingPlugin(QObject *parent)
     : KParts::Plugin(parent)
     , d(new ScriptingPluginPrivate())
 {
     d->userActionsFile = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "scripts/scriptactions.rc";
-    d->collectionName="scripting-plugin";
+    d->collectionName = "scripting-plugin";
 }
 
-ScriptingPlugin::ScriptingPlugin(const QString& collectionName, const QString& userActionsFile, const QString& referenceActionsDir, QObject* parent)
+ScriptingPlugin::ScriptingPlugin(const QString &collectionName, const QString &userActionsFile, const QString &referenceActionsDir, QObject *parent)
     : KParts::Plugin(parent)
     , d(new ScriptingPluginPrivate())
 {
-    d->collectionName=collectionName;
+    d->collectionName = collectionName;
     d->userActionsFile = userActionsFile;
     d->referenceActionsDir = referenceActionsDir;
 }
 
 ScriptingPlugin::~ScriptingPlugin()
 {
-    if (QFile::exists(d->userActionsFile))
+    if (QFile::exists(d->userActionsFile)) {
         save();
+    }
 
-    Kross::ActionCollection* collection=Kross::Manager::self().actionCollection()->collection(d->collectionName);
+    Kross::ActionCollection *collection = Kross::Manager::self().actionCollection()->collection(d->collectionName);
     if (collection) {
         collection->setParentCollection(0);
         collection->deleteLater();
@@ -101,28 +100,28 @@ void ScriptingPlugin::setDOMDocument(const QDomDocument &document, bool merge)
     KXMLGUIClient::setDOMDocument(doc, merge);
 }
 
-void ScriptingPlugin::addObject(QObject* object, const QString& name)
+void ScriptingPlugin::addObject(QObject *object, const QString &name)
 {
     QString n = name.isNull() ? object->objectName() : name;
-    d->objects.insert(n, Object(object,ChildrenInterface::NoOption));
+    d->objects.insert(n, Object(object, ChildrenInterface::NoOption));
 }
 
-void ScriptingPlugin::addObject(QObject* object, const QString& name, ChildrenInterface::Options options)
+void ScriptingPlugin::addObject(QObject *object, const QString &name, ChildrenInterface::Options options)
 {
     QString n = name.isNull() ? object->objectName() : name;
-    d->objects.insert(n, Object(object,options));
+    d->objects.insert(n, Object(object, options));
 }
 
-QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument& document)
+QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument &document)
 {
-    Kross::ActionCollection* collection=Kross::Manager::self().actionCollection()->collection(d->collectionName);
+    Kross::ActionCollection *collection = Kross::Manager::self().actionCollection()->collection(d->collectionName);
     if (!collection) {
-        collection=new Kross::ActionCollection(d->collectionName, Kross::Manager::self().actionCollection());
+        collection = new Kross::ActionCollection(d->collectionName, Kross::Manager::self().actionCollection());
     }
 
     QStringList allActionFiles;
     const QStringList scriptDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
-    Q_FOREACH(const QString& scriptDir, scriptDirs) {
+    Q_FOREACH (const QString &scriptDir, scriptDirs) {
         QDirIterator it(scriptDir, QStringList() << QStringLiteral("*.rc"));
         while (it.hasNext()) {
             allActionFiles.append(it.next());
@@ -130,19 +129,21 @@ QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument& document)
     }
 
     //move userActionsFile to the end so that it updates existing actions and adds new ones.
-    int pos=allActionFiles.indexOf(d->userActionsFile);
-    if (pos!=-1)
+    int pos = allActionFiles.indexOf(d->userActionsFile);
+    if (pos != -1) {
         allActionFiles.append(allActionFiles.takeAt(pos));
-    else if (QFile::exists(d->userActionsFile)) //in case d->userActionsFile isn't in the standard local dir
+    } else if (QFile::exists(d->userActionsFile)) { //in case d->userActionsFile isn't in the standard local dir
         allActionFiles.append(d->userActionsFile);
+    }
 
     QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
-    foreach(const QString &file, allActionFiles) {
+    foreach (const QString &file, allActionFiles) {
         QFile f(file);
-        if (!f.open(QIODevice::ReadOnly))
+        if (!f.open(QIODevice::ReadOnly)) {
             continue;
+        }
 
-        collection->readXml(&f, searchPath+QStringList(QFileInfo(f).absolutePath()));
+        collection->readXml(&f, searchPath + QStringList(QFileInfo(f).absolutePath()));
         f.close();
 
     }
@@ -153,20 +154,20 @@ QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument& document)
     return doc;
 }
 
-void ScriptingPlugin::buildDomDocument(QDomDocument& document,
-    Kross::ActionCollection* collection)
+void ScriptingPlugin::buildDomDocument(QDomDocument &document,
+                                       Kross::ActionCollection *collection)
 {
     QDomElement menuElement = d->menuFromName(collection->name(), document);
 
-    foreach(Kross::Action* action, collection->actions()) {
+    foreach (Kross::Action *action, collection->actions()) {
         QHashIterator<QString, Object> i(d->objects);
-        while(i.hasNext()) {
+        while (i.hasNext()) {
             i.next();
             action->addObject(i.value().object, i.key(), i.value().options);
         }
 
         // Create and append new Menu element if doesn't exist
-        if(menuElement.isNull()) {
+        if (menuElement.isNull()) {
             menuElement = document.createElement("Menu");
             menuElement.setAttribute("name", collection->name());
             menuElement.setAttribute("noMerge", "0");
@@ -175,15 +176,17 @@ void ScriptingPlugin::buildDomDocument(QDomDocument& document,
             textElement.appendChild(document.createTextNode(collection->text()));
             menuElement.appendChild(textElement);
 
-            Kross::ActionCollection* parentCollection = collection->parentCollection();
+            Kross::ActionCollection *parentCollection = collection->parentCollection();
             QDomElement root;
-            if(parentCollection) {
+            if (parentCollection) {
                 QDomElement parentMenuElement = d->menuFromName(parentCollection->name(), document);
-                if(!parentMenuElement.isNull())
-                    root=parentMenuElement;
+                if (!parentMenuElement.isNull()) {
+                    root = parentMenuElement;
+                }
             }
-            if (root.isNull())
-                root=document.documentElement().firstChildElement("MenuBar");
+            if (root.isNull()) {
+                root = document.documentElement().firstChildElement("MenuBar");
+            }
             root.appendChild(menuElement);
         }
 
@@ -193,17 +196,16 @@ void ScriptingPlugin::buildDomDocument(QDomDocument& document,
 
         menuElement.appendChild(newActionElement);
 
-
-        QAction* adaptor = new QAction(action->text(), action);
-        connect (adaptor,SIGNAL(triggered()),action,SLOT(trigger()));
+        QAction *adaptor = new QAction(action->text(), action);
+        connect(adaptor, SIGNAL(triggered()), action, SLOT(trigger()));
         adaptor->setEnabled(action->isEnabled());
         adaptor->setIcon(action->icon());
         actionCollection()->addAction(action->name(), adaptor);
     }
 
-    foreach(const QString &collectionname, collection->collections()) {
-        Kross::ActionCollection* c = collection->collection(collectionname);
-        if(c->isEnabled()) {
+    foreach (const QString &collectionname, collection->collections()) {
+        Kross::ActionCollection *c = collection->collection(collectionname);
+        if (c->isEnabled()) {
             buildDomDocument(document, c);
         }
     }
@@ -212,42 +214,41 @@ void ScriptingPlugin::buildDomDocument(QDomDocument& document,
 void ScriptingPlugin::save()
 {
     QFile f(d->userActionsFile);
-    if(!f.open(QIODevice::WriteOnly))
+    if (!f.open(QIODevice::WriteOnly)) {
         return;
+    }
 
-    Kross::ActionCollection* collection=Kross::Manager::self().actionCollection()->collection(d->collectionName);
-    bool collectionEmpty = !collection||(collection->actions().empty()&&collection->collections().empty());
+    Kross::ActionCollection *collection = Kross::Manager::self().actionCollection()->collection(d->collectionName);
+    bool collectionEmpty = !collection || (collection->actions().empty() && collection->collections().empty());
 
-    if( !collectionEmpty ) {
+    if (!collectionEmpty) {
         QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
         searchPath.append(QFileInfo(d->userActionsFile).absolutePath());
-        if( collection->writeXml(&f, 2, searchPath) ) {
+        if (collection->writeXml(&f, 2, searchPath)) {
             //qDebug() << "Successfully saved file: " << d->userActionsFile;
         }
-    }
-    else {
+    } else {
         QTextStream out(&f);
-        QString xml=
-        "<!-- "
-        "\n"
-        "Collection name attribute represents the name of the menu, e.g., to use menu \"File\" use \"file\" or \"Help\" use \"help\". You can add new menus."
-        "\n\n\n"
-        "If you type a relative script file beware that this script is located in $XDG_DATA_HOME/applicationname/"
-        "\n\n"
-        "The following example adds an action with the text \"Export...\" into the \"File\" menu"
-        "\n\n"
-        "<KrossScripting>"
-        "\n"
-        "<collection name=\"file\" text=\"File\" comment=\"File menu\">"
-        "\n"
-        "<script name=\"export\" text=\"Export...\" comment=\"Export content\" file=\"export.py\" />"
-        "\n"
-        "</collection>"
-        "\n"
-        "</KrossScripting>"
-        "\n"
-        "-->";
-
+        QString xml =
+            "<!-- "
+            "\n"
+            "Collection name attribute represents the name of the menu, e.g., to use menu \"File\" use \"file\" or \"Help\" use \"help\". You can add new menus."
+            "\n\n\n"
+            "If you type a relative script file beware that this script is located in $XDG_DATA_HOME/applicationname/"
+            "\n\n"
+            "The following example adds an action with the text \"Export...\" into the \"File\" menu"
+            "\n\n"
+            "<KrossScripting>"
+            "\n"
+            "<collection name=\"file\" text=\"File\" comment=\"File menu\">"
+            "\n"
+            "<script name=\"export\" text=\"Export...\" comment=\"Export content\" file=\"export.py\" />"
+            "\n"
+            "</collection>"
+            "\n"
+            "</KrossScripting>"
+            "\n"
+            "-->";
 
         out << xml;
     }

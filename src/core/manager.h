@@ -30,239 +30,240 @@
 #include "childreninterface.h"
 #include "metatype.h"
 
-namespace Kross {
+namespace Kross
+{
 
-    // Forward declarations.
-    class Interpreter;
-    class Action;
-    class ActionCollection;
-    class InterpreterInfo;
+// Forward declarations.
+class Interpreter;
+class Action;
+class ActionCollection;
+class InterpreterInfo;
+
+/**
+ * The Manager class is a singleton that provides the main entry
+ * point to deal with the Kross Scripting Framework.
+ *
+ * Use \a Interpreter to just work with some implementated
+ * interpreter like python or ruby. While \a Action implements
+ * a flexible abstract container to deal with single script files.
+ */
+class KROSSCORE_EXPORT Manager
+    : public QObject
+    , public QScriptable
+    , public ChildrenInterface
+{
+    Q_OBJECT
+
+public:
 
     /**
-     * The Manager class is a singleton that provides the main entry
-     * point to deal with the Kross Scripting Framework.
-     *
-     * Use \a Interpreter to just work with some implementated
-     * interpreter like python or ruby. While \a Action implements
-     * a flexible abstract container to deal with single script files.
+     * Return the Manager instance. Always use this
+     * function to access the Manager singleton.
      */
-    class KROSSCORE_EXPORT Manager
-        : public QObject
-        , public QScriptable
-        , public ChildrenInterface
-    {
-            Q_OBJECT
+    static Manager &self();
 
-        public:
+    /**
+     * \return a map with \a InterpreterInfo* instances
+     * used to describe interpreters.
+     */
+    QHash<QString, InterpreterInfo *> interpreterInfos() const;
 
-            /**
-             * Return the Manager instance. Always use this
-             * function to access the Manager singleton.
-             */
-            static Manager& self();
+    /**
+     * \return true if there exists an interpreter with the
+     * name \p interpretername else false.
+     */
+    bool hasInterpreterInfo(const QString &interpretername) const;
 
-            /**
-             * \return a map with \a InterpreterInfo* instances
-             * used to describe interpreters.
-             */
-            QHash<QString, InterpreterInfo*> interpreterInfos() const;
+    /**
+     * \return the \a InterpreterInfo* matching to the defined
+     * \p interpretername or NULL if there does not exists such
+     * a interpreter.
+     */
+    InterpreterInfo *interpreterInfo(const QString &interpretername) const;
 
-            /**
-             * \return true if there exists an interpreter with the
-             * name \p interpretername else false.
-             */
-            bool hasInterpreterInfo(const QString& interpretername) const;
+    /**
+     * Return the name of the \a Interpreter that feels responsible
+     * for the defined \p file .
+     *
+     * \param file The filename we should try to determinate the
+     * interpretername for.
+     * \return The name of the \a Interpreter which will be used
+     * to execute the file or QString() if we failed to determinate
+     * a matching interpreter for the file.
+     */
+    const QString interpreternameForFile(const QString &file);
 
-            /**
-             * \return the \a InterpreterInfo* matching to the defined
-             * \p interpretername or NULL if there does not exists such
-             * a interpreter.
-             */
-            InterpreterInfo* interpreterInfo(const QString& interpretername) const;
+    /**
+     * Return the \a Interpreter instance defined by
+     * the interpretername.
+     *
+     * \param interpretername The name of the interpreter.
+     * e.g. "python" or "ruby".
+     * \return The Interpreter instance or NULL if there does not exists
+     * an interpreter with such an interpretername.
+     */
+    Interpreter *interpreter(const QString &interpretername) const;
 
-            /**
-             * Return the name of the \a Interpreter that feels responsible
-             * for the defined \p file .
-             *
-             * \param file The filename we should try to determinate the
-             * interpretername for.
-             * \return The name of the \a Interpreter which will be used
-             * to execute the file or QString() if we failed to determinate
-             * a matching interpreter for the file.
-             */
-            const QString interpreternameForFile(const QString& file);
+    /**
+     * \return the root \a ActionCollection instance. Each collection
+     * could have children of other collections and/or
+     * \a Action instances.
+     */
+    ActionCollection *actionCollection() const;
 
-            /**
-             * Return the \a Interpreter instance defined by
-             * the interpretername.
-             *
-             * \param interpretername The name of the interpreter.
-             * e.g. "python" or "ruby".
-             * \return The Interpreter instance or NULL if there does not exists
-             * an interpreter with such an interpretername.
-             */
-            Interpreter* interpreter(const QString& interpretername) const;
+    /**
+     * \return the \a MetaTypeHandler instance for custom types
+     * of type \p typeName .
+     *
+     * \since 4.2
+     */
+    MetaTypeHandler *metaTypeHandler(const QByteArray &typeName) const;
 
-            /**
-             * \return the root \a ActionCollection instance. Each collection
-             * could have children of other collections and/or
-             * \a Action instances.
-             */
-            ActionCollection* actionCollection() const;
+    /**
+     * Register a handler for custom types.
+     *
+     * See also the \a WrapperInterface class.
+     *
+     * \param typeName The custom type the handler should handle.
+     * \param handler Function that should be called to handle
+     * a custom type.
+     *
+     * \since 4.2
+     */
+    void registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler::FunctionPtr *handler);
 
-            /**
-             * \return the \a MetaTypeHandler instance for custom types
-             * of type \p typeName .
-             *
-             * \since 4.2
-             */
-            MetaTypeHandler* metaTypeHandler(const QByteArray& typeName) const;
+    /**
+     * Register a handler for custom types.
+     *
+     * See also the \a WrapperInterface class.
+     *
+     * \param typeName The custom type the handler should handle.
+     * \param handler Function that should be called to handle
+     * a custom type.
+     *
+     * \since 4.2
+     */
+    void registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler::FunctionPtr2 *handler);
 
-            /**
-             * Register a handler for custom types.
-             *
-             * See also the \a WrapperInterface class.
-             *
-             * \param typeName The custom type the handler should handle.
-             * \param handler Function that should be called to handle
-             * a custom type.
-             *
-             * \since 4.2
-             */
-            void registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler::FunctionPtr* handler);
+    /**
+     * Register a handler for custom types.
+     *
+     * See also the \a WrapperInterface class.
+     *
+     * \param typeName The custom type the handler should handle.
+     * \param handler Function that should be called to handle
+     * a custom type.
+     *
+     * \since 4.2
+     */
+    void registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler *handler);
 
-            /**
-             * Register a handler for custom types.
-             *
-             * See also the \a WrapperInterface class.
-             *
-             * \param typeName The custom type the handler should handle.
-             * \param handler Function that should be called to handle
-             * a custom type.
-             *
-             * \since 4.2
-             */
-            void registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler::FunctionPtr2* handler);
+    /**
+     * Returns true if strict type handling is enabled.
+     *
+     * \since 4.2
+     */
+    bool strictTypesEnabled() const;
 
-            /**
-             * Register a handler for custom types.
-             *
-             * See also the \a WrapperInterface class.
-             *
-             * \param typeName The custom type the handler should handle.
-             * \param handler Function that should be called to handle
-             * a custom type.
-             *
-             * \since 4.2
-             */
-            void registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler* handler);
+    /**
+     * Enable more strict type handling. If enabled then scripting-backends don't
+     * handle unknown pointer-types where no MetaTypeHandler was registered for.
+     * If disabled, such unknown types will be reinterpret_cast to QObject* what
+     * allows to also handle unknown QObject's but will also result in a crash
+     * if the unknown type isn't a QObject. Per default strict type handling is
+     * enabled.
+     *
+     * \since 4.2
+     */
+    void setStrictTypesEnabled(bool enabled);
 
-            /**
-             * Returns true if strict type handling is enabled.
-             *
-             * \since 4.2
-             */
-            bool strictTypesEnabled() const;
+    /**
+    * \return whether \p typeName has a handler assigned or not.
+    */
+    bool hasHandlerAssigned(const QByteArray &typeName) const;
+public Q_SLOTS:
 
-            /**
-             * Enable more strict type handling. If enabled then scripting-backends don't
-             * handle unknown pointer-types where no MetaTypeHandler was registered for.
-             * If disabled, such unknown types will be reinterpret_cast to QObject* what
-             * allows to also handle unknown QObject's but will also result in a crash
-             * if the unknown type isn't a QObject. Per default strict type handling is
-             * enabled.
-             *
-             * \since 4.2
-             */
-            void setStrictTypesEnabled(bool enabled);
+    /**
+     * \return a list of names of all supported scripting interpreters.
+     * The list may contain for example "python" and "ruby" depending
+     * on what interpreter-plugins are installed.
+     */
+    QStringList interpreters() const;
 
-            /**
-	     * \return whether \p typeName has a handler assigned or not.
-	     */
-            bool hasHandlerAssigned(const QByteArray& typeName) const;
-        public Q_SLOTS:
+    /**
+    * \return true if there exists a \a Action QObject instance
+    * which is child of this \a Manager instance and is defined as \p name
+    * else false is returned.
+    */
+    bool hasAction(const QString &name);
 
-            /**
-             * \return a list of names of all supported scripting interpreters.
-             * The list may contain for example "python" and "ruby" depending
-             * on what interpreter-plugins are installed.
-             */
-            QStringList interpreters() const;
+    /**
+    * \return the \a Action QObject instance defined with \p name which is
+    * child of this \a Manager instance. If there exists no such \a Action
+    * yet, create one.
+    */
+    QObject *action(const QString &name);
 
-            /**
-            * \return true if there exists a \a Action QObject instance
-            * which is child of this \a Manager instance and is defined as \p name
-            * else false is returned.
-            */
-            bool hasAction(const QString& name);
+    /**
+     * Load and return an external module. Modules are dynamic loadable
+     * plugins which could be loaded on demand to provide additional
+     * functionality.
+     *
+     * \param modulename The name of the module we should try to load.
+     * \return The QObject instance that repesents the module or NULL
+     * if loading failed.
+     */
+    QObject *module(const QString &modulename);
 
-            /**
-            * \return the \a Action QObject instance defined with \p name which is
-            * child of this \a Manager instance. If there exists no such \a Action
-            * yet, create one.
-            */
-            QObject* action(const QString& name);
+    /**
+     * External modules are dynamically loadable and are normally deleted
+     * when the kross library is unloaded.
+     * Applications may choose to call deleteModules() instead to control
+     * deletion of the modules at another time.
+     */
+    void deleteModules();
 
-            /**
-             * Load and return an external module. Modules are dynamic loadable
-             * plugins which could be loaded on demand to provide additional
-             * functionality.
-             *
-             * \param modulename The name of the module we should try to load.
-             * \return The QObject instance that repesents the module or NULL
-             * if loading failed.
-             */
-            QObject* module(const QString& modulename);
+    /**
+    * Execute a script file.
+    * \param file The script file that should be executed.
+    */
+    bool executeScriptFile(const QUrl &file = QUrl());
 
-            /**
-             * External modules are dynamically loadable and are normally deleted
-             * when the kross library is unloaded.
-             * Applications may choose to call deleteModules() instead to control
-             * deletion of the modules at another time.
-             */
-            void deleteModules();
+    void addQObject(QObject *obj, const QString &name = QString());
+    QObject *qobject(const QString &name) const;
+    QStringList qobjectNames() const;
 
-            /**
-            * Execute a script file.
-            * \param file The script file that should be executed.
-            */
-            bool executeScriptFile(const QUrl& file = QUrl());
+Q_SIGNALS:
 
-            void addQObject(QObject* obj, const QString &name = QString());
-            QObject* qobject(const QString &name) const;
-            QStringList qobjectNames() const;
+    /**
+     * This signal is emitted when the execution of a script is started.
+     */
+    void started(Kross::Action *);
 
-        Q_SIGNALS:
+    /**
+     * This signal is emitted when the execution of a script is finished.
+     */
+    void finished(Kross::Action *);
 
-            /**
-             * This signal is emitted when the execution of a script is started.
-             */
-            void started(Kross::Action*);
+private:
+    /// \internal d-pointer class.
+    class Private;
+    /// \internal d-pointer instance.
+    Private *const d;
 
-            /**
-             * This signal is emitted when the execution of a script is finished.
-             */
-            void finished(Kross::Action*);
+public:
 
-        private:
-            /// \internal d-pointer class.
-            class Private;
-            /// \internal d-pointer instance.
-            Private* const d;
+    /**
+     * The constructor. Use \a self() to access the Manager
+     * singleton instance and don't call this direct.
+     */
+    explicit Manager();
 
-        public:
-
-            /**
-             * The constructor. Use \a self() to access the Manager
-             * singleton instance and don't call this direct.
-             */
-            explicit Manager();
-
-            /**
-             * Destructor.
-             */
-            virtual ~Manager();
-    };
+    /**
+     * Destructor.
+     */
+    virtual ~Manager();
+};
 
 }
 

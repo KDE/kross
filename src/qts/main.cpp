@@ -27,15 +27,15 @@
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
 
-bool runScriptFile(QScriptEngine* engine, const QString& scriptfile)
+bool runScriptFile(QScriptEngine *engine, const QString &scriptfile)
 {
     // Read the scriptfile
     QFile f(scriptfile);
-    if(! f.exists()) {
+    if (! f.exists()) {
         qWarning() << "No such scriptfile:" << scriptfile;
         return false;
     }
-    if(! f.open(QIODevice::ReadOnly)) {
+    if (! f.open(QIODevice::ReadOnly)) {
         qWarning() << "Failed to open scriptfile:" << scriptfile;
         return false;
     }
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     app->setApplicationVersion("0.1");
     app->setOrganizationDomain("dipe.org");
 
-    QScriptEngine* engine = new QScriptEngine();
+    QScriptEngine *engine = new QScriptEngine();
     engine->installTranslatorFunctions();
 
     /*K4AboutData about("kross",0,ki18n("Kross"),"0.1",
@@ -90,8 +90,9 @@ int main(int argc, char **argv)
 
     engine->importExtension("kross").toString();
 
-    foreach(const QString &file, args)
+    foreach (const QString &file, args) {
         runScriptFile(engine, file);
+    }
 
     delete engine;
     delete app;

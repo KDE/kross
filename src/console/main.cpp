@@ -43,17 +43,17 @@
 #define ERROR_NOINTERPRETER -4
 #define ERROR_EXCEPTION -6
 
-QApplication* app = 0;
+QApplication *app = 0;
 
-int runScriptFile(const QString& scriptfile)
+int runScriptFile(const QString &scriptfile)
 {
     // Read the scriptfile
     QFile f(scriptfile);
-    if(! f.exists()) {
+    if (! f.exists()) {
         std::cerr << "No such scriptfile: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_NOSUCHFILE;
     }
-    if(! f.open(QIODevice::ReadOnly)) {
+    if (! f.open(QIODevice::ReadOnly)) {
         std::cerr << "Failed to open scriptfile: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_OPENFAILED;
     }
@@ -61,21 +61,21 @@ int runScriptFile(const QString& scriptfile)
     f.close();
 
     // Determinate the matching interpreter
-    Kross::InterpreterInfo* interpreterinfo = Kross::Manager::self().interpreterInfo( Kross::Manager::self().interpreternameForFile(scriptfile) );
-    if(! interpreterinfo) {
+    Kross::InterpreterInfo *interpreterinfo = Kross::Manager::self().interpreterInfo(Kross::Manager::self().interpreternameForFile(scriptfile));
+    if (! interpreterinfo) {
         std::cerr << "No interpreter for file: " << scriptfile.toLatin1().data() << std::endl;
         return ERROR_NOINTERPRETER;
     }
 
     // First we need a Action and fill it.
-    Kross::Action* action = new Kross::Action(0 /*no parent*/, QUrl::fromUserInput(scriptfile));
-    action->setInterpreter( interpreterinfo->interpreterName() );
+    Kross::Action *action = new Kross::Action(0 /*no parent*/, QUrl::fromUserInput(scriptfile));
+    action->setInterpreter(interpreterinfo->interpreterName());
     action->setCode(scriptcode);
 
     // Now execute the Action.
     action->trigger();
 
-    if(action->hadError()) {
+    if (action->hadError()) {
         // We had an exception.
         std::cerr << QString("%2\n%1").arg(action->errorTrace()).arg(action->errorMessage()).toLatin1().data() << std::endl;
         delete action;
@@ -118,7 +118,6 @@ int main(int argc, char **argv)
     parser.addPositionalArgument("file", QCoreApplication::translate("main", "Scriptfile"));
     parser.process(*app);
 
-
     const QStringList args = parser.positionalArguments();
     // If no options are defined.
     if (args.count() < 1) {
@@ -130,8 +129,9 @@ int main(int argc, char **argv)
     // Each argument is a scriptfile to open
     for (int i = 0; i < args.count(); i++) {
         result = runScriptFile(args.at(i));
-        if(result != ERROR_OK)
+        if (result != ERROR_OK) {
             break;
+        }
     }
 
     // Free the QApplication instance and exit the program.

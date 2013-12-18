@@ -24,24 +24,25 @@
 
 using namespace Kross;
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class Script::Private
-    {
-        public:
-            /// The \a Interpreter used to create this Script instance.
-            Interpreter* interpreter;
-            /// The \a Action associated with this Script.
-            Action* action;
-    };
+/// \internal d-pointer class.
+class Script::Private
+{
+public:
+    /// The \a Interpreter used to create this Script instance.
+    Interpreter *interpreter;
+    /// The \a Action associated with this Script.
+    Action *action;
+};
 
 }
 
-Script::Script(Interpreter* interpreter, Action* action)
+Script::Script(Interpreter *interpreter, Action *action)
     : QObject()
     , ErrorInterface()
-    , d( new Private() )
+    , d(new Private())
 {
     //setObjectName( action->objectName() );
     d->interpreter = interpreter;
@@ -53,12 +54,12 @@ Script::~Script()
     delete d;
 }
 
-Interpreter* Script::interpreter() const
+Interpreter *Script::interpreter() const
 {
     return d->interpreter;
 }
 
-Action* Script::action() const
+Action *Script::action() const
 {
     return d->action;
 }

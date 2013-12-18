@@ -24,81 +24,97 @@
 
 #include <QString>
 
-namespace Kross {
+namespace Kross
+{
+
+/**
+ * Interface for error-handling.
+ */
+class KROSSCORE_EXPORT ErrorInterface
+{
+public:
 
     /**
-     * Interface for error-handling.
+     * Constructor.
+     *
+     * \param error The error message.
+     * \param lineno The liner number in the scripting
+     *        code where this exception got thrown.
      */
-    class KROSSCORE_EXPORT ErrorInterface
+    ErrorInterface() {}
+
+    /**
+     * \return true if there was an error else false is returned.
+     */
+    bool hadError() const
     {
-        public:
+        return ! m_error.isNull();
+    }
 
-            /**
-             * Constructor.
-             *
-             * \param error The error message.
-             * \param lineno The liner number in the scripting
-             *        code where this exception got thrown.
-             */
-            ErrorInterface() {}
+    /**
+     * \return the trace message.
+     */
+    const QString errorMessage() const
+    {
+        return m_error;
+    }
 
-            /**
-             * \return true if there was an error else false is returned.
-             */
-            bool hadError() const { return ! m_error.isNull(); }
+    /**
+     * \return the error message.
+     */
+    const QString errorTrace() const
+    {
+        return m_trace;
+    }
 
-            /**
-             * \return the trace message.
-             */
-            const QString errorMessage() const { return m_error; }
+    /**
+     * \return the line number in the scripting code where the
+     * exception got thrown or -1 if there was no line number defined.
+     */
+    long errorLineNo() const
+    {
+        return m_lineno;
+    }
 
-            /**
-             * \return the error message.
-             */
-            const QString errorTrace() const { return m_trace; }
+    /**
+     * Set the error message.
+     */
+    void setError(const QString &errormessage, const QString &tracemessage = QString(), long lineno = -1)
+    {
+        m_error = errormessage;
+        m_trace = tracemessage;
+        m_lineno = lineno;
+        krosswarning(QString::fromLatin1("Error error=%1 lineno=%2 trace=\n%3").arg(m_error).arg(m_lineno).arg(m_trace));
+    }
 
-            /**
-             * \return the line number in the scripting code where the
-             * exception got thrown or -1 if there was no line number defined.
-             */
-            long errorLineNo() const { return m_lineno; }
+    /**
+     * Set the error message.
+     */
+    void setError(ErrorInterface *error)
+    {
+        m_error = error->errorMessage();
+        m_trace = error->errorTrace();
+        m_lineno = error->errorLineNo();
+    }
 
-            /**
-             * Set the error message.
-             */
-            void setError(const QString& errormessage, const QString& tracemessage = QString(), long lineno = -1) {
-                m_error = errormessage;
-                m_trace = tracemessage;
-                m_lineno = lineno;
-                krosswarning( QString::fromLatin1("Error error=%1 lineno=%2 trace=\n%3").arg(m_error).arg(m_lineno).arg(m_trace) );
-            }
+    /**
+     * Clear the error.
+     */
+    void clearError()
+    {
+        m_error.clear();
+        m_trace.clear();
+        m_lineno = -1;
+    }
 
-            /**
-             * Set the error message.
-             */
-            void setError(ErrorInterface* error) {
-                m_error = error->errorMessage();
-                m_trace = error->errorTrace();
-                m_lineno = error->errorLineNo();
-            }
-
-            /**
-             * Clear the error.
-             */
-            void clearError() {
-                m_error.clear();
-                m_trace.clear();
-                m_lineno = -1;
-            }
-
-        private:
-            /// The error message.
-            QString m_error;
-            /// The trace message.
-            QString m_trace;
-            /// The line number where the exception got thrown
-            long m_lineno;
-    };
+private:
+    /// The error message.
+    QString m_error;
+    /// The trace message.
+    QString m_trace;
+    /// The line number where the exception got thrown
+    long m_lineno;
+};
 
 }
 

@@ -30,7 +30,7 @@
 
 extern "C"
 {
-    Q_DECL_EXPORT QObject* krossmodule()
+    Q_DECL_EXPORT QObject *krossmodule()
     {
         return new Kross::TranslationModule();
     }
@@ -38,18 +38,18 @@ extern "C"
 
 using namespace Kross;
 
+namespace Kross
+{
 
-namespace Kross {
-
-    /// \internal d-pointer class.
-    class TranslationModule::Private
-    {
-    };
+/// \internal d-pointer class.
+class TranslationModule::Private
+{
+};
 }
 
 TranslationModule::TranslationModule()
     : QObject()
-    , d( new Private() )
+    , d(new Private())
 {
 }
 
@@ -58,45 +58,45 @@ TranslationModule::~TranslationModule()
     delete d;
 }
 
-KLocalizedString TranslationModule::substituteArguments( const KLocalizedString &kls, const QVariantList &arguments, int max ) const
+KLocalizedString TranslationModule::substituteArguments(const KLocalizedString &kls, const QVariantList &arguments, int max) const
 {
     KLocalizedString ls = kls;
-    int cnt = qMin( arguments.count(), max ); // QString supports max 99
-    for ( int i = 0; i < cnt; ++i ) {
+    int cnt = qMin(arguments.count(), max);   // QString supports max 99
+    for (int i = 0; i < cnt; ++i) {
         QVariant arg = arguments[i];
-        switch ( arg.type() ) {
-            case QVariant::Int: ls = ls.subs(arg.toInt()); break;
-            case QVariant::UInt: ls = ls.subs(arg.toUInt()); break;
-            case QVariant::LongLong: ls = ls.subs(arg.toLongLong()); break;
-            case QVariant::ULongLong: ls = ls.subs(arg.toULongLong()); break;
-            case QVariant::Double: ls = ls.subs(arg.toDouble()); break;
-            default: ls = ls.subs(arg.toString()); break;
+        switch (arg.type()) {
+        case QVariant::Int: ls = ls.subs(arg.toInt()); break;
+        case QVariant::UInt: ls = ls.subs(arg.toUInt()); break;
+        case QVariant::LongLong: ls = ls.subs(arg.toLongLong()); break;
+        case QVariant::ULongLong: ls = ls.subs(arg.toULongLong()); break;
+        case QVariant::Double: ls = ls.subs(arg.toDouble()); break;
+        default: ls = ls.subs(arg.toString()); break;
         }
     }
     return ls;
 }
 
-QString TranslationModule::i18n( const QString &text, const QVariantList &arguments ) const
+QString TranslationModule::i18n(const QString &text, const QVariantList &arguments) const
 {
     KLocalizedString ls = ki18n(text.toUtf8().constData());
-    return substituteArguments( ls, arguments ).toString();
+    return substituteArguments(ls, arguments).toString();
 }
 
-QString TranslationModule::i18nc( const QString &context, const QString &text, const QVariantList &arguments ) const
+QString TranslationModule::i18nc(const QString &context, const QString &text, const QVariantList &arguments) const
 {
     KLocalizedString ls = ki18nc(context.toUtf8().constData(), text.toUtf8().constData());
-    return substituteArguments( ls, arguments ).toString();
+    return substituteArguments(ls, arguments).toString();
 }
 
-QString TranslationModule::i18np( const QString &singular, const QString &plural, int number, const QVariantList &arguments ) const
+QString TranslationModule::i18np(const QString &singular, const QString &plural, int number, const QVariantList &arguments) const
 {
     KLocalizedString ls = ki18np(singular.toUtf8().constData(), plural.toUtf8().constData()).subs(number);
-    return substituteArguments( ls, arguments, 98 ).toString();
+    return substituteArguments(ls, arguments, 98).toString();
 }
 
-QString TranslationModule::i18ncp( const QString &context, const QString &singular, const QString &plural,  int number, const QVariantList &arguments ) const
+QString TranslationModule::i18ncp(const QString &context, const QString &singular, const QString &plural,  int number, const QVariantList &arguments) const
 {
-    KLocalizedString ls = ki18ncp(context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData()).subs( number );
-    return substituteArguments( ls, arguments, 98 ).toString();
+    KLocalizedString ls = ki18ncp(context.toUtf8().constData(), singular.toUtf8().constData(), plural.toUtf8().constData()).subs(number);
+    return substituteArguments(ls, arguments, 98).toString();
 }
 

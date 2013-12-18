@@ -35,73 +35,76 @@
 
 extern "C"
 {
-    typedef QObject* (*def_module_func)();
+    typedef QObject *(*def_module_func)();
 }
 
 using namespace Kross;
 
-namespace Kross {
+namespace Kross
+{
 
-    /// @internal
-    class Manager::Private
-    {
-        public:
-            /// List of \a InterpreterInfo instances.
-            QHash< QString, InterpreterInfo* > interpreterinfos;
+/// @internal
+class Manager::Private
+{
+public:
+    /// List of \a InterpreterInfo instances.
+    QHash< QString, InterpreterInfo * > interpreterinfos;
 
-            /// List of the interpreter names.
-            QStringList interpreters;
+    /// List of the interpreter names.
+    QStringList interpreters;
 
-            /// Loaded modules.
-            QHash< QString, QPointer<QObject> > modules;
+    /// Loaded modules.
+    QHash< QString, QPointer<QObject> > modules;
 
-            /// The collection of \a Action instances.
-            ActionCollection* collection;
+    /// The collection of \a Action instances.
+    ActionCollection *collection;
 
-            /// List with custom handlers for metatypes.
-            QHash<QByteArray, MetaTypeHandler*> wrappers;
+    /// List with custom handlers for metatypes.
+    QHash<QByteArray, MetaTypeHandler *> wrappers;
 
-            /// Strict type handling enabled or disabled.
-            bool strictTypesEnabled;
-    };
+    /// Strict type handling enabled or disabled.
+    bool strictTypesEnabled;
+};
 
 }
 
 Q_GLOBAL_STATIC(Manager, _self)
 
-Manager& Manager::self()
+Manager &Manager::self()
 {
     return *_self();
 }
 
-void* loadLibrary(const char* libname, const char* functionname)
+void *loadLibrary(const char *libname, const char *functionname)
 {
     QLibrary lib(libname);
-    lib.setLoadHints( QLibrary::ExportExternalSymbolsHint );
-    if( ! lib.load() ) {
+    lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
+    if (! lib.load()) {
         const QString err = QString("Error: %1").arg(lib.errorString());
 
-        foreach (const QString& path, QCoreApplication::instance()->libraryPaths()) {
-            lib.setFileName( QFileInfo(path, libname).filePath() );
-            lib.setLoadHints( QLibrary::ExportExternalSymbolsHint );
-            if( lib.load() )
+        foreach (const QString &path, QCoreApplication::instance()->libraryPaths()) {
+            lib.setFileName(QFileInfo(path, libname).filePath());
+            lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
+            if (lib.load()) {
                 break;
+            }
         }
 
-        if( ! lib.isLoaded() ) {
-            #ifdef KROSS_INTERPRETER_DEBUG
-                if( strcmp(functionname, "krossinterpreter") == 0 )
-                    krossdebug( QString("Kross Interpreter '%1' not available: %2").arg(libname).arg(err) );
-                else if( strcmp(functionname, "krossmodule") == 0 )
-                    krossdebug( QString("Kross Module '%1' not available: %2").arg(libname).arg(err) );
-                else
-                    krosswarning( QString("Failed to load unknown type of '%1' library: %2").arg(libname).arg(err) );
-            #endif
+        if (! lib.isLoaded()) {
+#ifdef KROSS_INTERPRETER_DEBUG
+            if (strcmp(functionname, "krossinterpreter") == 0) {
+                krossdebug(QString("Kross Interpreter '%1' not available: %2").arg(libname).arg(err));
+            } else if (strcmp(functionname, "krossmodule") == 0) {
+                krossdebug(QString("Kross Module '%1' not available: %2").arg(libname).arg(err));
+            } else {
+                krosswarning(QString("Failed to load unknown type of '%1' library: %2").arg(libname).arg(err));
+            }
+#endif
             return 0;
         }
     }
 #warning QT5 Port kross to QFunctionPointer
-    void* funcPtr = (void*)lib.resolve(functionname);
+    void *funcPtr = (void *)lib.resolve(functionname);
     Q_ASSERT(funcPtr);
     return funcPtr;
 }
@@ -110,94 +113,95 @@ Manager::Manager()
     : QObject()
     , QScriptable()
     , ChildrenInterface()
-    , d( new Private() )
+    , d(new Private())
 {
     d->strictTypesEnabled = true;
     setObjectName("Kross");
     d->collection = new ActionCollection("main");
 
 #ifdef KROSS_PYTHON_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("python",
-            new InterpreterInfo("python",
-                funcPtr, // library
-                "*.py", // file filter-wildcard
-                QStringList() << "text/x-python" // mimetypes
-            )
-        );
+                                   new InterpreterInfo("python",
+                                           funcPtr, // library
+                                           "*.py", // file filter-wildcard
+                                           QStringList() << "text/x-python" // mimetypes
+                                                      )
+                                  );
     }
 #endif
 
 #ifdef KROSS_RUBY_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, "krossinterpreter")) {
         InterpreterInfo::Option::Map options;
         options.insert("safelevel", new InterpreterInfo::Option(
-            i18n("Level of safety of the Ruby interpreter"),
-            QVariant(0) )); // 0 -> unsafe, 4 -> very safe
+                           i18n("Level of safety of the Ruby interpreter"),
+                           QVariant(0)));  // 0 -> unsafe, 4 -> very safe
         d->interpreterinfos.insert("ruby",
-            new InterpreterInfo("ruby",
-                funcPtr, // library
-                "*.rb", // file filter-wildcard
-                QStringList() << /* "text/x-ruby" << */ "application/x-ruby", // mimetypes
-                options // options
-            )
-        );
+                                   new InterpreterInfo("ruby",
+                                           funcPtr, // library
+                                           "*.rb", // file filter-wildcard
+                                           QStringList() << /* "text/x-ruby" << */ "application/x-ruby", // mimetypes
+                                           options // options
+                                                      )
+                                  );
     }
 #endif
 
 #ifdef KROSS_JAVA_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("java",
-            new InterpreterInfo("java",
-                funcPtr, // library
-                "*.java *.class *.jar", // file filter-wildcard
-                QStringList() << "application/java" // mimetypes
-            )
-        );
+                                   new InterpreterInfo("java",
+                                           funcPtr, // library
+                                           "*.java *.class *.jar", // file filter-wildcard
+                                           QStringList() << "application/java" // mimetypes
+                                                      )
+                                  );
     }
 #endif
 
 #ifdef KROSS_FALCON_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("falcon",
-            new InterpreterInfo("falcon",
-                funcPtr, // library
-                "*.fal", // file filter-wildcard
-                QStringList() << "application/x-falcon" // mimetypes
-            )
-        );
+                                   new InterpreterInfo("falcon",
+                                           funcPtr, // library
+                                           "*.fal", // file filter-wildcard
+                                           QStringList() << "application/x-falcon" // mimetypes
+                                                      )
+                                  );
     }
 #endif
 
 #ifdef KROSS_QTSCRIPT_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("qtscript",
-            new InterpreterInfo("qtscript",
-                funcPtr, // library
-                "*.es", // file filter-wildcard
-                QStringList() << "application/ecmascript" // mimetypes
-            )
-        );
+                                   new InterpreterInfo("qtscript",
+                                           funcPtr, // library
+                                           "*.es", // file filter-wildcard
+                                           QStringList() << "application/ecmascript" // mimetypes
+                                                      )
+                                  );
     }
 #endif
 
 #ifdef KROSS_LUA_LIBRARY
-    if( void* funcPtr = loadLibrary(KROSS_LUA_LIBRARY, "krossinterpreter") ) {
+    if (void *funcPtr = loadLibrary(KROSS_LUA_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("lua",
-            new InterpreterInfo("lua",
-                funcPtr, // library
-                "*.lua *.luac", // file filter-wildcard
-                QStringList() << "application/x-lua" // mimetypes
-            )
-        );
+                                   new InterpreterInfo("lua",
+                                           funcPtr, // library
+                                           "*.lua *.luac", // file filter-wildcard
+                                           QStringList() << "application/x-lua" // mimetypes
+                                                      )
+                                  );
     }
 #endif
 
     // fill the list of supported interpreternames.
-    QHash<QString, InterpreterInfo*>::Iterator it( d->interpreterinfos.begin() );
-    for(; it != d->interpreterinfos.end(); ++it)
-        if( it.value() )
+    QHash<QString, InterpreterInfo *>::Iterator it(d->interpreterinfos.begin());
+    for (; it != d->interpreterinfos.end(); ++it)
+        if (it.value()) {
             d->interpreters << it.key();
+        }
     d->interpreters.sort();
 
     // publish ourself.
@@ -213,41 +217,43 @@ Manager::~Manager()
     delete d;
 }
 
-QHash< QString, InterpreterInfo* > Manager::interpreterInfos() const
+QHash< QString, InterpreterInfo * > Manager::interpreterInfos() const
 {
     return d->interpreterinfos;
 }
 
-bool Manager::hasInterpreterInfo(const QString& interpretername) const
+bool Manager::hasInterpreterInfo(const QString &interpretername) const
 {
     return d->interpreterinfos.contains(interpretername) && d->interpreterinfos[interpretername];
 }
 
-InterpreterInfo* Manager::interpreterInfo(const QString& interpretername) const
+InterpreterInfo *Manager::interpreterInfo(const QString &interpretername) const
 {
     return hasInterpreterInfo(interpretername) ? d->interpreterinfos[interpretername] : 0;
 }
 
-const QString Manager::interpreternameForFile(const QString& file)
+const QString Manager::interpreternameForFile(const QString &file)
 {
     QRegExp rx;
     rx.setPatternSyntax(QRegExp::Wildcard);
-    for(QHash<QString, InterpreterInfo*>::Iterator it = d->interpreterinfos.begin(); it != d->interpreterinfos.end(); ++it) {
-        if( ! it.value() )
+    for (QHash<QString, InterpreterInfo *>::Iterator it = d->interpreterinfos.begin(); it != d->interpreterinfos.end(); ++it) {
+        if (! it.value()) {
             continue;
-        foreach(const QString &wildcard, it.value()->wildcard().split(' ', QString::SkipEmptyParts)) {
-            rx.setPattern( wildcard );
-            if( rx.exactMatch(file) )
+        }
+        foreach (const QString &wildcard, it.value()->wildcard().split(' ', QString::SkipEmptyParts)) {
+            rx.setPattern(wildcard);
+            if (rx.exactMatch(file)) {
                 return it.value()->interpreterName();
+            }
         }
     }
     return QString();
 }
 
-Interpreter* Manager::interpreter(const QString& interpretername) const
+Interpreter *Manager::interpreter(const QString &interpretername) const
 {
-    if( ! hasInterpreterInfo(interpretername) ) {
-        krosswarning( QString("No such interpreter '%1'").arg(interpretername) );
+    if (! hasInterpreterInfo(interpretername)) {
+        krosswarning(QString("No such interpreter '%1'").arg(interpretername));
         return 0;
     }
     return d->interpreterinfos[interpretername]->interpreter();
@@ -258,20 +264,20 @@ QStringList Manager::interpreters() const
     return d->interpreters;
 }
 
-ActionCollection* Manager::actionCollection() const
+ActionCollection *Manager::actionCollection() const
 {
     return d->collection;
 }
 
-bool Manager::hasAction(const QString& name)
+bool Manager::hasAction(const QString &name)
 {
-    return findChild< Action* >(name) != 0L;
+    return findChild< Action * >(name) != 0L;
 }
 
-QObject* Manager::action(const QString& name)
+QObject *Manager::action(const QString &name)
 {
-    Action* action = findChild< Action* >(name);
-    if(! action) {
+    Action *action = findChild< Action * >(name);
+    if (! action) {
         action = new Action(this, name);
 #if 0
         d->actioncollection->insert(action); //FIXME should we really remember the action?
@@ -280,32 +286,32 @@ QObject* Manager::action(const QString& name)
     return action;
 }
 
-QObject* Manager::module(const QString& modulename)
+QObject *Manager::module(const QString &modulename)
 {
-    if( d->modules.contains(modulename) ) {
-        QObject* obj = d->modules[modulename];
-        if( obj )
+    if (d->modules.contains(modulename)) {
+        QObject *obj = d->modules[modulename];
+        if (obj) {
             return obj;
+        }
     }
 
-    if( modulename.isEmpty() || modulename.contains( QRegExp("[^a-zA-Z0-9]") ) ) {
-        krosswarning( QString("Invalid module name '%1'").arg(modulename) );
+    if (modulename.isEmpty() || modulename.contains(QRegExp("[^a-zA-Z0-9]"))) {
+        krosswarning(QString("Invalid module name '%1'").arg(modulename));
         return 0;
     }
 
     QByteArray libraryname = QString("krossmodule%1").arg(modulename).toLower().toLatin1();
 
-    if( void* funcPtr = loadLibrary(libraryname.constData(), "krossmodule") ) {
+    if (void *funcPtr = loadLibrary(libraryname.constData(), "krossmodule")) {
         def_module_func func = (def_module_func) funcPtr;
-        Q_ASSERT( func );
-        QObject* module = (QObject*) (func)(); // call the function
-        Q_ASSERT( module );
+        Q_ASSERT(func);
+        QObject *module = (QObject *)(func)(); // call the function
+        Q_ASSERT(module);
         //krossdebug( QString("Manager::module Module successfully loaded: modulename=%1 module.objectName=%2 module.className=%3").arg(modulename).arg(module->objectName()).arg(module->metaObject()->className()) );
         d->modules.insert(modulename, module);
         return module;
-    }
-    else {
-        krosswarning( QString("Failed to load module '%1'").arg(modulename) );
+    } else {
+        krosswarning(QString("Failed to load module '%1'").arg(modulename));
     }
     return 0;
 }
@@ -316,22 +322,22 @@ void Manager::deleteModules()
     d->modules.clear();
 }
 
-bool Manager::executeScriptFile(const QUrl& file)
+bool Manager::executeScriptFile(const QUrl &file)
 {
-    krossdebug( QString("Manager::executeScriptFile() file='%1'").arg(file.toString()) );
-    Action* action = new Action(0 /*no parent*/, file);
+    krossdebug(QString("Manager::executeScriptFile() file='%1'").arg(file.toString()));
+    Action *action = new Action(0 /*no parent*/, file);
     action->trigger();
     bool ok = ! action->hadError();
     delete action; //action->delayedDestruct();
     return ok;
 }
 
-void Manager::addQObject(QObject* obj, const QString &name)
+void Manager::addQObject(QObject *obj, const QString &name)
 {
     this->addObject(obj, name);
 }
 
-QObject* Manager::qobject(const QString &name) const
+QObject *Manager::qobject(const QString &name) const
 {
     return this->object(name);
 }
@@ -341,22 +347,22 @@ QStringList Manager::qobjectNames() const
     return this->objects().keys();
 }
 
-MetaTypeHandler* Manager::metaTypeHandler(const QByteArray& typeName) const
+MetaTypeHandler *Manager::metaTypeHandler(const QByteArray &typeName) const
 {
     return d->wrappers.contains(typeName) ? d->wrappers[typeName] : 0;
 }
 
-void Manager::registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler::FunctionPtr* handler)
+void Manager::registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler::FunctionPtr *handler)
 {
     d->wrappers.insert(typeName, new MetaTypeHandler(handler));
 }
 
-void Manager::registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler::FunctionPtr2* handler)
+void Manager::registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler::FunctionPtr2 *handler)
 {
     d->wrappers.insert(typeName, new MetaTypeHandler(handler));
 }
 
-void Manager::registerMetaTypeHandler(const QByteArray& typeName, MetaTypeHandler* handler)
+void Manager::registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler *handler)
 {
     d->wrappers.insert(typeName, handler);
 }
@@ -371,7 +377,7 @@ void Manager::setStrictTypesEnabled(bool enabled)
     d->strictTypesEnabled = enabled;
 }
 
-bool Manager::hasHandlerAssigned(const QByteArray& typeName) const
+bool Manager::hasHandlerAssigned(const QByteArray &typeName) const
 {
     return d->wrappers.contains(typeName);
 }

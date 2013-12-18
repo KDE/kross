@@ -27,46 +27,47 @@ class QString;
 
 class KLocalizedString;
 
-namespace Kross {
+namespace Kross
+{
 
-    /**
-     * The TranslationModule provides access to KDE translation and internationalization facilities.
-     *
-     * Example (in Python) :
-     * \code
-     * import Kross
-     * t = Kross.module("kdetranslation")
-     * print t.i18n("This string can be translated")
-     * print t.i18ncp("Plural example", "%1 file not deleted %2", "%1 files not deleted %2", 3, [t.i18n("yesterday")])
-     * \endcode
-     */
-    class TranslationModule: public QObject
-    {
-            Q_OBJECT
+/**
+ * The TranslationModule provides access to KDE translation and internationalization facilities.
+ *
+ * Example (in Python) :
+ * \code
+ * import Kross
+ * t = Kross.module("kdetranslation")
+ * print t.i18n("This string can be translated")
+ * print t.i18ncp("Plural example", "%1 file not deleted %2", "%1 files not deleted %2", 3, [t.i18n("yesterday")])
+ * \endcode
+ */
+class TranslationModule: public QObject
+{
+    Q_OBJECT
 
-        public:
-            explicit TranslationModule();
-            virtual ~TranslationModule();
+public:
+    explicit TranslationModule();
+    virtual ~TranslationModule();
 
-        public Q_SLOTS:
-            /// Creates localized string from a given @p text. Substitute @p arguments (may be empty)
-            QString i18n( const QString &text, const QVariantList &arguments = QVariantList() ) const;
-            /// Creates localized string from a given @p text, with added context. Substitute @p arguments (may be empty)
-            QString i18nc( const QString &context, const QString &text, const QVariantList &arguments = QVariantList() ) const;
-            /// Creates localized string from a given @p plural and @p singular form dependent on @p number. Substitute @p arguments (may be empty)
-            QString i18np( const QString &singular, const QString &plural, int number, const QVariantList &arguments = QVariantList() ) const;
-            /// Creates localized string from a given @p plural and @p singular form dependent on @p number, with added context. Substitute @p arguments (may be empty)
-            QString i18ncp( const QString &context, const QString &singular, const QString &plural, int number, const QVariantList &arguments = QVariantList() ) const;
+public Q_SLOTS:
+    /// Creates localized string from a given @p text. Substitute @p arguments (may be empty)
+    QString i18n(const QString &text, const QVariantList &arguments = QVariantList()) const;
+    /// Creates localized string from a given @p text, with added context. Substitute @p arguments (may be empty)
+    QString i18nc(const QString &context, const QString &text, const QVariantList &arguments = QVariantList()) const;
+    /// Creates localized string from a given @p plural and @p singular form dependent on @p number. Substitute @p arguments (may be empty)
+    QString i18np(const QString &singular, const QString &plural, int number, const QVariantList &arguments = QVariantList()) const;
+    /// Creates localized string from a given @p plural and @p singular form dependent on @p number, with added context. Substitute @p arguments (may be empty)
+    QString i18ncp(const QString &context, const QString &singular, const QString &plural, int number, const QVariantList &arguments = QVariantList()) const;
 
-        protected:
-            KLocalizedString substituteArguments( const KLocalizedString &kls, const QVariantList &arguments, int max = 99 ) const;
+protected:
+    KLocalizedString substituteArguments(const KLocalizedString &kls, const QVariantList &arguments, int max = 99) const;
 
-        private:
-            /// \internal d-pointer class.
-            class Private;
-            /// \internal d-pointer instance.
-            Private* const d;
-    };
+private:
+    /// \internal d-pointer class.
+    class Private;
+    /// \internal d-pointer instance.
+    Private *const d;
+};
 }
 
 #endif

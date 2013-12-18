@@ -55,56 +55,68 @@ using namespace Kross;
  * ActionCollectionEditor
  */
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class ActionCollectionEditor::Private
-    {
-        public:
-            enum Type { ActionType, CollectionType };
-            const Type type;
-            union {
-                Action* action;
-                ActionCollection* collection;
-            };
-
-            QString name() const {
-                return type == ActionType ? action->name() : collection->name();
-            }
-            QString text() const {
-                return type == ActionType ? action->text() : collection->text();
-            }
-            QString description() const {
-                return type == ActionType ? action->description() : collection->description();
-            }
-            QString iconName() const {
-                return type == ActionType ? action->iconName() : collection->iconName();
-            }
-            bool isEnabled() const {
-                return type == ActionType ? action->isEnabled() : collection->isEnabled();
-            }
-
-            QLineEdit* nameedit;
-            QLineEdit* textedit;
-            QLineEdit* commentedit;
-            QLineEdit* iconedit;
-            KComboBox* interpreteredit;
-            KUrlRequester* fileedit;
-            //QCheckBox* enabledcheckbox;
-
-            explicit Private(Action* a) : type(ActionType), action(a) { Q_ASSERT(a); }
-            explicit Private(ActionCollection* c) : type(CollectionType), collection(c) { Q_ASSERT(c); }
+/// \internal d-pointer class.
+class ActionCollectionEditor::Private
+{
+public:
+    enum Type { ActionType, CollectionType };
+    const Type type;
+    union {
+        Action *action;
+        ActionCollection *collection;
     };
+
+    QString name() const
+    {
+        return type == ActionType ? action->name() : collection->name();
+    }
+    QString text() const
+    {
+        return type == ActionType ? action->text() : collection->text();
+    }
+    QString description() const
+    {
+        return type == ActionType ? action->description() : collection->description();
+    }
+    QString iconName() const
+    {
+        return type == ActionType ? action->iconName() : collection->iconName();
+    }
+    bool isEnabled() const
+    {
+        return type == ActionType ? action->isEnabled() : collection->isEnabled();
+    }
+
+    QLineEdit *nameedit;
+    QLineEdit *textedit;
+    QLineEdit *commentedit;
+    QLineEdit *iconedit;
+    KComboBox *interpreteredit;
+    KUrlRequester *fileedit;
+    //QCheckBox* enabledcheckbox;
+
+    explicit Private(Action *a) : type(ActionType), action(a)
+    {
+        Q_ASSERT(a);
+    }
+    explicit Private(ActionCollection *c) : type(CollectionType), collection(c)
+    {
+        Q_ASSERT(c);
+    }
+};
 
 }
 
-ActionCollectionEditor::ActionCollectionEditor(Action* action, QWidget* parent)
+ActionCollectionEditor::ActionCollectionEditor(Action *action, QWidget *parent)
     : QWidget(parent), d(new Private(action))
 {
     initGui();
 }
 
-ActionCollectionEditor::ActionCollectionEditor(ActionCollection* collection, QWidget* parent)
+ActionCollectionEditor::ActionCollectionEditor(ActionCollection *collection, QWidget *parent)
     : QWidget(parent), d(new Private(collection))
 {
     initGui();
@@ -115,69 +127,87 @@ ActionCollectionEditor::~ActionCollectionEditor()
     delete d;
 }
 
-Action* ActionCollectionEditor::action() const
+Action *ActionCollectionEditor::action() const
 {
     return d->type == Private::ActionType ? d->action : 0;
 }
 
-ActionCollection* ActionCollectionEditor::collection() const
+ActionCollection *ActionCollectionEditor::collection() const
 {
     return d->type == Private::CollectionType ? d->collection : 0;
 }
 
-QLineEdit* ActionCollectionEditor::nameEdit() const { return d->nameedit; }
-QLineEdit* ActionCollectionEditor::textEdit() const { return d->textedit; }
-QLineEdit* ActionCollectionEditor::commentEdit() const { return d->commentedit; }
-QLineEdit* ActionCollectionEditor::iconEdit() const { return d->iconedit; }
-QComboBox* ActionCollectionEditor::interpreterEdit() const { return d->interpreteredit; }
-KUrlRequester* ActionCollectionEditor::fileEdit() const { return d->fileedit; }
+QLineEdit *ActionCollectionEditor::nameEdit() const
+{
+    return d->nameedit;
+}
+QLineEdit *ActionCollectionEditor::textEdit() const
+{
+    return d->textedit;
+}
+QLineEdit *ActionCollectionEditor::commentEdit() const
+{
+    return d->commentedit;
+}
+QLineEdit *ActionCollectionEditor::iconEdit() const
+{
+    return d->iconedit;
+}
+QComboBox *ActionCollectionEditor::interpreterEdit() const
+{
+    return d->interpreteredit;
+}
+KUrlRequester *ActionCollectionEditor::fileEdit() const
+{
+    return d->fileedit;
+}
 
 void ActionCollectionEditor::initGui()
 {
-    QVBoxLayout* mainlayout = new QVBoxLayout();
+    QVBoxLayout *mainlayout = new QVBoxLayout();
     setLayout(mainlayout);
 
-    QWidget* w = new QWidget(this);
+    QWidget *w = new QWidget(this);
     mainlayout->addWidget(w);
-    QGridLayout* gridlayout = new QGridLayout();
+    QGridLayout *gridlayout = new QGridLayout();
     gridlayout->setMargin(0);
     //gridlayout->setSpacing(0);
     w->setLayout(gridlayout);
 
-    QLabel* namelabel = new QLabel(i18n("Name:"), w);
+    QLabel *namelabel = new QLabel(i18n("Name:"), w);
     gridlayout->addWidget(namelabel, 0, 0);
     d->nameedit = new QLineEdit(w);
     namelabel->setBuddy(d->nameedit);
-    d->nameedit->setText( d->name() );
+    d->nameedit->setText(d->name());
     d->nameedit->setEnabled(false);
     gridlayout->addWidget(d->nameedit, 0, 1);
 
-    QLabel* textlabel = new QLabel(i18n("Text:"), w);
+    QLabel *textlabel = new QLabel(i18n("Text:"), w);
     gridlayout->addWidget(textlabel, 1, 0);
     d->textedit = new QLineEdit(w);
     textlabel->setBuddy(d->textedit);
-    d->textedit->setText( d->text() );
+    d->textedit->setText(d->text());
     gridlayout->addWidget(d->textedit, 1, 1);
 
-    QLabel* commentlabel = new QLabel(i18n("Comment:"), w);
+    QLabel *commentlabel = new QLabel(i18n("Comment:"), w);
     gridlayout->addWidget(commentlabel, 2, 0);
     d->commentedit = new QLineEdit(w);
     commentlabel->setBuddy(d->commentedit);
-    d->commentedit->setText( d->description() );
+    d->commentedit->setText(d->description());
     gridlayout->addWidget(d->commentedit, 2, 1);
 
-    QLabel* iconlabel = new QLabel(i18n("Icon:"), w);
+    QLabel *iconlabel = new QLabel(i18n("Icon:"), w);
     gridlayout->addWidget(iconlabel, 3, 0);
-    QWidget* iconbox = new QWidget(w);
-    QHBoxLayout* iconlayout = new QHBoxLayout();
+    QWidget *iconbox = new QWidget(w);
+    QHBoxLayout *iconlayout = new QHBoxLayout();
     iconlayout->setMargin(0);
     iconbox->setLayout(iconlayout);
     d->iconedit = new QLineEdit(iconbox);
     iconlabel->setBuddy(d->iconedit);
-    d->iconedit->setText( d->iconName() );
+    d->iconedit->setText(d->iconName());
     iconlayout->addWidget(d->iconedit, 1);
-    KIconButton* iconbutton = new KIconButton(iconbox);
-    iconbutton->setIcon( d->iconName() );
+    KIconButton *iconbutton = new KIconButton(iconbox);
+    iconbutton->setIcon(d->iconName());
     connect(iconbutton, SIGNAL(iconChanged(QString)), d->iconedit, SLOT(setText(QString)));
     iconlayout->addWidget(iconbutton);
     gridlayout->addWidget(iconbox, 3, 1);
@@ -186,8 +216,8 @@ void ActionCollectionEditor::initGui()
     //hr1->setFrameStyle(QFrame::HLine | QFrame::Sunken);
     //gridlayout->addWidget(hr1, 4, 0, -1, -1, Qt::AlignVCenter);
 
-    if( d->type == Private::ActionType ) {
-        QLabel* interpreterlabel = new QLabel(i18n("Interpreter:"), w);
+    if (d->type == Private::ActionType) {
+        QLabel *interpreterlabel = new QLabel(i18n("Interpreter:"), w);
         gridlayout->addWidget(interpreterlabel, 4, 0);
         d->interpreteredit = new KComboBox(w);
         interpreterlabel->setBuddy(d->interpreteredit);
@@ -195,32 +225,32 @@ void ActionCollectionEditor::initGui()
         d->interpreteredit->insertItems(0, Manager::self().interpreters());
         d->interpreteredit->setEditable(true);
         //c->lineEdit()->setText( d->action->interpreter() );
-        int idx = Manager::self().interpreters().indexOf( d->action->interpreter() );
-        if( idx >= 0 )
+        int idx = Manager::self().interpreters().indexOf(d->action->interpreter());
+        if (idx >= 0) {
             d->interpreteredit->setCurrentIndex(idx);
-        else
-            d->interpreteredit->setEditText( d->action->interpreter() );
+        } else {
+            d->interpreteredit->setEditText(d->action->interpreter());
+        }
         gridlayout->addWidget(d->interpreteredit, 4, 1);
 
-        QLabel* filelabel = new QLabel(i18n("File:"), w);
+        QLabel *filelabel = new QLabel(i18n("File:"), w);
         gridlayout->addWidget(filelabel, 5, 0);
         d->fileedit = new KUrlRequester(w);
         filelabel->setBuddy(d->fileedit);
         QStringList mimetypes;
-        foreach(const QString &interpretername, Manager::self().interpreters()) {
-            InterpreterInfo* info = Manager::self().interpreterInfo(interpretername);
-            Q_ASSERT( info );
-            mimetypes.append( info->mimeTypes().join(" ").trimmed() );
+        foreach (const QString &interpretername, Manager::self().interpreters()) {
+            InterpreterInfo *info = Manager::self().interpreterInfo(interpretername);
+            Q_ASSERT(info);
+            mimetypes.append(info->mimeTypes().join(" ").trimmed());
         }
         //InterpreterInfo* info = Manager::self().interpreterInfo( Manager::self().interpreternameForFile( d->action->file() ) );
         //const QString defaultmime = info ? info->mimeTypes().join(" ").trimmed() : QString();
 
         d->fileedit->fileDialog()->setMimeTypeFilters(mimetypes);
-        d->fileedit->setMode( KFile::File | KFile::ExistingOnly | KFile::LocalOnly );
-        d->fileedit->setUrl(QUrl::fromLocalFile(d->action->file()) );
+        d->fileedit->setMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly);
+        d->fileedit->setUrl(QUrl::fromLocalFile(d->action->file()));
         gridlayout->addWidget(d->fileedit, 5, 1);
-    }
-    else {
+    } else {
         d->interpreteredit = 0;
         d->fileedit = 0;
     }
@@ -241,22 +271,22 @@ bool ActionCollectionEditor::isValid()
 
 void ActionCollectionEditor::commit()
 {
-    switch( d->type ) {
-        case Private::ActionType: {
-            d->action->setText( d->textedit->text() );
-            d->action->setDescription( d->commentedit->text() );
-            d->action->setIconName( d->iconedit->text() );
-            d->action->setInterpreter( d->interpreteredit->currentText() );
-            d->action->setFile( d->fileedit->url().path() );
-            //d->action->setEnabled( d->enabledcheckbox->isChecked() );
-        } break;
-        case Private::CollectionType: {
-            d->collection->setText( d->textedit->text() );
-            d->collection->setDescription( d->commentedit->text() );
-            d->collection->setIconName( d->iconedit->text() );
-            //d->collection->setEnabled( d->enabledcheckbox->isChecked() );
-        } break;
-        default: break;
+    switch (d->type) {
+    case Private::ActionType: {
+        d->action->setText(d->textedit->text());
+        d->action->setDescription(d->commentedit->text());
+        d->action->setIconName(d->iconedit->text());
+        d->action->setInterpreter(d->interpreteredit->currentText());
+        d->action->setFile(d->fileedit->url().path());
+        //d->action->setEnabled( d->enabledcheckbox->isChecked() );
+    } break;
+    case Private::CollectionType: {
+        d->collection->setText(d->textedit->text());
+        d->collection->setDescription(d->commentedit->text());
+        d->collection->setIconName(d->iconedit->text());
+        //d->collection->setEnabled( d->enabledcheckbox->isChecked() );
+    } break;
+    default: break;
     }
 }
 
@@ -264,21 +294,22 @@ void ActionCollectionEditor::commit()
  * ActionCollectionView
  */
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class ActionCollectionView::Private
-    {
-        public:
-            bool modified;
-            KActionCollection* collection;
-            QMap< QString, QPushButton* > buttons;
-            explicit Private() : modified(false) {}
-    };
+/// \internal d-pointer class.
+class ActionCollectionView::Private
+{
+public:
+    bool modified;
+    KActionCollection *collection;
+    QMap< QString, QPushButton * > buttons;
+    explicit Private() : modified(false) {}
+};
 
 }
 
-ActionCollectionView::ActionCollectionView(QWidget* parent)
+ActionCollectionView::ActionCollectionView(QWidget *parent)
     : QTreeView(parent)
     , d(new Private())
 {
@@ -295,40 +326,40 @@ ActionCollectionView::ActionCollectionView(QWidget* parent)
 
     d->collection = new KActionCollection(this);
 
-    QAction* runaction = new QAction(QIcon::fromTheme("system-run"), i18n("Run"), this);
+    QAction *runaction = new QAction(QIcon::fromTheme("system-run"), i18n("Run"), this);
     runaction->setObjectName("run");
-    runaction->setToolTip( i18n("Execute the selected script.") );
+    runaction->setToolTip(i18n("Execute the selected script."));
     runaction->setEnabled(false);
     d->collection->addAction("run", runaction);
     connect(runaction, SIGNAL(triggered()), this, SLOT(slotRun()));
 
-    QAction* stopaction = new QAction(QIcon::fromTheme("process-stop"), i18n("Stop"), this);
+    QAction *stopaction = new QAction(QIcon::fromTheme("process-stop"), i18n("Stop"), this);
     stopaction->setObjectName("stop");
-    stopaction->setToolTip( i18n("Stop execution of the selected script.") );
+    stopaction->setToolTip(i18n("Stop execution of the selected script."));
     stopaction->setEnabled(false);
     d->collection->addAction("stop", stopaction);
     connect(stopaction, SIGNAL(triggered()), this, SLOT(slotStop()));
 
-    QAction* editaction = new QAction(QIcon::fromTheme("document-properties"), i18n("Edit..."), this);
+    QAction *editaction = new QAction(QIcon::fromTheme("document-properties"), i18n("Edit..."), this);
     editaction->setObjectName("edit");
-    editaction->setToolTip( i18n("Edit selected script.") );
+    editaction->setToolTip(i18n("Edit selected script."));
     editaction->setEnabled(false);
     d->collection->addAction("edit", editaction);
     connect(editaction, SIGNAL(triggered()), this, SLOT(slotEdit()));
 
-    QAction* addaction = new QAction(QIcon::fromTheme("list-add"), i18n("Add..."), this);
+    QAction *addaction = new QAction(QIcon::fromTheme("list-add"), i18n("Add..."), this);
     addaction->setObjectName("add");
-    addaction->setToolTip( i18n("Add a new script.") );
+    addaction->setToolTip(i18n("Add a new script."));
     //addaction->setEnabled(false);
     d->collection->addAction("add", addaction);
-    connect(addaction, SIGNAL(triggered()), this, SLOT(slotAdd()) );
+    connect(addaction, SIGNAL(triggered()), this, SLOT(slotAdd()));
 
-    QAction* removeaction = new QAction(QIcon::fromTheme("list-remove"), i18n("Remove"), this);
+    QAction *removeaction = new QAction(QIcon::fromTheme("list-remove"), i18n("Remove"), this);
     removeaction->setObjectName("remove");
-    removeaction->setToolTip( i18n("Remove selected script.") );
+    removeaction->setToolTip(i18n("Remove selected script."));
     removeaction->setEnabled(false);
     d->collection->addAction("remove", removeaction);
-    connect(removeaction, SIGNAL(triggered()), this, SLOT(slotRemove()) );
+    connect(removeaction, SIGNAL(triggered()), this, SLOT(slotRemove()));
 
     connect(this, SIGNAL(enabledChanged(QString)), this, SLOT(slotEnabledChanged(QString)));
     //expandAll();
@@ -339,12 +370,12 @@ ActionCollectionView::~ActionCollectionView()
     delete d;
 }
 
-void ActionCollectionView::setModel(QAbstractItemModel* m)
+void ActionCollectionView::setModel(QAbstractItemModel *m)
 {
     QTreeView::setModel(m);
     d->modified = false;
 
-    QItemSelectionModel* selectionmodel = new QItemSelectionModel(m, this);
+    QItemSelectionModel *selectionmodel = new QItemSelectionModel(m, this);
     setSelectionModel(selectionmodel);
 
     connect(selectionModel(), SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
@@ -363,45 +394,48 @@ void ActionCollectionView::setModified(bool modified)
     d->modified = modified;
 }
 
-KActionCollection* ActionCollectionView::actionCollection() const
+KActionCollection *ActionCollectionView::actionCollection() const
 {
     return d->collection;
 }
 
-QPushButton* ActionCollectionView::button(const QString& actionname) const
+QPushButton *ActionCollectionView::button(const QString &actionname) const
 {
     return d->buttons.contains(actionname) ? d->buttons[actionname] : 0;
 }
 
 QItemSelection ActionCollectionView::itemSelection() const
 {
-    QAbstractProxyModel* proxymodel = dynamic_cast< QAbstractProxyModel* >( model() );
+    QAbstractProxyModel *proxymodel = dynamic_cast< QAbstractProxyModel * >(model());
     QItemSelection selection = selectionModel()->selection();
     return proxymodel ? proxymodel->mapSelectionToSource(selection) : selection;
 }
 
-QPushButton* ActionCollectionView::createButton(QWidget* parentWidget, const QString& actionname)
+QPushButton *ActionCollectionView::createButton(QWidget *parentWidget, const QString &actionname)
 {
-    QAction* action = d->collection->action(actionname);
-    if( ! action ) return 0;
+    QAction *action = d->collection->action(actionname);
+    if (! action) {
+        return 0;
+    }
     //if( d->buttons.contains(actionname) ) delete d->buttons[];
-    QPushButton* btn = new QPushButton(parentWidget);
-    btn->setText( action->text() );
-    btn->setToolTip( action->toolTip() );
+    QPushButton *btn = new QPushButton(parentWidget);
+    btn->setText(action->text());
+    btn->setToolTip(action->toolTip());
     btn->setIcon(action->icon());
-    btn->setEnabled( action->isEnabled() );
-    if( parentWidget && parentWidget->layout() )
+    btn->setEnabled(action->isEnabled());
+    if (parentWidget && parentWidget->layout()) {
         parentWidget->layout()->addWidget(btn);
+    }
     QObject::connect(btn, SIGNAL(clicked()), action, SLOT(trigger()));
-    d->buttons.insert( actionname, btn );
+    d->buttons.insert(actionname, btn);
     return btn;
 }
 
-void ActionCollectionView::slotEnabledChanged(const QString& actionname)
+void ActionCollectionView::slotEnabledChanged(const QString &actionname)
 {
-    if( d->buttons.contains( actionname ) ) {
-        QAction* action = d->collection->action( actionname );
-        d->buttons[ actionname ]->setEnabled( action ? action->isEnabled() : false );
+    if (d->buttons.contains(actionname)) {
+        QAction *action = d->collection->action(actionname);
+        d->buttons[ actionname ]->setEnabled(action ? action->isEnabled() : false);
     }
 }
 
@@ -410,55 +444,61 @@ void ActionCollectionView::slotSelectionChanged()
     bool startenabled = selectionModel()->hasSelection();
     bool stopenabled = false;
     bool hasselection = selectionModel()->selectedIndexes().count() > 0;
-    foreach(const QModelIndex &index, itemSelection().indexes()) {
-        Action* action = ActionCollectionModel::action(index);
-        if( startenabled && ! action )
+    foreach (const QModelIndex &index, itemSelection().indexes()) {
+        Action *action = ActionCollectionModel::action(index);
+        if (startenabled && ! action) {
             startenabled = false;
-        if( ! stopenabled )
+        }
+        if (! stopenabled) {
             stopenabled = (action && ! action->isFinalized());
+        }
     }
-    QAction* runaction = d->collection->action("run");
-    if( runaction ) {
+    QAction *runaction = d->collection->action("run");
+    if (runaction) {
         runaction->setEnabled(startenabled);
         emit enabledChanged("run");
     }
-    QAction* stopaction = d->collection->action("stop");
-    if( stopaction ) {
+    QAction *stopaction = d->collection->action("stop");
+    if (stopaction) {
         stopaction->setEnabled(stopenabled);
         emit enabledChanged("stop");
     }
-    QAction* editaction = d->collection->action("edit");
-    if( editaction ) {
+    QAction *editaction = d->collection->action("edit");
+    if (editaction) {
         editaction->setEnabled(hasselection);
         emit enabledChanged("edit");
     }
-    QAction* removeaction = d->collection->action("remove");
-    if( removeaction ) {
+    QAction *removeaction = d->collection->action("remove");
+    if (removeaction) {
         removeaction->setEnabled(hasselection);
         emit enabledChanged("remove");
     }
 }
 
-void ActionCollectionView::slotDataChanged(const QModelIndex&, const QModelIndex&)
+void ActionCollectionView::slotDataChanged(const QModelIndex &, const QModelIndex &)
 {
     d->modified = true;
 }
 
 void ActionCollectionView::slotRun()
 {
-    if( ! selectionModel() ) return;
-    QAction* stopaction = d->collection->action("stop");
+    if (! selectionModel()) {
+        return;
+    }
+    QAction *stopaction = d->collection->action("stop");
 
-    foreach(const QModelIndex &index, itemSelection().indexes()) {
-        if( ! index.isValid() )
+    foreach (const QModelIndex &index, itemSelection().indexes()) {
+        if (! index.isValid()) {
             continue;
-        if( stopaction ) {
+        }
+        if (stopaction) {
             stopaction->setEnabled(true);
             emit enabledChanged("stop");
         }
-        Action* action = ActionCollectionModel::action(index);
-        if( ! action )
+        Action *action = ActionCollectionModel::action(index);
+        if (! action) {
             continue;
+        }
         connect(action, SIGNAL(finished(Kross::Action*)), SLOT(slotSelectionChanged()));
         action->trigger();
     }
@@ -467,13 +507,17 @@ void ActionCollectionView::slotRun()
 
 void ActionCollectionView::slotStop()
 {
-    if( ! selectionModel() ) return;
-    foreach(const QModelIndex &index, itemSelection().indexes()) {
-        if( ! index.isValid() )
+    if (! selectionModel()) {
+        return;
+    }
+    foreach (const QModelIndex &index, itemSelection().indexes()) {
+        if (! index.isValid()) {
             continue;
-        Action* action = ActionCollectionModel::action(index);
-        if( ! action )
+        }
+        Action *action = ActionCollectionModel::action(index);
+        if (! action) {
             continue;
+        }
         //connect(action, SIGNAL(started(Kross::Action*)), SLOT(slotSelectionChanged()));
         //connect(action, SIGNAL(finished(Kross::Action*)), SLOT(slotSelectionChanged()));
         action->finalize();
@@ -483,31 +527,38 @@ void ActionCollectionView::slotStop()
 
 void ActionCollectionView::slotEdit()
 {
-    if( ! selectionModel() ) return;
-    Action* action = 0;
-    ActionCollection* collection = 0;
-    foreach(const QModelIndex &index, itemSelection().indexes()) {
-        if( ! index.isValid() ) continue;
-        if( Action* a = ActionCollectionModel::action(index) )
-            action = a;
-        else if( ActionCollection* c = ActionCollectionModel::collection(index) )
-            collection = c;
-        else
+    if (! selectionModel()) {
+        return;
+    }
+    Action *action = 0;
+    ActionCollection *collection = 0;
+    foreach (const QModelIndex &index, itemSelection().indexes()) {
+        if (! index.isValid()) {
             continue;
+        }
+        if (Action *a = ActionCollectionModel::action(index)) {
+            action = a;
+        } else if (ActionCollection *c = ActionCollectionModel::collection(index)) {
+            collection = c;
+        } else {
+            continue;
+        }
         break;
     }
-    if( (! action) && (! collection) ) return;
-    KPageDialog* dialog = new KPageDialog( this );
-    dialog->setWindowTitle( i18n("Edit") );
-    dialog->setFaceType( KPageDialog::Plain ); //Auto Plain List Tree Tabbed
-    ActionCollectionEditor* editor =
+    if ((! action) && (! collection)) {
+        return;
+    }
+    KPageDialog *dialog = new KPageDialog(this);
+    dialog->setWindowTitle(i18n("Edit"));
+    dialog->setFaceType(KPageDialog::Plain);   //Auto Plain List Tree Tabbed
+    ActionCollectionEditor *editor =
         action ? new ActionCollectionEditor(action, dialog)
-               : new ActionCollectionEditor(collection, dialog);
+        : new ActionCollectionEditor(collection, dialog);
     dialog->addPage(editor, i18nc("@title:group Script properties", "General"));
     //dialog->addPage(new QWidget(this), i18n("Security"));
-    dialog->resize( QSize(580, 200).expandedTo( dialog->minimumSizeHint() ) );
+    dialog->resize(QSize(580, 200).expandedTo(dialog->minimumSizeHint()));
     int result = dialog->exec();
-    if( result == QDialog::Accepted /*&& dialog->result() == KDialog::Ok*/ ) {
+    if (result == QDialog::Accepted /*&& dialog->result() == KDialog::Ok*/) {
         editor->commit();
     }
     dialog->deleteLater();
@@ -517,26 +568,31 @@ void ActionCollectionView::slotAdd()
 {
 
 //TODO
-KMessageBox::sorry(0, "TODO");
+    KMessageBox::sorry(0, "TODO");
 
 //ScriptManagerAddWizard wizard(this, collection);
 //int result = wizard.exec();
 
 #if 0
-    if( ! selectionModel() ) return;
-    ActionCollection* collection = 0;
-    foreach(QModelIndex index, itemSelection().indexes()) {
-        if( ! index.isValid() ) continue;
-        if( ActionCollectionModel::action(index) ) {
+    if (! selectionModel()) {
+        return;
+    }
+    ActionCollection *collection = 0;
+    foreach (QModelIndex index, itemSelection().indexes()) {
+        if (! index.isValid()) {
+            continue;
+        }
+        if (ActionCollectionModel::action(index)) {
             //TODO propably add the item right after the current selected one?
             QModelIndex parent = index;
-            while( parent.isValid() && ! collection ) {
+            while (parent.isValid() && ! collection) {
                 parent = d->view->model()->parent(parent);
                 collection = ActionCollectionModel::collection(parent);
             }
-            if( collection ) break; // job done
-        }
-        else if( ActionCollection* c = ActionCollectionModel::collection(index) ) {
+            if (collection) {
+                break;    // job done
+            }
+        } else if (ActionCollection *c = ActionCollectionModel::collection(index)) {
             collection = c;
             break; // job done
         }
@@ -549,7 +605,9 @@ KMessageBox::sorry(0, "TODO");
 
 void ActionCollectionView::slotRemove()
 {
-    if( ! selectionModel() ) return;
+    if (! selectionModel()) {
+        return;
+    }
     KMessageBox::sorry(0, "TODO");
 }
 

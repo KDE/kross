@@ -62,7 +62,7 @@
 
 extern "C"
 {
-    Q_DECL_EXPORT QObject* krossmodule()
+    Q_DECL_EXPORT QObject *krossmodule()
     {
         return new Kross::FormModule();
     }
@@ -74,15 +74,34 @@ using namespace Kross;
  * FormList
  */
 
-FormListView::FormListView(QWidget* parent) : QListWidget(parent) {}
+FormListView::FormListView(QWidget *parent) : QListWidget(parent) {}
 FormListView::~FormListView() {}
-void FormListView::clear() { QListWidget::clear(); }
-void FormListView::remove(int index) { delete QListWidget::item(index); }
-void FormListView::addItem(const QString& text) { QListWidget::addItem(text); }
-int FormListView::count() { return QListWidget::count(); }
-int FormListView::current() { return QListWidget::currentRow(); }
-void FormListView::setCurrent(int row) { QListWidget::setCurrentRow(row); }
-QString FormListView::text(int row) {
+void FormListView::clear()
+{
+    QListWidget::clear();
+}
+void FormListView::remove(int index)
+{
+    delete QListWidget::item(index);
+}
+void FormListView::addItem(const QString &text)
+{
+    QListWidget::addItem(text);
+}
+int FormListView::count()
+{
+    return QListWidget::count();
+}
+int FormListView::current()
+{
+    return QListWidget::currentRow();
+}
+void FormListView::setCurrent(int row)
+{
+    QListWidget::setCurrentRow(row);
+}
+QString FormListView::text(int row)
+{
     QListWidgetItem *item = QListWidget::item(row);
     return item ? item->text() : QString();
 }
@@ -91,28 +110,29 @@ QString FormListView::text(int row) {
  * FormFileWidget
  */
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class FormFileWidget::Private
-    {
-        public:
-            KFileWidget* filewidget;
-            QString filename;
-    };
+/// \internal d-pointer class.
+class FormFileWidget::Private
+{
+public:
+    KFileWidget *filewidget;
+    QString filename;
+};
 
 }
 
-FormFileWidget::FormFileWidget(QWidget* parent, const QString& startDirOrVariable)
+FormFileWidget::FormFileWidget(QWidget *parent, const QString &startDirOrVariable)
     : QWidget(parent), d(new Private())
 {
-    QVBoxLayout* layout = new QVBoxLayout(this);
+    QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);
     layout->setMargin(0);
     setLayout(layout);
 
     d->filewidget = new KFileWidget(QUrl(startDirOrVariable), this);
-    layout->addWidget( d->filewidget );
+    layout->addWidget(d->filewidget);
     //QMetaObject::invokeMethod(d->filewidget, "toggleSpeedbar", Q_ARG(bool,false));
     //KFileDialog::setMode( KFile::File | KFile::LocalOnly );
 
@@ -128,9 +148,10 @@ FormFileWidget::FormFileWidget(QWidget* parent, const QString& startDirOrVariabl
 //     else if( ! d->filter.isEmpty() )
 //         d->impl->setFilter(d->filter);
 
-    if( parent && parent->layout() )
+    if (parent && parent->layout()) {
         parent->layout()->addWidget(this);
-    setMinimumSize( QSize(480,360) );
+    }
+    setMinimumSize(QSize(480, 360));
 }
 
 FormFileWidget::~FormFileWidget()
@@ -138,9 +159,9 @@ FormFileWidget::~FormFileWidget()
     delete d;
 }
 
-void FormFileWidget::setMode(const QString& mode)
+void FormFileWidget::setMode(const QString &mode)
 {
-    QMetaEnum e = metaObject()->enumerator( metaObject()->indexOfEnumerator("Mode") );
+    QMetaEnum e = metaObject()->enumerator(metaObject()->indexOfEnumerator("Mode"));
     KFileWidget::OperationMode m = (KFileWidget::OperationMode) e.keysToValue(mode.toLatin1().constData());
     d->filewidget->setOperationMode(m);
 }
@@ -162,38 +183,38 @@ QString FormFileWidget::currentMimeFilter() const
     return d->filewidget->currentMimeFilter();
 }
 
-void FormFileWidget::setMimeFilter(const QStringList& filter)
+void FormFileWidget::setMimeFilter(const QStringList &filter)
 {
     d->filewidget->setMimeFilter(filter);
 }
 
-void FormFileWidget::slotFileSelected(const QUrl & fn)
+void FormFileWidget::slotFileSelected(const QUrl &fn)
 {
     //qDebug()<<fn;
     d->filename = fn.toString();
     emit fileSelected(fn.toString());
 }
 
-void FormFileWidget::slotFileHighlighted(const QUrl& fn)
+void FormFileWidget::slotFileHighlighted(const QUrl &fn)
 {
     emit fileHighlighted(fn.toString());
 }
 
 QString FormFileWidget::selectedFile() const
 {
-    if ( d->filewidget->operationMode() != KFileWidget::Saving ) {
-      d->filewidget->accept();
+    if (d->filewidget->operationMode() != KFileWidget::Saving) {
+        d->filewidget->accept();
     } else {
-      //qDebug()<<d->filename<<d->filewidget->operationMode();
-      if ( d->filename.isEmpty() ) {
-        // make KFileWidget create an url for us (including extension if necessary)
-        QObject::connect(d->filewidget, SIGNAL(accepted()), d->filewidget, SLOT(accept()));
-        d->filewidget->slotOk();
-        QObject::disconnect(d->filewidget, SIGNAL(accepted()), d->filewidget, SLOT(accept()));
-      }
+        //qDebug()<<d->filename<<d->filewidget->operationMode();
+        if (d->filename.isEmpty()) {
+            // make KFileWidget create an url for us (including extension if necessary)
+            QObject::connect(d->filewidget, SIGNAL(accepted()), d->filewidget, SLOT(accept()));
+            d->filewidget->slotOk();
+            QObject::disconnect(d->filewidget, SIGNAL(accepted()), d->filewidget, SLOT(accept()));
+        }
     }
     //qDebug()<<d->filename;
-    QUrl url = QUrl::fromLocalFile( d->filename );
+    QUrl url = QUrl::fromLocalFile(d->filename);
     return url.path(); // strip file:// at least python chokes on it
 }
 
@@ -201,25 +222,27 @@ QString FormFileWidget::selectedFile() const
  * FormProgressDialog
  */
 
-namespace Kross {
-    /// \internal d-pointer class.
-    class FormProgressDialog::Private
+namespace Kross
+{
+/// \internal d-pointer class.
+class FormProgressDialog::Private
+{
+public:
+    QTextBrowser *browser;
+    QProgressBar *bar;
+    bool gotCanceled;
+    QTime time;
+    void update()
     {
-        public:
-            QTextBrowser* browser;
-            QProgressBar* bar;
-            bool gotCanceled;
-            QTime time;
-            void update() {
-                if( time.elapsed() >= 1000 ) {
-                    time.restart();
-                    qApp->processEvents();
-                }
-            }
-    };
+        if (time.elapsed() >= 1000) {
+            time.restart();
+            qApp->processEvents();
+        }
+    }
+};
 }
 
-FormProgressDialog::FormProgressDialog(const QString& caption, const QString& labelText) : KPageDialog(), d(new Private)
+FormProgressDialog::FormProgressDialog(const QString &caption, const QString &labelText) : KPageDialog(), d(new Private)
 {
     d->gotCanceled = false;
     d->time.start();
@@ -232,12 +255,12 @@ FormProgressDialog::FormProgressDialog(const QString& caption, const QString& la
     setMinimumWidth(540);
     setMinimumHeight(400);
 
-    QWidget* widget = new QWidget( this );
-    KPageWidgetItem* item = KPageDialog::addPage(widget, QString());
+    QWidget *widget = new QWidget(this);
+    KPageWidgetItem *item = KPageDialog::addPage(widget, QString());
     item->setHeader(labelText);
     //item->setIcon( QIcon::fromTheme(iconname) );
     widget = item->widget();
-    QVBoxLayout* layout = new QVBoxLayout(widget);
+    QVBoxLayout *layout = new QVBoxLayout(widget);
     layout->setMargin(0);
     widget->setLayout(layout);
 
@@ -250,7 +273,7 @@ FormProgressDialog::FormProgressDialog(const QString& caption, const QString& la
     d->bar->setVisible(false);
     layout->addWidget(d->bar);
 
-    setSizePolicy( QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding) );
+    setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
     show();
     qApp->processEvents();
 }
@@ -262,16 +285,17 @@ FormProgressDialog::~FormProgressDialog()
 
 void FormProgressDialog::setValue(int progress)
 {
-    if( progress < 0 ) {
-        if( d->bar->isVisible() ) {
+    if (progress < 0) {
+        if (d->bar->isVisible()) {
             d->bar->setVisible(false);
             d->bar->setValue(0);
             qApp->processEvents();
         }
         return;
     }
-    if( ! d->bar->isVisible() )
+    if (! d->bar->isVisible()) {
         d->bar->setVisible(true);
+    }
     d->bar->setValue(progress);
     d->update();
 }
@@ -281,15 +305,15 @@ void FormProgressDialog::setRange(int minimum, int maximum)
     d->bar->setRange(minimum, maximum);
 }
 
-void FormProgressDialog::setText(const QString& text)
+void FormProgressDialog::setText(const QString &text)
 {
     d->browser->setHtml(text);
     d->update();
 }
 
-void FormProgressDialog::addText(const QString& text)
+void FormProgressDialog::addText(const QString &text)
 {
-    QTextCursor cursor( d->browser->document()->end() );
+    QTextCursor cursor(d->browser->document()->end());
     cursor.movePosition(QTextCursor::End);
     cursor.insertBlock();
     cursor.insertHtml(text);
@@ -300,8 +324,8 @@ void FormProgressDialog::addText(const QString& text)
 
 void FormProgressDialog::done(int r)
 {
-    if( r == Rejected && ! d->gotCanceled ) {
-        if( KMessageBox::messageBox(this, KMessageBox::WarningContinueCancel, i18n("Cancel?")) == KMessageBox::Continue ) {
+    if (r == Rejected && ! d->gotCanceled) {
+        if (KMessageBox::messageBox(this, KMessageBox::WarningContinueCancel, i18n("Cancel?")) == KMessageBox::Continue) {
             d->gotCanceled = true;
             buttonBox()->button(QDialogButtonBox::Cancel)->setEnabled(false);
             emit canceled();
@@ -315,8 +339,9 @@ int FormProgressDialog::exec()
 {
     buttonBox()->button(QDialogButtonBox::Ok)->setEnabled(true);
     buttonBox()->button(QDialogButtonBox::Cancel)->setEnabled(false);
-    if( d->bar->isVisible() )
-        d->bar->setValue( d->bar->maximum() );
+    if (d->bar->isVisible()) {
+        d->bar->setValue(d->bar->maximum());
+    }
     return QDialog::exec();
 }
 
@@ -329,25 +354,26 @@ bool FormProgressDialog::isCanceled()
  * FormDialog
  */
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal d-pointer class.
-    class FormDialog::Private
-    {
-        public:
-            QDialogButtonBox::StandardButton buttoncode;
-            QHash<QString, KPageWidgetItem*> items;
-    };
+/// \internal d-pointer class.
+class FormDialog::Private
+{
+public:
+    QDialogButtonBox::StandardButton buttoncode;
+    QHash<QString, KPageWidgetItem *> items;
+};
 
 }
 
-FormDialog::FormDialog(const QString& caption)
-    : KPageDialog( /*0, Qt::WShowModal | Qt::WDestructiveClose*/ )
-    , d( new Private() )
+FormDialog::FormDialog(const QString &caption)
+    : KPageDialog(/*0, Qt::WShowModal | Qt::WDestructiveClose*/)
+    , d(new Private())
 {
     setWindowTitle(caption);
     buttonBox()->setStandardButtons(QDialogButtonBox::Ok);
-    setSizePolicy( QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding) );
+    setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
 
     connect(buttonBox(), SIGNAL(clicked(QAbstractButton*)), this, SLOT(slotButtonClicked(QAbstractButton*)));
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
@@ -356,95 +382,101 @@ FormDialog::FormDialog(const QString& caption)
 
 FormDialog::~FormDialog()
 {
-    qWarning()<<"dtor";
+    qWarning() << "dtor";
     delete d;
 }
 
-bool FormDialog::setButtons(const QString& buttons)
+bool FormDialog::setButtons(const QString &buttons)
 {
     int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
-    Q_ASSERT( i >= 0 );
+    Q_ASSERT(i >= 0);
     QMetaEnum e = buttonBox()->metaObject()->enumerator(i);
     int v = e.keysToValue(buttons.toUtf8().constData());
-    if( v < 0 )
+    if (v < 0) {
         return false;
+    }
     buttonBox()->setStandardButtons((QDialogButtonBox::StandardButton) v);
     return true;
 }
 
-bool FormDialog::setButtonText(const QString& button, const QString& text)
+bool FormDialog::setButtonText(const QString &button, const QString &text)
 {
     int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
-    Q_ASSERT( i >= 0 );
+    Q_ASSERT(i >= 0);
     QMetaEnum e = buttonBox()->metaObject()->enumerator(i);
     int v = e.keysToValue(button.toUtf8().constData());
-    if( v < 0 )
+    if (v < 0) {
         return false;
+    }
     QPushButton *pushButton = buttonBox()->button((QDialogButtonBox::StandardButton) v);
-    if (!pushButton)
+    if (!pushButton) {
         return false;
+    }
     pushButton->setText(text);
     return true;
 }
 
-bool FormDialog::setFaceType(const QString& facetype)
+bool FormDialog::setFaceType(const QString &facetype)
 {
     int i = KPageView::staticMetaObject.indexOfEnumerator("FaceType");
-    Q_ASSERT( i >= 0 );
+    Q_ASSERT(i >= 0);
     QMetaEnum e = KPageView::staticMetaObject.enumerator(i);
     int v = e.keysToValue(facetype.toUtf8().constData());
-    if( v < 0 )
+    if (v < 0) {
         return false;
-    KPageDialog::setFaceType( (KPageDialog::FaceType) v );
+    }
+    KPageDialog::setFaceType((KPageDialog::FaceType) v);
     return true;
 }
 
 QString FormDialog::currentPage() const
 {
-    KPageWidgetItem* item = KPageDialog::currentPage();
+    KPageWidgetItem *item = KPageDialog::currentPage();
     return item ? item->name() : QString();
 }
 
-bool FormDialog::setCurrentPage(const QString& name)
+bool FormDialog::setCurrentPage(const QString &name)
 {
-    if( ! d->items.contains(name) )
+    if (! d->items.contains(name)) {
         return false;
-    KPageDialog::setCurrentPage( d->items[name] );
+    }
+    KPageDialog::setCurrentPage(d->items[name]);
     return true;
 }
 
-QWidget* FormDialog::page(const QString& name) const
+QWidget *FormDialog::page(const QString &name) const
 {
     return d->items.contains(name) ? d->items[name]->widget() : 0;
 }
 
 //shared by FormDialog and FormAssistant
-static KPageWidgetItem* formAddPage(KPageDialog* dialog, const QString& name, const QString& header, const QString& iconname)
+static KPageWidgetItem *formAddPage(KPageDialog *dialog, const QString &name, const QString &header, const QString &iconname)
 {
-    QWidget* widget = new QWidget( dialog );
-    QVBoxLayout* boxlayout = new QVBoxLayout(widget);
+    QWidget *widget = new QWidget(dialog);
+    QVBoxLayout *boxlayout = new QVBoxLayout(widget);
     boxlayout->setSpacing(0);
     boxlayout->setMargin(0);
     widget->setLayout(boxlayout);
 
-    KPageWidgetItem* item = dialog->addPage(widget, name);
+    KPageWidgetItem *item = dialog->addPage(widget, name);
     item->setHeader(header.isNull() ? name : header);
-    if( ! iconname.isEmpty() )
-        item->setIcon( QIcon::fromTheme(iconname) );
+    if (! iconname.isEmpty()) {
+        item->setIcon(QIcon::fromTheme(iconname));
+    }
     //d->items.insert(name, item);
 
     return item;
 }
 
-QWidget* FormDialog::addPage(const QString& name, const QString& header, const QString& iconname)
+QWidget *FormDialog::addPage(const QString &name, const QString &header, const QString &iconname)
 {
-    return d->items.insert(name, formAddPage((KPageDialog*)this,name,header,iconname)).value()->widget();
+    return d->items.insert(name, formAddPage((KPageDialog *)this, name, header, iconname)).value()->widget();
 }
 
 QString FormDialog::result()
 {
     int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
-    if( i < 0 ) {
+    if (i < 0) {
         qWarning() << "Kross::FormDialog::setButtons No such enumerator \"StandardButton\"";
         return QString();
     }
@@ -457,29 +489,29 @@ void FormDialog::slotButtonClicked(QAbstractButton *button)
     d->buttoncode = buttonBox()->standardButton(button);
 }
 
-void FormDialog::slotCurrentPageChanged(KPageWidgetItem* current)
+void FormDialog::slotCurrentPageChanged(KPageWidgetItem *current)
 {
     Q_UNUSED(current);
     //qDebug() << "FormDialog::slotCurrentPageChanged current=" << current->name();
     //foreach(QWidget* widget, current->widget()->findChildren< QWidget* >("")) widget->setFocus();
 }
 
-
-namespace Kross {
-    /// \internal d-pointer class.
-    class FormAssistant::Private
-    {
-        public:
-            QDialogButtonBox::StandardButton buttoncode;
-            QHash<QString, KPageWidgetItem*> items;
-    };
+namespace Kross
+{
+/// \internal d-pointer class.
+class FormAssistant::Private
+{
+public:
+    QDialogButtonBox::StandardButton buttoncode;
+    QHash<QString, KPageWidgetItem *> items;
+};
 }
-FormAssistant::FormAssistant(const QString& caption)
-    : KAssistantDialog( /*0, Qt::WShowModal | Qt::WDestructiveClose*/ )
-    , d( new Private() )
+FormAssistant::FormAssistant(const QString &caption)
+    : KAssistantDialog(/*0, Qt::WShowModal | Qt::WDestructiveClose*/)
+    , d(new Private())
 {
     setWindowTitle(caption);
-    setSizePolicy( QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding) );
+    setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding));
 
     connect(buttonBox(), SIGNAL(clicked(QAbstractButton*)), this, SLOT(slotButtonClicked(QAbstractButton*)));
     connect(this, SIGNAL(currentPageChanged(KPageWidgetItem*,KPageWidgetItem*)),
@@ -516,55 +548,58 @@ void FormAssistant::next()
 
 QString FormAssistant::currentPage() const
 {
-    KPageWidgetItem* item = KPageDialog::currentPage();
+    KPageWidgetItem *item = KPageDialog::currentPage();
     return item ? item->name() : QString();
 }
 
-bool FormAssistant::setCurrentPage(const QString& name)
+bool FormAssistant::setCurrentPage(const QString &name)
 {
-    if( ! d->items.contains(name) )
+    if (! d->items.contains(name)) {
         return false;
-    KPageDialog::setCurrentPage( d->items[name] );
+    }
+    KPageDialog::setCurrentPage(d->items[name]);
     return true;
 }
 
-QWidget* FormAssistant::page(const QString& name) const
+QWidget *FormAssistant::page(const QString &name) const
 {
     return d->items.contains(name) ? d->items[name]->widget() : 0;
 }
 
-QWidget* FormAssistant::addPage(const QString& name, const QString& header, const QString& iconname)
+QWidget *FormAssistant::addPage(const QString &name, const QString &header, const QString &iconname)
 {
-    return d->items.insert(name, formAddPage((KPageDialog*)this,name,header,iconname)).value()->widget();
+    return d->items.insert(name, formAddPage((KPageDialog *)this, name, header, iconname)).value()->widget();
 }
 
-bool FormAssistant::isAppropriate (const QString& name) const
+bool FormAssistant::isAppropriate(const QString &name) const
 {
     return d->items.contains(name) && KAssistantDialog::isAppropriate(d->items[name]);
 }
-void FormAssistant::setAppropriate (const QString& name, bool appropriate)
+void FormAssistant::setAppropriate(const QString &name, bool appropriate)
 {
-    if (!d->items.contains(name))
+    if (!d->items.contains(name)) {
         return;
+    }
 
-    KAssistantDialog::setAppropriate(d->items[name],appropriate);
+    KAssistantDialog::setAppropriate(d->items[name], appropriate);
 }
-bool FormAssistant::isValid (const QString& name) const
+bool FormAssistant::isValid(const QString &name) const
 {
     return d->items.contains(name) && KAssistantDialog::isValid(d->items[name]);
 }
-void FormAssistant::setValid (const QString& name, bool enable)
+void FormAssistant::setValid(const QString &name, bool enable)
 {
-    if (!d->items.contains(name))
+    if (!d->items.contains(name)) {
         return;
+    }
 
-    KAssistantDialog::setValid(d->items[name],enable);
+    KAssistantDialog::setValid(d->items[name], enable);
 }
 
 QString FormAssistant::result()
 {
     int i = metaObject()->indexOfEnumerator("AssistantButtonCode");
-    if( i < 0 ) {
+    if (i < 0) {
         qWarning() << "Kross::FormAssistant::setButtons No such enumerator \"AssistantButtonCode\"";
         return QString();
     }
@@ -577,7 +612,7 @@ void FormAssistant::slotButtonClicked(QAbstractButton *button)
     d->buttoncode = buttonBox()->standardButton(button);
 }
 
-void FormAssistant::slotCurrentPageChanged(KPageWidgetItem* current)
+void FormAssistant::slotCurrentPageChanged(KPageWidgetItem *current)
 {
     Q_UNUSED(current);
     //qDebug() << "FormAssistant::slotCurrentPageChanged current=" << current->name();
@@ -588,45 +623,46 @@ void FormAssistant::slotCurrentPageChanged(KPageWidgetItem* current)
  * FormModule
  */
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal extension of the QUiLoader class.
-    class UiLoader : public QUiLoader
+/// \internal extension of the QUiLoader class.
+class UiLoader : public QUiLoader
+{
+public:
+    UiLoader() : QUiLoader() {}
+    virtual ~UiLoader() {}
+
+    /*
+    virtual QAction* createAction(QObject* parent = 0, const QString& name = QString())
     {
-        public:
-            UiLoader() : QUiLoader() {}
-            virtual ~UiLoader() {}
+    }
 
-            /*
-            virtual QAction* createAction(QObject* parent = 0, const QString& name = QString())
-            {
-            }
-
-            virtual QActionGroup* createActionGroup(QObject* parent = 0, const QString& name = QString())
-            {
-            }
-
-            virtual QLayout* createLayout(const QString& className, QObject* parent = 0, const QString& name = QString())
-            {
-            }
-
-            virtual QWidget* createWidget(const QString& className, QWidget* parent = 0, const QString& name = QString())
-            {
-            }
-            */
-    };
-
-    /// \internal d-pointer class.
-    class FormModule::Private
+    virtual QActionGroup* createActionGroup(QObject* parent = 0, const QString& name = QString())
     {
-        public:
-    };
+    }
+
+    virtual QLayout* createLayout(const QString& className, QObject* parent = 0, const QString& name = QString())
+    {
+    }
+
+    virtual QWidget* createWidget(const QString& className, QWidget* parent = 0, const QString& name = QString())
+    {
+    }
+    */
+};
+
+/// \internal d-pointer class.
+class FormModule::Private
+{
+public:
+};
 
 }
 
 FormModule::FormModule()
     : QObject()
-    , d( new Private() )
+    , d(new Private())
 {
 }
 
@@ -635,126 +671,133 @@ FormModule::~FormModule()
     delete d;
 }
 
-QWidget* FormModule::activeModalWidget()
+QWidget *FormModule::activeModalWidget()
 {
     return QApplication::activeModalWidget();
 }
 
-QWidget* FormModule::activeWindow()
+QWidget *FormModule::activeWindow()
 {
     return QApplication::activeWindow();
 }
 
-QString FormModule::showMessageBox(const QString& dialogtype, const QString& caption, const QString& message, const QString& details)
+QString FormModule::showMessageBox(const QString &dialogtype, const QString &caption, const QString &message, const QString &details)
 {
     KMessageBox::DialogType type;
-    if(dialogtype == "Error") {
-        if( ! details.isNull() ) {
+    if (dialogtype == "Error") {
+        if (! details.isNull()) {
             KMessageBox::detailedError(0, message, details, caption);
             return QString();
         }
         type = KMessageBox::Error;
-    }
-    else if(dialogtype == "Sorry") {
-        if( ! details.isNull() ) {
+    } else if (dialogtype == "Sorry") {
+        if (! details.isNull()) {
             KMessageBox::detailedSorry(0, message, details, caption);
             return QString();
         }
         type = KMessageBox::Sorry;
+    } else if (dialogtype == "QuestionYesNo") {
+        type = KMessageBox::QuestionYesNo;
+    } else if (dialogtype == "WarningYesNo") {
+        type = KMessageBox::WarningYesNo;
+    } else if (dialogtype == "WarningContinueCancel") {
+        type = KMessageBox::WarningContinueCancel;
+    } else if (dialogtype == "WarningYesNoCancel") {
+        type = KMessageBox::WarningYesNoCancel;
+    } else if (dialogtype == "QuestionYesNoCancel") {
+        type = KMessageBox::QuestionYesNoCancel;
+    } else { /*if(dialogtype == "Information")*/
+        type = KMessageBox::Information;
     }
-    else if(dialogtype == "QuestionYesNo") type = KMessageBox::QuestionYesNo;
-    else if(dialogtype == "WarningYesNo") type = KMessageBox::WarningYesNo;
-    else if(dialogtype == "WarningContinueCancel") type = KMessageBox::WarningContinueCancel;
-    else if(dialogtype == "WarningYesNoCancel") type = KMessageBox::WarningYesNoCancel;
-    else if(dialogtype == "QuestionYesNoCancel") type = KMessageBox::QuestionYesNoCancel;
-    else /*if(dialogtype == "Information")*/ type = KMessageBox::Information;
-    switch( KMessageBox::messageBox(0, type, message, caption) ) {
-        case KMessageBox::Ok: return "Ok";
-        case KMessageBox::Cancel: return "Cancel";
-        case KMessageBox::Yes: return "Yes";
-        case KMessageBox::No: return "No";
-        case KMessageBox::Continue: return "Continue";
-        default: break;
+    switch (KMessageBox::messageBox(0, type, message, caption)) {
+    case KMessageBox::Ok: return "Ok";
+    case KMessageBox::Cancel: return "Cancel";
+    case KMessageBox::Yes: return "Yes";
+    case KMessageBox::No: return "No";
+    case KMessageBox::Continue: return "Continue";
+    default: break;
     }
     return QString();
 }
 
-QWidget* FormModule::showProgressDialog(const QString& caption, const QString& labelText)
+QWidget *FormModule::showProgressDialog(const QString &caption, const QString &labelText)
 {
     return new FormProgressDialog(caption, labelText);
 }
 
-QWidget* FormModule::createDialog(const QString& caption)
+QWidget *FormModule::createDialog(const QString &caption)
 {
     return new FormDialog(caption);
 }
 
-QWidget* FormModule::createAssistant(const QString& caption)
+QWidget *FormModule::createAssistant(const QString &caption)
 {
     return new FormAssistant(caption);
 }
 
-QObject* FormModule::createLayout(QWidget* parent, const QString& layout)
+QObject *FormModule::createLayout(QWidget *parent, const QString &layout)
 {
-    QLayout* l = 0;
-    if( layout == "QVBoxLayout" )
+    QLayout *l = 0;
+    if (layout == "QVBoxLayout") {
         l = new QVBoxLayout();
-    else if( layout == "QHBoxLayout" )
+    } else if (layout == "QHBoxLayout") {
         l = new QHBoxLayout();
-    else if( layout == "QStackedLayout" )
+    } else if (layout == "QStackedLayout") {
         l = new QStackedLayout();
-    if( parent && l )
+    }
+    if (parent && l) {
         parent->setLayout(l);
+    }
     return l;
 }
 
-QWidget* FormModule::createWidget(const QString& className)
+QWidget *FormModule::createWidget(const QString &className)
 {
     UiLoader loader;
-    QWidget* widget = loader.createWidget(className);
+    QWidget *widget = loader.createWidget(className);
     return widget;
 }
 
-QWidget* FormModule::createWidget(QWidget* parent, const QString& className, const QString& name)
+QWidget *FormModule::createWidget(QWidget *parent, const QString &className, const QString &name)
 {
     UiLoader loader;
-    QWidget* widget = loader.createWidget(className, parent, name);
-    if( parent && parent->layout() )
+    QWidget *widget = loader.createWidget(className, parent, name);
+    if (parent && parent->layout()) {
         parent->layout()->addWidget(widget);
+    }
     return widget;
 }
 
-
-QString FormModule::tr(const QString& str)
+QString FormModule::tr(const QString &str)
 {
     return tr(str.toUtf8().constData());
 }
-QString FormModule::tr(const QString& str, const QString& comment)
+QString FormModule::tr(const QString &str, const QString &comment)
 {
     return tr(str.toUtf8().constData(), comment.toUtf8().constData());
 }
 
-QWidget* FormModule::createWidgetFromUI(QWidget* parent, const QString& xml)
+QWidget *FormModule::createWidgetFromUI(QWidget *parent, const QString &xml)
 {
     QUiLoader loader;
 
     QDomDocument doc("mydocument");
     doc.setContent(xml.toUtf8());
 
-    QDomNodeList strings=doc.elementsByTagName("string");
-    int i=strings.size();
-    while(--i>=0)
-    {
-        QDomElement e=strings.at(i).toElement();
-        QString i18nd=e.attribute("comment").isEmpty()? tr(e.text()) : tr(e.text(), e.attribute("comment"));
-        if (i18nd==e.text())
+    QDomNodeList strings = doc.elementsByTagName("string");
+    int i = strings.size();
+    while (--i >= 0) {
+        QDomElement e = strings.at(i).toElement();
+        QString i18nd = e.attribute("comment").isEmpty() ? tr(e.text()) : tr(e.text(), e.attribute("comment"));
+        if (i18nd == e.text()) {
             continue;
+        }
         QDomNode n = e.firstChild();
-        while (!n.isNull())
-        {
-            QDomNode nn=n.nextSibling();
-            if (n.isCharacterData())
+        while (!n.isNull()) {
+            QDomNode nn = n.nextSibling();
+            if (n.isCharacterData()) {
                 e.removeChild(n);
+            }
             n = nn;
         }
         e.appendChild(e.ownerDocument().createTextNode(i18nd));
@@ -764,20 +807,21 @@ QWidget* FormModule::createWidgetFromUI(QWidget* parent, const QString& xml)
     QBuffer buffer(&ba);
     buffer.open(QIODevice::ReadOnly);
 
-    QWidget* widget = loader.load(&buffer, parent);
-    if( widget && parent && parent->layout() )
+    QWidget *widget = loader.load(&buffer, parent);
+    if (widget && parent && parent->layout()) {
         parent->layout()->addWidget(widget);
+    }
     return widget;
 }
 
-QWidget* FormModule::createWidgetFromUIFile(QWidget* parent, const QString& filename)
+QWidget *FormModule::createWidgetFromUIFile(QWidget *parent, const QString &filename)
 {
     QFile file(filename);
-    if( ! file.exists() ) {
+    if (! file.exists()) {
         // qDebug() << QString("Kross::FormModule::createWidgetFromUIFile: There exists no such file \"%1\"").arg(filename);
         return 0;
     }
-    if( ! file.open(QFile::ReadOnly) ) {
+    if (! file.open(QFile::ReadOnly)) {
         // qDebug() << QString("Kross::FormModule::createWidgetFromUIFile: Failed to open the file \"%1\"").arg(filename);
         return 0;
     }
@@ -786,44 +830,48 @@ QWidget* FormModule::createWidgetFromUIFile(QWidget* parent, const QString& file
     return createWidgetFromUI(parent, xml);
 }
 
-QWidget* FormModule::createFileWidget(QWidget* parent, const QString& startDirOrVariable)
+QWidget *FormModule::createFileWidget(QWidget *parent, const QString &startDirOrVariable)
 {
-    FormFileWidget* widget = new FormFileWidget(parent, startDirOrVariable);
-    if( parent && parent->layout() )
+    FormFileWidget *widget = new FormFileWidget(parent, startDirOrVariable);
+    if (parent && parent->layout()) {
         parent->layout()->addWidget(widget);
+    }
     return widget;
 }
 
-QWidget* FormModule::createListView(QWidget* parent)
+QWidget *FormModule::createListView(QWidget *parent)
 {
-    FormListView* widget = new FormListView(parent);
-    if( parent && parent->layout() )
+    FormListView *widget = new FormListView(parent);
+    if (parent && parent->layout()) {
         parent->layout()->addWidget(widget);
+    }
     return widget;
 }
 
-QAction* FormModule::createAction(QObject* parent)
+QAction *FormModule::createAction(QObject *parent)
 {
     return new QAction(parent);
 }
 
-QObject* FormModule::loadPart(QWidget* parent, const QString& name, const QUrl& url)
+QObject *FormModule::loadPart(QWidget *parent, const QString &name, const QUrl &url)
 {
     //name e.g. "libkghostview"
-    KPluginFactory* factory = KPluginLoader( name.toLatin1() ).factory();
-    if( ! factory ) {
+    KPluginFactory *factory = KPluginLoader(name.toLatin1()).factory();
+    if (! factory) {
         qWarning() << QString("Kross::FormModule::loadPart: No such library \"%1\"").arg(name);
         return 0;
     }
-    KParts::ReadOnlyPart* part = factory->create< KParts::ReadOnlyPart >( parent );
-    if( ! part ) {
+    KParts::ReadOnlyPart *part = factory->create< KParts::ReadOnlyPart >(parent);
+    if (! part) {
         qWarning() << QString("Kross::FormModule::loadPart: Library \"%1\" is not a KPart").arg(name);
         return 0;
     }
-    if( url.isValid() )
+    if (url.isValid()) {
         part->openUrl(url);
-    if( parent && parent->layout() && part->widget() )
-        parent->layout()->addWidget( part->widget() );
+    }
+    if (parent && parent->layout() && part->widget()) {
+        parent->layout()->addWidget(part->widget());
+    }
     return part;
 }
 

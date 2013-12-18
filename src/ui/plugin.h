@@ -25,8 +25,9 @@
 #include <kross/ui/krossui_export.h>
 #include <kross/core/childreninterface.h>
 
-namespace Kross {
-    class ActionCollection;
+namespace Kross
+{
+class ActionCollection;
 }
 
 class QWidget;
@@ -67,7 +68,7 @@ public:
      *
      * \param parent The parent QObject this QObject is child of.
      */
-    explicit ScriptingPlugin(QObject* parent = 0);
+    explicit ScriptingPlugin(QObject *parent = 0);
 
     /**
      * Allows having actions defined in a custom location, eg for project-specific actions
@@ -75,7 +76,7 @@ public:
      * \param userActionsFile scripts.rc filepath -- file may be modified by user
      * \param referenceActionsDir dir -- %APPDATA%/scripts/%referenceActionsDir% contains standard actions for this plugin instance; has a lower priority than \a userActionsFile.
      */
-    ScriptingPlugin(const QString& collectionName, const QString& userActionsFile, const QString& referenceActionsDir=QString(), QObject* parent=0);
+    ScriptingPlugin(const QString &collectionName, const QString &userActionsFile, const QString &referenceActionsDir = QString(), QObject *parent = 0);
 
     /**
      * Destructor.
@@ -85,7 +86,7 @@ public:
     /**
      * Re-implement in order to load additional kross scripting rc files.
      */
-    virtual void setDOMDocument (const QDomDocument &document, bool merge = false);
+    virtual void setDOMDocument(const QDomDocument &document, bool merge = false);
 
     /**
      * Add a QObject to the list of children. The object will be published to the scripting code.
@@ -93,10 +94,10 @@ public:
      * \param name The name the QObject should be known under. If not defined, the
      * QObject's objectName is used.
      */
-    void addObject(QObject* object, const QString& name/* = QString()*/, ChildrenInterface::Options options/* = ChildrenInterface::NoOption*/);
+    void addObject(QObject *object, const QString &name/* = QString()*/, ChildrenInterface::Options options/* = ChildrenInterface::NoOption*/);
 
     ///\deprecated use another addObject overload
-    void addObject(QObject* object, const QString& name = QString()); //BIC
+    void addObject(QObject *object, const QString &name = QString()); //BIC
 
 protected Q_SLOTS:
 
@@ -112,13 +113,13 @@ protected Q_SLOTS:
     virtual void slotResetScriptActions();
 
 private:
-    QDomDocument buildDomDocument(const QDomDocument& document);
-    void buildDomDocument(QDomDocument& document, Kross::ActionCollection* collection);
+    QDomDocument buildDomDocument(const QDomDocument &document);
+    void buildDomDocument(QDomDocument &document, Kross::ActionCollection *collection);
     void save();
 
 private:
     class ScriptingPluginPrivate;
-    ScriptingPluginPrivate* const d;
+    ScriptingPluginPrivate *const d;
 };
 
 }

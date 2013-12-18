@@ -22,21 +22,22 @@
 
 // The in krossconfig.h defined KROSS_EXPORT_INTERPRETER macro defines an
 // exported C function used as factory for Kross::EcmaInterpreter instances.
-KROSS_EXPORT_INTERPRETER( Kross::EcmaInterpreter )
+KROSS_EXPORT_INTERPRETER(Kross::EcmaInterpreter)
 
 using namespace Kross;
 
-namespace Kross {
+namespace Kross
+{
 
-    /// \internal private d-pointer class.
-    class EcmaInterpreter::Private
-    {
-        public:
-    };
+/// \internal private d-pointer class.
+class EcmaInterpreter::Private
+{
+public:
+};
 
 }
 
-EcmaInterpreter::EcmaInterpreter(Kross::InterpreterInfo* info)
+EcmaInterpreter::EcmaInterpreter(Kross::InterpreterInfo *info)
     : Kross::Interpreter(info)
     , d(new Private())
 {
@@ -49,7 +50,7 @@ EcmaInterpreter::~EcmaInterpreter()
     delete d;
 }
 
-Kross::Script* EcmaInterpreter::createScript(Kross::Action* action)
+Kross::Script *EcmaInterpreter::createScript(Kross::Action *action)
 {
     return new EcmaScript(this, action);
 }
