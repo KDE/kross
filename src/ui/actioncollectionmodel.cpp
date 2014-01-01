@@ -1,5 +1,5 @@
 /***************************************************************************
- * model.cpp
+ * actioncollectionmodel.cpp
  * This file is part of the KDE project
  * copyright (C) 2006-2007 by Sebastian Sauer (mail@dipe.org)
  *
@@ -17,7 +17,7 @@
  * Boston, MA 02110-1301, USA.
  ***************************************************************************/
 
-#include "model.h"
+#include "actioncollectionmodel.h"
 
 #include <kross/core/action.h>
 #include <kross/core/actioncollection.h>

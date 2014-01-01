@@ -1,5 +1,5 @@
 /***************************************************************************
- * view.cpp
+ * actioncollectionview.cpp
  * This file is part of the KDE project
  * copyright (c) 2005-2006 Cyrille Berger <cberger@cberger.net>
  * copyright (C) 2006-2007 Sebastian Sauer <mail@dipe.org>
@@ -18,8 +18,8 @@
  * Boston, MA 02110-1301, USA.
  ***************************************************************************/
 
-#include "view.h"
-#include "model.h"
+#include "actioncollectionview.h"
+#include "actioncollectionmodel.h"
 
 #include <kross/core/manager.h>
 #include <kross/core/action.h>

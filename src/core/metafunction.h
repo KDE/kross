@@ -24,6 +24,7 @@
 #ifndef KROSS_METAFUNCTION_H
 #define KROSS_METAFUNCTION_H
 
+#include <krosscore_export.h>
 #include <QObject>
 #include <QArgument>
 #include <QByteRef>
@@ -40,7 +41,7 @@ namespace Kross
  * classes located in kdebindings inherit this class to connect a
  * QObject signal together with a callable python or ruby method.
  */
-class MetaFunction : public QObject
+class KROSSCORE_EXPORT MetaFunction : public QObject
 {
 public:
 
