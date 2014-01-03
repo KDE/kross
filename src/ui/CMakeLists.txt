@@ -9,7 +9,7 @@ set(krossui_LIB_SRCS
 add_library(KF5KrossUi ${krossui_LIB_SRCS})
 generate_export_header(KF5KrossUi BASE_NAME KrossUi)
 
-target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/krossui>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossUi>")
+target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossUi>")
 
 target_link_libraries(KF5KrossUi
    KF5::KrossCore
@@ -33,10 +33,11 @@ ecm_generate_headers(
   ActionCollectionView
   ScriptingPlugin
 
-  MODULE_NAME KrossUi/Kross
+  MODULE_NAME KrossUi
+  PREFIX Kross/Ui
   REQUIRED_HEADERS KrossUi_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossUi/Kross DESTINATION ${INCLUDE_INSTALL_DIR}/KrossUi COMPONENT Devel)
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossUi DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(TARGETS KF5KrossUi EXPORT KF5KrossTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -48,4 +49,4 @@ install(FILES
   model.h # compat header
   view.h # compat header
   ${KrossUi_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/krossui/kross/ui COMPONENT Devel)
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KrossUi/kross/ui COMPONENT Devel)

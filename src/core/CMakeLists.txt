@@ -12,7 +12,7 @@ set(krosscore_LIB_SRCS
 add_library(KF5KrossCore ${krosscore_LIB_SRCS})
 generate_export_header(KF5KrossCore BASE_NAME KrossCore)
 
-target_include_directories(KF5KrossCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/krosscore>" "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossCore>")
+target_include_directories(KF5KrossCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossCore>")
 
 target_link_libraries(KF5KrossCore PRIVATE Qt5::Script Qt5::Xml Qt5::Widgets KF5::ConfigCore KF5::I18n)
 target_link_libraries(KF5KrossCore PUBLIC Qt5::Script Qt5::Xml)
@@ -38,11 +38,12 @@ ecm_generate_headers(
   MetaType
   MetaFunction
 
-  MODULE_NAME KrossCore/Kross
+  MODULE_NAME KrossCore
+  PREFIX Kross/Core
   REQUIRED_HEADERS KrossCore_HEADERS
 )
-# apps include <Kross/Object>
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossCore/Kross DESTINATION ${INCLUDE_INSTALL_DIR}/KrossCore COMPONENT Devel)
+# apps include <Kross/Core/Object> or <kross/core/object.h>
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossCore DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(TARGETS KF5KrossCore EXPORT KF5KrossLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 
@@ -52,6 +53,6 @@ install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/krosscore_export.h
   krossconfig.h
   ${KrossCore_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/krosscore/kross/core COMPONENT Devel) # apps include <kross/core/object.h>
+  DESTINATION ${INCLUDE_INSTALL_DIR}/KrossCore/kross/core COMPONENT Devel) # apps include <kross/core/object.h>
 
 install(TARGETS KF5KrossCore EXPORT KF5KrossTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
