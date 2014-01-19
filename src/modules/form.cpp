@@ -51,7 +51,7 @@
 #include <kmessagebox.h>
 #include <kpluginloader.h>
 #include <kpluginfactory.h>
-#include <kparts/part.h>
+#include <kparts/readonlypart.h>
 //#include <kio/netaccess.h>
 //#include <klocalizedstring.h>
 //#include <kmimetype.h>
