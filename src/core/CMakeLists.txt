@@ -14,8 +14,15 @@ generate_export_header(KF5KrossCore BASE_NAME KrossCore)
 
 target_include_directories(KF5KrossCore INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossCore>")
 
-target_link_libraries(KF5KrossCore PRIVATE Qt5::Script Qt5::Xml Qt5::Widgets KF5::ConfigCore KF5::I18n)
-target_link_libraries(KF5KrossCore PUBLIC Qt5::Script Qt5::Xml)
+target_link_libraries(KF5KrossCore
+PUBLIC
+   Qt5::Script
+   Qt5::Xml
+PRIVATE
+   Qt5::Widgets
+   KF5::ConfigCore
+   KF5::I18n
+)
 
 target_include_directories(KF5KrossCore PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>")
 

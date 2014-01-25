@@ -12,12 +12,12 @@ generate_export_header(KF5KrossUi BASE_NAME KrossUi)
 target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossUi>")
 
 target_link_libraries(KF5KrossUi
+PUBLIC
    KF5::KrossCore
-   KF5::WidgetsAddons
-   KF5::KIOWidgets
-   KF5::Parts
+   KF5::Parts   # KParts::Plugin in public API
+PRIVATE
    KF5::I18n
-   KF5::IconThemes
+   KF5::IconThemes # KIconButton
 )
 set_target_properties(KF5KrossUi PROPERTIES VERSION ${KROSS_VERSION_STRING}
                                             SOVERSION ${KROSS_SOVERSION}
