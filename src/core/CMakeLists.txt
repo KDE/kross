@@ -63,3 +63,7 @@ install(FILES
   DESTINATION ${INCLUDE_INSTALL_DIR}/KrossCore/kross/core COMPONENT Devel) # apps include <kross/core/object.h>
 
 install(TARGETS KF5KrossCore EXPORT KF5KrossTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+
+include(ECMGeneratePriFile)
+ecm_generate_pri_file(BASE_NAME KrossCore LIB_NAME KF5KrossCore DEPS "script xml" FILENAME_VAR PRI_FILENAME)
+install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
