@@ -1,6 +1,3 @@
-
-include(ECMMarkAsTest)
-
 ########### next target ###############
 set(krossqtsplugin_LIB_SRCS plugin.cpp)
 add_library(krossqtsplugin ${krossqtsplugin_LIB_SRCS})
@@ -17,21 +14,6 @@ if (NOT CYGWIN)
 endif ()
 
 install(TARGETS krossqtsplugin DESTINATION ${QT_PLUGIN_INSTALL_DIR}/script)
-
-########### next target ###############
-
-set(krossqtstest_SRCS main.cpp)
-add_executable(krossqtstest ${krossqtstest_SRCS})
-ecm_mark_as_test(krossqtstest)
-target_link_libraries(krossqtstest
-   krossqtsplugin
-   KF5::KrossCore
-   Qt5::Script
-   KF5::I18n
-   Qt5::Widgets
-)
-
-add_test(krossqtstest-test-es krossqtstest ${CMAKE_CURRENT_SOURCE_DIR}/test.es)
 
 ########### next target ###############
 

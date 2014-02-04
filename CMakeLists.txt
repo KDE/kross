@@ -56,7 +56,7 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 add_subdirectory(docs)
 add_subdirectory(src)
-#add_subdirectory(autotests)
+add_subdirectory(autotests)
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${CMAKECONFIG_INSTALL_PREFIX}/KF5Kross")
