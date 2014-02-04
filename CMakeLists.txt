@@ -22,35 +22,17 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KROSS
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KrossConfigVersion.cmake")
 
 set(REQUIRED_QT_VERSION "5.2")
-find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Test Script Xml Widgets UiTools)
+find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Script Xml Widgets UiTools)
 
-if ("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
-    #NOTE: here the dependencies of dependencies are displayed as well, this shouldn't be needed
-    #after cmake 3.0.0 is released
-    find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
-    find_package(KF5ItemViews ${KF5_VERSION} REQUIRED)
-    find_package(KF5I18n ${KF5_VERSION} REQUIRED)
-    find_package(KF5GuiAddons ${KF5_VERSION} REQUIRED)
-    find_package(KF5ConfigWidgets ${KF5_VERSION} REQUIRED)
-    find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
-    find_package(KF5Completion ${KF5_VERSION} REQUIRED)
-    find_package(KF5DBusAddons ${KF5_VERSION} REQUIRED)
-    find_package(KF5Service ${KF5_VERSION} REQUIRED)
-    find_package(KF5WindowSystem ${KF5_VERSION} REQUIRED)
-    find_package(KF5TextWidgets ${KF5_VERSION} REQUIRED)
-    find_package(KF5XmlGui ${KF5_VERSION} REQUIRED)
-    find_package(KF5Bookmarks ${KF5_VERSION} REQUIRED)
-    find_package(KF5DocTools ${KF5_VERSION} REQUIRED)
-
-#     find_package(KF5I18n ${KF5_VERSION} REQUIRED)
-#     find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
-    find_package(KF5KIO ${KF5_VERSION} REQUIRED)
-    find_package(KF5Parts ${KF5_VERSION} REQUIRED)
-else()
-    set(_kdeBootStrapping TRUE)
-    include(${CMAKE_SOURCE_DIR}/tier2/kdoctools/KF5DocToolsMacros.cmake)
-    set(KDOCTOOLS_CUSTOMIZATION_DIR "${KDocTools_BINARY_DIR}/src/customization/")
-endif()
+find_package(KF5Completion ${KF5_VERSION} REQUIRED)
+find_package(KF5DocTools ${KF5_VERSION} REQUIRED)
+find_package(KF5I18n ${KF5_VERSION} REQUIRED)
+find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
+find_package(KF5KIO ${KF5_VERSION} REQUIRED)
+find_package(KF5Parts ${KF5_VERSION} REQUIRED)
+find_package(KF5Service ${KF5_VERSION} REQUIRED)
+find_package(KF5WidgetsAddons ${KF5_VERSION} REQUIRED)
+find_package(KF5XmlGui ${KF5_VERSION} REQUIRED)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
@@ -79,6 +61,4 @@ install(FILES
 
 install(EXPORT KF5KrossTargets DESTINATION "${CMAKECONFIG_INSTALL_DIR}" FILE KF5KrossTargets.cmake NAMESPACE KF5::)
 
-if ("${CMAKE_BINARY_DIR}" STREQUAL "${CMAKE_CURRENT_BINARY_DIR}")
-    feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
-endif()
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

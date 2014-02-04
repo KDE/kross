@@ -36,8 +36,6 @@
 #include <QPushButton>
 #include <QTreeView>
 
-#include <kconfig.h>
-
 #include <kmessagebox.h>
 #include <kpagedialog.h>
 #include <kactioncollection.h>
