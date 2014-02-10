@@ -21,12 +21,12 @@
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>kross</command></refentrytitle>
+<refentrytitle><command>kf5kross</command></refentrytitle>
 <manvolnum>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>kross</command></refname>
+<refname><command>kf5kross</command></refname>
 <refpurpose>&kde; application to run kross scripts.</refpurpose>
 </refnamediv>
 
@@ -34,7 +34,7 @@
 <title>Synopsis</title>
 
 <cmdsynopsis>
-<command>kross</command>
+<command>kf5kross</command>
 
 <arg choice="opt">--help</arg>
 <arg choice="opt">Generic-options</arg>
@@ -47,7 +47,7 @@
 <refsect1>
 <title>Description</title>
 
-<para><command>kross</command> executes kross scripts written in &kde; Javascript, Python, Ruby, Java and Falcon.
+<para><command>kf5kross</command> executes kross scripts written in &kde; Javascript, Python, Ruby, Java and Falcon.
 </para>
 <para>This command line tool is used for any non-GUI scripts, e.g. Calligra Sheets has some of these.</para>
 </refsect1>
@@ -131,7 +131,7 @@
 <refsect1>
 <title>Usage</title>
 <para>
-<command>kross</command> <parameter>file</parameter> runs the script in <parameter>file</parameter>
+<command>kf5kross</command> <parameter>file</parameter> runs the script in <parameter>file</parameter>
 after loading the interpreter plugin for the script language (detected by filename suffix).
 </para>
 <para>
