@@ -100,7 +100,7 @@ public:
      * \param options The optional list of options supported by the interpreter
      * to configure the backend.
      */
-    InterpreterInfo(const QString &interpretername, void *funcPtr, const QString &wildcard, const QStringList &mimetypes, const Option::Map &options = Option::Map());
+    InterpreterInfo(const QString &interpretername, QFunctionPointer funcPtr, const QString &wildcard, const QStringList &mimetypes, const Option::Map &options = Option::Map());
 
     /**
      * Destructor.

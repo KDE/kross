@@ -43,7 +43,7 @@ public:
     /// The name the interpreter has. Could be something like "python" or "ruby".
     QString interpretername;
     /// The function-pointer to the module factory function.
-    void *funcPtr;
+    QFunctionPointer funcPtr;
     /// The file wildcard used to determinate extensions.
     QString wildcard;
     /// List of mimetypes this interpreter supports.
@@ -56,7 +56,7 @@ public:
 
 }
 
-InterpreterInfo::InterpreterInfo(const QString &interpretername, void *funcPtr, const QString &wildcard, const QStringList &mimetypes, const Option::Map &options)
+InterpreterInfo::InterpreterInfo(const QString &interpretername, QFunctionPointer funcPtr, const QString &wildcard, const QStringList &mimetypes, const Option::Map &options)
     : d(new Private())
 {
     d->interpretername = interpretername;

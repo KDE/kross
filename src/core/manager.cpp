@@ -75,7 +75,7 @@ Manager &Manager::self()
     return *_self();
 }
 
-void *loadLibrary(const char *libname, const char *functionname)
+static QFunctionPointer loadLibrary(const char *libname, const char *functionname)
 {
     QLibrary lib(libname);
     lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
@@ -103,8 +103,7 @@ void *loadLibrary(const char *libname, const char *functionname)
             return 0;
         }
     }
-#warning QT5 Port kross to QFunctionPointer
-    void *funcPtr = (void *)lib.resolve(functionname);
+    QFunctionPointer funcPtr = lib.resolve(functionname);
     Q_ASSERT(funcPtr);
     return funcPtr;
 }
@@ -120,7 +119,7 @@ Manager::Manager()
     d->collection = new ActionCollection("main");
 
 #ifdef KROSS_PYTHON_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("python",
                                    new InterpreterInfo("python",
                                            funcPtr, // library
@@ -132,7 +131,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_RUBY_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, "krossinterpreter")) {
         InterpreterInfo::Option::Map options;
         options.insert("safelevel", new InterpreterInfo::Option(
                            i18n("Level of safety of the Ruby interpreter"),
@@ -149,7 +148,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_JAVA_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("java",
                                    new InterpreterInfo("java",
                                            funcPtr, // library
@@ -161,7 +160,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_FALCON_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("falcon",
                                    new InterpreterInfo("falcon",
                                            funcPtr, // library
@@ -173,7 +172,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_QTSCRIPT_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("qtscript",
                                    new InterpreterInfo("qtscript",
                                            funcPtr, // library
@@ -185,7 +184,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_LUA_LIBRARY
-    if (void *funcPtr = loadLibrary(KROSS_LUA_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_LUA_LIBRARY, "krossinterpreter")) {
         d->interpreterinfos.insert("lua",
                                    new InterpreterInfo("lua",
                                            funcPtr, // library
