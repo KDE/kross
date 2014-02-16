@@ -28,16 +28,16 @@ target_include_directories(KF5KrossUi PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_
 
 add_library(KF5::KrossUi ALIAS KF5KrossUi)
 
-ecm_generate_headers(
+ecm_generate_headers(KrossUi_CamelCase_HEADERS
+  HEADER_NAMES
   ActionCollectionModel
   ActionCollectionView
   ScriptingPlugin
 
-  MODULE_NAME KrossUi
   PREFIX Kross/Ui
   REQUIRED_HEADERS KrossUi_HEADERS
 )
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossUi DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+install(FILES ${KrossUi_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KrossUi/Kross/Ui COMPONENT Devel)
 
 install(TARGETS KF5KrossUi EXPORT KF5KrossTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
 

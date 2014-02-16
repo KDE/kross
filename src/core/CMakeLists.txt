@@ -32,7 +32,8 @@ set_target_properties(KF5KrossCore PROPERTIES VERSION ${KROSS_VERSION_STRING}
                      )
 
 
-ecm_generate_headers(
+ecm_generate_headers(KrossCore_CamelCase_HEADERS
+  HEADER_NAMES
   ErrorInterface
   ChildrenInterface
   WrapperInterface
@@ -45,14 +46,11 @@ ecm_generate_headers(
   MetaType
   MetaFunction
 
-  MODULE_NAME KrossCore
   PREFIX Kross/Core
   REQUIRED_HEADERS KrossCore_HEADERS
 )
 # apps include <Kross/Core/Object> or <kross/core/object.h>
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/KrossCore DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
-
-install(TARGETS KF5KrossCore EXPORT KF5KrossLibraryTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES ${KrossCore_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KrossCore/Kross/Core COMPONENT Devel)
 
 add_library(KF5::KrossCore ALIAS KF5KrossCore)
 
