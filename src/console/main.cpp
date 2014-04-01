@@ -27,6 +27,7 @@
 #include <QUrl>
 
 // KDE
+#include <KAboutData>
 #include <klocalizedstring.h>
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>
@@ -89,34 +90,33 @@ int runScriptFile(const QString &scriptfile)
 int main(int argc, char **argv)
 {
     app = new QApplication(argc, argv);
-    app->setApplicationName("kross");
-    app->setApplicationVersion("0.1");
-    app->setOrganizationDomain("dipe.org");
 
     int result = ERROR_OK;
 
-    /*
-    K4AboutData about("kross",
-                     "kdelibs4",
-                     ki18n("Kross"),
-                     "0.1",
-                     ki18n("KDE application to run Kross scripts."),
-                     K4AboutData::License_LGPL,
-                     ki18n("(C) 2006 Sebastian Sauer"),
-                     ki18n("Run Kross scripts."),
-                     "http://kross.dipe.org",
-                     "kross@dipe.org");*/
-    //about.addAuthor(ki18n("Sebastian Sauer"), ki18n("Author"), "mail@dipe.org");
-
     KLocalizedString::setApplicationDomain("kross5");
+
+    KAboutData about(QStringLiteral("kross"),
+                     QString(), // catalog: why does this argument even exist any more?
+                     i18nc("application name", "Kross"),
+                     QStringLiteral("0.1"),
+                     i18nc("application description", "KDE application to run Kross scripts."),
+                     KAboutData::License_LGPL,
+                     i18n("Copyright 2006 Sebastian Sauer"),
+                     QString(),
+                     QStringLiteral("http://kross.dipe.org"),
+                     QStringLiteral("kross@dipe.org"));
+    about.addAuthor(i18n("Sebastian Sauer"), i18n("Author"), QStringLiteral("mail@dipe.org"));
+    KAboutData::setApplicationData(about);
 
     // Initialize command line args
     // Tell which options are supported and parse them.
     QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("KDE application to run Kross scripts."));
+    about.setupCommandLine(&parser);
     parser.addHelpOption();
-    parser.addPositionalArgument("file", i18n("The script to run."));
+    parser.addPositionalArgument("file", i18nc("command-line argument", "The script to run."));
+
     parser.process(*app);
+    about.processCommandLine(&parser);
 
     const QStringList args = parser.positionalArguments();
     // If no options are defined.

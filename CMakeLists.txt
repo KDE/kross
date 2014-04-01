@@ -26,6 +26,7 @@ set(REQUIRED_QT_VERSION "5.2")
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Script Xml Widgets UiTools)
 
 find_package(KF5Completion ${KF5_VERSION} REQUIRED)
+find_package(KF5CoreAddons ${KF5_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF5_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_VERSION} REQUIRED)
