@@ -99,13 +99,15 @@ int main(int argc, char **argv)
                      QString(), // catalog: why does this argument even exist any more?
                      i18nc("application name", "Kross"),
                      QStringLiteral("0.1"),
-                     i18nc("application description", "KDE application to run Kross scripts."),
+                     i18nc("application description", "Command-line utility to run Kross scripts."),
                      KAboutData::License_LGPL,
-                     i18n("Copyright 2006 Sebastian Sauer"),
+                     i18nc("@info:credit", "Copyright 2006 Sebastian Sauer"),
                      QString(),
                      QStringLiteral("http://kross.dipe.org"),
                      QStringLiteral("kross@dipe.org"));
-    about.addAuthor(i18n("Sebastian Sauer"), i18n("Author"), QStringLiteral("mail@dipe.org"));
+    about.addAuthor(i18nc("@info:credit", "Sebastian Sauer"),
+                    i18nc("@info:credit", "Author"),
+                    QStringLiteral("mail@dipe.org"));
     KAboutData::setApplicationData(about);
 
     // Initialize command line args
@@ -113,7 +115,8 @@ int main(int argc, char **argv)
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
     parser.addHelpOption();
-    parser.addPositionalArgument("file", i18nc("command-line argument", "The script to run."));
+    parser.addPositionalArgument("file", i18nc("@info:shell command-line argument",
+                                               "The script to run."));
 
     parser.process(*app);
     about.processCommandLine(&parser);
