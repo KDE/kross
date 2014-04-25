@@ -17,13 +17,15 @@
  * Boston, MA 02110-1301, USA.
  ***************************************************************************/
 
+// Undefine this because we don't want our i18n*() method names to be turned into i18nd*()
+#undef TRANSLATION_DOMAIN
+
 #include "translation.h"
 
 #include <QString>
 #include <QVariant>
 #include <QVariantList>
 
-#include <klocalizedstring.h>
 #include <klocalizedstring.h>
 #include <kpluginloader.h>
 #include <kpluginfactory.h>

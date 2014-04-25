@@ -38,6 +38,7 @@ find_package(KF5XmlGui ${KF5_VERSION} REQUIRED)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
+add_definitions(-DTRANSLATION_DOMAIN=\"kross5\")
 add_subdirectory(docs)
 add_subdirectory(src)
 add_subdirectory(autotests)
