@@ -7,4 +7,4 @@ target_link_libraries(kf5kross
    Qt5::Widgets
 )
 
-install(TARGETS kf5kross ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS kf5kross ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})

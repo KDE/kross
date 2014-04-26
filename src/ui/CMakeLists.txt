@@ -9,7 +9,7 @@ set(krossui_LIB_SRCS
 add_library(KF5KrossUi ${krossui_LIB_SRCS})
 generate_export_header(KF5KrossUi BASE_NAME KrossUi)
 
-target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${INCLUDE_INSTALL_DIR}/KrossUi>")
+target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${KF5_INCLUDE_INSTALL_DIR}/KrossUi>")
 
 target_link_libraries(KF5KrossUi
 PUBLIC
@@ -37,9 +37,9 @@ ecm_generate_headers(KrossUi_CamelCase_HEADERS
   PREFIX Kross/Ui
   REQUIRED_HEADERS KrossUi_HEADERS
 )
-install(FILES ${KrossUi_CamelCase_HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR}/KrossUi/Kross/Ui COMPONENT Devel)
+install(FILES ${KrossUi_CamelCase_HEADERS} DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KrossUi/Kross/Ui COMPONENT Devel)
 
-install(TARGETS KF5KrossUi EXPORT KF5KrossTargets ${INSTALL_TARGETS_DEFAULT_ARGS})
+install(TARGETS KF5KrossUi EXPORT KF5KrossTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 ########### install files ###############
 
@@ -49,7 +49,7 @@ install(FILES
   model.h # compat header
   view.h # compat header
   ${KrossUi_HEADERS}
-  DESTINATION ${INCLUDE_INSTALL_DIR}/KrossUi/kross/ui COMPONENT Devel)
+  DESTINATION ${KF5_INCLUDE_INSTALL_DIR}/KrossUi/kross/ui COMPONENT Devel)
 
 include(ECMGeneratePriFile)
 ecm_generate_pri_file(BASE_NAME KrossUi LIB_NAME KF5KrossUi DEPS "KrossCore KParts" FILENAME_VAR PRI_FILENAME)

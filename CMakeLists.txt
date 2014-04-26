@@ -53,7 +53,7 @@ ecm_configure_package_config_file(
 )
 
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/kross_version.h
-        DESTINATION ${INCLUDE_INSTALL_DIR} COMPONENT Devel)
+        DESTINATION ${KF5_INCLUDE_INSTALL_DIR} COMPONENT Devel)
 
 install(FILES
   "${CMAKE_CURRENT_BINARY_DIR}/KF5KrossConfig.cmake"
