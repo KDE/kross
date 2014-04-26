@@ -1,1 +1,9 @@
+maintainer:
+description: Multi-language application scripting
 tier: 3
+type: solution
+platforms:
+    - name: All
+portingAid: false
+deprecated: false
+release: true
