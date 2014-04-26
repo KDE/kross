@@ -4,6 +4,6 @@ tier: 3
 type: solution
 platforms:
     - name: All
-portingAid: false
-deprecated: false
+portingAid: true
+deprecated: true
 release: true
