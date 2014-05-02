@@ -63,5 +63,5 @@ install(FILES
 install(TARGETS KF5KrossCore EXPORT KF5KrossTargets ${KF5_INSTALL_TARGETS_DEFAULT_ARGS})
 
 include(ECMGeneratePriFile)
-ecm_generate_pri_file(BASE_NAME KrossCore LIB_NAME KF5KrossCore DEPS "script xml" FILENAME_VAR PRI_FILENAME)
+ecm_generate_pri_file(BASE_NAME KrossCore LIB_NAME KF5KrossCore DEPS "script xml" FILENAME_VAR PRI_FILENAME INCLUDE_INSTALL_DIR ${KF5_INCLUDE_INSTALL_DIR}/KrossCore)
 install(FILES ${PRI_FILENAME} DESTINATION ${ECM_MKSPECS_INSTALL_DIR})
