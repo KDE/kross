@@ -1,0 +1,173 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kross5\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-04-27 20:56+0000\n"
+"PO-Revision-Date: 2014-04-27 21:05+0000\n"
+"Last-Translator: transxx.py program <null@kde.org>\n"
+"Language-Team: KDE Test Language <kde-i18n-doc@kde.org>\n"
+"Language: x-test\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "xxYour namesxx"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xxYour emailsxx"
+
+#: console/main.cpp:100
+msgctxt "application name"
+msgid "Kross"
+msgstr "xxKrossxx"
+
+#: console/main.cpp:102
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "xxCommand-line utility to run Kross scripts.xx"
+
+#: console/main.cpp:104
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "xxCopyright 2006 Sebastian Sauerxx"
+
+#: console/main.cpp:108
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "xxSebastian Sauerxx"
+
+#: console/main.cpp:109
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "xxAuthorxx"
+
+#: console/main.cpp:119
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "xxThe script to run.xx"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "xxScriptfile \"%1\" does not exist.xx"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "xxFailed to determine interpreter for scriptfile \"%1\"xx"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "xxFailed to open scriptfile \"%1\"xx"
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "xxFailed to load interpreter \"%1\"xx"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "xxNo such interpreter \"%1\"xx"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "xxFailed to create script for interpreter \"%1\"xx"
+
+#: core/manager.cpp:137
+msgid "Level of safety of the Ruby interpreter"
+msgstr "xxLevel of safety of the Ruby interpreterxx"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "xxCancel?xx"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "xxNo such function \"%1\"xx"
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "xxName:xx"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "xxText:xx"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "xxComment:xx"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "xxIcon:xx"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "xxInterpreter:xx"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "xxFile:xx"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "xxRunxx"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "xxExecute the selected script.xx"
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "xxStopxx"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "xxStop execution of the selected script.xx"
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "xxEdit...xx"
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "xxEdit selected script.xx"
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "xxAdd...xx"
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "xxAdd a new script.xx"
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "xxRemovexx"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "xxRemove selected script.xx"
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "xxEditxx"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "xxGeneralxx"
