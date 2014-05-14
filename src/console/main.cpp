@@ -96,11 +96,10 @@ int main(int argc, char **argv)
     KLocalizedString::setApplicationDomain("kross5");
 
     KAboutData about(QStringLiteral("kross"),
-                     QString(), // catalog: why does this argument even exist any more?
                      i18nc("application name", "Kross"),
                      QStringLiteral("0.1"),
                      i18nc("application description", "Command-line utility to run Kross scripts."),
-                     KAboutData::License_LGPL,
+                     KAboutLicense::LGPL,
                      i18nc("@info:credit", "Copyright 2006 Sebastian Sauer"),
                      QString(),
                      QStringLiteral("http://kross.dipe.org"),
