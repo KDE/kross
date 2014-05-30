@@ -1,6 +1,6 @@
 ########### next target ###############
 set(krossqtsplugin_LIB_SRCS plugin.cpp)
-add_library(krossqtsplugin ${krossqtsplugin_LIB_SRCS})
+add_library(krossqtsplugin MODULE ${krossqtsplugin_LIB_SRCS})
 target_link_libraries(krossqtsplugin
    Qt5::UiTools
    KF5::I18n
@@ -9,9 +9,6 @@ target_link_libraries(krossqtsplugin
    Qt5::Widgets
    Qt5::Gui
 )
-if (NOT CYGWIN)
-    set_target_properties(krossqtsplugin PROPERTIES VERSION ${KROSS_VERSION_STRING} SOVERSION ${KROSS_SOVERSION})
-endif ()
 
 install(TARGETS krossqtsplugin DESTINATION ${QT_PLUGIN_INSTALL_DIR}/script)
 
