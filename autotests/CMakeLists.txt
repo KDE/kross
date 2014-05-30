@@ -4,7 +4,6 @@ set(krossqtstest_SRCS main.cpp)
 add_executable(krossqtstest qts.cpp)
 ecm_mark_as_test(krossqtstest)
 target_link_libraries(krossqtstest
-   krossqtsplugin
    KF5::KrossCore
    Qt5::Script
    KF5::I18n
