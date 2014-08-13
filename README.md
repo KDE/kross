@@ -63,9 +63,3 @@ Currently, the only backend is a JavaScript backend powered by the QtScript
 library (which is part of Qt).
 
 
-## Links
-
-- Home page: <https://projects.kde.org/projects/frameworks/kross>
-- Mailing list: <https://mail.kde.org/mailman/listinfo/kde-frameworks-devel>
-- IRC channel: #kde-devel on Freenode
-- Git repository: <https://projects.kde.org/projects/frameworks/kross/repository>
