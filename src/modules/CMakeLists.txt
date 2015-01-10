@@ -13,7 +13,7 @@ if( Qt5UiTools_FOUND )
        KF5::KrossUi
        KF5::I18n
     )
-    install(TARGETS KrossModuleForms DESTINATION ${PLUGIN_INSTALL_DIR})
+    install(TARGETS KrossModuleForms DESTINATION ${KDE_INSTALL_PLUGINDIR})
 endif()
 
 ############################################
@@ -27,4 +27,4 @@ target_link_libraries(KrossModuleKdeTranslation
    KF5::KrossCore
    KF5::I18n
 )
-install(TARGETS KrossModuleKdeTranslation DESTINATION ${PLUGIN_INSTALL_DIR})
+install(TARGETS KrossModuleKdeTranslation DESTINATION ${KDE_INSTALL_PLUGINDIR})

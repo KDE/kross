@@ -10,7 +10,7 @@ target_link_libraries(krossqtsplugin
    Qt5::Gui
 )
 
-install(TARGETS krossqtsplugin DESTINATION ${QT_PLUGIN_INSTALL_DIR}/script)
+install(TARGETS krossqtsplugin DESTINATION ${KDE_INSTALL_QTPLUGINDIR}/script)
 
 ########### next target ###############
 
@@ -24,4 +24,4 @@ target_link_libraries(krossqts
    Qt5::Gui
 )
 
-install(TARGETS krossqts DESTINATION ${QT_PLUGIN_INSTALL_DIR})
+install(TARGETS krossqts DESTINATION ${KDE_INSTALL_QTPLUGINDIR})
