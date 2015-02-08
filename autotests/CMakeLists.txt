@@ -12,6 +12,14 @@ target_link_libraries(krossqtstest
 
 add_test(NAME krossqtstest-test-es COMMAND krossqtstest ${CMAKE_CURRENT_SOURCE_DIR}/qtstest.es)
 
+add_executable(metafunctiontest metafunctiontest.cpp)
+ecm_mark_as_test(metafunctiontest)
+target_link_libraries(metafunctiontest
+   Qt5::Test
+   KF5::KrossCore
+   )
+add_test(NAME kross-metafunctiontest COMMAND metafunctiontest)
+
 #set(krosstest_SRCS
 #   testobject.cpp
 #   main.cpp )

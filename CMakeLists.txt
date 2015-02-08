@@ -26,6 +26,17 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KROSS
 set(REQUIRED_QT_VERSION "5.2")
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Script Xml Widgets UiTools)
 
+
+find_package(Qt5Test ${QT_MIN_VERSION} CONFIG QUIET)
+set_package_properties(Qt5Test PROPERTIES
+   PURPOSE "Required for tests"
+   TYPE OPTIONAL
+   )
+add_feature_info("Qt5Test" Qt5Test_FOUND "Required for building tests")
+if (NOT Qt5Test_FOUND)
+   set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
+endif()
+
 find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
@@ -46,7 +57,9 @@ if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
 endif()
 add_subdirectory(docs)
 add_subdirectory(src)
+if (BUILD_TESTING)
 add_subdirectory(autotests)
+endif()
 
 # create a Config.cmake and a ConfigVersion.cmake file and install them
 set(CMAKECONFIG_INSTALL_DIR "${KDE_INSTALL_CMAKEPACKAGEDIR}/KF5Kross")
