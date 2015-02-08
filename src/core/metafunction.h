@@ -119,6 +119,7 @@ public:
         staticMetaObject.d.data = m_data.data();
         staticMetaObject.d.relatedMetaObjects = 0;
         staticMetaObject.d.extradata = 0;
+        staticMetaObject.d.static_metacall = 0;
     }
 
     /**
