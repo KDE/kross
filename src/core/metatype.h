@@ -70,12 +70,12 @@ public:
 #endif
     }
 
-    virtual int typeId()
+    int typeId() Q_DECL_OVERRIDE
     {
         return qMetaTypeId<METATYPE>();
     }
     //virtual QVariant toVariant() { return QVariant(typeId(), m_variant); }
-    virtual void *toVoidStar()
+    void *toVoidStar() Q_DECL_OVERRIDE
     {
         return (void *) &m_variant;
     }
@@ -104,12 +104,12 @@ public:
 #endif
     }
 
-    virtual int typeId()
+    int typeId() Q_DECL_OVERRIDE
     {
         return qVariantFromValue(m_value).type();
     }
     //virtual QVariant toVariant() { return qVariantFromValue(m_value); }
-    virtual void *toVoidStar()
+    void *toVoidStar() Q_DECL_OVERRIDE
     {
         return (void *) &m_value;
     }
@@ -139,11 +139,11 @@ public:
             QMetaType::destroy(m_typeId, m_ptr);
         }
     }
-    virtual int typeId()
+    int typeId() Q_DECL_OVERRIDE
     {
         return m_typeId;
     }
-    virtual void *toVoidStar()
+    void *toVoidStar() Q_DECL_OVERRIDE
     {
         return (void *) &m_ptr; /*return m_ptr;*/
     }

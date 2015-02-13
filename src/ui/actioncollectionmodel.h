@@ -59,25 +59,25 @@ public:
     explicit ActionCollectionModel(QObject *parent, ActionCollection *collection = 0, Mode mode = Mode(Icons | ToolTips));
     virtual ~ActionCollectionModel();
 
-    virtual int columnCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual int rowCount(const QModelIndex &parent = QModelIndex()) const;
-    virtual QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const;
-    virtual QModelIndex parent(const QModelIndex &index) const;
-    virtual Qt::ItemFlags flags(const QModelIndex &index) const;
-    virtual QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const;
-    virtual bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole);
+    int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
+    QModelIndex parent(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex &index) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const Q_DECL_OVERRIDE;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) Q_DECL_OVERRIDE;
 
-    virtual bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex());
-    virtual bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex());
-    virtual bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex());
-    virtual bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex());
+    bool insertRows(int row, int count, const QModelIndex &parent = QModelIndex()) Q_DECL_OVERRIDE;
+    bool removeRows(int row, int count, const QModelIndex &parent = QModelIndex()) Q_DECL_OVERRIDE;
+    bool insertColumns(int column, int count, const QModelIndex &parent = QModelIndex()) Q_DECL_OVERRIDE;
+    bool removeColumns(int column, int count, const QModelIndex &parent = QModelIndex()) Q_DECL_OVERRIDE;
 
     //Qt::DropActions supportedDragActions() const;
-    virtual QStringList mimeTypes() const;
-    virtual QMimeData *mimeData(const QModelIndexList &indexes) const;
-    virtual bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent);
+    QStringList mimeTypes() const Q_DECL_OVERRIDE;
+    QMimeData *mimeData(const QModelIndexList &indexes) const Q_DECL_OVERRIDE;
+    bool dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent) Q_DECL_OVERRIDE;
 
-    virtual Qt::DropActions supportedDropActions() const;
+    Qt::DropActions supportedDropActions() const Q_DECL_OVERRIDE;
 
     QModelIndex indexForCollection(ActionCollection *collection) const;
     QModelIndex indexForAction(Action *action) const;
@@ -134,9 +134,9 @@ public:
 
 private:
     /// Set the \a ActionCollectionModel source model we are proxy for.
-    virtual void setSourceModel(QAbstractItemModel *sourceModel);
+    void setSourceModel(QAbstractItemModel *sourceModel) Q_DECL_OVERRIDE;
     /// Implements a filter for the QModelIndex instances.
-    virtual bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const;
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const Q_DECL_OVERRIDE;
 };
 
 }

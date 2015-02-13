@@ -139,7 +139,7 @@ public:
     * \return the dynamic build \a QMetaObject instance
     * for this QObject instance.
     */
-    const QMetaObject *metaObject() const
+    const QMetaObject *metaObject() const Q_DECL_OVERRIDE
     {
         return &staticMetaObject;
     }
@@ -149,7 +149,7 @@ public:
     * name \p _clname and return the casted pointer or NULL
     * if casting failed.
     */
-    void *qt_metacast(const char *_clname)
+    void *qt_metacast(const char *_clname) Q_DECL_OVERRIDE
     {
         if (! _clname) {
             return 0;

@@ -86,7 +86,7 @@ public:
     /**
      * Re-implement in order to load additional kross scripting rc files.
      */
-    virtual void setDOMDocument(const QDomDocument &document, bool merge = false);
+    void setDOMDocument(const QDomDocument &document, bool merge = false) Q_DECL_OVERRIDE;
 
     /**
      * Add a QObject to the list of children. The object will be published to the scripting code.

@@ -29,7 +29,7 @@ public:
     MyFunction(QObject* sender, const QByteArray& signal)
         : Kross::MetaFunction(sender, signal) {}
 
-    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) {
+    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) Q_DECL_OVERRIDE {
         _id = QObject::qt_metacall(_c, _id, _a);
         if (_id >= 0 && _c == QMetaObject::InvokeMetaMethod) {
             switch (_id) {

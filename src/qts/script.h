@@ -61,12 +61,12 @@ public Q_SLOTS:
     /**
     * Executes the script.
     */
-    virtual void execute();
+    void execute() Q_DECL_OVERRIDE;
 
     /**
     * \return a list of function-names.
     */
-    virtual QStringList functionNames();
+    QStringList functionNames() Q_DECL_OVERRIDE;
 
     /**
     * Execute a function.
@@ -75,7 +75,7 @@ public Q_SLOTS:
     * \param args The optional arguments for the function.
     * \return The return value of the function.
     */
-    virtual QVariant callFunction(const QString &name, const QVariantList &args = QVariantList());
+    QVariant callFunction(const QString &name, const QVariantList &args = QVariantList()) Q_DECL_OVERRIDE;
 
     /**
      * Evaluate some scripting code.
@@ -83,7 +83,7 @@ public Q_SLOTS:
      * \param code The scripting code to evaluate.
      * \return The return value of the evaluation.
      */
-    virtual QVariant evaluate(const QByteArray &code);
+    QVariant evaluate(const QByteArray &code) Q_DECL_OVERRIDE;
 
     /**
     * \return the internal used QScriptEngine instance.

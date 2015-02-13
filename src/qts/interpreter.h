@@ -60,7 +60,7 @@ public:
     * the script and contains details like the scripting code.
     * \return a new \a EcmaScript instance.
     */
-    virtual Kross::Script *createScript(Kross::Action *action);
+    Kross::Script *createScript(Kross::Action *action) Q_DECL_OVERRIDE;
 
 private:
     class Private;
