@@ -1,0 +1,187 @@
+# translation of kdelibs4.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2007.
+# Ravishankar Shrivastava <raviratlami@aol.in>, 2008.
+# G Karunakar <karunakar@indlinux.org>, 2009, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-05-14 08:06+0000\n"
+"PO-Revision-Date: 2012-06-25 15:27+0530\n"
+"Last-Translator: G Karunakar <karunakar@indlinux.org>\n"
+"Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.2\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "करुणाकर गुंटुपल्ली"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karunakar@indlinux.org"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "क्रास"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "क्रॉस स्क्रिप्ट को चलाने के लिए केडीई अनुप्रयोग."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(c) 2006 सेबेस्तियन साए"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "सेबेस्टियन साए"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "लेखक"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "वर्णन"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "स्क्रिप्ट फ़ाइल \"%1\" अस्तित्व में नहीं है."
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "स्क्रिप्ट फ़ाइल \"%1\" के लिए इंटरप्रेटर का पता लगाने में असफल"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "स्क्रिप्ट फ़ाइल \"%1\" खोलने में असफल"
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "इंटरप्रेटर \"%1\" को लोड करने में असफल"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "ऐसा कोई इंटरप्रेटर नहीं \"%1\""
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "इंटरप्रेटर \"%1\" के लिए स्क्रिप्ट बनाने में असफल"
+
+#: core/manager.cpp:137
+msgid "Level of safety of the Ruby interpreter"
+msgstr "रूबी इंटरप्रेटर का सुरक्षा स्तर"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "रद्द करें?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "ऐसा कोई फंक्शन नहीं \"%1\""
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "नाम:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "पाठः"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "टिप्पणीः"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "प्रतीकः"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "इन्टरप्रेटर:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "फ़ाइलः"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "चलाएँ"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "चयनित स्क्रिप्ट चलाएँ"
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "रूकें"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "चयनित स्क्रिप्ट का चलाना रोकें"
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "संपादन..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "चयनित स्क्रिप्ट संपादित करें."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "जोड़ें..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "नया स्क्रिप्ट जोड़ें."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "हटाएँ"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "चयनित स्क्रिप्ट हटायें"
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "संपादन"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "सामान्य"
