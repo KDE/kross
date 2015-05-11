@@ -26,15 +26,15 @@
 #include <kross/core/actioncollection.h>
 #include <kross/core/interpreter.h>
 
-#include <QAction>
-#include <QBoxLayout>
-#include <QDir>
-#include <QFileInfo>
-#include <QHeaderView>
-#include <QLabel>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QTreeView>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QBoxLayout>
+#include <QtCore/QDir>
+#include <QtCore/QFileInfo>
+#include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTreeView>
 
 #include <kmessagebox.h>
 #include <kpagedialog.h>

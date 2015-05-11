@@ -22,7 +22,7 @@
 
 #include "krossconfig.h"
 
-#include <QString>
+#include <QtCore/QString>
 
 namespace Kross
 {

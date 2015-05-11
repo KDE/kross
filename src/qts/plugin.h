@@ -20,8 +20,8 @@
 #ifndef KROSS_ECMAPLUGIN_H
 #define KROSS_ECMAPLUGIN_H
 
-#include <QScriptEngine>
-#include <QScriptExtensionPlugin>
+#include <QtScript/QScriptEngine>
+#include <QtScript/QScriptExtensionPlugin>
 //#include <QtCore/QVariant>
 //#include <QtCore/QObject>
 //#include <QtCore/QDir>

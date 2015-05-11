@@ -22,7 +22,7 @@
 
 #include "../core/manager.h"
 
-#include <QDebug>
+#include <QtCore/QDebug>
 
 using namespace Kross;
 

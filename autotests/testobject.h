@@ -20,13 +20,13 @@
 #ifndef KROSS_TEST_TESTOBJECT_H
 #define KROSS_TEST_TESTOBJECT_H
 
-#include <QObject>
-#include <QString>
-#include <QStringList>
-#include <QVariant>
-#include <QMetaType>
-#include <QUrl>
-#include <QThread>
+#include <QtCore/QObject>
+#include <QtCore/QString>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#include <QtCore/QMetaType>
+#include <QtCore/QUrl>
+#include <QtCore/QThread>
 
 class QSize;
 class QSizeF;
@@ -42,7 +42,7 @@ class QDate;
 class QTime;
 class QDateTime;
 
-#include <QDebug>
+#include <QtCore/QDebug>
 
 #include "../core/action.h"
 #include "../core/object.h"

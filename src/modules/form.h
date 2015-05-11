@@ -20,9 +20,9 @@
 #ifndef KROSS_FORM_H
 #define KROSS_FORM_H
 
-#include <QWidget>
-#include <QUrl>
-#include <QListWidget>
+#include <QtWidgets/QWidget>
+#include <QtCore/QUrl>
+#include <QtWidgets/QListWidget>
 
 #include <kpagedialog.h>
 #include <kassistantdialog.h>

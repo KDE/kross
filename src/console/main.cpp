@@ -23,8 +23,8 @@
 // Qt
 
 #include <QtCore/QFile>
-#include <QApplication>
-#include <QUrl>
+#include <QtWidgets/QApplication>
+#include <QtCore/QUrl>
 
 // KDE
 #include <KAboutData>

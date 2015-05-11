@@ -20,8 +20,8 @@
 #ifndef KROSS_CHILDRENINTERFACE_H
 #define KROSS_CHILDRENINTERFACE_H
 
-#include <QHash>
-#include <QObject>
+#include <QtCore/QHash>
+#include <QtCore/QObject>
 
 #include "krossconfig.h"
 

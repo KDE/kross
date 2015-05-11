@@ -18,9 +18,9 @@
     Boston, MA 02110-1301, USA.
 */
 
-#include <QDebug>
+#include <QtCore/QDebug>
 #include <kross/core/metafunction.h>
-#include <QMetaMethod>
+#include <QtCore/QMetaMethod>
 #include <QtTest/QTest>
 
 class MyFunction : public Kross::MetaFunction

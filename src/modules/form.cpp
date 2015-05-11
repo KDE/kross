@@ -18,33 +18,33 @@
  ***************************************************************************/
 
 #include "form.h"
-#include <QDomDocument>
+#include <QtXml/QDomDocument>
 
-#include <QByteRef>
-#include <QBuffer>
-#include <QRegExp>
-#include <QFile>
-#include <QArgument>
-#include <QMetaEnum>
-#include <QAction>
-#include <QDialogButtonBox>
-#include <QKeyEvent>
-#include <QDialog>
-#include <QBoxLayout>
-#include <QStackedLayout>
-#include <QSizePolicy>
-#include <QApplication>
-#include <QProgressBar>
+#include <QtCore/QByteRef>
+#include <QtCore/QBuffer>
+#include <QtCore/QRegExp>
+#include <QtCore/QFile>
+#include <QtCore/QArgument>
+#include <QtCore/QMetaEnum>
+#include <QtWidgets/QAction>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtGui/QKeyEvent>
+#include <QtWidgets/QDialog>
+#include <QtWidgets/QBoxLayout>
+#include <QtWidgets/QStackedLayout>
+#include <QtWidgets/QSizePolicy>
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QProgressBar>
 //#include <QProgressDialog>
-#include <QPushButton>
-#include <QTextBrowser>
-#include <QUiLoader>
-#include <QTextCursor>
-#include <QTextBlock>
-#include <QTime>
-#include <QUrl>
+#include <QtWidgets/QPushButton>
+#include <QtWidgets/QTextBrowser>
+#include <QtUiTools/QUiLoader>
+#include <QtGui/QTextCursor>
+#include <QtGui/QTextBlock>
+#include <QtCore/QTime>
+#include <QtCore/QUrl>
 
-#include <QDebug>
+#include <QtCore/QDebug>
 #include <klocalizedstring.h>
 //#include <kurlcombobox.h>
 //#include <kdiroperator.h>

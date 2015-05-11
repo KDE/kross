@@ -22,9 +22,9 @@
 
 #include "errorinterface.h"
 
-#include <QStringList>
-#include <QVariant>
-#include <QObject>
+#include <QtCore/QStringList>
+#include <QtCore/QVariant>
+#include <QtCore/QObject>
 
 namespace Kross
 {

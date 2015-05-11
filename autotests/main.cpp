@@ -27,14 +27,14 @@
 
 // Qt
 
-#include <QFile>
-#include <QArgument>
-#include <QMetaEnum>
-#include <QApplication>
-#include <QUrl>
+#include <QtCore/QFile>
+#include <QtCore/QArgument>
+#include <QtCore/QMetaEnum>
+#include <QtWidgets/QApplication>
+#include <QtCore/QUrl>
 
 // KDE
-#include <QDebug>
+#include <QtCore/QDebug>
 
 // for std namespace
 #include <string>

@@ -22,9 +22,9 @@
 
 #include "translation.h"
 
-#include <QString>
-#include <QVariant>
-#include <QVariantList>
+#include <QtCore/QString>
+#include <QtCore/QVariant>
+#include <QtCore/QVariantList>
 
 #include <klocalizedstring.h>
 #include <kpluginloader.h>
