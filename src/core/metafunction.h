@@ -24,7 +24,7 @@
 #ifndef KROSS_METAFUNCTION_H
 #define KROSS_METAFUNCTION_H
 
-#include <krosscore_export.h>
+#include <kross/core/krosscore_export.h>
 #include <QtCore/QObject>
 #include <QtCore/QArgument>
 #include <QtCore/QByteRef>
