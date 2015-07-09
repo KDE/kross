@@ -86,12 +86,12 @@
 #dialog.show()
 
 #from PyQt4 import QtCore
-from PyQt4 import QtGui
+from PyQt5 import QtWidgets
 import TestObject1, TestObject2
 
-class OwnWidget(QtGui.QLabel):
+class OwnWidget(QtWidgets.QLabel):
     def __init__(self):
-        QtGui.QLabel.__init__(self)
+        QtWidgets.QLabel.__init__(self)
         self.setObjectName("MyLabelObjectName")
 
 def test():

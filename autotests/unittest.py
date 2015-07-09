@@ -145,8 +145,6 @@ class TestKross(unittest.TestCase):
 		self.assert_( self.object1.func_qurl_qurl("/home/myuser") == "/home/myuser" )
 		self.assert_( self.object1.func_qurl_qurl("file:///home/myuser/myfile.txt") == "file:///home/myuser/myfile.txt" )
 		self.assert_( self.object1.func_qurl_qurl("http://myname:mypass@kross.dipe.org?404.cgi?test=123&test2=456") == "http://myname:mypass@kross.dipe.org?404.cgi?test=123&test2=456" )
-		self.assert_( self.object1.func_kurl_kurl("http://www.kde.org/whatiskde/") == "http://www.kde.org/whatiskde/" )
-		self.assert_( self.object1.func_kurl_qstring("http://www.kde.org/whatiskde/") == None )
 
 	def testColor(self):
 		self.assert_( self.object1.func_qcolor_qcolor(None) == None )
@@ -279,14 +277,10 @@ class TestKross(unittest.TestCase):
 
 	def testPyQtSignal(self):
 		try:
-			from PyQt4 import QtCore, Qt
+			from PyQt5 import QtCore, Qt
 			import string
-			version = string.split(QtCore.PYQT_VERSION_STR, ".")
-			if map(int, version) < [4, 5]:
-				print "PyQt4 version (", QtCore.PYQT_VERSION_STR, ") is lower than 4.5, skipping test"
-				return
 		except:
-			print "PyQt4 wasn't found, skipping test"
+			print "PyQt5 wasn't found, skipping test"
 			return
 
 		class PyQtObject(Qt.QObject):
@@ -300,14 +294,10 @@ class TestKross(unittest.TestCase):
 
 	def testPyQtSignalException(self):
 		try:
-			from PyQt4 import QtCore, Qt
+			from PyQt5 import QtCore, Qt
 			import string
-			version = string.split(QtCore.PYQT_VERSION_STR, ".")
-			if map(int, version) < [4, 5]:
-				print "PyQt4 version (", QtCore.PYQT_VERSION_STR, ") is lower than 4.5, skipping test"
-				return
 		except:
-			print "PyQt4 wasn't found, skipping test"
+			print "PyQt5 wasn't found, skipping test"
 			return
 
 		class PyQtObject(Qt.QObject):
