@@ -45,6 +45,7 @@ ecm_generate_headers(KrossCore_CamelCase_HEADERS
   Object
   MetaType
   MetaFunction
+  KrossConfig
 
   PREFIX Kross/Core
   REQUIRED_HEADERS KrossCore_HEADERS
