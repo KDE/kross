@@ -76,7 +76,13 @@ Manager &Manager::self()
     return *_self();
 }
 
-static QFunctionPointer loadLibrary(const char *libname, const char *functionname)
+enum LibraryFunction
+{
+    LibraryFunctionInterpreter,
+    LibraryFunctionModule
+};
+
+static QFunctionPointer loadLibrary(const char *libname, enum LibraryFunction function)
 {
     QLibrary lib;
     QString libAbsoluteFilePath;
@@ -92,10 +98,10 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
 
     if (!lib.isLoaded()) {
 #ifdef KROSS_INTERPRETER_DEBUG
-        if (strcmp(functionname, "krossinterpreter") == 0) {
+        if (function == LibraryFunctionInterpreter) {
             qCDebug(KROSS_LOG) << "Kross Interpreter '" << libname <<
                 "' not available: " << lib.errorString();
-        } else if (strcmp(functionname, "krossmodule") == 0) {
+        } else if (function == LibraryFunctionModule) {
             qCDebug(KROSS_LOG) << "Kross Module '" << libname <<
                 "' not available: " << lib.errorString();
         } else {
@@ -106,10 +112,11 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
         return nullptr;
     }
 
-    QFunctionPointer funcPtr = lib.resolve(functionname);
+    const char* functionName = function == LibraryFunctionInterpreter ? "krossinterpreter" : "krossmodule";
+    QFunctionPointer funcPtr = lib.resolve(functionName);
     if (!funcPtr) {
         qCWarning(KROSS_LOG) << QStringLiteral("Failed to resolve %1 in %2%3")
-            .arg(functionname)
+            .arg(functionName)
             .arg(lib.fileName())
             .arg(libAbsoluteFilePath.isEmpty() ? "" : QString(" (%1)").arg(libAbsoluteFilePath));
     }
@@ -127,7 +134,7 @@ Manager::Manager()
     d->collection = new ActionCollection("main");
 
 #ifdef KROSS_PYTHON_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_PYTHON_LIBRARY, LibraryFunctionInterpreter)) {
         d->interpreterinfos.insert("python",
                                    new InterpreterInfo("python",
                                            funcPtr, // library
@@ -139,7 +146,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_RUBY_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_RUBY_LIBRARY, LibraryFunctionInterpreter)) {
         InterpreterInfo::Option::Map options;
         options.insert("safelevel", new InterpreterInfo::Option(
                            i18n("Level of safety of the Ruby interpreter"),
@@ -156,7 +163,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_JAVA_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_JAVA_LIBRARY, LibraryFunctionInterpreter)) {
         d->interpreterinfos.insert("java",
                                    new InterpreterInfo("java",
                                            funcPtr, // library
@@ -168,7 +175,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_FALCON_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_FALCON_LIBRARY, LibraryFunctionInterpreter)) {
         d->interpreterinfos.insert("falcon",
                                    new InterpreterInfo("falcon",
                                            funcPtr, // library
@@ -180,7 +187,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_QTSCRIPT_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_QTSCRIPT_LIBRARY, LibraryFunctionInterpreter)) {
         d->interpreterinfos.insert("qtscript",
                                    new InterpreterInfo("qtscript",
                                            funcPtr, // library
@@ -192,7 +199,7 @@ Manager::Manager()
 #endif
 
 #ifdef KROSS_LUA_LIBRARY
-    if (QFunctionPointer funcPtr = loadLibrary(KROSS_LUA_LIBRARY, "krossinterpreter")) {
+    if (QFunctionPointer funcPtr = loadLibrary(KROSS_LUA_LIBRARY, LibraryFunctionInterpreter)) {
         d->interpreterinfos.insert("lua",
                                    new InterpreterInfo("lua",
                                            funcPtr, // library
@@ -309,7 +316,7 @@ QObject *Manager::module(const QString &modulename)
 
     QByteArray libraryname = QString("krossmodule%1").arg(modulename).toLower().toLatin1();
 
-    if (QFunctionPointer funcPtr = loadLibrary(libraryname.constData(), "krossmodule")) {
+    if (QFunctionPointer funcPtr = loadLibrary(libraryname.constData(), LibraryFunctionModule)) {
         def_module_func func = (def_module_func) funcPtr;
         Q_ASSERT(func);
         QObject *module = (QObject *)(func)(); // call the function
