@@ -3,7 +3,7 @@
   <!ENTITY % English "INCLUDE"><!-- change language only here -->
 ]>
 
-<refentry>
+<refentry lang="&language;">
 
 <refentryinfo>
 <title>kf5kross User's Manual</title>
@@ -124,7 +124,7 @@ Look at <replaceable>http://kross.dipe.org/solution.html</replaceable> for more 
 
 <refsect1>
 <title>Bugs</title>
-<para>There are probably tons of bugs. Use <ulink url="http://bugs.kde.org">bugs.kde.org</ulink> to report them.</para>
+<para>Please use <ulink url="http://bugs.kde.org">KDE's bugtracker</ulink> to report bugs.</para>
 </refsect1>
 
 </refentry>
