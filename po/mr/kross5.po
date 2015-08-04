@@ -1,0 +1,178 @@
+# translation of kdelibs4.po to marathi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sandeep Shedmake <sandeep.shedmake@gmail.com>, 2008, 2009.
+# Chetan Khona <chetan@kompkin.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-05-14 08:06+0000\n"
+"PO-Revision-Date: 2014-10-29 10:58+0530\n"
+"Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
+"Language-Team: Marathi <kde-i18n-doc@kde.org>\n"
+"Language: mr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"संदिप शेडमाके, \n"
+"चेतन खोना"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"sandeep.shedmake@gmail.com, \n"
+"chetan@kompkin.com"
+
+#: console/main.cpp:99
+msgctxt "application name"
+msgid "Kross"
+msgstr "क्रोस"
+
+#: console/main.cpp:101
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "क्रोस स्क्रिप्ट चालविण्याकरिता केडीई अनुप्रयोग."
+
+#: console/main.cpp:103
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 सेबेस्तियन सॉअर"
+
+#: console/main.cpp:107
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "सेबेस्तियन सॉअर"
+
+#: console/main.cpp:108
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "लेखक"
+
+#: console/main.cpp:118
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "चालविण्याकरिताची स्क्रिप्ट."
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "स्क्रिप्ट फाईल \"%1\" अस्तित्वात नाही."
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "स्क्रिप्टफाईल \"%1\" करिता इंटरप्रेटर ओळखण्यास अपयशी"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "स्क्रिप्टफाईल \"%1\" उघडण्यास अपयशी"
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "इंटरप्रीटर \"%1\" दाखल होण्यास अपयशी"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "इंटरप्रीटर \"%1\" आढळला नाही"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "इंटरप्रीटर \"%1\" करिता स्क्रिप्ट बनवू शकला नाही"
+
+#: core/manager.cpp:137
+msgid "Level of safety of the Ruby interpreter"
+msgstr "रूबी इंटरप्रेटरचे सुरक्षा स्तर"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "रद्द करा?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "\"%1\" नुरूप फंक्शन नाही"
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "नाव:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "पाठ्य:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "टीप्पणी:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "चिन्ह:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "इंटरप्रेटर:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "फाईल:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "चालवा"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "निवडलेली स्क्रिप्ट चालवा."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "थांबा"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "निवडलेल्या स्क्रिप्ट अकार्यान्वित करा."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "संपादित करा..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "निवडलेली स्क्रिप्ट संपादित करा."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "समाविष्ट करा..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "नवीन स्क्रिप्ट जोडा."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "काढून टाका"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "निवडलेली स्क्रिप्ट काढून टाका."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "संपादित करा"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "सामान्य"
