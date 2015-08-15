@@ -1,5 +1,7 @@
 include(ECMMarkAsTest)
 
+## These unit tests must move to kross-interpreters.git, they require the python kross interpreter!
+if (FALSE)
 set(krossqtstest_SRCS main.cpp)
 add_executable(krossqtstest qts.cpp)
 ecm_mark_as_test(krossqtstest)
@@ -11,6 +13,7 @@ target_link_libraries(krossqtstest
 )
 
 add_test(NAME krossqtstest-test-es COMMAND krossqtstest ${CMAKE_CURRENT_SOURCE_DIR}/qtstest.es)
+endif()
 
 add_executable(metafunctiontest metafunctiontest.cpp)
 ecm_mark_as_test(metafunctiontest)
@@ -20,6 +23,8 @@ target_link_libraries(metafunctiontest
    )
 add_test(NAME kross-metafunctiontest COMMAND metafunctiontest)
 
+## These unit tests must move to kross-interpreters.git, they require the python kross interpreter!
+if (FALSE)
 set(krosstest_SRCS
     testobject.cpp
     main.cpp
@@ -43,3 +48,4 @@ add_test(NAME kross-unittest-py COMMAND krosstest ${CMAKE_CURRENT_SOURCE_DIR}/un
 
 # UI files have no interpreter
 # add_test(NAME kross-guiform-ui COMMAND krosstest ${CMAKE_CURRENT_SOURCE_DIR}/testguiform.ui)
+endif()
