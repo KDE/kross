@@ -44,7 +44,7 @@ static const char s_fakeClassName[] = "ScriptFunction";
  * classes located in kdebindings inherit this class to connect a
  * QObject signal together with a callable python or ruby method.
  */
-class KROSSCORE_EXPORT MetaFunction : public QObject
+class MetaFunction : public QObject
 {
 public:
 
