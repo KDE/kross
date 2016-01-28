@@ -17,7 +17,7 @@ include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 
 include(KDEInstallDirs)
-include(KDEFrameworkCompilerSettings)
+include(KDEFrameworkCompilerSettings NO_POLICY_SCOPE)
 include(KDECMakeSettings)
 
 set(KF5_VERSION "5.19.0") # handled by release scripts
