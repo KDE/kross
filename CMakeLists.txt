@@ -27,7 +27,7 @@ ecm_setup_version(${KF5_VERSION} VARIABLE_PREFIX KROSS
                         PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/KF5KrossConfigVersion.cmake"
                         SOVERSION 5)
 
-set(REQUIRED_QT_VERSION "5.3")
+set(REQUIRED_QT_VERSION 5.4.0)
 find_package(Qt5 ${REQUIRED_QT_VERSION} CONFIG REQUIRED Core Script Xml Widgets UiTools)
 
 
