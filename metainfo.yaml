@@ -13,3 +13,7 @@ libraries:
  - qmake: KrossUi
    cmake: "KF5::KrossUi"
 cmakename: KF5Kross
+
+public_lib: true
+group: Frameworks
+subgroup: Porting Aids
