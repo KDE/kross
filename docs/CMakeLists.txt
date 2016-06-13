@@ -1,1 +1,1 @@
-add_subdirectory(kross)
+add_subdirectory(kf5kross)
