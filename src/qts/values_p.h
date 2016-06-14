@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "plugin.h"
+#include "kross_qts_plugin_debug.h"
 
 #include "../core/manager.h"
 #include "../core/object.h"
@@ -70,7 +71,7 @@ public:
     {
         QScriptValue function = m_object.property(name);
         if (! function.isFunction()) {
-            krosswarning(QString("EcmaScript::callFunction No such function \"%1\"").arg(name));
+            qCWarning(KROSS_QTS_PLUGIN_LOG) << "EcmaScript::callFunction No such function " << name;
             if (QScriptContext *context = engine()->currentContext()) {
                 context->throwError(QScriptContext::ReferenceError, i18n("No such function \"%1\"", name));
             }

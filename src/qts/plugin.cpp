@@ -19,10 +19,9 @@
 
 #include "plugin.h"
 #include "values_p.h"
+#include "kross_qts_plugin_debug.h"
 
 #include "../core/manager.h"
-
-#include <QtCore/QDebug>
 
 using namespace Kross;
 
@@ -63,7 +62,7 @@ void EcmaPlugin::initialize(const QString &key, QScriptEngine *engine)
         initializeCore(engine);
         initializeGui(engine);
     } else {
-        qDebug() << QString("Plugin::initialize unhandled key=%1").arg(key);
+        qCDebug(KROSS_QTS_PLUGIN_LOG) << "Plugin::initialize unhandled key=" << key;
     }
 }
 

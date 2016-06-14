@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "script.h"
+#include "kross_qtscript_debug.h"
 
 #include <QtCore/QMetaObject>
 #include <QtCore/QMetaMethod>
@@ -116,7 +117,7 @@ public:
         const QString err = m_engine->uncaughtException().toString();
         const int linenr = m_engine->uncaughtExceptionLineNumber();
         const QString trace = m_engine->uncaughtExceptionBacktrace().join("\n");
-        krossdebug(QString("%1, line:%2, backtrace:\n%3").arg(err).arg(linenr).arg(trace));
+        qCDebug(KROSS_QTSCRIPT_LOG) << QStringLiteral("%1, line:%2, backtrace:\n%3").arg(err).arg(linenr).arg(trace);
         m_script->action()->setError(err, trace, linenr);
         m_engine->clearExceptions();
     }
@@ -160,7 +161,8 @@ public:
                             //krossdebug( QString("EcmaScript::connectFunctions No function to connect with %1.%2").arg(it.key()).arg(name) );
                             continue;
                         }
-                        krossdebug(QString("EcmaScript::connectFunctions Connecting with %1.%2").arg(it.key()).arg(name));
+                        qCDebug(KROSS_QTSCRIPT_LOG) << "EcmaScript::connectFunctions Connecting with " <<
+                            it.key() << "." << name;
                         eval += QString("try { %1.%2.connect(%3); } catch(e) { print(e); }\n").arg(it.key()).arg(name).arg(name);
                     }
                 }
@@ -249,7 +251,7 @@ QVariant EcmaScript::callFunction(const QString &name, const QVariantList &args)
     QScriptValue function = obj.property(name);
     if (! function.isFunction()) {
         QString err = QString("No such function '%1'").arg(name);
-        krosswarning(QString("EcmaScript::callFunction %1").arg(err));
+        qCWarning(KROSS_QTSCRIPT_LOG) << "EcmaScript::callFunction " << err;
         setError(err);
         return QVariant();
     }
