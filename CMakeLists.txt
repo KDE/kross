@@ -41,15 +41,12 @@ if (NOT Qt5Test_FOUND)
    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
 endif()
 
-find_package(KF5Completion ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5CoreAddons ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5I18n ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5IconThemes ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5KIO ${KF5_DEP_VERSION} REQUIRED)
 find_package(KF5Parts ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5WidgetsAddons ${KF5_DEP_VERSION} REQUIRED)
-find_package(KF5XmlGui ${KF5_DEP_VERSION} REQUIRED)
 
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
