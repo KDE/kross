@@ -6,5 +6,7 @@ add_subdirectory( ui )
 add_subdirectory( modules )
 add_subdirectory( console )
 
+# QtScript bindings for Kross
+add_subdirectory(qts)
 # QtScript backend
-add_subdirectory( qts )
+add_subdirectory(qts-interpreter)
