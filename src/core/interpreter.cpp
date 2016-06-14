@@ -21,6 +21,7 @@
 #include "script.h"
 #include "action.h"
 #include "manager.h"
+#include "kross_debug.h"
 
 extern "C"
 {
@@ -116,7 +117,7 @@ Interpreter *InterpreterInfo::interpreter()
     }
 
     //#ifdef KROSS_INTERPRETER_DEBUG
-    krossdebug(QString("Loading the interpreter library for %1").arg(d->interpretername));
+    qCDebug(KROSS_LOG) << "Loading the interpreter library for " << d->interpretername;
     //#endif
 
     // Get the extern "C" krosspython_instance function.
@@ -129,13 +130,13 @@ Interpreter *InterpreterInfo::interpreter()
 
     if (! d->interpreter) {
         //#ifdef KROSS_INTERPRETER_DEBUG
-        krosswarning("Incompatible interpreter library.");
+        qCWarning(KROSS_LOG) << "Incompatible interpreter library.";
         //#endif
     } else {
         // Job done. The library is loaded and our Interpreter* points
         // to the external Kross::Python::Interpreter* instance.
         //#ifdef KROSS_INTERPRETER_DEBUG
-        krossdebug("Successfully loaded Interpreter instance from library.");
+        qCDebug(KROSS_LOG) << "Successfully loaded Interpreter instance from library.";
         //#endif
     }
 

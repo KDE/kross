@@ -20,6 +20,7 @@
 #include "actioncollection.h"
 #include "action.h"
 #include "manager.h"
+#include "kross_debug.h"
 
 #include <QtCore/QHash>
 #include <QtCore/QStringList>
@@ -317,7 +318,7 @@ bool ActionCollection::readXml(const QDomElement &element, const QDir &directory
 bool ActionCollection::readXml(const QDomElement &element, const QStringList &searchPath)
 {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-    krossdebug(QString("ActionCollection::readXml tagName=\"%1\"").arg(element.tagName()));
+    qCDebug(KROSS_LOG) << "ActionCollection::readXml tagName=\"" << element.tagName() << "\"";
 #endif
 
     d->blockupdated = true; // block updated() signals and emit it only once if everything is done
@@ -331,7 +332,8 @@ bool ActionCollection::readXml(const QDomElement &element, const QStringList &se
         }
 
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krossdebug(QString("  ActionCollection::readXml child=%1 tagName=\"%2\"").arg(i).arg(elem.tagName()));
+        qCDebug(KROSS_LOG) << "  ActionCollection::readXml child=" <<
+            i << " tagName=\"" << elem.tagName() << "\"";
 #endif
 
         if (elem.tagName() == "collection") {
@@ -360,11 +362,11 @@ bool ActionCollection::readXml(const QDomElement &element, const QStringList &se
             Action *a = dynamic_cast< Action * >(action(name));
             if (a) {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-                krossdebug(QString("  ActionCollection::readXml Updating Action \"%1\"").arg(a->objectName()));
+                qCDebug(KROSS_LOG) << "  ActionCollection::readXml Updating Action " << a->objectName();
 #endif
             } else {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-                krossdebug(QString("  ActionCollection::readXml Creating Action \"%1\"").arg(name));
+                qCDebug(KROSS_LOG) << "  ActionCollection::readXml Creating Action " << name;
 #endif
 
                 a = new Action(this, name);
@@ -395,7 +397,8 @@ bool ActionCollection::readXml(QIODevice *device, const QStringList &searchPath)
     bool ok = document.setContent(device, false, &errMsg, &errLine, &errCol);
     if (! ok) {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krosswarning(QString("ActionCollection::readXml Error at line %1 in col %2: %3").arg(errLine).arg(errCol).arg(errMsg));
+        qCWarning(KROSS_LOG) << QStringLiteral("ActionCollection::readXml Error at line %1 in col %2: %3")
+            .arg(errLine).arg(errCol).arg(errMsg);
 #endif
         return false;
     }
@@ -405,13 +408,13 @@ bool ActionCollection::readXml(QIODevice *device, const QStringList &searchPath)
 bool ActionCollection::readXmlFile(const QString &file)
 {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-    krossdebug(QString("ActionCollection::readXmlFile file=\"%1\"").arg(file));
+    qCDebug(KROSS_LOG) << "ActionCollection::readXmlFile file=" << file;
 #endif
 
     QFile f(file);
     if (! f.open(QIODevice::ReadOnly)) {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krosswarning(QString("ActionCollection::readXmlFile reading file \"%1\" failed.").arg(file));
+        qCWarning(KROSS_LOG) << "ActionCollection::readXmlFile failed to read file " << file;
 #endif
         return false;
     }
@@ -420,7 +423,7 @@ bool ActionCollection::readXmlFile(const QString &file)
 
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
     if (! ok) {
-        krosswarning(QString("ActionCollection::readXmlFile parsing XML content of file \"%1\" failed.").arg(file));
+        qCWarning(KROSS_LOG) << "ActionCollection::readXmlFile failed to parse XML content of file " << file;
     }
 #endif
     return ok;
@@ -439,7 +442,7 @@ QDomElement ActionCollection::writeXml()
 QDomElement ActionCollection::writeXml(const QStringList &searchPath)
 {
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-    krossdebug(QString("ActionCollection::writeXml collection.objectName=\"%1\"").arg(objectName()));
+    qCDebug(KROSS_LOG) << "ActionCollection::writeXml collection.objectName=" << objectName();
 #endif
 
     QDomDocument document;
@@ -463,7 +466,8 @@ QDomElement ActionCollection::writeXml(const QStringList &searchPath)
     foreach (Action *a, actions()) {
         Q_ASSERT(a);
 #ifdef KROSS_ACTIONCOLLECTION_DEBUG
-        krossdebug(QString("  ActionCollection::writeXml action.objectName=\"%1\" action.file=\"%2\"").arg(a->objectName()).arg(a->file()));
+        qCDebug(KROSS_LOG) << "  ActionCollection::writeXml action.objectName=" <<
+            a->objectName() << " action.file=" << a->file();
 #endif
         QDomElement e = a->toDomElement(searchPath);
         if (! e.isNull()) {

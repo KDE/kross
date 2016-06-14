@@ -25,6 +25,13 @@ set(krosscore_LIB_SRCS
    object.cpp
 )
 
+ecm_qt_declare_logging_category(
+    krosscore_LIB_SRCS
+    HEADER kross_debug.h
+    IDENTIFIER KROSS_LOG
+    CATEGORY_NAME org.kde.kross.core
+)
+
 add_library(KF5KrossCore ${krosscore_LIB_SRCS})
 generate_export_header(KF5KrossCore BASE_NAME KrossCore)
 

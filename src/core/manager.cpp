@@ -21,6 +21,7 @@
 #include "interpreter.h"
 #include "action.h"
 #include "actioncollection.h"
+#include "kross_debug.h"
 
 #include <QtCore/QObject>
 #include <QtCore/QArgument>
@@ -92,11 +93,14 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
     if (!lib.isLoaded()) {
 #ifdef KROSS_INTERPRETER_DEBUG
         if (strcmp(functionname, "krossinterpreter") == 0) {
-            krossdebug(QString("Kross Interpreter '%1' not available: %2").arg(libname).arg(lib.errorString()));
+            qCDebug(KROSS_LOG) << "Kross Interpreter '" << libname <<
+                "' not available: " << lib.errorString();
         } else if (strcmp(functionname, "krossmodule") == 0) {
-            krossdebug(QString("Kross Module '%1' not available: %2").arg(libname).arg(lib.errorString()));
+            qCDebug(KROSS_LOG) << "Kross Module '" << libname <<
+                "' not available: " << lib.errorString();
         } else {
-            krosswarning(QString("Failed to load unknown type of '%1' library: %2").arg(libname).arg(lib.errorString()));
+            qCWarning(KROSS_LOG) << "Failed to load unknown type of '" <<
+                libname << "' library: " << lib.errorString();
         }
 #endif
         return 0;
@@ -104,10 +108,10 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
 
     QFunctionPointer funcPtr = lib.resolve(functionname);
     if (!funcPtr) {
-        krosswarning(QString("Failed to resolve %1 in %2%3")
+        qCWarning(KROSS_LOG) << QStringLiteral("Failed to resolve %1 in %2%3")
             .arg(functionname)
             .arg(lib.fileName())
-            .arg(libAbsoluteFilePath.isEmpty() ? "" : QString(" (%1)").arg(libAbsoluteFilePath)));
+            .arg(libAbsoluteFilePath.isEmpty() ? "" : QString(" (%1)").arg(libAbsoluteFilePath));
     }
     return funcPtr;
 }
@@ -256,7 +260,7 @@ const QString Manager::interpreternameForFile(const QString &file)
 Interpreter *Manager::interpreter(const QString &interpretername) const
 {
     if (! hasInterpreterInfo(interpretername)) {
-        krosswarning(QString("No such interpreter '%1'").arg(interpretername));
+        qCWarning(KROSS_LOG) << "No such interpreter " << interpretername;
         return 0;
     }
     return d->interpreterinfos[interpretername]->interpreter();
@@ -299,7 +303,7 @@ QObject *Manager::module(const QString &modulename)
     }
 
     if (modulename.isEmpty() || modulename.contains(QRegExp("[^a-zA-Z0-9]"))) {
-        krosswarning(QString("Invalid module name '%1'").arg(modulename));
+        qCWarning(KROSS_LOG) << "Invalid module name " << modulename;
         return 0;
     }
 
@@ -314,7 +318,7 @@ QObject *Manager::module(const QString &modulename)
         d->modules.insert(modulename, module);
         return module;
     } else {
-        krosswarning(QString("Failed to load module '%1'").arg(modulename));
+        qCWarning(KROSS_LOG) << "Failed to load module " << modulename;
     }
     return 0;
 }
@@ -327,7 +331,7 @@ void Manager::deleteModules()
 
 bool Manager::executeScriptFile(const QUrl &file)
 {
-    krossdebug(QString("Manager::executeScriptFile() file='%1'").arg(file.toString()));
+    qCDebug(KROSS_LOG) << "Manager::executeScriptFile() file=" << file.toString();
     Action *action = new Action(0 /*no parent*/, file);
     action->trigger();
     bool ok = ! action->hadError();

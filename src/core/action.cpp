@@ -23,6 +23,7 @@
 #include "script.h"
 #include "manager.h"
 #include "wrapperinterface.h"
+#include "kross_debug.h"
 
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -107,7 +108,7 @@ void static init(Action *th, const QString &name, int options = 0)
     th->setEnabled(options & Enable);
     th->setObjectName(name);
 #ifdef KROSS_ACTION_DEBUG
-    krossdebug(QString("Action::Action(QObject*,QString,QDir) Ctor name='%1'").arg(th->objectName()));
+    qCDebug(KROSS_LOG) << "Action::Action(QObject*,QString,QDir) Ctor name=" << th->objectName();
 #endif
     QObject::connect(th, SIGNAL(triggered(bool)), th, SLOT(slotTriggered()));
 }
@@ -140,7 +141,7 @@ Action::Action(QObject *parent, const QUrl &url)
 Action::~Action()
 {
 #ifdef KROSS_ACTION_DEBUG
-    krossdebug(QString("Action::~Action() Dtor name='%1'").arg(objectName()));
+    qCDebug(KROSS_LOG) << QStringLiteral("Action::~Action() Dtor name='%1'").arg(objectName());
 #endif
     finalize();
     ActionCollection *coll = qobject_cast<ActionCollection *>(parent());
@@ -203,7 +204,8 @@ void Action::fromDomElement(const QDomElement &element, const QStringList &searc
                 const QString n = e.attribute("name", QString());
                 if (! n.isNull()) {
 #ifdef KROSS_ACTION_DEBUG
-                    krossdebug(QString("Action::readDomElement: Setting property name=%1 value=%2").arg(n).arg(e.text()));
+                    qCDebug(KROSS_LOG) << "Action::readDomElement: Setting property name=" <<
+                        n << " value=" << e.text();
 #endif
                     setProperty(n.toLatin1().constData(), QVariant(e.text()));
                 }
@@ -351,7 +353,7 @@ void Action::setInterpreter(const QString &interpretername)
         d->interpretername = interpretername;
         setEnabled(Manager::self().interpreters().contains(interpretername));
         if (!isEnabled()) {
-            krosswarning("Action::setInterpreter: interpreter not found: " + interpretername);
+            qCWarning(KROSS_LOG) << "Action::setInterpreter: interpreter not found: " << interpretername;
         }
         emit dataChanged(this);
         emit updated();
@@ -426,10 +428,12 @@ bool Action::setOption(const QString &name, const QVariant &value)
             d->options.insert(name, value);
             return true;
         } else {
-            krosswarning(QString("Kross::Action::setOption(%1, %2): No such option").arg(name).arg(value.toString()));
+            qCWarning(KROSS_LOG) << QStringLiteral("Kross::Action::setOption(%1, %2): No such option")
+                .arg(name).arg(value.toString());
         }
     } else {
-        krosswarning(QString("Kross::Action::setOption(%1, %2): No such interpreterinfo").arg(name).arg(value.toString()));
+        qCWarning(KROSS_LOG) << QStringLiteral("Kross::Action::setOption(%1, %2): No such interpreterinfo")
+            .arg(name).arg(value.toString());
     }
     return false;
 }
@@ -530,7 +534,7 @@ bool Action::isFinalized() const
 void Action::slotTriggered()
 {
 #ifdef KROSS_ACTION_DEBUG
-    krossdebug(QString("Action::slotTriggered() name=%1").arg(objectName()));
+    qCDebug(KROSS_LOG) << "Action::slotTriggered() name=" << objectName();
 #endif
 
     emit started(this);
@@ -543,13 +547,13 @@ void Action::slotTriggered()
 
     if (hadError()) {
 #ifdef KROSS_ACTION_DEBUG
-        krossdebug(QString("Action::slotTriggered() on init, errorMessage=%2").arg(errorMessage()));
+        qCDebug(KROSS_LOG) << "Action::slotTriggered() on init, errorMessage=" << errorMessage();
 #endif
     } else {
         d->script->execute();
         if (d->script->hadError()) {
 #ifdef KROSS_ACTION_DEBUG
-            krossdebug(QString("Action::slotTriggered() after exec, errorMessage=%2").arg(errorMessage()));
+            qCDebug(KROSS_LOG) << "Action::slotTriggered() after exec, errorMessage=" << errorMessage();
 #endif
             setError(d->script);
             //emit finished(this);
