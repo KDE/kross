@@ -18,6 +18,7 @@
  ***************************************************************************/
 
 #include "actioncollectionmodel.h"
+#include "krossui_debug.h"
 
 #include <kross/core/action.h>
 #include <kross/core/actioncollection.h>
@@ -367,18 +368,18 @@ bool ActionCollectionModel::setData(const QModelIndex &index, const QVariant &va
 
 bool ActionCollectionModel::insertRows(int row, int count, const QModelIndex &parent)
 {
-    krossdebug(QString("ActionCollectionModel::insertRows: row=%1 count=%2").arg(row).arg(count));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::insertRows: row=" << row << " count=" << count;
     if (! parent.isValid()) {
         return false;
     }
 
     ActionCollection *coll = collection(parent);
     if (coll) {
-        krossdebug(QString("ActionCollectionModel::insertRows: parentindex is ActionCollection with name=%1").arg(coll->name()));
+        qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::insertRows: parentindex is ActionCollection with name=" << coll->name();
     } else {
         Action *act = action(parent);
         if (act) {
-            krossdebug(QString("ActionCollectionModel::insertRows: parentindex is Action with name=%1").arg(act->name()));
+            qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::insertRows: parentindex is Action with name=" << act->name();
         }
     }
     return QAbstractItemModel::insertRows(row, count, parent);
@@ -386,19 +387,19 @@ bool ActionCollectionModel::insertRows(int row, int count, const QModelIndex &pa
 
 bool ActionCollectionModel::removeRows(int row, int count, const QModelIndex &parent)
 {
-    krossdebug(QString("ActionCollectionModel::removeRows: row=%1 count=%2").arg(row).arg(count));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::removeRows: row=" << row << " count=" << count;
     return QAbstractItemModel::removeRows(row, count, parent);
 }
 
 bool ActionCollectionModel::insertColumns(int column, int count, const QModelIndex &parent)
 {
-    krossdebug(QString("ActionCollectionModel::insertColumns: column=%1 count=%2").arg(column).arg(count));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::insertColumns: column=" << column << " count=" << count;
     return QAbstractItemModel::insertColumns(column, count, parent);
 }
 
 bool ActionCollectionModel::removeColumns(int column, int count, const QModelIndex &parent)
 {
-    krossdebug(QString("ActionCollectionModel::removeColumns: column=%1 count=%2").arg(column).arg(count));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::removeColumns: column=" << column << " count=" << count;
     return QAbstractItemModel::removeColumns(column, count, parent);
 }
 
@@ -459,7 +460,7 @@ QMimeData *ActionCollectionModel::mimeData(const QModelIndexList &indexes) const
 
 bool ActionCollectionModel::dropMimeData(const QMimeData *data, Qt::DropAction action, int row, int column, const QModelIndex &parent)
 {
-    krossdebug(QString("ActionCollectionModel::dropMimeData: row=%1 col=%2").arg(row).arg(column));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::dropMimeData: row=" << row << " col=" << column;
     if (action == Qt::IgnoreAction) {
         return true;
     }
@@ -470,7 +471,7 @@ bool ActionCollectionModel::dropMimeData(const QMimeData *data, Qt::DropAction a
         return false;
     }
 
-    krossdebug(QString("ActionCollectionModel::dropMimeData: ENCODED DATA:"));
+    qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::dropMimeData: ENCODED DATA:";
     QByteArray encodedData = data->data("application/vnd.text.list");
     QDataStream stream(&encodedData, QIODevice::ReadOnly);
     QStringList newItems;
@@ -479,7 +480,7 @@ bool ActionCollectionModel::dropMimeData(const QMimeData *data, Qt::DropAction a
         QString text;
         stream >> text;
         newItems << text;
-        krossdebug(QString("  %1 \"%2\"").arg(rows).arg(text));
+        qCDebug(KROSS_UI_LOG) << QString("  %1 \"%2\"").arg(rows).arg(text);
         ++rows;
     }
 
@@ -500,11 +501,11 @@ bool ActionCollectionModel::dropMimeData(const QMimeData *data, Qt::DropAction a
     QModelIndex targetindex = index(row, column, parent);
     ActionCollection *coll = collection(targetindex);
     if (coll) {
-        krossdebug(QString("ActionCollectionModel::dropMimeData: parentindex is ActionCollection with name=%1").arg(coll->name()));
+        qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::dropMimeData: parentindex is ActionCollection with name=" << coll->name();
     } else {
         Action *act = this->action(targetindex);
         if (act) {
-            krossdebug(QString("ActionCollectionModel::dropMimeData: parentindex is Action with name=%1").arg(act->name()));
+            qCDebug(KROSS_UI_LOG) << "ActionCollectionModel::dropMimeData: parentindex is Action with name=" << act->name();
         }
     }
     return false;

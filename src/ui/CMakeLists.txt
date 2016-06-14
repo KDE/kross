@@ -20,6 +20,12 @@ set(krossui_LIB_SRCS
    scriptingplugin.cpp
 #   guiclient.cpp
    )
+ecm_qt_declare_logging_category(
+    krossui_LIB_SRCS
+    HEADER krossui_debug.h
+    IDENTIFIER KROSS_UI_LOG
+    CATEGORY_NAME org.kde.kross.ui
+)
 
 add_library(KF5KrossUi ${krossui_LIB_SRCS})
 generate_export_header(KF5KrossUi BASE_NAME KrossUi)
