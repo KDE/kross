@@ -77,7 +77,7 @@ public:
     //virtual QVariant toVariant() { return QVariant(typeId(), m_variant); }
     void *toVoidStar() Q_DECL_OVERRIDE
     {
-        return (void *) &m_variant;
+        return static_cast<void *>(&m_variant);
     }
 
 private:
@@ -111,7 +111,7 @@ public:
     //virtual QVariant toVariant() { return qVariantFromValue(m_value); }
     void *toVoidStar() Q_DECL_OVERRIDE
     {
-        return (void *) &m_value;
+        return static_cast<void *>(&m_value);
     }
 
 private:
@@ -145,7 +145,7 @@ public:
     }
     void *toVoidStar() Q_DECL_OVERRIDE
     {
-        return (void *) &m_ptr; /*return m_ptr;*/
+        return static_cast<void *>(&m_ptr);
     }
 
 private:
