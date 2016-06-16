@@ -118,6 +118,38 @@ private:
     VARIANTTYPE m_value;
 };
 
+template<>
+class MetaTypeVariant<QVariant> : public MetaType
+{
+public:
+    MetaTypeVariant(const QVariant &v) : m_value(v)
+    {
+#ifdef KROSS_METATYPE_DEBUG
+        krossdebug(QString("MetaTypeVariant<QVariant> Ctor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+#endif
+    }
+
+    virtual ~MetaTypeVariant()
+    {
+#ifdef KROSS_METATYPE_DEBUG
+        krossdebug(QString("MetaTypeVariant<QVariant> Dtor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+#endif
+    }
+
+    int typeId() Q_DECL_OVERRIDE
+    {
+        return qVariantFromValue(m_value).type();
+    }
+
+    void *toVoidStar() Q_DECL_OVERRIDE
+    {
+        return m_value.data();
+    }
+
+private:
+    QVariant m_value;
+};
+
 /**
  * Metatype for generic VoidStar pointers.
  */
