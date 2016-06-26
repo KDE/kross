@@ -77,32 +77,31 @@ Manager &Manager::self()
 
 static QFunctionPointer loadLibrary(const char *libname, const char *functionname)
 {
-    QLibrary lib(libname);
-    lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
-    if (! lib.load()) {
-        const QString err = QString("Error: %1").arg(lib.errorString());
-
-        foreach (const QString &path, QCoreApplication::instance()->libraryPaths()) {
-            lib.setFileName(QFileInfo(path, libname).filePath());
-            lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
-            if (lib.load()) {
-                break;
-            }
-        }
-
-        if (! lib.isLoaded()) {
-#ifdef KROSS_INTERPRETER_DEBUG
-            if (strcmp(functionname, "krossinterpreter") == 0) {
-                krossdebug(QString("Kross Interpreter '%1' not available: %2").arg(libname).arg(err));
-            } else if (strcmp(functionname, "krossmodule") == 0) {
-                krossdebug(QString("Kross Module '%1' not available: %2").arg(libname).arg(err));
-            } else {
-                krosswarning(QString("Failed to load unknown type of '%1' library: %2").arg(libname).arg(err));
-            }
-#endif
-            return 0;
+    QLibrary lib;
+    QString libAbsoluteFilePath;
+    foreach (const QString &path, QCoreApplication::instance()->libraryPaths()) {
+        const QFileInfo &fileInfo = QFileInfo(path, libname);
+        lib.setFileName(fileInfo.filePath());
+        lib.setLoadHints(QLibrary::ExportExternalSymbolsHint);
+        if (lib.load()) {
+            libAbsoluteFilePath = fileInfo.absoluteFilePath();
+            break;
         }
     }
+
+    if (!lib.isLoaded()) {
+#ifdef KROSS_INTERPRETER_DEBUG
+        if (strcmp(functionname, "krossinterpreter") == 0) {
+            krossdebug(QString("Kross Interpreter '%1' not available: %2").arg(libname).arg(lib.errorString()));
+        } else if (strcmp(functionname, "krossmodule") == 0) {
+            krossdebug(QString("Kross Module '%1' not available: %2").arg(libname).arg(lib.errorString()));
+        } else {
+            krosswarning(QString("Failed to load unknown type of '%1' library: %2").arg(libname).arg(lib.errorString()));
+        }
+#endif
+        return 0;
+    }
+
     QFunctionPointer funcPtr = lib.resolve(functionname);
     Q_ASSERT(funcPtr);
     return funcPtr;
