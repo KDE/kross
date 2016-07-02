@@ -388,7 +388,7 @@ FormDialog::~FormDialog()
 
 bool FormDialog::setButtons(const QString &buttons)
 {
-    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
+    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButtons");
     Q_ASSERT(i >= 0);
     QMetaEnum e = buttonBox()->metaObject()->enumerator(i);
     int v = e.keysToValue(buttons.toUtf8().constData());
@@ -401,7 +401,7 @@ bool FormDialog::setButtons(const QString &buttons)
 
 bool FormDialog::setButtonText(const QString &button, const QString &text)
 {
-    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
+    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButtons");
     Q_ASSERT(i >= 0);
     QMetaEnum e = buttonBox()->metaObject()->enumerator(i);
     int v = e.keysToValue(button.toUtf8().constData());
@@ -475,9 +475,9 @@ QWidget *FormDialog::addPage(const QString &name, const QString &header, const Q
 
 QString FormDialog::result()
 {
-    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButton");
+    int i = buttonBox()->metaObject()->indexOfEnumerator("StandardButtons");
     if (i < 0) {
-        qWarning() << "Kross::FormDialog::setButtons No such enumerator \"StandardButton\"";
+        qWarning() << "Kross::FormDialog::setButtons No such enumerator \"StandardButtons\"";
         return QString();
     }
     QMetaEnum e = buttonBox()->metaObject()->enumerator(i);
