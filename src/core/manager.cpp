@@ -103,7 +103,12 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
     }
 
     QFunctionPointer funcPtr = lib.resolve(functionname);
-    Q_ASSERT(funcPtr);
+    if (!funcPtr) {
+        krosswarning(QString("Failed to resolve %1 in %2%3")
+            .arg(functionname)
+            .arg(lib.fileName())
+            .arg(libAbsoluteFilePath.isEmpty() ? "" : QString(" (%1)").arg(libAbsoluteFilePath)));
+    }
     return funcPtr;
 }
 

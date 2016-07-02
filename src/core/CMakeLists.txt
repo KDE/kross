@@ -1,4 +1,19 @@
 
+file(GLOB _KROSSCOREHEADERS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.h)
+#message(STATUS _KROSSCOREHEADERS=${_KROSSCOREHEADERS})
+foreach(_KROSSCOREHEADER ${_KROSSCOREHEADERS})
+    string(REGEX MATCH ".*_p\\.h" _ISPRIVATE ${_KROSSCOREHEADER})
+    #message(STATUS "_ISPRIVATE=${_ISPRIVATE} _KROSSCOREHEADER=${_KROSSCOREHEADER}")
+    if (NOT _ISPRIVATE)
+        if (NOT EXISTS ${_INCDIR}/core/${_KROSSCOREHEADER})
+            file(WRITE ${_INCDIR}/core/${_KROSSCOREHEADER} "#include \"${CMAKE_CURRENT_SOURCE_DIR}/core/${_KROSSCOREHEADER}\"\n")
+        endif()
+    endif()
+endforeach()
+if (NOT EXISTS ${_INCDIR}/core/krosscore_export.h)
+    file(WRITE ${_INCDIR}/core/krosscore_export.h "#include \"${CMAKE_CURRENT_BINARY_DIR}/core/krosscore_export.h\"\n")
+endif()
+
 set(krosscore_LIB_SRCS
    krossconfig.cpp
    interpreter.cpp
@@ -21,7 +36,6 @@ PUBLIC
    Qt5::Xml
 PRIVATE
    Qt5::Widgets
-   KF5::ConfigCore
    KF5::I18n
 )
 
