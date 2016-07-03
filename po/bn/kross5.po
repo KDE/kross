@@ -1,0 +1,188 @@
+# Bengali (Bangla) translation of kdelibs4.
+# Copyright (C) 2009, Free Software Foundation, Inc.
+# translation of kdelibs4.po to Bengali
+# Copyright (C) 2003, 2004, 2005, 2006, 2008 Free Software Foundation, Inc.
+# Deepayan Sarkar,,, <deepayan.sarkar@gmail.com>, 2003.
+# Deepayan Sarkar <deepayan.sarkar@gmail.com>, 2003, 2004, 2005.
+# Deepayan Sarkar <deepayan.sarkar@gmail.com>, 2006, 2008, 2009..
+# Deepayan Sarkar <deepayan.sarkar@gmail.com>, 2009, 2010, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-06-27 08:16+0000\n"
+"PO-Revision-Date: 2012-07-16 14:27+0530\n"
+"Last-Translator: Deepayan Sarkar <deepayan.sarkar@gmail.com>\n"
+"Language-Team: American English <kde-translation@bengalinux.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "দীপায়ন সরকার"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "deepayan.sarkar@gmail.com"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "ক্রস"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "ক্রস স্ক্রিপ্ট চালাবার জন্য কে.ডি.ই. অ্যাপলিকেশন।"
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "লেখক"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "বিবরণ"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "স্ক্রিপ্ট-ফাইল \"%1\" নেই।"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "স্ক্রিপ্ট-ফাইল \"%1\"-এর জন্য ইন্টারপ্রিটার নির্ধারণ করতে ব্যর্থ"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "স্ক্রিপ্ট-ফাইল \"%1\"খুলতে ব্যর্থ"
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "ইন্টারপ্রিটার \"%1\" লোড করতে ব্যর্থ"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "তেমন কোনও ইন্টারপ্রিটার \"%1\"নেই"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "ইন্টারপ্রিটার \"%1\"-এর জন্য স্ক্রিপ্ট তৈরি করতে ব্যর্থ"
+
+#: core/manager.cpp:136
+msgid "Level of safety of the Ruby interpreter"
+msgstr "রুবি ইন্টারপ্রিটার-এর নিরাপত্তার স্তর"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "বাতিল করব?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "\"%1\" নামে কোনো ক্রিয়া (function) নেই"
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "নাম:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "লেখা:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "মন্তব্য:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "আইকন:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "ইন্টারপ্রিটার:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "ফাইল:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "চালাও"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "নির্বাচিত স্ক্রিপ্ট চালাও।"
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "থামাও"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "নির্বাচিত স্ক্রিপ্ট থামাও।"
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "সম্পাদন করো..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "নির্বাচিত স্ক্রিপ্ট সম্পাদনা করো।"
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "যোগ করো..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "একটি নতুন স্ক্রিপ্ট যোগ করো।"
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "সরিয়ে ফেলো"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "নির্বাচিত স্ক্রিপ্ট সরাও।"
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "সম্পাদনা"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "সাধারণ"

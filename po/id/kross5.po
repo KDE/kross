@@ -1,0 +1,172 @@
+# Indonesian translations for kdelibs4 package.
+# Copyright (C) 2010 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdelibs4 package.
+# Andhika Padmawan <andhika.padmawan@gmail.com>, 2010-2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-06-27 08:16+0000\n"
+"PO-Revision-Date: 2014-06-23 21:25+0700\n"
+"Last-Translator: Andhika Padmawan <andhika.padmawan@gmail.com>\n"
+"Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andhika Padmawan"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andhika.padmawan@gmail.com"
+
+#: console/main.cpp:99
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "Utilitas baris perintah untuk menjalankan skrip Kross."
+
+#: console/main.cpp:103
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "Hak Cipta 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Penulis"
+
+#: console/main.cpp:118
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Skrip untuk dijalankan."
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Berkas skrip \"%1\" tidak ada."
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Gagal menentukan penerjemah untuk berkas skrip \"%1\""
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Gagal membuka berkas skrip \"%1\""
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Gagal memuat penerjemah \"%1\""
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "Tidak ada penerjemah seperti itu \"%1\""
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Gagal membuat skrip untuk penerjemah \"%1\""
+
+#: core/manager.cpp:136
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Tingkat keamanan penerjemah Ruby"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "Batal?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "Tak ada fungsi seperti itu \"%1\""
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "Nama:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "Teks:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "Komentar:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "Ikon:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "Penerjemah:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "Berkas:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "Jalankan"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "Eksekusi skrip terpilih."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "Stop"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "Stop eksekusi skrip terpilih."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "Sunting..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "Sunting skrip terpilih."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "Tambah..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "Tambah skrip baru."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "Hapus"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "Hapus skrip terpilih."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "Sunting"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Umum"

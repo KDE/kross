@@ -1,0 +1,190 @@
+# translation of kdelibs4.po to Persian
+# Nazanin Kazemi <kazemi@itland.ir>, 2006, 2007.
+# Mahdi Foladgar <foladgar@itland.ir>, 2006.
+# Nasim Daniarzadeh <daniarzadeh@itland.ir>, 2006, 2007.
+# Tahereh Dadkhahfar <dadkhahfar@itland.ir>, 2006.
+# MaryamSadat Razavi <razavi@itland.ir>, 2007.
+# Nooshin Asiaie <asiaie@itland.ir>, 2007.
+# Mohamad Reza Mirdamadi <mohi@linuxshop.ir>, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-06-27 08:16+0000\n"
+"PO-Revision-Date: 2012-06-28 16:40+0430\n"
+"Last-Translator: Mohammad Reza Mirdamadi <mohi@linuxshop.ir>\n"
+"Language-Team: Farsi (Persian) <kde-i18n-fa@kde.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "محمدرضا میردامادی , نازنین کاظمی , محمد ابراهیم محمدی پناه , سعید تقوی"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"mohi@linuxshop.ir , kazemi@itland.ir , mebrahim@gmail.com , s.taghavi@gmail."
+"com"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "کاربرد KDE برای اجرای دست نوشته‌های Kross."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(ح) ۲۰۰۶ Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "نویسنده"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "توصیف"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "پرونده اسکریپت %1 موجود نیست."
+
+#: core/action.cpp:478
+#, fuzzy, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "خرابی در تعیین مفسر برای پرونده دست‌نوشته »%1«"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "خرابی در باز کردن پرونده دست‌نوشته »%1«"
+
+#: core/action.cpp:493
+#, fuzzy, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "خرابی در بارگذاری مفسر »%1«: %2"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "بدون چنین مفسر »%1«"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "خرابی در ایجاد دست‌نوشته برای مفسر »%1«"
+
+#: core/manager.cpp:136
+msgid "Level of safety of the Ruby interpreter"
+msgstr "سطح امن مفسر رابی"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "لغو؟"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "بدون چنین مفسر \"%1\""
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "نام:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "متن:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "توضیح:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "شمایل:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "مفسر:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "پرونده:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "اجرا"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "اجرای دست‌نوشته برگزیده."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "ایست"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "توقف اجرای دست‌نوشته برگزیده."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "ویرایش..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "ویرایش دست‌نوشته برگزیده."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "افزودن..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "افزودن دست‌نوشته‌ای جدید."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "حذف"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "حذف دست‌نوشته برگزیده."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "ویرایش"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "عمومی"

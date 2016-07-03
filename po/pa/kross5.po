@@ -1,0 +1,181 @@
+# translation of kdelibs4.po to Punjabi
+# Punjabi translation of kdelibs.
+# Copyright (C) 2004, 2005, 2007, 2008, 2009 Free Software Foundation, Inc.
+#
+# Amanpreet Singh Alam <amanlinux@netscape.net>, 2004.
+# Amanpreet Singh Alam <amanlinux@netscpe.net>, 2004.
+# A S Alam <aalam@users.sf.net>, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012.
+# ASB <aalam@users.sf.net>, 2007.
+# Amanpreet Singh Alam <apreet.alam@gmail.com>, 2008.
+# Amanpreet Singh <aalam@users.sf.net>, 2008.
+# Amanpreet Singh Alam <aalam@users.sf.net>, 2008, 2009, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-06-27 08:16+0000\n"
+"PO-Revision-Date: 2014-07-08 14:39-0500\n"
+"Last-Translator: A S Alam <aalam@users.sf.net>\n"
+"Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"ਅ.ਸ.ਆਲਮ. ੨੦੦੪-੨੦੧੪\n"
+"http://code.google.com/p/gurmukhi/"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aalam@users.sf.net"
+
+#: console/main.cpp:99
+msgctxt "application name"
+msgid "Kross"
+msgstr "ਕੇ-ਰੋਸ"
+
+#: console/main.cpp:101
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "ਕੇ-ਰੋਸ ਸਕ੍ਰਿਪਟਾਂ ਚਲਾਉਣ ਲਈ KDE ਐਪਲੀਕੇਸ਼ਨ ਹੈ।"
+
+#: console/main.cpp:103
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "Copyright 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "ਲੇਖਕ"
+
+#: console/main.cpp:118
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "ਚਲਾਉਣ ਲਈ ਸਕ੍ਰਿਪਟ।"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Scriptfile \"%1\" ਮੌਜੂਦ ਨਹੀਂ ਹੈ।"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "scriptfile \"%1\" ਲਈ ਇੰਟਰਪਰੇਟਰ ਖੋਜਣ ਲਈ ਫੇਲ੍ਹ ਹੈ।"
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "scriptfile \"%1\" ਲੱਭਣ ਵਿੱਚ ਫੇਲ੍ਹ"
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "ਇੰਟਰਪਰੇਟਰ \"%1\" ਲੋਡ ਕਰਨ ਲਈ ਫੇਲ੍ਹ"
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "ਕੋਈ \"%1\" ਇੰਟਰਪਰੇਟਰ ਨਹੀਂ ਹੈ"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "ਇੰਟਰਪਰੇਟਰ  \"%1\" ਲਈ ਸਕ੍ਰਿਪਟ ਬਣਾਉਣ ਲਈ ਫੇਲ੍ਹ"
+
+#: core/manager.cpp:136
+msgid "Level of safety of the Ruby interpreter"
+msgstr "ਰੂਬੀ ਇੰਟਰਪਰੇਟਰ ਦਾ ਸੁਰੱਖਿਆ ਲੈਵਲ"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "ਰੱਦ ਕਰਨਾ?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "ਕੋਈ \"%1\" ਫੰਕਸ਼ਨ ਨਹੀਂ ਹੈ"
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "ਨਾਂ:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "ਟੈਕਸਟ:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "ਟਿੱਪਣੀ:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "ਆਈਕਾਨ:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "ਇੰਟਰਪ੍ਰੇਟਰ:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "ਫਾਈਲ:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "ਚਲਾਓ"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "ਚੁਣੀ ਸਕ੍ਰਿਪਟ ਚਲਾਓ।"
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "ਰੋਕੋ"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "ਚੁਣੀ ਸਕ੍ਰਿਪਟ ਨੂੰ ਚੱਲਣ ਤੋਂ ਰੋਕੋ।"
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "ਸੋਧ..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "ਚੁਣੀ ਸਕ੍ਰਿਪਟ ਸੋਧ।"
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "ਸ਼ਾਮਲ..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "ਇੱਕ ਨਵੀਂ ਸਕ੍ਰਿਪਟ ਸ਼ਾਮਲ ਕਰੋ।"
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "ਹਟਾਓ"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "ਚੁਣੀ ਸਕ੍ਰਿਪਟ ਹਟਾਓ।"
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "ਸੋਧ"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "ਆਮ"

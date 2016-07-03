@@ -1,0 +1,186 @@
+# Vietnamese translation for kdelibs.
+# Copyright © 2007 KDE i18n Project for Vietnamese.
+#
+# Clytie Siddall <clytie@riverland.net.au>, 2006-2007.
+# Hoàng Đức Hiếu <hieu.d.hoang@gmail.com>, 2008, 2011.
+# Lê Hoàng Phương <herophuong93@gmail.com>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-06-27 08:16+0000\n"
+"PO-Revision-Date: 2012-09-23 18:43+0800\n"
+"Last-Translator: Lê Hoàng Phương <herophuong93@gmail.com>\n"
+"Language-Team: American English <kde-i18n-vi@kde.org>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Nhóm Việt hoá KDE"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-vi@kde.org"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "Ứng dụng KDE để chạy mã lệnh Kross."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Tác giả"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Mô tả"
+
+#: core/action.cpp:474
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Tập tin lệnh \"%1\" không tồn tại."
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Thất bại khi quyết định trình dịch cho tập tin lệnh \"%1\""
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Lỗi mở tập tin văn lệnh \"%1\"."
+
+#: core/action.cpp:493
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Thất bại khi nạp trình dịch \"%1\""
+
+#: core/action.cpp:495
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "Không có bộ giải thích \"%1\"."
+
+#: core/action.cpp:502
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Lỗi tạo văn lệnh cho bộ giải thích \"%1\"."
+
+#: core/manager.cpp:136
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Cấp an toàn của bộ giải thích Ruby"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "Hủy bỏ?"
+
+#: qts/values_p.h:75
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "Không có hàm \"%1\""
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "Tên:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "Văn bản:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "Ghi chú :"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "Biểu tượng:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "Bộ giải thích:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "Tập tin:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "Chạy"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "Thực hiện văn lệnh đã chọn."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "Dừng"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "Dừng thực hiện văn lệnh đã chọn."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "Sửa..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "Hiệu chỉnh văn lệnh đã chọn."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "Thêm..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "Thêm một văn lệnh mới."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "Bỏ"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "Gỡ bỏ văn lệnh đã chọn."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "Hiệu chỉnh"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Chung"
