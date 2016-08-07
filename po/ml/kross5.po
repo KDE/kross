@@ -1,0 +1,193 @@
+# translation of kdelibs4.po to
+# Malayalam translation of kdelibs4.
+# Copyright (C) 2007-2010 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdelibs package.
+# Anoop | അനൂപ് Panavalappil | പനവളപ്പില്‍ <gnuanu@gmail.com>, 2008.
+# ANI PETER|അനി പീറ്റര്‍ <peter.ani@gmail.com>, 2008.
+# Maxin B. John <maxinbjohn@gmail.com>, 2007.
+# Manu S Madhav | മനു എസ് മാധവ് <manusmad@gmail.com>, 2008.
+# Praveen Arimbrathodiyil <pravi.a@gmail.com>, 2007, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-03 07:15+0000\n"
+"PO-Revision-Date: 2010-12-29 15:32+0530\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Poedit-Country: INDIA\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "പ്രവീണ്‍ അരിമ്പ്രത്തൊടിയില്‍, അനി പീറ്റര്‍, മാക്സിന്‍ ജോണ്‍, അനൂപ് പനവളപ്പില്‍, മനു എസ് മാധവ്"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"pravi.a@gmail.com, peter.ani@gmail.com, maxinbjohn@gmail.com, gnuanu@gmail."
+"com, manusmad@gmail.com"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "ക്രോസ്സ്"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "ക്രോസ്സ് സ്ക്രിപ്റ്റുകള്‍ പ്രവര്‍ത്തിപ്പിക്കുന്നതിനുള്ള കെഡിഇ പ്രയോഗം."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 സെബാസ്റ്റ്യന്‍ സൌര്‍"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "സെബാസ്റ്റ്യന്‍ സൌര്‍"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "രചയിതാവ്"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "വിവരണം"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "സ്ക്രിപ്റ്റ് ഫയല്‍ \"%1\" നിലവിലില്ല."
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr ""
+"\"%1\" എന്ന സ്ക്രിപ്റ്റ് ഫയലിനു് വേണ്ട ഇന്റര്‍പ്രെട്ടര്‍ ഏതെന്നു് നിശ്ചയിയ്ക്കുന്നതില്‍ പരാജയപ്പെട്ടു"
+
+#: core/action.cpp:486
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "\"%1\" എന്ന സ്ക്രിപ്റ്റ്ഫയല്‍ തുറക്കുന്നതില്‍ പരാജയം"
+
+#: core/action.cpp:497
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "\"%1\" എന്ന ഇന്റര്‍പ്രറ്റര്‍ ലഭ്യമാക്കുന്നതില്‍ പരാജയം"
+
+#: core/action.cpp:499
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "\"%1\" എന്നൊരു ഇന്റര്‍പ്രെറ്ററില്ല"
+
+#: core/action.cpp:506
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "\"%1\" എന്ന ഇന്റര്‍പ്രെട്ടറിനു് വേണ്ടിയുള്ള സ്ക്രിപ്റ്റ് സൃഷ്ടിയ്ക്കുന്നതില്‍ പരാജയപ്പെട്ടു"
+
+#: core/manager.cpp:145
+msgid "Level of safety of the Ruby interpreter"
+msgstr "റൂബി ഇന്റര്‍പ്രെട്ടറിനു് വേണ്ട സുക്ഷാതലം"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "റദ്ദാക്കുക?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "\"%1\" ഫംഗ്ഷന്‍ ലഭ്യമല്ല"
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "പേര്:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "വാചകം:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "അഭിപ്രായം:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "ചിഹ്നം:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "ഇന്റര്‍പ്രെറ്റര്‍:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "ഫയല്‍:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "പ്രവര്‍ത്തിപ്പിയ്ക്കുക"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "തെരഞ്ഞെടുത്ത സ്ക്രിപ്റ്റ് പ്രവര്‍ത്തിപ്പിക്കുക."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "നിര്‍ത്തുക"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "തെരഞ്ഞെടുത്ത സ്ക്രിപ്റ്റിന്റെ പ്രവര്‍ത്തനം നിര്‍ത്തുക."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "മാറ്റം വരുത്തുക..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "തെരഞ്ഞെടുത്ത സ്ക്രിപ്റ്റില്‍ മാറ്റം വരുത്തുക."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "ചേര്‍ക്കുക..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "പുതിയ സ്ക്രിപ്റ്റ് ചേര്‍ക്കുക."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "നീക്കുക"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "തെരഞ്ഞെടുത്ത സ്ക്രിപ്റ്റ് നീക്കം ചെയ്തിരിക്കുന്നു."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "മാറ്റം വരുത്തുക"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "പൊതുവായുള്ള"

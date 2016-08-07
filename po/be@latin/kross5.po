@@ -1,0 +1,188 @@
+# translation of kdelibs4.po to Belarusian Latin
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kdelibs4 package.
+#
+# Ihar Hrachyshka <ihar.hrachyshka@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-03 07:15+0000\n"
+"PO-Revision-Date: 2008-08-30 01:10+0300\n"
+"Last-Translator: Ihar Hrachyshka <ihar.hrachyshka@gmail.com>\n"
+"Language-Team: Belarusian Latin <i18n@mova.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ihar Hračyška"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ihar.hrachyshka@gmail.com"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "Aplikacyja KDE dla vykanańnia skryptoŭ Kross."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "© 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Aŭtar"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Apisańnie"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Skryptavy fajł „%1” nie isnuje."
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Nie ŭdałosia vyznačyć interpretatar dla skryptavaha fajła „%1”."
+
+#: core/action.cpp:486
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Nie ŭdałosia adčynić skryptavy fajł „%1”."
+
+#: core/action.cpp:497
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Nie ŭdałosia źmiaścić interpretatar „%1” u pamiać."
+
+#: core/action.cpp:499
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "Niama takoha interpretatara: „%1”."
+
+#: core/action.cpp:506
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Nie ŭdałosia stvaryć skrypt dla interpretatara „%1”."
+
+#: core/manager.cpp:145
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Rovień biaśpiečnaści interpretatara Ruby"
+
+#: modules/form.cpp:328
+#, fuzzy
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "Anuluj"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "Niama takoj funkcyi: „%1”."
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "Nazva:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "Tekst:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "Kamentar:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "Ikona:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "Interpretatar:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "Fajł:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "Vykanaj"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "Vykanaj vybrany skrypt."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "Spyni"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "Spyni vykanańnie vybranaha skrypta."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "Redahuj..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "Redahuj vybrany skrypt."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "Dadaj..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "Dadaj novy skrypt."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "Vydali"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "Vydali vybrany skrypt."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "Źmiani"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Hałoŭnaje"
