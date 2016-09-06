@@ -1,0 +1,198 @@
+# translation of kdelibs4.po to hebrew
+# Translation of kdelibs4.po to Hebrew
+# translation of kdelibs4.po to
+# KDE Hebrew Localization Project
+#
+# In addition to the copyright owners of the program
+# which this translation accompanies, this translation is
+# Copyright (C) 1998 Erez Nir <erez-n@actcom.co.il>
+# Copyright (C) 1999-2003 Meni Livne <livne@kde.org>
+#
+# This translation is subject to the same Open Source
+# license as the program which it accompanies.
+#
+# Diego Iastrubni <elcuco@kde.org>, 2003.
+# Diego Iastrubni <elcuco@kde.org>, 2003, 2004.
+# Diego Iastrubni <elcuco@kde.org>, 2005, 2006, 2007, 2008, 2009, 2012, 2014.
+# Meni Livne <livne@kde.org>, 2007.
+# tahmar1900 <tahmar1900@gmail.com>, 2008, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-03 07:15+0000\n"
+"PO-Revision-Date: 2014-01-10 17:20+0200\n"
+"Last-Translator: Diego Iastrubni <elcuco@kde.org>\n"
+"Language-Team: Hebrew <kde-i18n-doc@kde.org>\n"
+"Language: he\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "צוות התרגום של KDE ישראל"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-l10n-he@kde.org"
+
+#: console/main.cpp:99
+#, fuzzy
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "תוכנית של KDE להפעלת תסריטים של Kross."
+
+#: console/main.cpp:103
+#, fuzzy
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "עורך"
+
+#: console/main.cpp:118
+#, fuzzy
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "תיאור"
+
+#: core/action.cpp:478
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "קובץ התסריט \"%1\" לא קיים."
+
+#: core/action.cpp:482
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "קביעת מפרש עבור קובץ התסריט \"%1\" נכשלה"
+
+#: core/action.cpp:486
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "פתיחת קובץ התסריט \"%1\" נכשלה"
+
+#: core/action.cpp:497
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "נכשלה הטעינה של המפרש \"%1\""
+
+#: core/action.cpp:499
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "אין מפרש כזה \"%1\""
+
+#: core/action.cpp:506
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "יצירת תסריט עבור המפרש \"%1\" נכשלה"
+
+#: core/manager.cpp:145
+msgid "Level of safety of the Ruby interpreter"
+msgstr "רמת הבטיחות של המפרש של Ruby"
+
+#: modules/form.cpp:328
+msgid "Cancel?"
+msgstr "לבטל?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "אין פונקציה כזו \"%1\""
+
+#: ui/actioncollectionview.cpp:175
+msgid "Name:"
+msgstr "שם:"
+
+#: ui/actioncollectionview.cpp:183
+msgid "Text:"
+msgstr "טקסט:"
+
+#: ui/actioncollectionview.cpp:190
+msgid "Comment:"
+msgstr "הערה:"
+
+#: ui/actioncollectionview.cpp:197
+msgid "Icon:"
+msgstr "סמל:"
+
+#: ui/actioncollectionview.cpp:218
+msgid "Interpreter:"
+msgstr "מפרש:"
+
+#: ui/actioncollectionview.cpp:234
+msgid "File:"
+msgstr "קובץ:"
+
+#: ui/actioncollectionview.cpp:327
+msgid "Run"
+msgstr "הרץ"
+
+#: ui/actioncollectionview.cpp:329
+msgid "Execute the selected script."
+msgstr "הפעלת התסריט הנבחר."
+
+#: ui/actioncollectionview.cpp:334
+msgid "Stop"
+msgstr "עצור"
+
+#: ui/actioncollectionview.cpp:336
+msgid "Stop execution of the selected script."
+msgstr "הפסקת פעולת התסריט הנבחר."
+
+#: ui/actioncollectionview.cpp:341
+msgid "Edit..."
+msgstr "עריכה..."
+
+#: ui/actioncollectionview.cpp:343
+msgid "Edit selected script."
+msgstr "עריכת התסריט הנבחר."
+
+#: ui/actioncollectionview.cpp:348
+msgid "Add..."
+msgstr "הוספה..."
+
+#: ui/actioncollectionview.cpp:350
+msgid "Add a new script."
+msgstr "הוספת תסריט חדש."
+
+#: ui/actioncollectionview.cpp:355
+msgid "Remove"
+msgstr "הסר"
+
+#: ui/actioncollectionview.cpp:357
+msgid "Remove selected script."
+msgstr "הסר את התסריט הנבחר."
+
+#: ui/actioncollectionview.cpp:550
+msgid "Edit"
+msgstr "עריכה"
+
+#: ui/actioncollectionview.cpp:555
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "כללי"
