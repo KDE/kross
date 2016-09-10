@@ -79,7 +79,6 @@ add_library(KF5::KrossCore ALIAS KF5KrossCore)
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/krosscore_export.h
-  krossconfig.h
   ${KrossCore_HEADERS}
   DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KrossCore/kross/core COMPONENT Devel) # apps include <kross/core/object.h>
 
