@@ -79,7 +79,7 @@ public:
     * This method got called if a method this QObject instance
     * defines should be invoked.
     */
-    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) = 0;
+    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) Q_DECL_OVERRIDE = 0;
 
 protected:
     /// The sender QObject.
