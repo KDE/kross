@@ -127,12 +127,12 @@ ActionCollectionEditor::~ActionCollectionEditor()
 
 Action *ActionCollectionEditor::action() const
 {
-    return d->type == Private::ActionType ? d->action : 0;
+    return d->type == Private::ActionType ? d->action : nullptr;
 }
 
 ActionCollection *ActionCollectionEditor::collection() const
 {
-    return d->type == Private::CollectionType ? d->collection : 0;
+    return d->type == Private::CollectionType ? d->collection : nullptr;
 }
 
 QLineEdit *ActionCollectionEditor::nameEdit() const
@@ -249,8 +249,8 @@ void ActionCollectionEditor::initGui()
         d->fileedit->setUrl(QUrl::fromLocalFile(d->action->file()));
         gridlayout->addWidget(d->fileedit, 5, 1);
     } else {
-        d->interpreteredit = 0;
-        d->fileedit = 0;
+        d->interpreteredit = nullptr;
+        d->fileedit = nullptr;
     }
 
     //d->enabledcheckbox = new QCheckBox(this);
@@ -399,7 +399,7 @@ KActionCollection *ActionCollectionView::actionCollection() const
 
 QPushButton *ActionCollectionView::button(const QString &actionname) const
 {
-    return d->buttons.contains(actionname) ? d->buttons[actionname] : 0;
+    return d->buttons.contains(actionname) ? d->buttons[actionname] : nullptr;
 }
 
 QItemSelection ActionCollectionView::itemSelection() const
@@ -413,7 +413,7 @@ QPushButton *ActionCollectionView::createButton(QWidget *parentWidget, const QSt
 {
     QAction *action = d->collection->action(actionname);
     if (! action) {
-        return 0;
+        return nullptr;
     }
     //if( d->buttons.contains(actionname) ) delete d->buttons[];
     QPushButton *btn = new QPushButton(parentWidget);
@@ -528,8 +528,8 @@ void ActionCollectionView::slotEdit()
     if (! selectionModel()) {
         return;
     }
-    Action *action = 0;
-    ActionCollection *collection = 0;
+    Action *action = nullptr;
+    ActionCollection *collection = nullptr;
     foreach (const QModelIndex &index, itemSelection().indexes()) {
         if (! index.isValid()) {
             continue;
@@ -566,7 +566,7 @@ void ActionCollectionView::slotAdd()
 {
 
 //TODO
-    KMessageBox::sorry(0, "TODO");
+    KMessageBox::sorry(nullptr, "TODO");
 
 //ScriptManagerAddWizard wizard(this, collection);
 //int result = wizard.exec();
@@ -606,6 +606,6 @@ void ActionCollectionView::slotRemove()
     if (! selectionModel()) {
         return;
     }
-    KMessageBox::sorry(0, "TODO");
+    KMessageBox::sorry(nullptr, "TODO");
 }
 

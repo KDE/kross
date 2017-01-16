@@ -72,7 +72,7 @@ public:
     * operate on.
     * \param parent The optional parent widget this widget is child of.
     */
-    explicit ActionCollectionEditor(Action *action, QWidget *parent = 0);
+    explicit ActionCollectionEditor(Action *action, QWidget *parent = nullptr);
 
     /**
     * Constructor.
@@ -80,7 +80,7 @@ public:
     * editor should operate on.
     * \param parent The optional parent widget this widget is child of.
     */
-    explicit ActionCollectionEditor(ActionCollection *collection, QWidget *parent = 0);
+    explicit ActionCollectionEditor(ActionCollection *collection, QWidget *parent = nullptr);
 
     /**
     * Destructor.
@@ -169,7 +169,7 @@ public:
     * Constructor.
     * \param parent The optional parent widget this widget is child of.
     */
-    explicit ActionCollectionView(QWidget *parent = 0);
+    explicit ActionCollectionView(QWidget *parent = nullptr);
 
     /**
     * Destructor.

@@ -65,13 +65,13 @@ InterpreterInfo::InterpreterInfo(const QString &interpretername, QFunctionPointe
     d->wildcard = wildcard;
     d->mimetypes = mimetypes;
     d->options = options;
-    d->interpreter = 0;
+    d->interpreter = nullptr;
 }
 
 InterpreterInfo::~InterpreterInfo()
 {
     delete d->interpreter;
-    d->interpreter = 0;
+    d->interpreter = nullptr;
     delete d;
 }
 
@@ -97,7 +97,7 @@ bool InterpreterInfo::hasOption(const QString &name) const
 
 InterpreterInfo::Option *InterpreterInfo::option(const QString &name) const
 {
-    return d->options.contains(name) ? d->options[name] : 0;
+    return d->options.contains(name) ? d->options[name] : nullptr;
 }
 
 InterpreterInfo::Option::Map &InterpreterInfo::options()
@@ -126,7 +126,7 @@ Interpreter *InterpreterInfo::interpreter()
     // and execute the extern krosspython_instance function.
     d->interpreter = interpreter_func
                      ? (Interpreter *)(interpreter_func)(KROSS_VERSION, this)
-                     : 0;
+                     : nullptr;
 
     if (! d->interpreter) {
         //#ifdef KROSS_INTERPRETER_DEBUG

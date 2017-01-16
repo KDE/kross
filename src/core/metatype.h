@@ -198,9 +198,9 @@ public:
     typedef QVariant(FunctionPtr)(void *);
     typedef QVariant(FunctionPtr2)(MetaTypeHandler *handler, void *);
 
-    explicit MetaTypeHandler() : m_func1(0), m_func2(0) {}
-    explicit MetaTypeHandler(FunctionPtr *func) : m_func1(func), m_func2(0) {}
-    explicit MetaTypeHandler(FunctionPtr2 *func) : m_func1(0), m_func2(func) {}
+    explicit MetaTypeHandler() : m_func1(nullptr), m_func2(nullptr) {}
+    explicit MetaTypeHandler(FunctionPtr *func) : m_func1(func), m_func2(nullptr) {}
+    explicit MetaTypeHandler(FunctionPtr2 *func) : m_func1(nullptr), m_func2(func) {}
     virtual ~MetaTypeHandler() {}
 
     /**

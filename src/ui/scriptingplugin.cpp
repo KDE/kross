@@ -87,7 +87,7 @@ ScriptingPlugin::~ScriptingPlugin()
 
     Kross::ActionCollection *collection = Kross::Manager::self().actionCollection()->collection(d->collectionName);
     if (collection) {
-        collection->setParentCollection(0);
+        collection->setParentCollection(nullptr);
         collection->deleteLater();
     }
 
@@ -265,7 +265,7 @@ void ScriptingPlugin::slotEditScriptActions()
     }
 
     //TODO very funny! this should use ui/view.h instead --Nick
-    KRun::runUrl(QUrl::fromLocalFile(d->userActionsFile), QString("text/plain"), 0, false);
+    KRun::runUrl(QUrl::fromLocalFile(d->userActionsFile), QString("text/plain"), nullptr, false);
 }
 
 void ScriptingPlugin::slotResetScriptActions()

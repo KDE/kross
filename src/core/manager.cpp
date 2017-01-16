@@ -103,7 +103,7 @@ static QFunctionPointer loadLibrary(const char *libname, const char *functionnam
                 libname << "' library: " << lib.errorString();
         }
 #endif
-        return 0;
+        return nullptr;
     }
 
     QFunctionPointer funcPtr = lib.resolve(functionname);
@@ -236,7 +236,7 @@ bool Manager::hasInterpreterInfo(const QString &interpretername) const
 
 InterpreterInfo *Manager::interpreterInfo(const QString &interpretername) const
 {
-    return hasInterpreterInfo(interpretername) ? d->interpreterinfos[interpretername] : 0;
+    return hasInterpreterInfo(interpretername) ? d->interpreterinfos[interpretername] : nullptr;
 }
 
 const QString Manager::interpreternameForFile(const QString &file)
@@ -261,7 +261,7 @@ Interpreter *Manager::interpreter(const QString &interpretername) const
 {
     if (! hasInterpreterInfo(interpretername)) {
         qCWarning(KROSS_LOG) << "No such interpreter " << interpretername;
-        return 0;
+        return nullptr;
     }
     return d->interpreterinfos[interpretername]->interpreter();
 }
@@ -278,7 +278,7 @@ ActionCollection *Manager::actionCollection() const
 
 bool Manager::hasAction(const QString &name)
 {
-    return findChild< Action * >(name) != 0L;
+    return findChild< Action * >(name) != nullptr;
 }
 
 QObject *Manager::action(const QString &name)
@@ -304,7 +304,7 @@ QObject *Manager::module(const QString &modulename)
 
     if (modulename.isEmpty() || modulename.contains(QRegExp("[^a-zA-Z0-9]"))) {
         qCWarning(KROSS_LOG) << "Invalid module name " << modulename;
-        return 0;
+        return nullptr;
     }
 
     QByteArray libraryname = QString("krossmodule%1").arg(modulename).toLower().toLatin1();
@@ -320,7 +320,7 @@ QObject *Manager::module(const QString &modulename)
     } else {
         qCWarning(KROSS_LOG) << "Failed to load module " << modulename;
     }
-    return 0;
+    return nullptr;
 }
 
 void Manager::deleteModules()
@@ -332,7 +332,7 @@ void Manager::deleteModules()
 bool Manager::executeScriptFile(const QUrl &file)
 {
     qCDebug(KROSS_LOG) << "Manager::executeScriptFile() file=" << file.toString();
-    Action *action = new Action(0 /*no parent*/, file);
+    Action *action = new Action(nullptr /*no parent*/, file);
     action->trigger();
     bool ok = ! action->hadError();
     delete action; //action->delayedDestruct();
@@ -356,7 +356,7 @@ QStringList Manager::qobjectNames() const
 
 MetaTypeHandler *Manager::metaTypeHandler(const QByteArray &typeName) const
 {
-    return d->wrappers.contains(typeName) ? d->wrappers[typeName] : 0;
+    return d->wrappers.contains(typeName) ? d->wrappers[typeName] : nullptr;
 }
 
 void Manager::registerMetaTypeHandler(const QByteArray &typeName, MetaTypeHandler::FunctionPtr *handler)

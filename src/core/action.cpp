@@ -97,7 +97,7 @@ public:
     */
     QMap< QString, QVariant > options;
 
-    Private() : script(0), version(0) {}
+    Private() : script(nullptr), version(0) {}
 };
 
 }
@@ -523,12 +523,12 @@ void Action::finalize()
         emit finalized(this);
     }
     delete d->script;
-    d->script = 0;
+    d->script = nullptr;
 }
 
 bool Action::isFinalized() const
 {
-    return d->script == 0;
+    return d->script == nullptr;
 }
 
 void Action::slotTriggered()

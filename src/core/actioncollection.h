@@ -59,7 +59,7 @@ public:
       * itself as child of the parent \p parent by using the
       * \a setParentCollection method.
       */
-    explicit ActionCollection(const QString &name, ActionCollection *parent = 0);
+    explicit ActionCollection(const QString &name, ActionCollection *parent = nullptr);
 
     /**
      * Destructor.

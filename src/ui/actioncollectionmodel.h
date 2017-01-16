@@ -56,7 +56,7 @@ public:
                         //Editable = 8
     };
 
-    explicit ActionCollectionModel(QObject *parent, ActionCollection *collection = 0, Mode mode = Mode(Icons | ToolTips));
+    explicit ActionCollectionModel(QObject *parent, ActionCollection *collection = nullptr, Mode mode = Mode(Icons | ToolTips));
     virtual ~ActionCollectionModel();
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const Q_DECL_OVERRIDE;
@@ -129,7 +129,7 @@ private:
 class KROSSUI_EXPORT ActionCollectionProxyModel : public QSortFilterProxyModel
 {
 public:
-    explicit ActionCollectionProxyModel(QObject *parent, ActionCollectionModel *model = 0);
+    explicit ActionCollectionProxyModel(QObject *parent, ActionCollectionModel *model = nullptr);
     virtual ~ActionCollectionProxyModel();
 
 private:

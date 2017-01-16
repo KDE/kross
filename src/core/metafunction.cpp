@@ -104,9 +104,9 @@ MetaFunction::MetaFunction(QObject *sender, const QByteArray &signal)
     staticMetaObject.d.superdata = &QObject::staticMetaObject;
     staticMetaObject.d.stringdata = reinterpret_cast<const QByteArrayData *>(d->stringData);
     staticMetaObject.d.data = dataRef.data();
-    staticMetaObject.d.relatedMetaObjects = 0;
-    staticMetaObject.d.extradata = 0;
-    staticMetaObject.d.static_metacall = 0;
+    staticMetaObject.d.relatedMetaObjects = nullptr;
+    staticMetaObject.d.extradata = nullptr;
+    staticMetaObject.d.static_metacall = nullptr;
 }
 
 MetaFunction::~MetaFunction() {
@@ -122,7 +122,7 @@ const QMetaObject *MetaFunction::metaObject() const
 void *MetaFunction::qt_metacast(const char *_clname)
 {
     if (! _clname) {
-        return 0;
+        return nullptr;
     }
     if (! qstrcmp(_clname, s_fakeClassName)) {
         return static_cast<void *>(const_cast< MetaFunction * >(this));

@@ -53,7 +53,7 @@ public:
     *
     * \param parent Optional QObject parent of this QObject.
     */
-    EcmaPlugin(QObject *parent = 0);
+    EcmaPlugin(QObject *parent = nullptr);
 
     /**
     * Destructor.

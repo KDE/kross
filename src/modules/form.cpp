@@ -446,7 +446,7 @@ bool FormDialog::setCurrentPage(const QString &name)
 
 QWidget *FormDialog::page(const QString &name) const
 {
-    return d->items.contains(name) ? d->items[name]->widget() : 0;
+    return d->items.contains(name) ? d->items[name]->widget() : nullptr;
 }
 
 //shared by FormDialog and FormAssistant
@@ -563,7 +563,7 @@ bool FormAssistant::setCurrentPage(const QString &name)
 
 QWidget *FormAssistant::page(const QString &name) const
 {
-    return d->items.contains(name) ? d->items[name]->widget() : 0;
+    return d->items.contains(name) ? d->items[name]->widget() : nullptr;
 }
 
 QWidget *FormAssistant::addPage(const QString &name, const QString &header, const QString &iconname)
@@ -686,13 +686,13 @@ QString FormModule::showMessageBox(const QString &dialogtype, const QString &cap
     KMessageBox::DialogType type;
     if (dialogtype == "Error") {
         if (! details.isNull()) {
-            KMessageBox::detailedError(0, message, details, caption);
+            KMessageBox::detailedError(nullptr, message, details, caption);
             return QString();
         }
         type = KMessageBox::Error;
     } else if (dialogtype == "Sorry") {
         if (! details.isNull()) {
-            KMessageBox::detailedSorry(0, message, details, caption);
+            KMessageBox::detailedSorry(nullptr, message, details, caption);
             return QString();
         }
         type = KMessageBox::Sorry;
@@ -709,7 +709,7 @@ QString FormModule::showMessageBox(const QString &dialogtype, const QString &cap
     } else { /*if(dialogtype == "Information")*/
         type = KMessageBox::Information;
     }
-    switch (KMessageBox::messageBox(0, type, message, caption)) {
+    switch (KMessageBox::messageBox(nullptr, type, message, caption)) {
     case KMessageBox::Ok: return "Ok";
     case KMessageBox::Cancel: return "Cancel";
     case KMessageBox::Yes: return "Yes";
@@ -737,7 +737,7 @@ QWidget *FormModule::createAssistant(const QString &caption)
 
 QObject *FormModule::createLayout(QWidget *parent, const QString &layout)
 {
-    QLayout *l = 0;
+    QLayout *l = nullptr;
     if (layout == "QVBoxLayout") {
         l = new QVBoxLayout();
     } else if (layout == "QHBoxLayout") {
@@ -819,11 +819,11 @@ QWidget *FormModule::createWidgetFromUIFile(QWidget *parent, const QString &file
     QFile file(filename);
     if (! file.exists()) {
         // qDebug() << QString("Kross::FormModule::createWidgetFromUIFile: There exists no such file \"%1\"").arg(filename);
-        return 0;
+        return nullptr;
     }
     if (! file.open(QFile::ReadOnly)) {
         // qDebug() << QString("Kross::FormModule::createWidgetFromUIFile: Failed to open the file \"%1\"").arg(filename);
-        return 0;
+        return nullptr;
     }
     const QString xml = file.readAll();
     file.close();
@@ -859,12 +859,12 @@ QObject *FormModule::loadPart(QWidget *parent, const QString &name, const QUrl &
     KPluginFactory *factory = KPluginLoader(name.toLatin1()).factory();
     if (! factory) {
         qWarning() << QString("Kross::FormModule::loadPart: No such library \"%1\"").arg(name);
-        return 0;
+        return nullptr;
     }
     KParts::ReadOnlyPart *part = factory->create< KParts::ReadOnlyPart >(parent);
     if (! part) {
         qWarning() << QString("Kross::FormModule::loadPart: Library \"%1\" is not a KPart").arg(name);
-        return 0;
+        return nullptr;
     }
     if (url.isValid()) {
         part->openUrl(url);

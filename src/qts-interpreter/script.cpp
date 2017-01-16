@@ -39,7 +39,7 @@ public:
     QScriptValue m_kross;
     QScriptValue m_self;
 
-    explicit Private(EcmaScript *script) : m_script(script), m_engine(0) {}
+    explicit Private(EcmaScript *script) : m_script(script), m_engine(nullptr) {}
     ~Private()
     {
         delete m_engine;
@@ -61,7 +61,7 @@ public:
         if (m_engine->hasUncaughtException()) {
             handleException();
             delete m_engine;
-            m_engine = 0;
+            m_engine = nullptr;
             return false;
         }
 

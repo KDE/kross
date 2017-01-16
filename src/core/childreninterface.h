@@ -99,7 +99,7 @@ public:
     */
     QObject *object(const QString &name) const
     {
-        return m_objects.contains(name) ? m_objects.value(name) : 0;
+        return m_objects.contains(name) ? m_objects.value(name) : nullptr;
     }
 
     /**

@@ -60,8 +60,8 @@ public:
 }
 
 ActionCollection::ActionCollection(const QString &name, ActionCollection *parent)
-    : QObject(0)
-    , d(new Private(0))
+    : QObject(nullptr)
+    , d(new Private(nullptr))
 {
     setObjectName(name);
     d->text = name;
@@ -143,11 +143,11 @@ void ActionCollection::setParentCollection(ActionCollection *parent)
     if (d->parent) {
         emit d->parent->collectionToBeRemoved(this, d->parent);
         d->parent->unregisterCollection(objectName());
-        setParent(0);
+        setParent(nullptr);
         emit d->parent->collectionRemoved(this, d->parent);
-        d->parent = 0;
+        d->parent = nullptr;
     }
-    setParent(0);
+    setParent(nullptr);
     if (parent) {
         emit parent->collectionToBeInserted(this, parent);
         setParent(parent);
@@ -165,7 +165,7 @@ bool ActionCollection::hasCollection(const QString &name) const
 
 ActionCollection *ActionCollection::collection(const QString &name) const
 {
-    return d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(0);
+    return d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(nullptr);
 }
 
 QStringList ActionCollection::collections() const
@@ -205,7 +205,7 @@ QList<Action *> ActionCollection::actions() const
 
 Action *ActionCollection::action(const QString &name) const
 {
-    return d->actionMap.contains(name) ? d->actionMap[name] : 0;
+    return d->actionMap.contains(name) ? d->actionMap[name] : nullptr;
 }
 
 void ActionCollection::addAction(Action *action)
@@ -240,7 +240,7 @@ void ActionCollection::removeAction(const QString &name)
     d->actionList.removeAll(action);
     d->actionMap.remove(name);
     //krossdebug( QString("ActionCollection::removeAction: %1 %2").arg(action->name()).arg(action->parent()->objectName()) );
-    action->setParent(0);
+    action->setParent(nullptr);
     emit actionRemoved(action, this);
     emitUpdated();
 }
@@ -342,7 +342,7 @@ bool ActionCollection::readXml(const QDomElement &element, const QStringList &se
             const QByteArray description = elem.attribute("comment").toUtf8();
             const QString iconname = elem.attribute("icon");
             bool enabled = QVariant(elem.attribute("enabled", "true")).toBool();
-            ActionCollection *c = d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(0);
+            ActionCollection *c = d->collections.contains(name) ? d->collections[name] : QPointer<ActionCollection>(nullptr);
             if (! c) {
                 c = new ActionCollection(name, this);
             }

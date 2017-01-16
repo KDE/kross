@@ -44,7 +44,7 @@
 #define ERROR_NOINTERPRETER -4
 #define ERROR_EXCEPTION -6
 
-QApplication *app = 0;
+QApplication *app = nullptr;
 
 int runScriptFile(const QString &scriptfile)
 {
@@ -69,7 +69,7 @@ int runScriptFile(const QString &scriptfile)
     }
 
     // First we need a Action and fill it.
-    Kross::Action *action = new Kross::Action(0 /*no parent*/, QUrl::fromUserInput(scriptfile));
+    Kross::Action *action = new Kross::Action(nullptr /*no parent*/, QUrl::fromUserInput(scriptfile));
     action->setInterpreter(interpreterinfo->interpreterName());
     action->setCode(scriptcode);
 

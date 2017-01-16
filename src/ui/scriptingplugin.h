@@ -68,7 +68,7 @@ public:
      *
      * \param parent The parent QObject this QObject is child of.
      */
-    explicit ScriptingPlugin(QObject *parent = 0);
+    explicit ScriptingPlugin(QObject *parent = nullptr);
 
     /**
      * Allows having actions defined in a custom location, eg for project-specific actions
@@ -76,7 +76,7 @@ public:
      * \param userActionsFile scripts.rc filepath -- file may be modified by user
      * \param referenceActionsDir dir -- %APPDATA%/scripts/%referenceActionsDir% contains standard actions for this plugin instance; has a lower priority than \a userActionsFile.
      */
-    ScriptingPlugin(const QString &collectionName, const QString &userActionsFile, const QString &referenceActionsDir = QString(), QObject *parent = 0);
+    ScriptingPlugin(const QString &collectionName, const QString &userActionsFile, const QString &referenceActionsDir = QString(), QObject *parent = nullptr);
 
     /**
      * Destructor.

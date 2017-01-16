@@ -86,9 +86,9 @@ ActionCollection *ActionCollectionModel::rootCollection() const
 
 int ActionCollectionModel::rowNumber(ActionCollection *collection) const
 {
-    Q_ASSERT(collection != 0);
+    Q_ASSERT(collection != nullptr);
     ActionCollection *par = collection->parentCollection();
-    Q_ASSERT(par != 0);
+    Q_ASSERT(par != nullptr);
     int row = par->collections().indexOf(collection->objectName()) + par->actions().count();
     return row;
 }
@@ -192,8 +192,8 @@ void ActionCollectionModel::slotDataChanged(Action *act)
 Action *ActionCollectionModel::action(const QModelIndex &index)
 {
     ActionCollection *par = static_cast<ActionCollection *>(index.internalPointer());
-    if (par == 0 || index.row() >= par->actions().count()) {
-        return 0;
+    if (par == nullptr || index.row() >= par->actions().count()) {
+        return nullptr;
     }
     return par->actions().value(index.row());
 }
@@ -201,12 +201,12 @@ Action *ActionCollectionModel::action(const QModelIndex &index)
 ActionCollection *ActionCollectionModel::collection(const QModelIndex &index)
 {
     ActionCollection *par = static_cast<ActionCollection *>(index.internalPointer());
-    if (par == 0) {
-        return 0;
+    if (par == nullptr) {
+        return nullptr;
     }
     int row = index.row() - par->actions().count();
     if (row < 0) {
-        return 0; // this is probably an action
+        return nullptr; // this is probably an action
     }
     return par->collection(par->collections().value(row));
 }
@@ -237,7 +237,7 @@ QModelIndex ActionCollectionModel::index(int row, int column, const QModelIndex 
         return QModelIndex();
     }
     ActionCollection *par = parent.isValid() ? collection(parent) : d->collection.data();
-    if (par == 0) {
+    if (par == nullptr) {
         // safety: may happen if parent index is an action (ModelTest tests this)
         return QModelIndex();
     }
@@ -250,7 +250,7 @@ QModelIndex ActionCollectionModel::parent(const QModelIndex &index) const
         return QModelIndex();
     }
     ActionCollection *par = static_cast<ActionCollection *>(index.internalPointer());
-    Q_ASSERT(par != 0);
+    Q_ASSERT(par != nullptr);
     if (par == d->collection) {
         return QModelIndex();
     }
@@ -428,7 +428,7 @@ QString fullPath(const QModelIndex &index)
         }
     }
     ActionCollection *par = static_cast<ActionCollection *>(index.internalPointer());
-    for (ActionCollection *p = par; p != 0; p = par->parentCollection()) {
+    for (ActionCollection *p = par; p != nullptr; p = par->parentCollection()) {
         QString s = p->name();
         if (! s.endsWith('/')) {
             s += '/';
