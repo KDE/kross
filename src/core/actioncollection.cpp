@@ -347,8 +347,8 @@ bool ActionCollection::readXml(const QDomElement &element, const QStringList &se
                 c = new ActionCollection(name, this);
             }
 
-            c->setText(text.isEmpty() ? name : i18n(text.constData()));
-            c->setDescription(description.isEmpty() ? c->text() : i18n(description.constData()));
+            c->setText(text.isEmpty() ? name : i18nd(KLocalizedString::applicationDomain().constData(), text.constData()));
+            c->setDescription(description.isEmpty() ? c->text() : i18nd(KLocalizedString::applicationDomain().constData(), description.constData()));
             c->setIconName(iconname);
 
             if (! enabled) {
