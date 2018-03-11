@@ -22,8 +22,8 @@
 
 #include <kross/ui/krossui_export.h>
 
-#include <QtCore/QModelIndex>
-#include <QtCore/QSortFilterProxyModel>
+#include <QModelIndex>
+#include <QSortFilterProxyModel>
 
 namespace Kross
 {

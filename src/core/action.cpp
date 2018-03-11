@@ -25,8 +25,8 @@
 #include "wrapperinterface.h"
 #include "kross_debug.h"
 
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
+#include <QFile>
+#include <QFileInfo>
 
 #include <klocalizedstring.h>
 #include <qmimedatabase.h>

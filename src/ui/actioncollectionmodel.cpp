@@ -25,11 +25,11 @@
 #include <kross/core/manager.h>
 
 #include <klocalizedstring.h>
-#include <QtCore/QDebug>
+#include <QDebug>
 
-#include <QtCore/QEvent>
-#include <QtCore/QMimeData>
-#include <QtCore/QPointer>
+#include <QEvent>
+#include <QMimeData>
+#include <QPointer>
 
 using namespace Kross;
 

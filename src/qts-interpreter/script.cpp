@@ -20,10 +20,10 @@
 #include "script.h"
 #include "kross_qtscript_debug.h"
 
-#include <QtCore/QMetaObject>
-#include <QtCore/QMetaMethod>
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptValueIterator>
+#include <QMetaObject>
+#include <QMetaMethod>
+#include <QScriptEngine>
+#include <QScriptValueIterator>
 
 using namespace Kross;
 

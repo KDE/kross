@@ -20,14 +20,14 @@
 #ifndef KROSS_ECMAPLUGIN_H
 #define KROSS_ECMAPLUGIN_H
 
-#include <QtScript/QScriptEngine>
-#include <QtScript/QScriptExtensionPlugin>
-//#include <QtCore/QVariant>
-//#include <QtCore/QObject>
-//#include <QtCore/QDir>
-//#include <QtXml/QDomAttr>
+#include <QScriptEngine>
+#include <QScriptExtensionPlugin>
+//#include <QVariant>
+//#include <QObject>
+//#include <QDir>
+//#include <QDomAttr>
 //#include <QAction>
-//#include <QtCore/QUrl>
+//#include <QUrl>
 
 //#include "errorinterface.h"
 //#include "childreninterface.h"

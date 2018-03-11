@@ -25,12 +25,12 @@
 #include <kross/core/manager.h>
 #include <kross/core/actioncollection.h>
 
-#include <QtWidgets/QAction>
-#include <QtCore/QPointer>
-#include <QtCore/QTextStream>
-#include <QtCore/QDirIterator>
-#include <QtCore/QUrl>
-#include <QtCore/QStandardPaths>
+#include <QAction>
+#include <QPointer>
+#include <QTextStream>
+#include <QDirIterator>
+#include <QUrl>
+#include <QStandardPaths>
 
 using namespace Kross;
 

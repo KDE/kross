@@ -10,6 +10,7 @@ target_link_libraries(krossqts
     KF5::KrossCore
     Qt5::Script
     Qt5::Core
+    Qt5::Widgets
 )
 
 install(TARGETS krossqts DESTINATION ${KDE_INSTALL_QTPLUGINDIR})

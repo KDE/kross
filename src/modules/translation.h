@@ -20,8 +20,8 @@
 #ifndef KROSS_TRANSLATION_H
 #define KROSS_TRANSLATION_H
 
-#include <QtCore/QObject>
-#include <QtCore/QVariantList>
+#include <QObject>
+#include <QVariantList>
 
 class QString;
 

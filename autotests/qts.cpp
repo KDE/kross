@@ -17,12 +17,12 @@
  * Boston, MA 02110-1301, USA.
  ***************************************************************************/
 
-#include <QtCore/QFile>
-#include <QtCore/QStringList>
-#include <QtScript/QScriptEngine>
-#include <QtCore/QLibraryInfo>
-#include <QtCore/QDebug>
-#include <QtWidgets/QApplication>
+#include <QFile>
+#include <QStringList>
+#include <QScriptEngine>
+#include <QLibraryInfo>
+#include <QDebug>
+#include <QApplication>
 
 #include <qcommandlineparser.h>
 #include <qcommandlineoption.h>

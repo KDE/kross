@@ -23,7 +23,7 @@
 
 #include "metafunction.h"
 
-#include <QtCore/QVector>
+#include <QVector>
 
 namespace Kross
 {

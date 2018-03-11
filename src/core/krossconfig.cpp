@@ -21,7 +21,7 @@
 
 #ifdef KROSS_DEBUG_ENABLED
 
-#include <QtCore/QtDebug>
+#include <QtDebug>
 
 using namespace Kross;
 

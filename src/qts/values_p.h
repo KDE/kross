@@ -23,23 +23,23 @@
 #include "../core/manager.h"
 #include "../core/object.h"
 
-#include <QtCore/QByteArray>
-#include <QtCore/QUrl>
-#include <QtGui/QColor>
-#include <QtCore/QRect>
-#include <QtCore/QPoint>
-#include <QtCore/QSize>
-#include <QtWidgets/QWidget>
-#include <QtWidgets/QLayout>
-#include <QtWidgets/QVBoxLayout>
+#include <QByteArray>
+#include <QUrl>
+#include <QColor>
+#include <QRect>
+#include <QPoint>
+#include <QSize>
+#include <QWidget>
+#include <QLayout>
+#include <QVBoxLayout>
 #include <QtUiTools/QUiLoader>
-#include <QtWidgets/QAbstractItemView>
-#include <QtCore/QAbstractItemModel>
-#include <QtCore/QStringListModel>
-#include <QtScript/QScriptClass>
-#include <QtScript/QScriptContext>
-#include <QtScript/QScriptValueIterator>
-#include <QtCore/QDebug>
+#include <QAbstractItemView>
+#include <QAbstractItemModel>
+#include <QStringListModel>
+#include <QScriptClass>
+#include <QScriptContext>
+#include <QScriptValueIterator>
+#include <QDebug>
 
 #include <klocalizedstring.h>
 

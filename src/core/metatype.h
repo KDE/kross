@@ -23,9 +23,9 @@
 #include "krossconfig.h"
 //#include "object.h"
 
-#include <QtCore/QStringList>
-#include <QtCore/QVariant>
-#include <QtCore/QMetaType>
+#include <QStringList>
+#include <QVariant>
+#include <QMetaType>
 
 #include <typeinfo>
 

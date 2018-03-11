@@ -22,13 +22,13 @@
 #include "manager.h"
 #include "kross_debug.h"
 
-#include <QtCore/QHash>
-#include <QtCore/QStringList>
-#include <QtCore/QPointer>
-#include <QtCore/QIODevice>
-#include <QtCore/QFile>
-#include <QtCore/QFileInfo>
-#include <QtXml/QDomAttr>
+#include <QHash>
+#include <QStringList>
+#include <QPointer>
+#include <QIODevice>
+#include <QFile>
+#include <QFileInfo>
+#include <QDomAttr>
 
 #include <klocalizedstring.h>
 

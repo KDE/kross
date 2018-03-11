@@ -23,11 +23,11 @@
 
 #include <kross/ui/krossui_export.h>
 
-#include <QtCore/QObject>
-#include <QtWidgets/QWidget>
-#include <QtCore/QModelIndex>
-#include <QtCore/QItemSelection>
-#include <QtWidgets/QTreeView>
+#include <QObject>
+#include <QWidget>
+#include <QModelIndex>
+#include <QItemSelection>
+#include <QTreeView>
 
 class KLineEdit;
 class QComboBox;

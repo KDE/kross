@@ -25,8 +25,8 @@
 #define KROSS_METAFUNCTION_H
 
 #include <kross/core/krosscore_export.h>
-#include <QtCore/QObject>
-#include <QtCore/QPointer>
+#include <QObject>
+#include <QPointer>
 
 namespace Kross
 {
