@@ -162,7 +162,7 @@ class FormProgressDialog : public KPageDialog
 public:
     FormProgressDialog(const QString &caption, const QString &labelText);
     virtual ~FormProgressDialog();
-    void done(int r) Q_DECL_OVERRIDE;
+    void done(int r) override;
 public Q_SLOTS:
     /**
     * Set the value of the progressbar. If -1 the progressbar will be hidden.
@@ -188,7 +188,7 @@ public Q_SLOTS:
      * the user rejected the dialog (e.g. by pressing "Cancel" or just
      * closing the dialog by pressing the escape-key).
      */
-    int exec() Q_DECL_OVERRIDE;
+    int exec() override;
     /**
      * Same as the \a exec() method above provided for Python-lovers (python
      * does not like functions named "exec" and PyQt named it "exec_loop", so
@@ -323,7 +323,7 @@ public Q_SLOTS:
      * the user rejected the dialog (e.g. by pressing "Cancel" or just
      * closing the dialog by pressing the escape-key).
      */
-    int exec() Q_DECL_OVERRIDE
+    int exec() override
     {
         return QDialog::exec();
     }
@@ -469,7 +469,7 @@ public Q_SLOTS:
      * the user rejected the dialog (e.g. by pressing "Cancel" or just
      * closing the dialog by pressing the escape-key).
      */
-    int exec() Q_DECL_OVERRIDE
+    int exec() override
     {
         return QDialog::exec();
     }
@@ -492,11 +492,11 @@ public Q_SLOTS:
     /**
      * Force page switching. This will also emit backClicked()
      */
-    void back() Q_DECL_OVERRIDE;
+    void back() override;
     /**
      * Force page switching. This will also emit nextClicked()
      */
-    void next() Q_DECL_OVERRIDE;
+    void next() override;
 
 private Q_SLOTS:
     virtual void slotButtonClicked(QAbstractButton *button);

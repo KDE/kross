@@ -66,20 +66,20 @@ public:
     * \return the dynamic build \a QMetaObject instance
     * for this QObject instance.
     */
-    const QMetaObject *metaObject() const Q_DECL_OVERRIDE;
+    const QMetaObject *metaObject() const override;
 
     /**
     * Try to cast this QObject instance into the class with
     * name \p _clname and return the casted pointer or NULL
     * if casting failed.
     */
-    void *qt_metacast(const char *_clname) Q_DECL_OVERRIDE;
+    void *qt_metacast(const char *_clname) override;
 
     /**
     * This method got called if a method this QObject instance
     * defines should be invoked.
     */
-    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) Q_DECL_OVERRIDE = 0;
+    int qt_metacall(QMetaObject::Call _c, int _id, void **_a) override = 0;
 
 protected:
     /// The sender QObject.

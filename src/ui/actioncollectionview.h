@@ -180,7 +180,7 @@ public:
     * Set the model this view should use to \p model . Use an instance of
     * \a ActionCollectionModel or \a ActionCollectionProxyModel as model.
     */
-    void setModel(QAbstractItemModel *model) Q_DECL_OVERRIDE;
+    void setModel(QAbstractItemModel *model) override;
 
     /**
     * \return true if the collection was modified.

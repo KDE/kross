@@ -58,16 +58,16 @@ public:
     explicit EcmaObject(QScriptEngine *engine, const QScriptValue &object = QScriptValue())
         : QScriptClass(engine), Kross::Object(), m_object(object) {}
     virtual ~EcmaObject() {}
-    QString name() const Q_DECL_OVERRIDE
+    QString name() const override
     {
         return "KrossObject";
     }
-    QScriptValue prototype() const Q_DECL_OVERRIDE
+    QScriptValue prototype() const override
     {
         return m_object;
     }
 
-    QVariant callMethod(const QString &name, const QVariantList &args = QVariantList()) Q_DECL_OVERRIDE
+    QVariant callMethod(const QString &name, const QVariantList &args = QVariantList()) override
     {
         QScriptValue function = m_object.property(name);
         if (! function.isFunction()) {
@@ -85,7 +85,7 @@ public:
         return result.toVariant();
     }
 
-    QStringList methodNames() Q_DECL_OVERRIDE
+    QStringList methodNames() override
     {
         QStringList methods;
         QScriptValueIterator it(m_object);

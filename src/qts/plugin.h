@@ -67,7 +67,7 @@ public:
     * the extension which key is "kross".
     * \param engine The QScriptEngine instance.
     */
-    void initialize(const QString &key, QScriptEngine *engine) Q_DECL_OVERRIDE;
+    void initialize(const QString &key, QScriptEngine *engine) override;
 
     /**
     * Returns the list of keys this plugin supports.
@@ -75,7 +75,7 @@ public:
     * \return a QStringList with the single item "kross" to let
     * QtScript know, that we provide an extension with that key.
     */
-    QStringList keys() const Q_DECL_OVERRIDE;
+    QStringList keys() const override;
 
 private:
     /// \internal d-pointer class.
