@@ -67,7 +67,7 @@ KROSSCORE_EXPORT void krosswarning(const QString &s);
         Q_DECL_EXPORT void* krossinterpreter(int version, Kross::InterpreterInfo* info) { \
             if(version != KROSS_VERSION) { \
                 Kross::krosswarning(QString("Interpreter skipped cause provided version %1 does not match expected version %2.").arg(version).arg(KROSS_VERSION)); \
-                return 0; \
+                return nullptr; \
             } \
             return new InterpreterImpl(info); \
         } \
