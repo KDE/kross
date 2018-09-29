@@ -180,7 +180,10 @@ void Action::fromDomElement(const QDomElement &element, const QStringList &searc
     d->version = QVariant(element.attribute("version", QString(d->version))).toInt();
 
     setText(i18nd(KLocalizedString::applicationDomain().constData(), element.attribute("text").toUtf8().constData()));
-    setDescription(i18nd(KLocalizedString::applicationDomain().constData(), element.attribute("comment").toUtf8().constData()));
+    const QString comment = element.attribute("comment");
+    if (!comment.isEmpty()) {
+        setDescription(i18nd(KLocalizedString::applicationDomain().constData(), comment.toUtf8().constData()));
+    }
     setEnabled(true);
     setInterpreter(element.attribute("interpreter"));
     setEnabled(QVariant(element.attribute("enabled", "true")).toBool() && isEnabled());
