@@ -128,7 +128,7 @@ FormFileWidget::FormFileWidget(QWidget *parent, const QString &startDirOrVariabl
 {
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setSpacing(0);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     setLayout(layout);
 
     d->filewidget = new KFileWidget(QUrl(startDirOrVariable), this);
@@ -261,7 +261,7 @@ FormProgressDialog::FormProgressDialog(const QString &caption, const QString &la
     //item->setIcon( QIcon::fromTheme(iconname) );
     widget = item->widget();
     QVBoxLayout *layout = new QVBoxLayout(widget);
-    layout->setMargin(0);
+    layout->setContentsMargins(0, 0, 0, 0);
     widget->setLayout(layout);
 
     d->browser = new QTextBrowser(this);
@@ -455,7 +455,7 @@ static KPageWidgetItem *formAddPage(KPageDialog *dialog, const QString &name, co
     QWidget *widget = new QWidget(dialog);
     QVBoxLayout *boxlayout = new QVBoxLayout(widget);
     boxlayout->setSpacing(0);
-    boxlayout->setMargin(0);
+    boxlayout->setContentsMargins(0, 0, 0, 0);
     widget->setLayout(boxlayout);
 
     KPageWidgetItem *item = dialog->addPage(widget, name);

@@ -168,7 +168,7 @@ void ActionCollectionEditor::initGui()
     QWidget *w = new QWidget(this);
     mainlayout->addWidget(w);
     QGridLayout *gridlayout = new QGridLayout();
-    gridlayout->setMargin(0);
+    gridlayout->setContentsMargins(0, 0, 0, 0);
     //gridlayout->setSpacing(0);
     w->setLayout(gridlayout);
 
@@ -198,7 +198,7 @@ void ActionCollectionEditor::initGui()
     gridlayout->addWidget(iconlabel, 3, 0);
     QWidget *iconbox = new QWidget(w);
     QHBoxLayout *iconlayout = new QHBoxLayout();
-    iconlayout->setMargin(0);
+    iconlayout->setContentsMargins(0, 0, 0, 0);
     iconbox->setLayout(iconlayout);
     d->iconedit = new QLineEdit(iconbox);
     iconlabel->setBuddy(d->iconedit);
