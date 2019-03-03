@@ -244,7 +244,7 @@ void ActionCollectionEditor::initGui()
         //InterpreterInfo* info = Manager::self().interpreterInfo( Manager::self().interpreternameForFile( d->action->file() ) );
         //const QString defaultmime = info ? info->mimeTypes().join(" ").trimmed() : QString();
 
-        d->fileedit->fileDialog()->setMimeTypeFilters(mimetypes);
+        d->fileedit->setMimeTypeFilters(mimetypes);
         d->fileedit->setMode(KFile::File | KFile::ExistingOnly | KFile::LocalOnly);
         d->fileedit->setUrl(QUrl::fromLocalFile(d->action->file()));
         gridlayout->addWidget(d->fileedit, 5, 1);
