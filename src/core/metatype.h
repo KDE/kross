@@ -94,21 +94,21 @@ public:
     MetaTypeVariant(const VARIANTTYPE &v) : m_value(v)
     {
 #ifdef KROSS_METATYPE_DEBUG
-        krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Ctor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+        krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Ctor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
 #endif
     }
     virtual ~MetaTypeVariant()
     {
 #ifdef KROSS_METATYPE_DEBUG
-        krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Dtor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+        krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Dtor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
 #endif
     }
 
     int typeId() override
     {
-        return qVariantFromValue(m_value).type();
+        return QVariant::fromValue(m_value).type();
     }
-    //virtual QVariant toVariant() { return qVariantFromValue(m_value); }
+    //virtual QVariant toVariant() { return QVariant::fromValue(m_value); }
     void *toVoidStar() override
     {
         return static_cast<void *>(&m_value);
@@ -125,20 +125,20 @@ public:
     MetaTypeVariant(const QVariant &v) : m_value(v)
     {
 #ifdef KROSS_METATYPE_DEBUG
-        krossdebug(QString("MetaTypeVariant<QVariant> Ctor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+        krossdebug(QString("MetaTypeVariant<QVariant> Ctor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
 #endif
     }
 
     virtual ~MetaTypeVariant()
     {
 #ifdef KROSS_METATYPE_DEBUG
-        krossdebug(QString("MetaTypeVariant<QVariant> Dtor value=%1 typename=%2").arg(qVariantFromValue(m_value).toString()).arg(qVariantFromValue(m_value).typeName()));
+        krossdebug(QString("MetaTypeVariant<QVariant> Dtor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
 #endif
     }
 
     int typeId() override
     {
-        return qVariantFromValue(m_value).type();
+        return QVariant::fromValue(m_value).type();
     }
 
     void *toVoidStar() override
