@@ -41,7 +41,7 @@
 #include <QtUiTools/QUiLoader>
 #include <QTextCursor>
 #include <QTextBlock>
-#include <QTime>
+#include <QElapsedTimer>
 #include <QUrl>
 
 #include <QDebug>
@@ -231,7 +231,7 @@ public:
     QTextBrowser *browser;
     QProgressBar *bar;
     bool gotCanceled;
-    QTime time;
+    QElapsedTimer time;
     void update()
     {
         if (time.elapsed() >= 1000) {
