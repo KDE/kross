@@ -113,7 +113,6 @@ int main(int argc, char **argv)
     // Tell which options are supported and parse them.
     QCommandLineParser parser;
     about.setupCommandLine(&parser);
-    parser.addHelpOption();
     parser.addPositionalArgument("file", i18nc("@info:shell command-line argument",
                                                "The script to run."));
 
