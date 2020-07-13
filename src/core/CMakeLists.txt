@@ -29,7 +29,7 @@ ecm_qt_declare_logging_category(
     krosscore_LIB_SRCS
     HEADER kross_debug.h
     IDENTIFIER KROSS_LOG
-    CATEGORY_NAME org.kde.kross.core
+    CATEGORY_NAME kf.kross.core
 )
 
 add_library(KF5KrossCore ${krosscore_LIB_SRCS})

@@ -3,7 +3,7 @@ ecm_qt_declare_logging_category(
     krossqtsplugin_LIB_SRCS
     HEADER kross_qts_plugin_debug.h
     IDENTIFIER KROSS_QTS_PLUGIN_LOG
-    CATEGORY_NAME org.kde.kross.qts_plugin
+    CATEGORY_NAME kf.kross.qts_plugin
 )
 add_library(krossqtsplugin MODULE ${krossqtsplugin_LIB_SRCS})
 target_link_libraries(krossqtsplugin
