@@ -48,9 +48,9 @@
 <refsect1>
 <title>Description</title>
 
-<para><command>kf5kross</command> executes kross scripts written in &kde; Javascript, Python, Ruby, Java and Falcon.
+<para><command>kf5kross</command> executes kross scripts written in &kde; &javascript;, Python, Ruby, &Java; and Falcon.
 </para>
-<para>This command line tool is used for any non-GUI scripts, e.g. Calligra Sheets has some of these.</para>
+<para>This command line tool is used for any non-&GUI; scripts, &eg; &calligrasheets; has some of these.</para>
 </refsect1>
 
 <refsect1>
@@ -67,7 +67,7 @@
 <varlistentry>
 <term><option>-v</option><option>--version</option></term>
 <listitem>
-<para>Show version information</para>
+<para>Show version information.</para>
 </listitem>
 </varlistentry>
 
@@ -104,7 +104,7 @@
 after loading the interpreter plugin for the script language (detected by filename suffix).
 </para>
 <para>
-To interpret other languages than &kde; Javascript, <replaceable>kdebindings</replaceable> must be installed.
+To interpret other languages than &kde; &javascript;, <replaceable>kdebindings</replaceable> must be installed.
 <!--For example, to run Python scripts you need kdebinginds, PyQt4 and sip.-->
 </para>
 
@@ -124,7 +124,7 @@ Look at <replaceable>http://kross.dipe.org/solution.html</replaceable> for more 
 
 <refsect1>
 <title>Bugs</title>
-<para>Please use <ulink url="http://bugs.kde.org">KDE's bugtracker</ulink> to report bugs.</para>
+<para>Please use <ulink url="https://bugs.kde.org">&kde;'s bugtracker</ulink> to report bugs.</para>
 </refsect1>
 
 </refentry>
