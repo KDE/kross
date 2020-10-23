@@ -42,7 +42,6 @@
 #include <QTextCursor>
 #include <QTextBlock>
 #include <QElapsedTimer>
-#include <QUrl>
 
 #include <QDebug>
 #include <klocalizedstring.h>

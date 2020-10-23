@@ -18,7 +18,6 @@
  ***************************************************************************/
 
 #include "actioncollection.h"
-#include "action.h"
 #include "manager.h"
 #include "kross_debug.h"
 

@@ -24,7 +24,6 @@
 
 #include <QString>
 #include <QVariant>
-#include <QVariantList>
 
 #include <klocalizedstring.h>
 #include <kpluginloader.h>

@@ -34,7 +34,6 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
-#include <QTreeView>
 
 #include <kmessagebox.h>
 #include <kpagedialog.h>
