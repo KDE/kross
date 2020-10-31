@@ -66,7 +66,7 @@ ScriptingPlugin::ScriptingPlugin(QObject *parent)
     : KParts::Plugin(parent)
     , d(new ScriptingPluginPrivate())
 {
-    d->userActionsFile = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1Char('/') + "scripts/scriptactions.rc";
+    d->userActionsFile = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation) + QLatin1Char('/') + "scripts/scriptactions.rc";
     d->collectionName = "scripting-plugin";
 }
 
@@ -120,7 +120,7 @@ QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument &document)
     }
 
     QStringList allActionFiles;
-    const QStringList scriptDirs = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
+    const QStringList scriptDirs = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
     Q_FOREACH (const QString &scriptDir, scriptDirs) {
         QDirIterator it(scriptDir, QStringList() << QStringLiteral("*.rc"));
         while (it.hasNext()) {
@@ -136,7 +136,7 @@ QDomDocument ScriptingPlugin::buildDomDocument(const QDomDocument &document)
         allActionFiles.append(d->userActionsFile);
     }
 
-    QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
+    QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
     foreach (const QString &file, allActionFiles) {
         QFile f(file);
         if (!f.open(QIODevice::ReadOnly)) {
@@ -222,7 +222,7 @@ void ScriptingPlugin::save()
     bool collectionEmpty = !collection || (collection->actions().empty() && collection->collections().empty());
 
     if (!collectionEmpty) {
-        QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::DataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
+        QStringList searchPath = QStandardPaths::locateAll(QStandardPaths::AppDataLocation, QStringLiteral("scripts/") + d->referenceActionsDir, QStandardPaths::LocateDirectory);
         searchPath.append(QFileInfo(d->userActionsFile).absolutePath());
         if (collection->writeXml(&f, 2, searchPath)) {
             //qDebug() << "Successfully saved file: " << d->userActionsFile;
