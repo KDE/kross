@@ -1,0 +1,208 @@
+# translation of kdelibs4.po to தமிழ்
+# Copyright (C) 2000,2002, 2004, 2007, 2008 Free Software Foundation, Inc.
+#
+# Sivakumar Shanmugasundaram <sshanmu@yahoo.com>, 2000.
+# Thuraiappah Vaseeharan <t_vasee@yahoo.com>, 2000-2001.
+# ம. ஸ்ரீ ராமதாஸ் | Sri Ramadoss M <amachu@yavarkkum.org>, 2007-2012
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2012-03-25 21:39+0530\n"
+"Last-Translator: Sri Ramadoss M <amachu@yavarkkum.org>\n"
+"Language-Team: Tamil <podhu@madaladal.yavarkkum.org>\n"
+"Language: ta\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ம. ஸ்ரீ ராமதாஸ்"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "amachu@yavarkkum.org"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "கிராஸ்"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "கிராஸ் நிரல்களை இயக்குதற்கான கேபசூ பயன்பாடு."
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 செபஸ்டியன் சாவர்"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "செபஸ்டியன் சாவர்"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "இயற்றியவர்"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "விவரம்"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "\"%1\" நேர் நிரல் கோப்பு இல்லை."
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "\"%1\" நேர்நிரட்கோப்புக்கான வரியொடுக்கிதனை இனங்காண இயலவில்லை"
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "\"%1\" நிரட்கோப்பை திறக்க இயலவில்லை"
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "\"%1\" வரியொடுக்கியினை ஏற்ற இயலவில்லை "
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "\"%1\" என்றொரு வரியொடுக்கி இல்லை"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "\"%1\" வரியொடுக்கிக்கான நேர்நிரலை உருவாக்க இயலவில்லை "
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "ரூபி வரியொடுக்கியின் பாதுகாப்புத் திறனளவு"
+
+#: modules/form.cpp:327
+#, kde-format
+msgid "Cancel?"
+msgstr "இரத்துக?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "\"%1\" என்றொரு செயற்பாடு இல்லை"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "பெயர்:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "உரை:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "கருத்து:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "முகவுரு:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "வரியொடுக்கி:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "கோப்பு:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "இயக்குக"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "தேர்வு செய்யப்பட்ட நேர்நிரலை இயக்குக."
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "நிறுத்துக"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "தேர்வு செய்யப்பட்ட நேர்நிரலின் இயக்கத்தை நிறுத்துக."
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "தொகுக்க..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "தேர்வு செய்யப்பட்ட நிரலை தொகுக்க."
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "சேர்க்க..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "புதிய நிரலை சேர்க்க."
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "நீக்குக"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "தேர்வு செய்யப்பட்ட நிரலை அகற்றுக."
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "தொகு"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "பொதுவான"
