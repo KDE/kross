@@ -53,6 +53,7 @@ find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF_DEP_VERSION})
 
+remove_definitions(-DQT_NO_FOREACH)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kross5\")
