@@ -54,7 +54,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~MetaFunction();
+    ~MetaFunction() override;
 
     /**
     * The static \a QMetaObject instance that provides the

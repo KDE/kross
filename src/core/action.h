@@ -129,7 +129,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~Action();
+    ~Action() override;
 
     /**
      * Method to read settings from the QDomElement \p element that

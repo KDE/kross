@@ -64,7 +64,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~ActionCollection();
+    ~ActionCollection() override;
 
     /**
      * \return the objectName for this ActionCollection.

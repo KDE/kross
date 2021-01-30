@@ -63,7 +63,7 @@ public:
         krossdebug(QString("MetaTypeImpl<METATYPE> Ctor typeid=%1 typename=%2").arg(qMetaTypeId<METATYPE>()).arg(typeid(METATYPE).name()));
 #endif
     }
-    virtual ~MetaTypeImpl()
+    ~MetaTypeImpl() override
     {
 #ifdef KROSS_METATYPE_DEBUG
         krossdebug(QString("MetaTypeImpl<METATYPE> Dtor typeid=%1 typename=%2").arg(qMetaTypeId<METATYPE>()).arg(typeid(METATYPE).name()));
@@ -97,7 +97,7 @@ public:
         krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Ctor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
 #endif
     }
-    virtual ~MetaTypeVariant()
+    ~MetaTypeVariant() override
     {
 #ifdef KROSS_METATYPE_DEBUG
         krossdebug(QString("MetaTypeVariant<VARIANTTYPE> Dtor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
@@ -129,7 +129,7 @@ public:
 #endif
     }
 
-    virtual ~MetaTypeVariant()
+    ~MetaTypeVariant() override
     {
 #ifdef KROSS_METATYPE_DEBUG
         krossdebug(QString("MetaTypeVariant<QVariant> Dtor value=%1 typename=%2").arg(QVariant::fromValue(m_value).toString()).arg(QVariant::fromValue(m_value).typeName()));
@@ -162,7 +162,7 @@ public:
         krossdebug(QString("MetaTypeVoidStar Ctor typeid=%1 typename=%2 owner=%3").arg(m_typeId).arg(typeid(m_ptr).name()).arg(m_owner));
 #endif
     }
-    virtual ~MetaTypeVoidStar()
+    ~MetaTypeVoidStar() override
     {
 #ifdef KROSS_METATYPE_DEBUG
         krossdebug(QString("MetaTypeVoidStar Ctor typeid=%1 typename=%2 owner=%3").arg(m_typeId).arg(typeid(m_ptr).name()).arg(m_owner));

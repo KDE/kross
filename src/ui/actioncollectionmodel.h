@@ -57,7 +57,7 @@ public:
     };
 
     explicit ActionCollectionModel(QObject *parent, ActionCollection *collection = nullptr, Mode mode = Mode(Icons | ToolTips));
-    virtual ~ActionCollectionModel();
+    ~ActionCollectionModel() override;
 
     int columnCount(const QModelIndex &parent = QModelIndex()) const override;
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
@@ -130,7 +130,7 @@ class KROSSUI_EXPORT ActionCollectionProxyModel : public QSortFilterProxyModel
 {
 public:
     explicit ActionCollectionProxyModel(QObject *parent, ActionCollectionModel *model = nullptr);
-    virtual ~ActionCollectionProxyModel();
+    ~ActionCollectionProxyModel() override;
 
 private:
     /// Set the \a ActionCollectionModel source model we are proxy for.

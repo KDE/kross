@@ -41,7 +41,7 @@ class FormListView : public QListWidget
     Q_OBJECT
 public:
     explicit FormListView(QWidget *parent);
-    virtual ~FormListView();
+    ~FormListView() override;
 public Q_SLOTS:
     void clear();
     void remove(int index);
@@ -62,7 +62,7 @@ class FormFileWidget : public QWidget
 
 public:
     FormFileWidget(QWidget *parent, const QString &startDirOrVariable);
-    virtual ~FormFileWidget();
+    ~FormFileWidget() override;
 
     /**
      * The Mode the FormFileWidget could have.
@@ -161,7 +161,7 @@ class FormProgressDialog : public KPageDialog
     Q_OBJECT
 public:
     FormProgressDialog(const QString &caption, const QString &labelText);
-    virtual ~FormProgressDialog();
+    ~FormProgressDialog() override;
     void done(int r) override;
 public Q_SLOTS:
     /**
@@ -242,7 +242,7 @@ class FormDialog: public KPageDialog
 
 public:
     FormDialog(const QString &caption);
-    virtual ~FormDialog();
+    ~FormDialog() override;
 
 public Q_SLOTS:
 
@@ -405,7 +405,7 @@ public:
 
 public:
     FormAssistant(const QString &caption);
-    virtual ~FormAssistant();
+    ~FormAssistant() override;
 
 public Q_SLOTS:
 
@@ -538,7 +538,7 @@ class FormModule: public QObject
 
 public:
     explicit FormModule();
-    virtual ~FormModule();
+    ~FormModule() override;
 
 public Q_SLOTS:
 

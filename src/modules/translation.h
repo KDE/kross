@@ -47,7 +47,7 @@ class TranslationModule: public QObject
 
 public:
     explicit TranslationModule();
-    virtual ~TranslationModule();
+    ~TranslationModule() override;
 
 public Q_SLOTS:
     /// Creates localized string from a given @p text. Substitute @p arguments (may be empty)

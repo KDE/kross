@@ -59,7 +59,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~Script();
+    ~Script() override;
 
 public Q_SLOTS:
 

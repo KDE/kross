@@ -630,7 +630,7 @@ class UiLoader : public QUiLoader
 {
 public:
     UiLoader() : QUiLoader() {}
-    virtual ~UiLoader() {}
+    ~UiLoader() override {}
 
     /*
     virtual QAction* createAction(QObject* parent = 0, const QString& name = QString())

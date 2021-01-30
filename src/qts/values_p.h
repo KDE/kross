@@ -57,7 +57,7 @@ class EcmaObject : public QScriptClass, public Kross::Object
 public:
     explicit EcmaObject(QScriptEngine *engine, const QScriptValue &object = QScriptValue())
         : QScriptClass(engine), Kross::Object(), m_object(object) {}
-    virtual ~EcmaObject() {}
+    ~EcmaObject() override {}
     QString name() const override
     {
         return "KrossObject";

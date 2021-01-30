@@ -81,7 +81,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~ScriptingPlugin();
+    ~ScriptingPlugin() override;
 
     /**
      * Re-implement in order to load additional kross scripting rc files.

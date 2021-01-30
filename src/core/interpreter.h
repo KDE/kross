@@ -189,7 +189,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~Interpreter();
+    ~Interpreter() override;
 
     /**
      * \return the \a InterpreterInfo that represents

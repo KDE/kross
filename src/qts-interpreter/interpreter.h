@@ -51,7 +51,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~EcmaInterpreter();
+    ~EcmaInterpreter() override;
 
     /**
     * Factory method to create a new \a EcmaScript instance.

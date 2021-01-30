@@ -58,7 +58,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~EcmaPlugin();
+    ~EcmaPlugin() override;
 
     /**
     * Initializes this extension.

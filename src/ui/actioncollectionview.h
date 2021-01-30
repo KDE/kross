@@ -85,7 +85,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~ActionCollectionEditor();
+    ~ActionCollectionEditor() override;
 
     /**
     * \return the \a Action instance this editor operates on or
@@ -174,7 +174,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~ActionCollectionView();
+    ~ActionCollectionView() override;
 
     /**
     * Set the model this view should use to \p model . Use an instance of

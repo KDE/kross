@@ -262,7 +262,7 @@ public:
     /**
      * Destructor.
      */
-    virtual ~Manager();
+    ~Manager() override;
 };
 
 }

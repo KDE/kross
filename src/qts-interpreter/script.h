@@ -54,7 +54,7 @@ public:
     /**
     * Destructor.
     */
-    virtual ~EcmaScript();
+    ~EcmaScript() override;
 
 public Q_SLOTS:
 
