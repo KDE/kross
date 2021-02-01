@@ -53,8 +53,12 @@ find_package(KF5WidgetsAddons ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5XmlGui ${KF_DEP_VERSION} REQUIRED)
 find_package(KF5DocTools ${KF_DEP_VERSION})
 
+# remove definitions set by KDEFrameworkCompilerSettings which we fail to meet
+remove_definitions(-DQT_NO_KEYWORDS)
 remove_definitions(-DQT_NO_FOREACH)
 remove_definitions(-DQT_NO_CAST_FROM_ASCII)
+# ideally we would support QT_NO_KEYWORDS, but at least we can do this
+add_definitions(-DQT_NO_SIGNALS_SLOTS_KEYWORDS)
 
 add_definitions(-DTRANSLATION_DOMAIN=\"kross5\")
 if (IS_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/po")
