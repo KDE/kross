@@ -1,0 +1,206 @@
+# KDE breton translation
+# Copyright (C) 1998-2001 Free Software Foundation, Inc.
+# Jañ-Mai Drapier <jan-mai.drapier@mail.dotcom.fr>, 1998
+# Thierry Vignaud <tvignaud@mandriva.com>, 2001-2005
+# $Id$
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4-1.1\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2007-10-15 22:19+0200\n"
+"Last-Translator: Jañ-Mai Drapier <jan-mai.drapier@mail.dotcom.fr>\n"
+"Language-Team: Brezhoneg <Suav.Icb@wanadoo.fr>\n"
+"Language: br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Thierry Vignaud, Jañ-Mai Drapier"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tvignaud@mandriva.com, jdrapier@club-internet.fr"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Props"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Perzhioù"
+
+#: console/main.cpp:101
+#, kde-format
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr ""
+
+#: console/main.cpp:103
+#, kde-format
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:107
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Oberour"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Deskrivadur"
+
+#: core/action.cpp:481
+#, fuzzy, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "N'eo ket bet kavet ar c'hiz %1\n"
+
+#: core/action.cpp:485
+#, fuzzy, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Ne m'eus ket kavout an urzhiaoueg « %1 »."
+
+#: core/action.cpp:489
+#, fuzzy, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Ne m'eus ket kavout an urzhiaoueg « %1 »."
+
+#: core/action.cpp:500
+#, fuzzy, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Divarrek da grouiñ un daolenn-alc'hwez-gwerzh evit an enmont"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr ""
+
+#: core/action.cpp:509
+#, fuzzy, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Divarrek da grouiñ un daolenn-alc'hwez-gwerzh evit an enmont"
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr ""
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "Nullañ"
+
+#: qts/values_p.h:76
+#, fuzzy, kde-format
+msgid "No such function \"%1\""
+msgstr "N'eus meuziadad '%1' ebet."
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "Anv :"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "Skri :"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "Askelenn :"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "Arlun :"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "K&endroer :"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "Restr :"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "Seveniñ"
+
+#: ui/actioncollectionview.cpp:328
+#, fuzzy, kde-format
+msgid "Execute the selected script."
+msgstr "Rakgwel an nodrezh dibabet"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "Paouez"
+
+#: ui/actioncollectionview.cpp:335
+#, fuzzy, kde-format
+msgid "Stop execution of the selected script."
+msgstr "Rakgwel an nodrezh dibabet"
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "Aozañ ..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "Ouzhpennañ ..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "Lemel"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "Aozañ"
+
+#: ui/actioncollectionview.cpp:554
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Pennañ"
