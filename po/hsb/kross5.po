@@ -1,0 +1,213 @@
+# translation of kdelibs4.po to Upper Sorbian
+# translation of kdelibs4.po to
+# Copyright (C) 2003,2004, 2005, 2007 Free Software Foundation, Inc.
+# Eduard Werner <e.werner@rz.uni-leipzig.de>, 2003.
+# Prof. Dr. Eduard Werner <e.werner@rz.uni-leipzig.de>, 2003,2004.
+# Eduard Werner <edi.werner@gmx.de>, 2005.
+# Eduard Werner/Edward Wornar <edi.werner@gmx.de>, 2007, 2008.
+# Bianka Šwejdźic <hertn@gmx.de>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2008-12-19 22:49+0100\n"
+"Last-Translator: Eduard Werner <edi.werner@gmx.de>\n"
+"Language-Team: en_US <kde-i18n-doc@lists.kde.org>\n"
+"Language: hsb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3;\n"
+"X-Generator: KAider 0.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Edward Wornar"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "edi.werner@gmx.de"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "KDE aplikacija za wuwjedźenje Kross-skriptow."
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Awtor"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Wopisanje"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Skriptowa dataja %1 njeeksistuje."
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Njemóžu interpreter za skript \"%1\" namakać"
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Njemóžu skript \"%1\" wočinić."
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Njemóžu interpreter \"%1\" startować."
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "Žadyn tajki interpreter: %1"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Njemóžu skript stworić za interpreter \"%1\"."
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Stopjeń wěstosće Ruby-interpretera"
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "Přetorhnyć"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "Žana tajka funkcija '%1'"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "Mjeno:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "Tekst:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "Přispomnjenje:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "Piktogram:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "Interpreter:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "Dataja:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "Wuwjesć"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "Wubrany skript wuwjesć."
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "Stop"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "Wuwjedźenje wubraneho skripta zastajić."
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "Wobdźěłać..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "Wubrany skript wobdźěłać."
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "Dodać..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "Nowy skript dodać."
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "Wotstronić"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "Wubrany skript wumaznyć."
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "Wobdźěłać"
+
+#: ui/actioncollectionview.cpp:554
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Generelnje"

@@ -1,0 +1,207 @@
+# translation of kdelibs4.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2008, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2012-06-27 10:04+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr " ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា​​, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "កម្មវិធី KDE ដែលត្រូវ​រត់​ស្គ្រីប Kross ។"
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៦ ដោយ Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "អ្នក​និពន្ធ"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "សេចក្តី​ពិពណ៌នា"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "មិនមាន​ឯកសារ %1 ទេ"
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "បរាជ័យ​ក្នុងការ​កំណត់​អ្នកបកប្រែ​សម្រាប់​ឯកសារ​ស្គ្រីប \"%1\""
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "បរាជ័យ​ក្នុងការ​បើក​ឯកសារ​ស្គ្រីប \"%1\""
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "បរាជ័យ​ក្នុងការ​ផ្ទុក​អ្នកបកប្រែ \"%1\""
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "គ្មាន​អ្នកបកប្រែ \"%1\" ដូចនោះ​ទេ"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "បរាជ័យ​ក្នុងការ​បង្កើត​ស្គ្រីប​សម្រាប់​អ្នកបកប្រែ \"%1\""
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "កម្រិត​សុវត្ថិភាព​របស់​អ្នកបកប្រែ Ruby"
+
+#: modules/form.cpp:327
+#, kde-format
+msgid "Cancel?"
+msgstr "បោះបង់ ?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "គ្មាន​អ្នកបកប្រែ \"%1\" ដូចនោះ​ទេ"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "ឈ្មោះ ៖"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "អត្ថបទ ៖"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "មតិ​យោបល់ ៖"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "រូប​តំណាង ៖"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "អ្នកបកប្រែ ៖"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "ឯកសារ ៖"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "រត់"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "ប្រតិបត្តិ​ស្គ្រីប​ដែលបាន​ជ្រើស ។"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "ឈប់"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "បញ្ឈប់​ប្រតិបត្តិការ​ស្គ្រីប​ដែលបាន​ជ្រើស ។"
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "កែសម្រួល..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "កែសម្រួល​ស្គ្រីប​ដែលបាន​ជ្រើស ។"
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "បន្ថែម​..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "បន្ថែម​ស្គ្រីប​ថ្មី ។"
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "យកចេញ"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "យក​ស្គ្រីប​ដែលបាន​ជ្រើស​ចេញ ។"
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "កែសម្រួល"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "ទូទៅ"
