@@ -40,7 +40,7 @@ PRIVATE
    KF5::I18n
    KF5::IconThemes # KIconButton
 )
-set_target_properties(KF5KrossUi PROPERTIES VERSION ${KROSS_VERSION_STRING}
+set_target_properties(KF5KrossUi PROPERTIES VERSION ${KROSS_VERSION}
                                             SOVERSION ${KROSS_SOVERSION}
                                             EXPORT_NAME KrossUi
                      )

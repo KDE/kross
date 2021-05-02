@@ -48,7 +48,7 @@ PRIVATE
 
 target_include_directories(KF5KrossCore PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>")
 
-set_target_properties(KF5KrossCore PROPERTIES VERSION ${KROSS_VERSION_STRING}
+set_target_properties(KF5KrossCore PROPERTIES VERSION ${KROSS_VERSION}
                                    SOVERSION ${KROSS_SOVERSION}
                                    EXPORT_NAME KrossCore
                      )
