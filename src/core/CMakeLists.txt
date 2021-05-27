@@ -14,7 +14,10 @@ if (NOT EXISTS ${_INCDIR}/core/krosscore_export.h)
     file(WRITE ${_INCDIR}/core/krosscore_export.h "#include \"${CMAKE_CURRENT_BINARY_DIR}/krosscore_export.h\"\n")
 endif()
 
-set(krosscore_LIB_SRCS
+add_library(KF5KrossCore)
+add_library(KF5::KrossCore ALIAS KF5KrossCore)
+
+target_sources(KF5KrossCore PRIVATE
    krossconfig.cpp
    interpreter.cpp
    script.cpp
@@ -25,14 +28,12 @@ set(krosscore_LIB_SRCS
    object.cpp
 )
 
-ecm_qt_declare_logging_category(
-    krosscore_LIB_SRCS
+ecm_qt_declare_logging_category(KF5KrossCore
     HEADER kross_debug.h
     IDENTIFIER KROSS_LOG
     CATEGORY_NAME kf.kross.core
 )
 
-add_library(KF5KrossCore ${krosscore_LIB_SRCS})
 generate_export_header(KF5KrossCore BASE_NAME KrossCore)
 
 target_include_directories(KF5KrossCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KrossCore>")
@@ -74,8 +75,6 @@ ecm_generate_headers(KrossCore_CamelCase_HEADERS
 )
 # apps include <Kross/Core/Object> or <kross/core/object.h>
 install(FILES ${KrossCore_CamelCase_HEADERS} DESTINATION ${KDE_INSTALL_INCLUDEDIR_KF5}/KrossCore/Kross/Core COMPONENT Devel)
-
-add_library(KF5::KrossCore ALIAS KF5KrossCore)
 
 install(FILES
   ${CMAKE_CURRENT_BINARY_DIR}/krosscore_export.h

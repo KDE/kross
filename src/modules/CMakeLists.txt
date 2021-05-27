@@ -1,8 +1,11 @@
 ############################################
 # the forms module
 
-set(krossmoduleforms_SRCS form.cpp)
-add_library(krossmoduleforms MODULE ${krossmoduleforms_SRCS})
+add_library(krossmoduleforms MODULE)
+
+target_sources(krossmoduleforms PRIVATE
+    form.cpp
+)
 
 target_link_libraries(krossmoduleforms
     Qt5::UiTools
@@ -17,8 +20,11 @@ install(TARGETS krossmoduleforms DESTINATION ${KDE_INSTALL_QTPLUGINDIR})
 ############################################
 # the kdetranslation module
 
-set(krossmodulekdetranslation_SRCS translation.cpp)
-add_library(krossmodulekdetranslation MODULE ${krossmodulekdetranslation_SRCS})
+add_library(krossmodulekdetranslation MODULE)
+
+target_sources(krossmodulekdetranslation PRIVATE
+    translation.cpp
+)
 
 target_link_libraries(krossmodulekdetranslation
    KF5::Parts

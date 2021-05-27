@@ -14,20 +14,21 @@ if (NOT EXISTS ${_INCDIR}/ui/krossui_export.h)
     file(WRITE ${_INCDIR}/ui/krossui_export.h "#include \"${CMAKE_CURRENT_BINARY_DIR}/krossui_export.h\"\n")
 endif()
 
-set(krossui_LIB_SRCS
+add_library(KF5KrossUi)
+add_library(KF5::KrossUi ALIAS KF5KrossUi)
+
+target_sources(KF5KrossUi PRIVATE
    actioncollectionmodel.cpp
    actioncollectionview.cpp
    scriptingplugin.cpp
 #   guiclient.cpp
    )
-ecm_qt_declare_logging_category(
-    krossui_LIB_SRCS
+ecm_qt_declare_logging_category(KF5KrossUi
     HEADER krossui_debug.h
     IDENTIFIER KROSS_UI_LOG
     CATEGORY_NAME kf.kross.ui
 )
 
-add_library(KF5KrossUi ${krossui_LIB_SRCS})
 generate_export_header(KF5KrossUi BASE_NAME KrossUi)
 
 target_include_directories(KF5KrossUi INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KrossUi>")
@@ -44,10 +45,7 @@ set_target_properties(KF5KrossUi PROPERTIES VERSION ${KROSS_VERSION}
                                             SOVERSION ${KROSS_SOVERSION}
                                             EXPORT_NAME KrossUi
                      )
-
 target_include_directories(KF5KrossUi PUBLIC "$<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/../include>")
-
-add_library(KF5::KrossUi ALIAS KF5KrossUi)
 
 ecm_generate_headers(KrossUi_CamelCase_HEADERS
   HEADER_NAMES

@@ -1,11 +1,16 @@
-set(krossqts_PART_SRCS interpreter.cpp script.cpp)
-ecm_qt_declare_logging_category(
-    krossqts_PART_SRCS
+add_library(krossqts MODULE)
+
+target_sources(krossqts PRIVATE
+    interpreter.cpp
+    script.cpp
+)
+
+ecm_qt_declare_logging_category(krossqts
     HEADER kross_qtscript_debug.h
     IDENTIFIER KROSS_QTSCRIPT_LOG
     CATEGORY_NAME kf.kross.qtscript
 )
-add_library(krossqts MODULE ${krossqts_PART_SRCS})
+
 target_link_libraries(krossqts
     KF5::KrossCore
     Qt5::Script
