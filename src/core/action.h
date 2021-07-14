@@ -195,7 +195,7 @@ public:
      * backend. This returns NULL until the action got triggered or if
      * there was an error before that.
      *
-     * Normaly it shouldn't be necessary to deal with the scripting backend
+     * Normally it shouldn't be necessary to deal with the scripting backend
      * depending instance of a \a Kross::Script implementation since this
      * \a Action class already decorates all the things needed. It
      * may however be useful to provide additional interpreter dependent

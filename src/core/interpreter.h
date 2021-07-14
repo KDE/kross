@@ -79,7 +79,7 @@ public:
      * Constructor.
      *
      * \param interpretername The name of the interpreter. The name is
-     * used internaly as unique identifier for the interpreter and
+     * used internally as unique identifier for the interpreter and
      * could be for example "python", "ruby" or "javascript".
      * \param funcPtr A pointer to the entry function within the
      * library. The entry function each interpreter-backend does

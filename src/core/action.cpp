@@ -50,7 +50,7 @@ public:
 
     /**
     * The version number this \a Action has. Those version number got
-    * used internaly to deal with different releases of scripts.
+    * used internally to deal with different releases of scripts.
     */
     int version;
 
@@ -78,7 +78,7 @@ public:
 
     /**
     * The name of the scriptfile that should be executed. Those
-    * scriptfile will be readed and the content will be used to
+    * scriptfile will be read and the content will be used to
     * set the scripting code and, if not defined, the used
     * interpreter.
     */

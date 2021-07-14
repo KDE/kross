@@ -119,7 +119,7 @@ Q_SIGNALS:
     void fileHighlighted(const QString &);
 
     /**
-    * Emitted when the user hilights one or more files in multiselection mode.
+    * Emitted when the user highlights one or more files in multiselection mode.
     */
     void selectionChanged();
 
@@ -580,7 +580,7 @@ public Q_SLOTS:
      * \param caption The caption the messagedialog displays.
      * \param message The message that is displayed in the messagedialog.
      * \param details The optional details
-     * \return The buttoncode which chould be one of the following;
+     * \return The buttoncode which could be one of the following;
      *      \li Ok
      *      \li Cancel
      *      \li Yes
@@ -661,7 +661,7 @@ public Q_SLOTS:
      * Create and return a new QWidget instance.
      *
      * \param parent the parent QWidget the new QWidget is a child of.
-     * \param filename the full filename of the UI file which is readed
+     * \param filename the full filename of the UI file which is read
      * and its UI XML content is used to construct the new widget.
      */
     QWidget *createWidgetFromUIFile(QWidget *parent, const QString &filename);

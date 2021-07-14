@@ -63,7 +63,7 @@ public:
     /**
     * Initializes this extension.
     *
-    * \param key The key to differ between etensions. We provide
+    * \param key The key to differ between extensions. We provide
     * the extension which key is "kross".
     * \param engine The QScriptEngine instance.
     */

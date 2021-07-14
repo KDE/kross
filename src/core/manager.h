@@ -43,7 +43,7 @@ class InterpreterInfo;
  * The Manager class is a singleton that provides the main entry
  * point to deal with the Kross Scripting Framework.
  *
- * Use \a Interpreter to just work with some implementated
+ * Use \a Interpreter to just work with some implemented
  * interpreter like python or ruby. While \a Action implements
  * a flexible abstract container to deal with single script files.
  */
@@ -210,7 +210,7 @@ public Q_SLOTS:
      * functionality.
      *
      * \param modulename The name of the module we should try to load.
-     * \return The QObject instance that repesents the module or NULL
+     * \return The QObject instance that represents the module or NULL
      * if loading failed.
      */
     QObject *module(const QString &modulename);

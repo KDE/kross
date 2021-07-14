@@ -580,7 +580,7 @@ void ActionCollectionView::slotAdd()
             continue;
         }
         if (ActionCollectionModel::action(index)) {
-            //TODO propably add the item right after the current selected one?
+            //TODO probably add the item right after the current selected one?
             QModelIndex parent = index;
             while (parent.isValid() && ! collection) {
                 parent = d->view->model()->parent(parent);

@@ -37,7 +37,7 @@ namespace Kross
  * The class Object does provide us scripting objects like
  * class instances to the C++ world.
  *
- * This class implementates reference counting for shared
+ * This class implements reference counting for shared
  * objects. So, no need to take care of freeing objects.
  *
  * Sample that does use the \a Object functionality to

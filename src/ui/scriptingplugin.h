@@ -103,7 +103,7 @@ protected Q_SLOTS:
 
     /**
      * This slot will open/create a scriptactions.rc file in XDG_DATA_HOME/application/scripts/
-     * which will overide other kross rc files. This allows a user to extend existing menus with new actions.
+     * which will override other kross rc files. This allows a user to extend existing menus with new actions.
      */
     virtual void slotEditScriptActions();
 

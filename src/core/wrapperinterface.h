@@ -82,7 +82,7 @@ public:
 
     /**
      * This method got called by Kross if the wrapper-instance
-     * got passed to a C++ slot. It is recommed to return here
+     * got passed to a C++ slot. It is recommend to return here
      * the wrapped instance, but you don't need to.
      */
     virtual void *wrappedObject() const = 0;
