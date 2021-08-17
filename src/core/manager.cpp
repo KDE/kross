@@ -254,11 +254,7 @@ const QString Manager::interpreternameForFile(const QString &file)
         if (! it.value()) {
             continue;
         }
-#if QT_VERSION < QT_VERSION_CHECK(5, 15, 0)
-        foreach (const QString &wildcard, it.value()->wildcard().split(' ', QString::SkipEmptyParts)) {
-#else
         foreach (const QString &wildcard, it.value()->wildcard().split(' ', Qt::SkipEmptyParts)) {
-#endif
             rx.setPattern(wildcard);
             if (rx.exactMatch(file)) {
                 return it.value()->interpreterName();
