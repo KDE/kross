@@ -20,6 +20,9 @@
 #ifndef KROSS_MANAGER_H
 #define KROSS_MANAGER_H
 
+#include "krosscore_export.h"
+
+#if KROSSCORE_ENABLE_DEPRECATED_SINCE(5, 88)
 #include <QStringList>
 #include <QMap>
 #include <QObject>
@@ -46,6 +49,9 @@ class InterpreterInfo;
  * Use \a Interpreter to just work with some implemented
  * interpreter like python or ruby. While \a Action implements
  * a flexible abstract container to deal with single script files.
+ * @depreacted Kross is deprecated and will not be part of KDE Frameworks 6.
+ * For JS scripting QJSEngine should be used, for python scripting
+ * consider using pybind11.
  */
 class KROSSCORE_EXPORT Manager
     : public QObject
@@ -60,6 +66,7 @@ public:
      * Return the Manager instance. Always use this
      * function to access the Manager singleton.
      */
+    KROSSCORE_DEPRECATED_VERSION(5, 88, "Kross is deprecated, see API docs")
     static Manager &self();
 
     /**
@@ -267,5 +274,6 @@ public:
 
 }
 
+#endif
 #endif
 

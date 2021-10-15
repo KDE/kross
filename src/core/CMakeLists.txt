@@ -34,7 +34,13 @@ ecm_qt_declare_logging_category(KF5KrossCore
     CATEGORY_NAME kf.kross.core
 )
 
-generate_export_header(KF5KrossCore BASE_NAME KrossCore)
+ecm_generate_export_header(KF5KrossCore
+    BASE_NAME KrossCore
+    GROUP_BASE_NAME KF
+    VERSION ${KF_VERSION}
+    DEPRECATION_VERSIONS 5.88
+)
+
 
 target_include_directories(KF5KrossCore INTERFACE "$<INSTALL_INTERFACE:${KDE_INSTALL_INCLUDEDIR_KF5}/KrossCore>")
 
