@@ -1,0 +1,206 @@
+# Thomas Diehl <thd@kde.org>, 2002, 2003, 2004, 2005.
+# Stefan Winter <swinter@kde.org>, 2004.
+# Thomas Fischer <thomas.fischer@t-fischer.net>, 2004.
+# Stephan Johach <hunsum@gmx.de>, 2004, 2005, 2006, 2007.
+# Georg Schuster <gschuster@utanet.at>, 2005.
+# Thomas Reitelbach <tr@erdfunkstelle.de>, 2005, 2006, 2007, 2008, 2009.
+# Burkhard Lück <lueck@hube-lueck.de>, 2006, 2007, 2009, 2010, 2011, 2012, 2013, 2014.
+# Frederik Schwarzer <schwarzer@kde.org>, 2007, 2008, 2009, 2010, 2011, 2012, 2013.
+# Johannes Obermayr <johannesobermayr@gmx.de>, 2010.
+# Panagiotis Papadopoulos <pano_90@gmx.net>, 2010.
+# Rolf Eike Beer <kde@opensource.sf-tec.de>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2014-04-02 08:05+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Thomas Reitelbach, Stephan Johach, Thomas Diehl"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tr@erdfunkstelle.de, hunsum@gmx.de, thd@kde.org"
+
+#: console/main.cpp:99
+#, kde-format
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, kde-format
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "Befehlszeilenprogramm zur Ausführung von Kross-Skripten"
+
+#: console/main.cpp:103
+#, kde-format
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "© 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, kde-format
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Autor"
+
+#: console/main.cpp:117
+#, kde-format
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Das auszuführende Skript."
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Die Skriptdatei „%1“ existiert nicht."
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Der Interpreter für die Skriptdatei „%1“ kann nicht bestimmt werden."
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Skriptdatei „%1“ kann nicht geöffnet werden"
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Interpreter „%1“ kann nicht geladen werden"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "Es gibt keinen Interpreter „%1“"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Das Erstellen des Skriptes für den Interpreter „%1“ ist fehlgeschlagen"
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Sicherheitsstufe des Ruby-Interpreters"
+
+#: modules/form.cpp:327
+#, kde-format
+msgid "Cancel?"
+msgstr "Abbrechen?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "Funktion nicht vorhanden: „%1“"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "Name:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "Text:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "Kommentar:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "Symbol:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "Interpreter:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "Datei:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "Ausführen"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "Ausführen des ausgewählten Skripts."
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "Anhalten"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "Anhalten des ausgewählten Skripts."
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "Bearbeiten ..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "Das ausgewählte Skript bearbeiten."
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "Hinzufügen ..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "Ein neues Skript hinzufügen."
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "Entfernen"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "Das ausgewählte Skript entfernen."
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Allgemein"
