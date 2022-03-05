@@ -1,0 +1,207 @@
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Danishka Navin <danishka@gmail.com>, 2008, 2009, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2011-07-25 07:45+0530\n"
+"Last-Translator: Danishka Navin <danishka@gmail.com>\n"
+"Language-Team: Sinhala <danishka@gmail.com>\n"
+"Language: si\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+" \n"
+" \n"
+"X-Generator: Lokalize 1.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ඩනිෂ්ක නවින්"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "danishka@gmail.com"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "KDE application to run Kross scripts."
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "කතෘ"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "විස්තරය"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "\"%1\" Scriptfile නැත."
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "\"%1\" ස්ක්‍රිප්ට් ගොනුව සඳහා පරිවර්තකයක් තීරණය කිරීම අසාර්ථක විය"
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "\"%1\" ස්ක්‍රිප්ට් ගොනුව විවෘත කිරීම අසාර්ථක විය"
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "\"%1\" පරිවර්තකය ප්‍රවේශනය කිරීම අසාර්ථක විය"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "\"%1\" ලෙස පරිවර්තකයක් නැත"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "\"%1\" පරිවර්තකයා සඳහා ස්ක්‍රිප්ට් සෑදීම අසාර්ථක විය."
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Ruby පරිවර්තකයේ ආරාක්ෂා මට්ටම"
+
+#: modules/form.cpp:327
+#, kde-format
+msgid "Cancel?"
+msgstr "අහෝසි කරන්නද?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "'%1' ආකාරයක් නොමැත."
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "නම:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "පෙළ:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "සටහන:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "අයිකනය:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "පරිවර්තක:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "ගොනුව:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "ක්‍රියාත්මක කරන්න"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "තේරූ ස්ක්‍රිප්ටය ක්‍රියාත්මක කරන්න."
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "නවත් වන්න"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "තේරූ ස්ක්‍රිප්ටයේ ක්‍රියාත්මකවීම නතර කරන්න."
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "සකසන්න..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "තෝරාගත් ස්ක්‍රිප්ටය සකසන්න"
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "එක් කරන්න..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "නව ස්ක්‍රිප්ටයක් එක් කරන්න."
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "ඉවත් කරන්න"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "තෝරාගත් සක්‍රිප්ටය ඉවත් කරන්න."
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "සැකසුම්"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "සාමාන්‍ය"

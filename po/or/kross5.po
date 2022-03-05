@@ -1,0 +1,213 @@
+# translation of kdelibs4.po to Oriya
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Manoj Kumar Giri <giri.manojkr@gmail.com>, 2008.
+# Manoj Kumar Giri <mgiri@redhat.com>, 2008, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2009-01-02 17:37+0530\n"
+"Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
+"Language-Team: Oriya <oriya-it@googlegroups.com>\n"
+"Language: or\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"X-Generator: KBabel 1.11.4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ମନୋଜ କୁମାର ଗିରି"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mgiri@redhat.com"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Kross"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "Kross ସ୍କ୍ରିପ୍ଟଗୁଡିକୁ ଚଲାଇବାପାଇଁ KDE ପ୍ରୟୋଗ।"
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) 2006 Sebastian Sauer"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "Sebastian Sauer"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "ଲେଖକ"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "ବର୍ଣ୍ଣନା"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "ସ୍କ୍ରିପ୍ଟ ଫାଇଲ \"%1\" ଅବସ୍ଥିତ ନାହିଁ।"
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "ସ୍କ୍ରିପ୍ଟ ଫାଇଲ \"%1\" ପାଇଁ ଅନୁବାଦକ ନିର୍ଦ୍ଧାରଣ କରିବାରେ ବିଫଳ"
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "ସ୍କ୍ରିପ୍ଟ ଫାଇଲ \"%1\" କୁ ଖୋଲିବାରେ ବିଫଳ"
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "ଅନୁବାଦକ \"%1\" କୁ ଧାରଣକରିବାରେ ବିଫଳ"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "ଏପରି କୌଣସି ଅନୁବାଦକ \"%1\" ନାହିଁ"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "ଅନୁବାଦକ \"%1\" ପାଇଁ ସ୍କ୍ରିପ୍ଟ ତିଆରିରେ ବିଫଳ"
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "Ruby ଅନୁବାଦକର ସୁରକ୍ଷାସ୍ତର"
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "ବାତିଲ କରନ୍ତୁ"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "ଏପରି କିଛି ଫଳନ ନାହିଁ \"%1\""
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "ନାମ:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "ପାଠ୍ୟ:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "ଟିପ୍ପଣୀ:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "ଚିତ୍ରସଂକେତ:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "ଅନୁବାଦକ:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "ଫାଇଲ:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "ଚଲାନ୍ତୁ"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "ଚୟିତ ସ୍କ୍ରିପ୍ଟକୁ ନିଷ୍ପାଦନ କରନ୍ତୁ।"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "ବିରାମ କରନ୍ତୁ"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "ଚୟିତ ସ୍କ୍ରିପ୍ଟର ନିଷ୍ପାଦନ ବନ୍ଦକରନ୍ତୁ।"
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "ସମ୍ପାଦନ କରନ୍ତୁ..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "ଚୟିତ ସ୍କ୍ରିପ୍ଟକୁ ସମ୍ପାଦନ କରନ୍ତୁ।"
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "ଯୋଗକରନ୍ତୁ..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "ନୂତନ ସ୍କ୍ରିପ୍ଟ ଯୋଗକରନ୍ତୁ।"
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "କାଢ଼ନ୍ତୁ"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "ଚୟିତ ସ୍କ୍ରିପ୍ଟକୁ କାଢିଦିଅନ୍ତୁ।"
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "ସମ୍ପାଦନ କରନ୍ତୁ"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "ସାଧାରଣ"
