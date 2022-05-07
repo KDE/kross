@@ -1,0 +1,204 @@
+# KDE3 - Georgian translation of kdelibs4.po
+# Gia Shervashidze <giasher@telenet.ge>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2009-12-17 02:11+0400\n"
+"Last-Translator: George Machitidze <giomac@gmail.com>\n"
+"Language-Team: Georgian <http://www.gia.ge>\n"
+"Language: ka\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "გია შერვაშიძე"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "giasher@telenet.ge"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Props"
+msgctxt "application name"
+msgid "Kross"
+msgstr "პარამეტრები"
+
+#: console/main.cpp:101
+#, kde-format
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr ""
+
+#: console/main.cpp:103
+#, kde-format
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:107
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "ავტორი"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "აღწერილობა:"
+
+#: core/action.cpp:481
+#, fuzzy, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "%1 სტილი ვერ მოიძებნა\n"
+
+#: core/action.cpp:485
+#, fuzzy, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "ვერ მოიძებნა \"%1\" სკრიპტი."
+
+#: core/action.cpp:489
+#, fuzzy, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "ვერ მოიძებნა \"%1\" სკრიპტი."
+
+#: core/action.cpp:500
+#, fuzzy, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "ვერ ხერხდება KScript-ის შემსრულებლის მიღება ტიპისთვის \"%1\""
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr ""
+
+#: core/action.cpp:509
+#, fuzzy, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "ვერ ხერხდება KScript-ის შემსრულებლის მიღება ტიპისთვის \"%1\""
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr ""
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "გაუქმება"
+
+#: qts/values_p.h:76
+#, fuzzy, kde-format
+msgid "No such function \"%1\""
+msgstr "არაა მენიუს ელემენტი '%1'."
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "სახელი:"
+
+#: ui/actioncollectionview.cpp:182
+#, fuzzy, kde-format
+msgid "Text:"
+msgstr "ტესტი"
+
+#: ui/actioncollectionview.cpp:189
+#, fuzzy, kde-format
+msgid "Comment:"
+msgstr "კომენტარი"
+
+#: ui/actioncollectionview.cpp:196
+#, fuzzy, kde-format
+msgid "Icon:"
+msgstr "პიქტოგრამები"
+
+#: ui/actioncollectionview.cpp:217
+#, fuzzy, kde-format
+msgid "Interpreter:"
+msgstr "ძიება ინტერნეტში"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "ფაილი:"
+
+#: ui/actioncollectionview.cpp:326
+#, fuzzy, kde-format
+msgid "Run"
+msgstr "რუნები"
+
+#: ui/actioncollectionview.cpp:328
+#, fuzzy, kde-format
+msgid "Execute the selected script."
+msgstr "მონიშნული შრიფტის ნიმუში"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "შეჩერება"
+
+#: ui/actioncollectionview.cpp:335
+#, fuzzy, kde-format
+msgid "Stop execution of the selected script."
+msgstr "მონიშნული შრიფტის ნიმუში"
+
+#: ui/actioncollectionview.cpp:340
+#, fuzzy, kde-format
+msgid "Edit..."
+msgstr "&რეადქტირება..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:347
+#, fuzzy, kde-format
+msgid "Add..."
+msgstr "&დამატება..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "ამოშლა"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "რედაქტირება"
+
+#: ui/actioncollectionview.cpp:554
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "ზოგადი"

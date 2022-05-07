@@ -1,0 +1,213 @@
+# translation of kdelibs4.po to Kannada
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Umesh Rudrapatna <urudrapatna@yahoo.com>, 2007.
+# Umesh Rudrapatna <umeshrs@gmail.com>, 2007, 2008, 2009.
+# Shankar Prasad <svenkate@redhat.com>, 2008, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2010-06-24 18:32+0530\n"
+"Last-Translator: Shankar Prasad <svenkate@redhat.com>\n"
+"Language-Team: kn_IN <kde-i18n-doc@kde.org>\n"
+"Language: kn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"X-Generator: Lokalize 1.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ಉಮೇಶ್ ರುದ್ರಪಟ್ಟಣ, ಸಿದ್ಧಾರೂಢ ಪಿ ಟಿ, ಶಂಕರ ಪ್ರಸಾದ್ ಎಂ ವಿ"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "umeshrs@gmail.com, siddharudh@gmail.com, svenkate@redhat.com"
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Kross"
+msgctxt "application name"
+msgid "Kross"
+msgstr "ಕ್ರಾಸ್"
+
+#: console/main.cpp:101
+#, fuzzy, kde-format
+#| msgid "KDE application to run Kross scripts."
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr "ಕ್ರಾಸ್ ವಿಧಿಗುಚ್ಛಗಳನ್ನು (ಸ್ಕ್ರಿಪ್ಟ್) ಚಾಲಯಿಸಲು ಒಂದು ಅನ್ವಯ."
+
+#: console/main.cpp:103
+#, fuzzy, kde-format
+#| msgid "(C) 2006 Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr "(C) ೨೦೦೬ ಸೆಬಾಸ್ಟಿಯನ್ ಸಾರ್"
+
+#: console/main.cpp:107
+#, fuzzy, kde-format
+#| msgid "Sebastian Sauer"
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr "ಸೆಬಾಸ್ಟಿಯನ್ ಸಾರ್"
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "ಕರ್ತೃ"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "ವಿವರಣೆ"
+
+#: core/action.cpp:481
+#, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "ವಿಧಿಗುಚ್ಛ ಕಡತ \" %1\" ಅಸ್ತಿತ್ವದಲ್ಲಿಲ್ಲ."
+
+#: core/action.cpp:485
+#, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr ""
+"ವಿಧಿಗುಚ್ಛಕಡತ (ಸ್ಕ್ರಿಪ್ಟ್ ಫೈಲ್) \"%1\" ಕ್ಕೆ ಯಾವುದೇ ವಿವರಣಕಾರ (ಇಂಟರ್ಪ್ರಿಟರ್) ಅನ್ನು "
+"ಕಂಡುಹಿಡಿಯಲಾಗಲಿಲ್ಲ"
+
+#: core/action.cpp:489
+#, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "ವಿಧಿಗುಚ್ಛಕಡತ (ಸ್ಕ್ರಿಪ್ಟ್ ಫೈಲ್) \"%1\" ಅನ್ನು ತೆರೆಯಲಾಗಲಿಲ್ಲ"
+
+#: core/action.cpp:500
+#, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "\"%1\" ವಿವರಣಕಾರವನ್ನು (ಇಂಟರ್ಪ್ರಿಟರ್) ಉತ್ಥಾಪಿಸುವುದು ವಿಫಲವಾಯಿತು"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr "\"%1\" ಹೆಸರಿನ ಯಾವುದೇ ವಿವರಣಕಾರ (ಇಂಟರ್ಪ್ರಿಟರ್) ಇಲ್ಲ"
+
+#: core/action.cpp:509
+#, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr ""
+"\"%1\" ವಿವರಣಕಾರಕ್ಕೆ (ಇಂಟರ್ಪ್ರಿಟರ್) ವಿಧಿಗುಚ್ಛ (ಸ್ಕ್ರಿಪ್ಟ್) ಸೃಷ್ಟಿಸುವುದು ವಿಫಲವಾಯಿತು"
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr "ರೂಬಿ ವಿವರಣಕಾರದ (ಇಂಟರ್ಪ್ರೆಟರ್) ಸುರಕ್ಷತಾಸ್ತರ"
+
+#: modules/form.cpp:327
+#, kde-format
+msgid "Cancel?"
+msgstr "ರದ್ದುಗೊಳಿಸಬೇಕೆ?"
+
+#: qts/values_p.h:76
+#, kde-format
+msgid "No such function \"%1\""
+msgstr "\"%1\" ಹೆಸರಿನ ಯಾವುದೇ ಕಾರ್ಯವಿಲ್ಲ"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "ಹೆಸರು:"
+
+#: ui/actioncollectionview.cpp:182
+#, kde-format
+msgid "Text:"
+msgstr "ಪಠ್ಯ:"
+
+#: ui/actioncollectionview.cpp:189
+#, kde-format
+msgid "Comment:"
+msgstr "ಅಭಿಪ್ರಾಯ:"
+
+#: ui/actioncollectionview.cpp:196
+#, kde-format
+msgid "Icon:"
+msgstr "ಚಿಹ್ನೆ:"
+
+#: ui/actioncollectionview.cpp:217
+#, kde-format
+msgid "Interpreter:"
+msgstr "ವಿವರಣಕಾರ:"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "ಕಡತ:"
+
+#: ui/actioncollectionview.cpp:326
+#, kde-format
+msgid "Run"
+msgstr "ನಿರ್ವಹಿಸು"
+
+#: ui/actioncollectionview.cpp:328
+#, kde-format
+msgid "Execute the selected script."
+msgstr "ಆರಿಸಲಾದ ವಿಧಿಗುಚ್ಛವನ್ನು (ಸ್ಕ್ರಿಪ್ಟ್) ಚಾಲಯಿಸು."
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "ನಿಲ್ಲಿಸು"
+
+#: ui/actioncollectionview.cpp:335
+#, kde-format
+msgid "Stop execution of the selected script."
+msgstr "ಆರಿಸಲಾದ ವಿಧಿಗುಚ್ಛದ (ಸ್ಕ್ರಿಪ್ಟ್) ಚಾಲನೆಯನ್ನು ನಿಲ್ಲಿಸು."
+
+#: ui/actioncollectionview.cpp:340
+#, kde-format
+msgid "Edit..."
+msgstr "ಸಂಪಾದಿಸು..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr "ಆರಿಸಲಾದ ವಿಧಿಗುಚ್ಛವನ್ನು (ಸ್ಕ್ರಿಪ್ಟ್) ಸಂಪಾದಿಸು."
+
+#: ui/actioncollectionview.cpp:347
+#, kde-format
+msgid "Add..."
+msgstr "ಸೇರಿಸು..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr "ಹೊಸ ವಿಧಿಗುಚ್ಛವನ್ನು (ಸ್ಕ್ರಿಪ್ಟ್) ಸೇರಿಸು."
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "ತೆಗೆದುಹಾಕು"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr "ಆರಿಸಿದ ವಿಧಿಗುಚ್ಛವನ್ನು (ಸ್ಕ್ರಿಪ್ಟ್) ತೆಗೆದುಹಾಕು."
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "ಸಂಪಾದಿಸು"
+
+#: ui/actioncollectionview.cpp:554
+#, kde-format
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "ಸಾಮಾನ್ಯ"
