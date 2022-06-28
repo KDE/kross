@@ -18,7 +18,7 @@ include(CMakePackageConfigHelpers)
 include(ECMSetupVersion)
 include(ECMGenerateHeaders)
 include(ECMGenerateExportHeader)
-
+include(ECMDeprecationSettings)
 include(ECMQtDeclareLoggingCategory)
 
 include(KDEInstallDirs)
@@ -61,6 +61,9 @@ remove_definitions(-DQT_NO_CAST_FROM_ASCII)
 # ideally we would support QT_NO_KEYWORDS, but at least we can do this
 add_definitions(-DQT_NO_SIGNALS_SLOTS_KEYWORDS)
 
+ecm_set_disabled_deprecation_versions(
+    QT 5.15.2
+)
 add_definitions(-DTRANSLATION_DOMAIN=\"kross5\")
 ki18n_install(po)
 if (KF5DocTools_FOUND)
@@ -69,7 +72,6 @@ endif()
 if (KF5DocTools_FOUND)
     add_subdirectory(docs)
 endif()
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0x050d00)
 
 add_subdirectory(src)
 if (BUILD_TESTING)
