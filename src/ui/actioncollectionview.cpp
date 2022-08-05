@@ -565,7 +565,7 @@ void ActionCollectionView::slotAdd()
 {
 
 //TODO
-    KMessageBox::sorry(nullptr, "TODO");
+    KMessageBox::error(nullptr, "TODO");
 
 //ScriptManagerAddWizard wizard(this, collection);
 //int result = wizard.exec();
@@ -605,6 +605,6 @@ void ActionCollectionView::slotRemove()
     if (! selectionModel()) {
         return;
     }
-    KMessageBox::sorry(nullptr, "TODO");
+    KMessageBox::error(nullptr, "TODO");
 }
 
