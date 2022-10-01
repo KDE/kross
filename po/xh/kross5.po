@@ -1,0 +1,210 @@
+# translation of kdelibs4.po to
+# translation of kdelibs4.po to
+# translation of kdelibs4.po to
+# translation of kdelibs4.po to Xhosa
+# K Desktop Environment - kdelibs
+# Copyright (C) 2001 translate.org.za
+# Antoinette Dekeni <antoinette@transalate.org.za>, 2001.
+# Lwandle Mgidlana <lwandle@translate.org.za>, 2002
+# Thelma Lungcuzo <thelma@translate.org.za>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2002-12-13 17:20SAST\n"
+"Last-Translator: Lwandle Mgidlana <lwandle@translate.org.za>\n"
+"Language-Team: Xhosa <xhosa@translate.org.za>\n"
+"Language: xh\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0beta2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, fuzzy, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Igama elitsha lenginginya."
+
+#, fuzzy, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Igama elitsha lenginginya."
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+msgctxt "application name"
+msgid "Kross"
+msgstr "&Ukundulula"
+
+#: console/main.cpp:101
+#, kde-format
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr ""
+
+#: console/main.cpp:103
+#, kde-format
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:107
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Umbhali"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Uchazo:"
+
+#: core/action.cpp:481
+#, fuzzy, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Uhlobo lwe %1 alufumanekanga\n"
+
+#: core/action.cpp:485
+#, fuzzy, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Ayikwazi ukufumana umshicileli %1."
+
+#: core/action.cpp:489
+#, fuzzy, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Ayikwazi ukufumana umshicileli %1."
+
+#: core/action.cpp:500
+#, fuzzy, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Ayikwazi ukufumana Umbaleki wohlobo lwe KScript"
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr ""
+
+#: core/action.cpp:509
+#, fuzzy, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Ayikwazi ukufumana Umbaleki wohlobo lwe KScript"
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr ""
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "Rhoxisa"
+
+#: qts/values_p.h:76
+#, fuzzy, kde-format
+msgid "No such function \"%1\""
+msgstr "Vula '%1'?"
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "Igama:"
+
+#: ui/actioncollectionview.cpp:182
+#, fuzzy, kde-format
+msgid "Text:"
+msgstr "&Uvavanyo"
+
+#: ui/actioncollectionview.cpp:189
+#, fuzzy, kde-format
+msgid "Comment:"
+msgstr "Gqabaza"
+
+#: ui/actioncollectionview.cpp:196
+#, fuzzy, kde-format
+msgid "Icon:"
+msgstr "Iintshukumo"
+
+#: ui/actioncollectionview.cpp:217
+#, fuzzy, kde-format
+msgid "Interpreter:"
+msgstr "inkonzo ye telnet"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "Ifayile:"
+
+#: ui/actioncollectionview.cpp:326
+#, fuzzy, kde-format
+msgid "Run"
+msgstr "Runic"
+
+#: ui/actioncollectionview.cpp:328
+#, fuzzy, kde-format
+msgid "Execute the selected script."
+msgstr "Ukhetho lomfanekiso lomshicileli"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "Yima"
+
+#: ui/actioncollectionview.cpp:335
+#, fuzzy, kde-format
+msgid "Stop execution of the selected script."
+msgstr "Ukhetho lomfanekiso lomshicileli"
+
+#: ui/actioncollectionview.cpp:340
+#, fuzzy, kde-format
+msgid "Edit..."
+msgstr "&Hlela..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:347
+#, fuzzy, kde-format
+msgid "Add..."
+msgstr "&Yongeza..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "Susa"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "Hlela"
+
+#: ui/actioncollectionview.cpp:554
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Ngokubanzi"

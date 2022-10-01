@@ -1,0 +1,201 @@
+# UTF-8 test:äëïöü
+msgid ""
+msgstr ""
+"Project-Id-Version: kdelibs4 stable\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
+"PO-Revision-Date: 2006-01-12 16:33+0200\n"
+"Last-Translator: JUANITA FRANZ <JUANITA.FRANZ@VR-WEB.DE>\n"
+"Language-Team: AFRIKAANS <translate-discuss-af@lists.sourceforge.net>\n"
+"Language: af\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Frikkie Thirion,Juanita Franz "
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "frix@expertron.co.za,juanita.franz@vr-web.de "
+
+#: console/main.cpp:99
+#, fuzzy, kde-format
+#| msgid "Props"
+msgctxt "application name"
+msgid "Kross"
+msgstr "Props"
+
+#: console/main.cpp:101
+#, kde-format
+msgctxt "application description"
+msgid "Command-line utility to run Kross scripts."
+msgstr ""
+
+#: console/main.cpp:103
+#, kde-format
+msgctxt "@info:credit"
+msgid "Copyright 2006 Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:107
+#, kde-format
+msgctxt "@info:credit"
+msgid "Sebastian Sauer"
+msgstr ""
+
+#: console/main.cpp:108
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@info:credit"
+msgid "Author"
+msgstr "Outeur"
+
+#: console/main.cpp:117
+#, fuzzy, kde-format
+#| msgid "Description:"
+msgctxt "@info:shell command-line argument"
+msgid "The script to run."
+msgstr "Beskrywing:"
+
+#: core/action.cpp:481
+#, fuzzy, kde-format
+msgid "Scriptfile \"%1\" does not exist."
+msgstr "Die styl %1 was nie gevind\n"
+
+#: core/action.cpp:485
+#, fuzzy, kde-format
+msgid "Failed to determine interpreter for scriptfile \"%1\""
+msgstr "Kon nie die skript \"%1\" vind nie."
+
+#: core/action.cpp:489
+#, fuzzy, kde-format
+msgid "Failed to open scriptfile \"%1\""
+msgstr "Kon nie die skript \"%1\" vind nie."
+
+#: core/action.cpp:500
+#, fuzzy, kde-format
+msgid "Failed to load interpreter \"%1\""
+msgstr "Kan nie 'KScript Runner' kry vir tipe \"%1\" nie."
+
+#: core/action.cpp:502
+#, kde-format
+msgid "No such interpreter \"%1\""
+msgstr ""
+
+#: core/action.cpp:509
+#, fuzzy, kde-format
+msgid "Failed to create script for interpreter \"%1\""
+msgstr "Kan nie 'KScript Runner' kry vir tipe \"%1\" nie."
+
+#: core/manager.cpp:152
+#, kde-format
+msgid "Level of safety of the Ruby interpreter"
+msgstr ""
+
+#: modules/form.cpp:327
+#, fuzzy, kde-format
+#| msgid "Cancel"
+msgid "Cancel?"
+msgstr "Kanselleer"
+
+#: qts/values_p.h:76
+#, fuzzy, kde-format
+msgid "No such function \"%1\""
+msgstr "Geen kieslys item: '%1'."
+
+#: ui/actioncollectionview.cpp:174
+#, kde-format
+msgid "Name:"
+msgstr "Naam:"
+
+#: ui/actioncollectionview.cpp:182
+#, fuzzy, kde-format
+msgid "Text:"
+msgstr "Toets"
+
+#: ui/actioncollectionview.cpp:189
+#, fuzzy, kde-format
+msgid "Comment:"
+msgstr "Kommentaar"
+
+#: ui/actioncollectionview.cpp:196
+#, fuzzy, kde-format
+msgid "Icon:"
+msgstr "Ikoone"
+
+#: ui/actioncollectionview.cpp:217
+#, fuzzy, kde-format
+msgid "Interpreter:"
+msgstr "Internet Soektog"
+
+#: ui/actioncollectionview.cpp:233
+#, kde-format
+msgid "File:"
+msgstr "Lêer:"
+
+#: ui/actioncollectionview.cpp:326
+#, fuzzy, kde-format
+msgid "Run"
+msgstr "Runiek"
+
+#: ui/actioncollectionview.cpp:328
+#, fuzzy, kde-format
+msgid "Execute the selected script."
+msgstr "Voorskou van die gekose skrif tipe"
+
+#: ui/actioncollectionview.cpp:333
+#, kde-format
+msgid "Stop"
+msgstr "Stop"
+
+#: ui/actioncollectionview.cpp:335
+#, fuzzy, kde-format
+msgid "Stop execution of the selected script."
+msgstr "Voorskou van die gekose skrif tipe"
+
+#: ui/actioncollectionview.cpp:340
+#, fuzzy, kde-format
+msgid "Edit..."
+msgstr "Redigeer..."
+
+#: ui/actioncollectionview.cpp:342
+#, kde-format
+msgid "Edit selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:347
+#, fuzzy, kde-format
+msgid "Add..."
+msgstr "Voeg by..."
+
+#: ui/actioncollectionview.cpp:349
+#, kde-format
+msgid "Add a new script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:354
+#, kde-format
+msgid "Remove"
+msgstr "Verwyder"
+
+#: ui/actioncollectionview.cpp:356
+#, kde-format
+msgid "Remove selected script."
+msgstr ""
+
+#: ui/actioncollectionview.cpp:549
+#, kde-format
+msgid "Edit"
+msgstr "Redigeer"
+
+#: ui/actioncollectionview.cpp:554
+#, fuzzy, kde-format
+#| msgid "General"
+msgctxt "@title:group Script properties"
+msgid "General"
+msgstr "Algemeen"
