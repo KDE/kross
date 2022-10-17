@@ -70,7 +70,7 @@ msgstr "Autoria"
 #, kde-format
 msgctxt "@info:shell command-line argument"
 msgid "The script to run."
-msgstr "L'script que s'ha d'executar."
+msgstr "L'script que s'executarà."
 
 #: core/action.cpp:481
 #, kde-format
