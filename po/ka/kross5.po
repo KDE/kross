@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kross\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2020-10-24 02:12+0200\n"
-"PO-Revision-Date: 2022-08-16 06:30+0200\n"
+"PO-Revision-Date: 2022-11-27 11:23+0100\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.1.1\n"
+"X-Generator: Poedit 3.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -72,32 +72,32 @@ msgstr "სკრიპტი \"%1\" არ არსებობს."
 #: core/action.cpp:485
 #, kde-format
 msgid "Failed to determine interpreter for scriptfile \"%1\""
-msgstr ""
+msgstr "სკრიპტისთვის (\"%1\") ინტერპრეტატორის დადგენის შეცდომა"
 
 #: core/action.cpp:489
 #, kde-format
 msgid "Failed to open scriptfile \"%1\""
-msgstr ""
+msgstr "სკრიპტის ფაილის (\"%1\") გახსნის შეცდომა"
 
 #: core/action.cpp:500
 #, kde-format
 msgid "Failed to load interpreter \"%1\""
-msgstr ""
+msgstr "ინტერპრეტატორის (\"%1\") ჩატვირთვის შეცდომა"
 
 #: core/action.cpp:502
 #, kde-format
 msgid "No such interpreter \"%1\""
-msgstr ""
+msgstr "ინტერპრეტატორი %1 არ არსებობს"
 
 #: core/action.cpp:509
 #, kde-format
 msgid "Failed to create script for interpreter \"%1\""
-msgstr ""
+msgstr "ინტერპრეტატორისთვის %1 სკრიპტის შექმნის შეცდომა"
 
 #: core/manager.cpp:152
 #, kde-format
 msgid "Level of safety of the Ruby interpreter"
-msgstr ""
+msgstr "Ruby-ის ინტერპრეტატორის უსაფრთხოების დონე"
 
 #: modules/form.cpp:327
 #, kde-format
