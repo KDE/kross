@@ -1,95 +1,147 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY % English "INCLUDE"><!-- change language only here -->
+  <!ENTITY % German "INCLUDE"
+><!-- change language only here -->
 ]>
 
 <refentry lang="&language;">
 
 <refentryinfo>
-<title>kf5kross User's Manual</title>
-<author>
-<firstname>Sebastian</firstname>
-<surname>Sauer</surname>
-<affiliation>
-<address><email>mail@dipe.org</email></address>
+<title
+>kf5kross-Benutzerhandbuch</title>
+<author
+><firstname
+>Sebastian</firstname
+> <surname
+>Sauer</surname
+> <affiliation
+> <address
+><email
+>mail@dipe.org</email
+></address>
 </affiliation>
 </author>
 
-<date>2015-07-31</date>
-<releaseinfo>Frameworks 5.13</releaseinfo>
-<productname>KDE Frameworks</productname>
+<date
+>2015-07-31</date>
+<releaseinfo
+>Frameworks 5.13</releaseinfo>
+<productname
+>KDE Frameworks</productname>
 
 </refentryinfo>
 
 <refmeta>
-<refentrytitle><command>kf5kross</command></refentrytitle>
-<manvolnum>1</manvolnum>
+<refentrytitle
+><command
+>kf5kross</command
+></refentrytitle>
+<manvolnum
+>1</manvolnum>
 </refmeta>
 
 <refnamediv>
-<refname><command>kf5kross</command></refname>
-<refpurpose>&kde; application to run kross scripts.</refpurpose>
+<refname
+><command
+>kf5kross</command
+></refname>
+<refpurpose
+>&kde;-Anwendung zur Ausführung von Kross-Skripten.</refpurpose>
 </refnamediv>
 
 <refsynopsisdiv>
-<title>Synopsis</title>
+<title
+>Übersicht</title>
 
-<cmdsynopsis>
-<command>kf5kross</command>
-
-<arg choice="opt">-h, --help</arg>
-<arg choice="opt">-v, --version</arg>
-<arg choice="opt">--author</arg>
-<arg choice="opt">--license</arg>
-<arg choice="opt">file ...</arg>
-</cmdsynopsis>
+<cmdsynopsis
+><command
+>kf5kross</command
+> <arg choice="opt"
+>-h, --help</arg
+> <arg choice="opt"
+>-v, --version</arg
+> <arg choice="opt"
+>--author</arg
+> <arg choice="opt"
+>--license</arg
+> <arg choice="opt"
+>file ...</arg
+> </cmdsynopsis>
 </refsynopsisdiv>
 
 <refsect1>
-<title>Description</title>
+<title
+>Beschreibung</title>
 
-<para><command>kf5kross</command> executes kross scripts written in &kde; &javascript;, Python, Ruby, &Java; and Falcon.
-</para>
-<para>This command line tool is used for any non-&GUI; scripts, &eg; &calligrasheets; has some of these.</para>
+<para
+><command
+>kf5kross</command
+> führt sogenannte Kross-Skripte aus, die in &kde;-&javascript;, Python, Ruby, &Java; oder Falcon geschrieben sind. </para>
+<para
+>Dieses Befehlszeilenprogramm wird für alle Skripte ohne grafische Benutzeroberfläche wie zum Beispiel in &calligrasheets; verwendet.</para>
 </refsect1>
 
 <refsect1>
-<title>Options</title>
+<title
+>Optionen</title>
 <variablelist>
 
 <varlistentry>
-<term><option>-h</option><option>--help</option></term>
+<term
+><option
+>-h</option
+><option
+>--help</option
+></term>
 <listitem>
-<para>Show help about options.</para>
+<para
+>Hilfe zu verfügbaren Optionen anzeigen.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><option>-v</option><option>--version</option></term>
+<term
+><option
+>-v</option
+><option
+>--version</option
+></term>
 <listitem>
-<para>Show version information.</para>
+<para
+>Versionsinformation anzeigen.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><option>--author</option></term>
+<term
+><option
+>--author</option
+></term>
 <listitem>
-<para>Show author information.</para>
+<para
+>Zeigt Informationen über den Autor.</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><option>--license</option></term>
+<term
+><option
+>--license</option
+></term>
 <listitem>
-<para>Show license information.</para>
+<para
+>Lizenz-Informationen anzeigen</para>
 </listitem>
 </varlistentry>
 
 <varlistentry>
-<term><option>file</option>...</term>
+<term
+><option
+>file</option
+>...</term>
 <listitem>
-<para>The files with the scripts to run.
-</para>
+<para
+>Die Datei mit den auszuführenden Skripten. </para>
 </listitem>
 </varlistentry>
 
@@ -98,33 +150,56 @@
 </refsect1>
 
 <refsect1>
-<title>Usage</title>
-<para>
-<command>kf5kross</command> <parameter>file</parameter> runs the script in <parameter>file</parameter>
-after loading the interpreter plugin for the script language (detected by filename suffix).
-</para>
-<para>
-To interpret other languages than &kde; &javascript;, <replaceable>kdebindings</replaceable> must be installed.
-<!--For example, to run Python scripts you need kdebinginds, PyQt4 and sip.-->
-</para>
+<title
+>Benutzung</title>
+<para
+><command
+>kf5kross</command
+> <parameter
+>Datei</parameter
+> führt das Skript in der <parameter
+>Datei</parameter
+> aus, nachdem das Interpreter-Modul für die entsprechende Skriptsprache geladen wurde. Die Skriptsprache wird anhand der Dateierweiterung erkannt. </para>
+<para
+>Wenn Sie das Paket <replaceable
+>kdebindings</replaceable
+> installieren, werden noch weitere Sprachen neben &kde;-&javascript; unterstützt. </para>
 
 
 </refsect1>
 
 <refsect1>
-<title>See Also</title>
-<para><replaceable>kf5options</replaceable>(7), <replaceable>qt5options</replaceable>(7),
-<replaceable>python</replaceable>(1), <replaceable>ruby</replaceable>(1), <replaceable>kjs5</replaceable>(1),
-<replaceable>java</replaceable>(1), <replaceable>falcon</replaceable>(1)
-</para>
-<para>
-Look at <replaceable>http://kross.dipe.org/solution.html</replaceable> for more information and tutorials.
-</para>
+<title
+>Siehe auch</title>
+<para
+><replaceable
+>kf5options</replaceable
+>(7), <replaceable
+>qt5options</replaceable
+>(7), <replaceable
+>python</replaceable
+>(1), <replaceable
+>ruby</replaceable
+>(1), <replaceable
+>kjs5</replaceable
+>(1), <replaceable
+>java</replaceable
+>(1), <replaceable
+>falcon</replaceable
+>(1) </para>
+<para
+>Weitere Informationen und Anleitungen finden Sie auf <replaceable
+>http://kross.dipe.org/solution.html</replaceable
+>. </para>
 </refsect1>
 
 <refsect1>
-<title>Bugs</title>
-<para>Please use <ulink url="https://bugs.kde.org">&kde;'s bugtracker</ulink> to report bugs.</para>
+<title
+>Fehler</title>
+<para
+>Bitte berichten Sie Fehler im <ulink url="https://bugs.kde.org"
+>Fehlerverfolgungssystem von &kde;</ulink
+>.</para>
 </refsect1>
 
 </refentry>
