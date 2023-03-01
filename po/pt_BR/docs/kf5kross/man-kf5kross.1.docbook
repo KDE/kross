@@ -76,9 +76,9 @@
 <para
 >O <command
 >kf5kross</command
-> executa programas do Kross, feitos em Javascript, Python, Ruby, Java e Falcon para o &kde;. </para>
+> executa programas do Kross, feitos em &javascript;, Python, Ruby, &Java; e Falcon para o &kde;. </para>
 <para
->Esta ferramenta de linha de comando é usada para os scripts sem interface gráfica, por exemplo, Calligra Sheets tem alguns deles.</para>
+>Esta ferramenta de linha de comando é usada para os scripts sem &GUI;, &eg; &calligrasheets; tem alguns deles.</para>
 </refsect1>
 
 <refsect1>
@@ -108,7 +108,7 @@
 ></term>
 <listitem>
 <para
->Mostra informações sobre a versão</para>
+>Mostra informações sobre a versão.</para>
 </listitem>
 </varlistentry>
 
@@ -161,7 +161,7 @@
 >arquivo</parameter
 >, após carregar o plugin de interpretação para a linguagem de programação (que é detectada pelo sufixo do nome do arquivo). </para>
 <para
->Para interpretar outras linguagens que não o Javascript para o &kde;, você deverá instalar o <replaceable
+>Para interpretar outras linguagens que não o &javascript; para o &kde;, você deverá instalar o <replaceable
 >kdebindings</replaceable
 >. </para>
 
@@ -197,8 +197,8 @@
 <title
 >Problemas</title>
 <para
->Use o <ulink url="http://bugs.kde.org"
->sistema de gerenciamento de erros do KDE</ulink
+>Use o <ulink url="https://bugs.kde.org"
+>sistema de gerenciamento de erros do &kde;</ulink
 > para relatar erros.</para>
 </refsect1>
 

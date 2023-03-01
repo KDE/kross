@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kross5\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2020-01-13 02:59+0100\n"
+"POT-Creation-Date: 2020-10-24 02:12+0200\n"
 "PO-Revision-Date: 2017-09-28 17:58+0200\n"
 "Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
@@ -102,7 +102,7 @@ msgstr "Ne mogu da napravim skriptu za interpretator „%1“."
 msgid "Level of safety of the Ruby interpreter"
 msgstr "Nivo bezbednosti interpretatora Rubyja"
 
-#: modules/form.cpp:328
+#: modules/form.cpp:327
 #, kde-format
 msgid "Cancel?"
 msgstr "Odustati?"
@@ -112,93 +112,93 @@ msgstr "Odustati?"
 msgid "No such function \"%1\""
 msgstr "Nema funkcije „%1“"
 
-#: ui/actioncollectionview.cpp:175
+#: ui/actioncollectionview.cpp:174
 #, kde-format
 msgid "Name:"
 msgstr "Ime:"
 
-#: ui/actioncollectionview.cpp:183
+#: ui/actioncollectionview.cpp:182
 #, kde-format
 msgid "Text:"
 msgstr "Tekst:"
 
-#: ui/actioncollectionview.cpp:190
+#: ui/actioncollectionview.cpp:189
 #, kde-format
 msgid "Comment:"
 msgstr "Komentar:"
 
-#: ui/actioncollectionview.cpp:197
+#: ui/actioncollectionview.cpp:196
 #, kde-format
 msgid "Icon:"
 msgstr "Ikonica:"
 
-#: ui/actioncollectionview.cpp:218
+#: ui/actioncollectionview.cpp:217
 #, kde-format
 msgid "Interpreter:"
 msgstr "Interpretator:"
 
-#: ui/actioncollectionview.cpp:234
+#: ui/actioncollectionview.cpp:233
 #, kde-format
 msgid "File:"
 msgstr "Fajl:"
 
-#: ui/actioncollectionview.cpp:327
+#: ui/actioncollectionview.cpp:326
 #, kde-format
 msgid "Run"
 msgstr "Izvrši"
 
-#: ui/actioncollectionview.cpp:329
+#: ui/actioncollectionview.cpp:328
 #, kde-format
 msgid "Execute the selected script."
 msgstr "Izvrši izabranu skriptu."
 
-#: ui/actioncollectionview.cpp:334
+#: ui/actioncollectionview.cpp:333
 #, kde-format
 msgid "Stop"
 msgstr "Zaustavi"
 
-#: ui/actioncollectionview.cpp:336
+#: ui/actioncollectionview.cpp:335
 #, kde-format
 msgid "Stop execution of the selected script."
 msgstr "Zaustavi izvršavanje izabrane skripte."
 
-#: ui/actioncollectionview.cpp:341
+#: ui/actioncollectionview.cpp:340
 #, kde-format
 msgid "Edit..."
 msgstr "Uredi..."
 
-#: ui/actioncollectionview.cpp:343
+#: ui/actioncollectionview.cpp:342
 #, kde-format
 msgid "Edit selected script."
 msgstr "Uredi izabranu skriptu."
 
-#: ui/actioncollectionview.cpp:348
+#: ui/actioncollectionview.cpp:347
 #, kde-format
 msgid "Add..."
 msgstr "Dodaj..."
 
-#: ui/actioncollectionview.cpp:350
+#: ui/actioncollectionview.cpp:349
 #, kde-format
 msgid "Add a new script."
 msgstr "Dodaj novu skriptu."
 
-#: ui/actioncollectionview.cpp:355
+#: ui/actioncollectionview.cpp:354
 #, kde-format
 msgid "Remove"
 msgstr "Ukloni"
 
-#: ui/actioncollectionview.cpp:357
+#: ui/actioncollectionview.cpp:356
 #, kde-format
 msgid "Remove selected script."
 msgstr "Ukloni izabranu skriptu."
 
 # >> @title:window
-#: ui/actioncollectionview.cpp:550
+#: ui/actioncollectionview.cpp:549
 #, kde-format
 msgid "Edit"
 msgstr "Uređivanje"
 
-#: ui/actioncollectionview.cpp:555
+#: ui/actioncollectionview.cpp:554
 #, kde-format
 msgctxt "@title:group Script properties"
 msgid "General"
