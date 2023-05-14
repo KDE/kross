@@ -60,7 +60,7 @@ msgstr "أداة سطر أوامر لتشغيل سكربتات Kross."
 #, kde-format
 msgctxt "@info:credit"
 msgid "Copyright 2006 Sebastian Sauer"
-msgstr "‏© ٢٠٠٦ Sebastian Sauer"
+msgstr "‏© 2006 Sebastian Sauer"
 
 #: console/main.cpp:107
 #, kde-format
