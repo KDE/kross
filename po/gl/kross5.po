@@ -43,7 +43,7 @@ msgstr "Kross"
 #, kde-format
 msgctxt "application description"
 msgid "Command-line utility to run Kross scripts."
-msgstr "Utilidade da liña de ordes para executar scripts de Kross."
+msgstr "Utilidade da liña de ordes para executar guións de Kross."
 
 #: console/main.cpp:103
 #, kde-format
@@ -67,22 +67,22 @@ msgstr "Autor"
 #, kde-format
 msgctxt "@info:shell command-line argument"
 msgid "The script to run."
-msgstr "O script que se vai executar."
+msgstr "O guión que se vai executar."
 
 #: core/action.cpp:481
 #, kde-format
 msgid "Scriptfile \"%1\" does not exist."
-msgstr "O script %1 non existe."
+msgstr "O guión %1 non existe."
 
 #: core/action.cpp:485
 #, kde-format
 msgid "Failed to determine interpreter for scriptfile \"%1\""
-msgstr "Non se puido determinar o intérprete do script «%1»"
+msgstr "Non se puido determinar o intérprete do guión «%1»"
 
 #: core/action.cpp:489
 #, kde-format
 msgid "Failed to open scriptfile \"%1\""
-msgstr "Non se puido abrir o script «%1»"
+msgstr "Non se puido abrir o guión «%1»"
 
 #: core/action.cpp:500
 #, kde-format
@@ -97,7 +97,7 @@ msgstr "Non existe o intérprete «%1»"
 #: core/action.cpp:509
 #, kde-format
 msgid "Failed to create script for interpreter \"%1\""
-msgstr "Non se puido crear un script para o intérprete «%1»"
+msgstr "Non se puido crear un guión para o intérprete «%1»"
 
 #: core/manager.cpp:152
 #, kde-format
@@ -152,7 +152,7 @@ msgstr "Executar"
 #: ui/actioncollectionview.cpp:328
 #, kde-format
 msgid "Execute the selected script."
-msgstr "Executar o script escollido."
+msgstr "Executar o guión escollido."
 
 #: ui/actioncollectionview.cpp:333
 #, kde-format
@@ -162,7 +162,7 @@ msgstr "Parar"
 #: ui/actioncollectionview.cpp:335
 #, kde-format
 msgid "Stop execution of the selected script."
-msgstr "Deter a execución do script escollido."
+msgstr "Deter a execución do guión escollido."
 
 #: ui/actioncollectionview.cpp:340
 #, kde-format
@@ -172,7 +172,7 @@ msgstr "Editar…"
 #: ui/actioncollectionview.cpp:342
 #, kde-format
 msgid "Edit selected script."
-msgstr "Editar o script escollido."
+msgstr "Editar o guión escollido."
 
 #: ui/actioncollectionview.cpp:347
 #, kde-format
@@ -182,7 +182,7 @@ msgstr "Engadir…"
 #: ui/actioncollectionview.cpp:349
 #, kde-format
 msgid "Add a new script."
-msgstr "Engade un script novo."
+msgstr "Engade un guión novo."
 
 #: ui/actioncollectionview.cpp:354
 #, kde-format
@@ -192,7 +192,7 @@ msgstr "Retirar"
 #: ui/actioncollectionview.cpp:356
 #, kde-format
 msgid "Remove selected script."
-msgstr "Retirar o script escollido."
+msgstr "Retirar o guión escollido."
 
 #: ui/actioncollectionview.cpp:549
 #, kde-format
