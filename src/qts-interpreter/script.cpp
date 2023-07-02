@@ -288,3 +288,4 @@ QObject *EcmaScript::engine() const
     return d->m_engine;
 }
 
+#include "moc_script.cpp"

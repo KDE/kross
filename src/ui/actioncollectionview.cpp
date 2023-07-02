@@ -608,3 +608,4 @@ void ActionCollectionView::slotRemove()
     KMessageBox::error(nullptr, "TODO");
 }
 
+#include "moc_actioncollectionview.cpp"

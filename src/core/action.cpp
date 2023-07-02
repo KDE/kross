@@ -575,3 +575,4 @@ WrapperInterface::~WrapperInterface()
 {
 }
 
+#include "moc_action.cpp"

@@ -72,3 +72,4 @@ QStringList EcmaPlugin::keys() const
     return QStringList() << "kross";
 }
 
+#include "moc_plugin.cpp"

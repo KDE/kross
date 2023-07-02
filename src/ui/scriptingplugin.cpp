@@ -273,3 +273,4 @@ void ScriptingPlugin::slotResetScriptActions()
     QFile::remove(d->userActionsFile);
 }
 
+#include "moc_scriptingplugin.cpp"

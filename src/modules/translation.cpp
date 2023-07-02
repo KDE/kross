@@ -101,3 +101,4 @@ QString TranslationModule::i18ncp(const QString &context, const QString &singula
     return substituteArguments(ls, arguments, 98).toString();
 }
 
+#include "moc_translation.cpp"

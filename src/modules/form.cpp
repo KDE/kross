@@ -874,3 +874,4 @@ QObject *FormModule::loadPart(QWidget *parent, const QString &name, const QUrl &
     return part;
 }
 
+#include "moc_form.cpp"
