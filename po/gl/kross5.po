@@ -77,17 +77,17 @@ msgstr "O guión %1 non existe."
 #: core/action.cpp:485
 #, kde-format
 msgid "Failed to determine interpreter for scriptfile \"%1\""
-msgstr "Non se puido determinar o intérprete do guión «%1»"
+msgstr "Non foi posíbel determinar o intérprete do guión «%1»"
 
 #: core/action.cpp:489
 #, kde-format
 msgid "Failed to open scriptfile \"%1\""
-msgstr "Non se puido abrir o guión «%1»"
+msgstr "Non foi posíbel abrir o guión «%1»"
 
 #: core/action.cpp:500
 #, kde-format
 msgid "Failed to load interpreter \"%1\""
-msgstr "Non se puido cargar o intérprete «%1»"
+msgstr "Non foi posíbel cargar o intérprete «%1»"
 
 #: core/action.cpp:502
 #, kde-format
@@ -97,7 +97,7 @@ msgstr "Non existe o intérprete «%1»"
 #: core/action.cpp:509
 #, kde-format
 msgid "Failed to create script for interpreter \"%1\""
-msgstr "Non se puido crear un guión para o intérprete «%1»"
+msgstr "Non foi posíbel crear un guión para o intérprete «%1»"
 
 #: core/manager.cpp:152
 #, kde-format
