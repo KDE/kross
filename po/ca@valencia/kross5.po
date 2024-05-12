@@ -170,7 +170,7 @@ msgstr "Para l'execució de l'script seleccionat."
 #: ui/actioncollectionview.cpp:340
 #, kde-format
 msgid "Edit..."
-msgstr "Edita..."
+msgstr "Edita…"
 
 #: ui/actioncollectionview.cpp:342
 #, kde-format
@@ -180,7 +180,7 @@ msgstr "Edita l'script seleccionat."
 #: ui/actioncollectionview.cpp:347
 #, kde-format
 msgid "Add..."
-msgstr "Afig..."
+msgstr "Afig…"
 
 #: ui/actioncollectionview.cpp:349
 #, kde-format
