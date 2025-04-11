@@ -65,7 +65,7 @@
 > <arg choice="opt"
 >--license</arg
 > <arg choice="opt"
->fitxer...</arg
+>fitxer…</arg
 > </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -138,7 +138,7 @@
 <term
 ><option
 >fitxer</option
->...</term>
+>…</term>
 <listitem>
 <para
 >Els fitxers amb els scripts que s'executaran. </para>
