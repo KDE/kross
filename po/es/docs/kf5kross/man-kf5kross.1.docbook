@@ -65,7 +65,7 @@
 > <arg choice="opt"
 >--license</arg
 > <arg choice="opt"
->archivo ...</arg
+>archivo …</arg
 > </cmdsynopsis>
 </refsynopsisdiv>
 
@@ -138,7 +138,7 @@
 <term
 ><option
 >file</option
->...</term>
+>…</term>
 <listitem>
 <para
 >El archivo con los guiones a ejecutar. </para>
